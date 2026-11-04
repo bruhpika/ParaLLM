@@ -1,0 +1,120 @@
+{
+  "run_id": "baseline_dfn_chen2020_1C",
+  "description": "Verified P0 baseline. Full 1C galvanostatic discharge of a commercial LG M50 cell (Chen2020 parameter set) with the PyBaMM DFN model, solved with IDAKLU until the 2.5 V cut-off.\n",
+  "timestamp_utc": "2026-11-04T04:11:16.899497+00:00",
+  "environment": {
+    "python": "3.14.8",
+    "platform": "Linux-7.2.9-arch1-1-x86_64-with-glibc2.44",
+    "packages": {
+      "pybamm": "26.8.0.0",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "pandas": "3.1.0",
+      "casadi": "3.7.2",
+      "pybammsolvers": "0.9.1",
+      "pydantic": "2.14.2"
+    }
+  },
+  "pybamm": {
+    "installed_version": "26.8.0.0",
+    "required_version": "26.8.0.0",
+    "model_family": "lithium_ion",
+    "model_name": "DFN",
+    "model_full_name": "Doyle-Fuller-Newman model",
+    "options_requested": {},
+    "options_effective": {
+      "calculate discharge energy": "false",
+      "calculate heat source for isothermal models": "false",
+      "cell geometry": "arbitrary",
+      "contact resistance": "false",
+      "convection": "none",
+      "current collector": "uniform",
+      "diffusivity": "single",
+      "dimensionality": 0,
+      "electrolyte conductivity": "default",
+      "exchange-current density": "single",
+      "heat of mixing": "false",
+      "hydrolysis": "false",
+      "intercalation kinetics": "symmetric Butler-Volmer",
+      "interface utilisation": "full",
+      "lithium plating": "none",
+      "lithium plating porosity change": "false",
+      "loss of active material": "none",
+      "number of MSMR reactions": "none",
+      "open-circuit potential": "single",
+      "operating mode": "current",
+      "particle": "Fickian diffusion",
+      "particle mechanics": "none",
+      "particle phases": "1",
+      "particle shape": "spherical",
+      "particle size": "single",
+      "SEI": "none",
+      "SEI film resistance": "none",
+      "SEI on cracks": "false",
+      "SEI porosity change": "false",
+      "stress-induced diffusion": "false",
+      "surface form": "false",
+      "surface temperature": "ambient",
+      "thermal": "isothermal",
+      "total interfacial current density as a state": "false",
+      "transport efficiency": "Bruggeman",
+      "voltage as a state": "false",
+      "working electrode": "both",
+      "x-average side reactions": "false",
+      "use lumped thermal capacity": "false"
+    },
+    "solver": {
+      "name": "idaklu",
+      "rtol": 1e-06,
+      "atol": 1e-06,
+      "class": "unknown"
+    },
+    "parameter_set": {
+      "name": "Chen2020",
+      "chemistry": "lithium_ion",
+      "n_entries": 93
+    }
+  },
+  "experiment": {
+    "steps": [
+      "Discharge at 1C until 2.5 V"
+    ],
+    "description": "Galvanostatic discharge at 1C (5 A for the 5 A.h Chen2020 cell) at ambient 298.15 K until the lower voltage cut-off of the parameter set (2.5 V).\n"
+  },
+  "reproducibility": {
+    "seed": null,
+    "seed_note": "The P0 baseline is a deterministic DAE initial-value problem solved by IDAKLU; no random numbers are used. A seed is recorded as null and will be required from the first stochastic component (synthetic noise, P2).\n"
+  },
+  "solution_summary": {
+    "termination": "event: Voltage < 2.5 [V] [experiment]",
+    "t_start_s": 0.0,
+    "t_end_s": 3555.4561157127064,
+    "n_steps": 293
+  },
+  "extraction": {
+    "series_extracted": [
+      "Battery open-circuit voltage [V]",
+      "Current [A]",
+      "Discharge capacity [A.h]",
+      "Terminal power [W]",
+      "Terminal voltage [V]",
+      "Time [s]",
+      "X-averaged cell temperature [K]",
+      "X-averaged electrolyte concentration [mol.m-3]",
+      "X-averaged negative particle surface concentration [mol.m-3]",
+      "X-averaged positive particle surface concentration [mol.m-3]"
+    ],
+    "series_unavailable": [],
+    "profiles_extracted": [
+      "Electrolyte concentration [mol.m-3]",
+      "Electrolyte potential [V]",
+      "Negative electrode open-circuit potential [V]",
+      "Negative electrode potential [V]",
+      "Negative particle concentration [mol.m-3]",
+      "Positive electrode open-circuit potential [V]",
+      "Positive electrode potential [V]",
+      "Positive particle concentration [mol.m-3]"
+    ],
+    "profiles_unavailable": []
+  }
+}

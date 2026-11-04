@@ -1,0 +1,57 @@
+# P0 baseline: Doyle-Fuller-Newman (DFN) discharge simulation
+# All fields are explicit and version-pinned for reproducibility.
+run_id: baseline_dfn_chen2020_1C
+description: >
+  Verified P0 baseline. Full 1C galvanostatic discharge of a commercial
+  LG M50 cell (Chen2020 parameter set) with the PyBaMM DFN model, solved
+  with IDAKLU until the 2.5 V cut-off.
+
+pybamm:
+  required_version: "26.8.0.0"
+  model:
+    family: lithium_ion
+    name: DFN
+    options: {}          # explicit empty: use verified defaults (recorded in run manifest)
+  parameter_set: Chen2020
+  solver:
+    name: idaklu         # pybamm.IDAKLUSolver; CasadiSolver is deprecated in 26.8
+    rtol: 1.0e-6
+    atol: 1.0e-6
+
+experiment:
+  steps:
+    - "Discharge at 1C until 2.5 V"
+  description: >
+    Galvanostatic discharge at 1C (5 A for the 5 A.h Chen2020 cell) at ambient
+    298.15 K until the lower voltage cut-off of the parameter set (2.5 V).
+
+outputs:
+  # Time-series variables (must exist in the built DFN model; verified against 26.8)
+  series:
+    - "Terminal voltage [V]"
+    - "Current [A]"
+    - "Discharge capacity [A.h]"
+    - "Terminal power [W]"
+    - "X-averaged electrolyte concentration [mol.m-3]"
+    - "X-averaged negative particle surface concentration [mol.m-3]"
+    - "X-averaged positive particle surface concentration [mol.m-3]"
+    - "X-averaged cell temperature [K]"
+    - "Battery open-circuit voltage [V]"
+  # Spatially resolved variables sampled at fractions of the simulated time span
+  profile_variables:
+    - "Electrolyte concentration [mol.m-3]"
+    - "Negative electrode potential [V]"
+    - "Positive electrode potential [V]"
+    - "Electrolyte potential [V]"
+    - "Negative electrode open-circuit potential [V]"
+    - "Positive electrode open-circuit potential [V]"
+    - "Negative particle concentration [mol.m-3]"
+    - "Positive particle concentration [mol.m-3]"
+  profile_time_fractions: [0.1, 0.5, 0.9]
+
+reproducibility:
+  seed: null
+  seed_note: >
+    The P0 baseline is a deterministic DAE initial-value problem solved by
+    IDAKLU; no random numbers are used. A seed is recorded as null and will
+    be required from the first stochastic component (synthetic noise, P2).

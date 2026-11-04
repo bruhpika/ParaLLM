@@ -1,0 +1,114 @@
+{
+  "availability": {
+    "series_extracted": [
+      "Battery open-circuit voltage [V]",
+      "Current [A]",
+      "Discharge capacity [A.h]",
+      "Terminal power [W]",
+      "Terminal voltage [V]",
+      "Time [s]",
+      "X-averaged cell temperature [K]",
+      "X-averaged electrolyte concentration [mol.m-3]",
+      "X-averaged negative particle surface concentration [mol.m-3]",
+      "X-averaged positive particle surface concentration [mol.m-3]"
+    ],
+    "series_unavailable": [],
+    "profiles_extracted": [
+      "Electrolyte concentration [mol.m-3]",
+      "Electrolyte potential [V]",
+      "Negative electrode open-circuit potential [V]",
+      "Negative electrode potential [V]",
+      "Negative particle concentration [mol.m-3]",
+      "Positive electrode open-circuit potential [V]",
+      "Positive electrode potential [V]",
+      "Positive particle concentration [mol.m-3]"
+    ],
+    "profiles_unavailable": []
+  },
+  "profiles": {
+    "Electrolyte concentration [mol.m-3]": {
+      "coordinate_name": "x [m]",
+      "times_s": [
+        360.6178409263106,
+        1772.7529591485925,
+        3203.5805467576483
+      ],
+      "note": "through-cell profile",
+      "metadata": {}
+    },
+    "Negative electrode potential [V]": {
+      "coordinate_name": "x [m]",
+      "times_s": [
+        360.6178409263106,
+        1772.7529591485925,
+        3203.5805467576483
+      ],
+      "note": "through-cell profile",
+      "metadata": {}
+    },
+    "Positive electrode potential [V]": {
+      "coordinate_name": "x [m]",
+      "times_s": [
+        360.6178409263106,
+        1772.7529591485925,
+        3203.5805467576483
+      ],
+      "note": "through-cell profile",
+      "metadata": {}
+    },
+    "Electrolyte potential [V]": {
+      "coordinate_name": "x [m]",
+      "times_s": [
+        360.6178409263106,
+        1772.7529591485925,
+        3203.5805467576483
+      ],
+      "note": "through-cell profile",
+      "metadata": {}
+    },
+    "Negative electrode open-circuit potential [V]": {
+      "coordinate_name": "x [m]",
+      "times_s": [
+        360.6178409263106,
+        1772.7529591485925,
+        3203.5805467576483
+      ],
+      "note": "through-cell profile",
+      "metadata": {}
+    },
+    "Positive electrode open-circuit potential [V]": {
+      "coordinate_name": "x [m]",
+      "times_s": [
+        360.6178409263106,
+        1772.7529591485925,
+        3203.5805467576483
+      ],
+      "note": "through-cell profile",
+      "metadata": {}
+    },
+    "Negative particle concentration [mol.m-3]": {
+      "coordinate_name": "r [m]",
+      "times_s": [
+        360.6178409263106,
+        1772.7529591485925,
+        3203.5805467576483
+      ],
+      "note": "radial profile at x = 1.350e-04 m (electrode mid-plane)",
+      "metadata": {
+        "x_sample_m": 0.000135
+      }
+    },
+    "Positive particle concentration [mol.m-3]": {
+      "coordinate_name": "r [m]",
+      "times_s": [
+        360.6178409263106,
+        1772.7529591485925,
+        3203.5805467576483
+      ],
+      "note": "radial profile at x = 1.350e-04 m (electrode mid-plane)",
+      "metadata": {
+        "x_sample_m": 0.000135
+      }
+    }
+  }
+}
