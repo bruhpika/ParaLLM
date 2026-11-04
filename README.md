@@ -75,6 +75,14 @@ scientific limitations.
 - Deterministic runs record `seed: null` with an explicit note; seeds become
   mandatory from the first stochastic component (P2).
 
+## Ecosystem integration (audit complete, integration pending)
+
+Upstream reuse decisions are documented in `docs/ECOSYSTEM_AUDIT.md` (PyBOP
+26.10, PyProBE-Data 2.6.1), `docs/DEPENDENCY_COMPATIBILITY.md` (verified
+version matrix), `docs/REVISED_ARCHITECTURE.md` (module boundaries) and
+`docs/INTEGRATION_PLAN.md` (phased plan, awaiting approval). Compatibility
+probes live in `scripts/compat_probe/`.
+
 ## Agents
 
 Project-specific agent/skill configuration lives in `.opencode/` (to be added
