@@ -1,0 +1,36 @@
+# TASK 5: diffusivity feasibility study (sensitivity/correlation only - NO fitting)
+run_id: diffusivity_feasibility
+description: >
+  Feasibility study for estimating solid-phase and electrolyte diffusivities
+  from voltage transients. Computes normalized finite-difference sensitivities
+  of the DFN/Chen2020 voltage to diffusivity and kinetic parameters at 0.5C,
+  1C and 2C, their pairwise correlations and the conditioning of the combined
+  sensitivity matrix. No parameter estimation is performed.
+
+model_name: DFN
+parameter_set: Chen2020
+rel_perturbation: 0.02
+
+conditions:
+  - name: "0.5C"
+    steps: ["Discharge at 0.5C for 1800 s"]
+  - name: "1C"
+    steps: ["Discharge at 1C for 900 s"]
+  - name: "2C"
+    steps: ["Discharge at 2C for 450 s"]
+
+# scalar parameters: perturb the value; function parameters: scale output.
+# NOTE: current PyBaMM (26.8) names are '... particle diffusivity ...';
+# '... electrode diffusivity ...' is a deprecated alias (P0 docs used the
+# alias for reading; both resolve to the same value in Chen2020).
+study_parameters:
+  - name: Negative particle diffusivity [m2.s-1]
+    kind: scalar
+  - name: Positive particle diffusivity [m2.s-1]
+    kind: scalar
+  - name: Electrolyte diffusivity [m2.s-1]
+    kind: function
+  - name: Negative electrode exchange-current density [A.m-2]
+    kind: function
+  - name: Positive electrode exchange-current density [A.m-2]
+    kind: function

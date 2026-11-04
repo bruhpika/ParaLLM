@@ -1,0 +1,44 @@
+# TASK 3: multi-condition synthetic recovery (0.5C / 1C / 2C windows, ~25% SOC each)
+run_id: recovery_volume_fractions_multi_0p5_1_2C
+description: >
+  Multi-condition synthetic recovery benchmark. Same ground truth and fitting
+  setup as recovery_single_1C, but observations cover three C-rates
+  (each window spans ~25% of nominal capacity). Compares whether additional
+  operating conditions improve recovery and parameter correlation.
+
+model_name: DFN
+parameter_set: Chen2020
+
+true_values:
+  Negative electrode active material volume fraction: 0.75
+  Positive electrode active material volume fraction: 0.665
+
+fit_parameters:
+  - name: Negative electrode active material volume fraction
+    initial_value: 0.62
+    bounds: [0.55, 0.90]
+  - name: Positive electrode active material volume fraction
+    initial_value: 0.55
+    bounds: [0.45, 0.80]
+
+multi_start:
+  - [0.62, 0.55]
+  - [0.85, 0.60]
+  - [0.70, 0.75]
+
+conditions:
+  - name: "0.5C"
+    steps: ["Discharge at 0.5C for 1800 s"]
+  - name: "1C"
+    steps: ["Discharge at 1C for 900 s"]
+  - name: "2C"
+    steps: ["Discharge at 2C for 450 s"]
+
+noise_sigma_V: 0.002
+seed: 20261104
+
+cost: SumSquaredError
+optimizer:
+  method: L-BFGS-B
+  maxiter: 100
+  jac: true

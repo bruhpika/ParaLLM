@@ -1,0 +1,356 @@
+{
+  "run_id": "recovery_volume_fractions_multi_0p5_1_2C",
+  "description": "Multi-condition synthetic recovery benchmark. Same ground truth and fitting setup as recovery_single_1C, but observations cover three C-rates (each window spans ~25% of nominal capacity). Compares whether additional operating conditions improve recovery and parameter correlation.\n",
+  "config": {
+    "run_id": "recovery_volume_fractions_multi_0p5_1_2C",
+    "description": "Multi-condition synthetic recovery benchmark. Same ground truth and fitting setup as recovery_single_1C, but observations cover three C-rates (each window spans ~25% of nominal capacity). Compares whether additional operating conditions improve recovery and parameter correlation.\n",
+    "model_name": "DFN",
+    "parameter_set": "Chen2020",
+    "true_values": {
+      "Negative electrode active material volume fraction": 0.75,
+      "Positive electrode active material volume fraction": 0.665
+    },
+    "fit_parameters": [
+      {
+        "name": "Negative electrode active material volume fraction",
+        "initial_value": 0.62,
+        "bounds": [
+          0.55,
+          0.9
+        ]
+      },
+      {
+        "name": "Positive electrode active material volume fraction",
+        "initial_value": 0.55,
+        "bounds": [
+          0.45,
+          0.8
+        ]
+      }
+    ],
+    "multi_start": [
+      [
+        0.62,
+        0.55
+      ],
+      [
+        0.85,
+        0.6
+      ],
+      [
+        0.7,
+        0.75
+      ]
+    ],
+    "conditions": [
+      {
+        "name": "0.5C",
+        "steps": [
+          "Discharge at 0.5C for 1800 s"
+        ]
+      },
+      {
+        "name": "1C",
+        "steps": [
+          "Discharge at 1C for 900 s"
+        ]
+      },
+      {
+        "name": "2C",
+        "steps": [
+          "Discharge at 2C for 450 s"
+        ]
+      }
+    ],
+    "noise_sigma_V": 0.002,
+    "seed": 20261104,
+    "cost": "SumSquaredError",
+    "optimizer": {
+      "method": "L-BFGS-B",
+      "maxiter": 100,
+      "jac": true
+    }
+  },
+  "generated_data": [
+    {
+      "condition": "0.5C",
+      "steps": [
+        "Discharge at 0.5C for 1800 s"
+      ],
+      "true_values": {
+        "Negative electrode active material volume fraction": 0.75,
+        "Positive electrode active material volume fraction": 0.665
+      },
+      "noise_sigma_V": 0.002,
+      "seed": 20261104,
+      "n_points": 68,
+      "t_end_s": 1800.0,
+      "voltage_clean_range_V": [
+        3.855954786332014,
+        4.090464972295707
+      ]
+    },
+    {
+      "condition": "1C",
+      "steps": [
+        "Discharge at 1C for 900 s"
+      ],
+      "true_values": {
+        "Negative electrode active material volume fraction": 0.75,
+        "Positive electrode active material volume fraction": 0.665
+      },
+      "noise_sigma_V": 0.002,
+      "seed": 20261104,
+      "n_points": 79,
+      "t_end_s": 900.0,
+      "voltage_clean_range_V": [
+        3.7456394562592052,
+        4.037713830274425
+      ]
+    },
+    {
+      "condition": "2C",
+      "steps": [
+        "Discharge at 2C for 450 s"
+      ],
+      "true_values": {
+        "Negative electrode active material volume fraction": 0.75,
+        "Positive electrode active material volume fraction": 0.665
+      },
+      "noise_sigma_V": 0.002,
+      "seed": 20261104,
+      "n_points": 92,
+      "t_end_s": 450.0,
+      "voltage_clean_range_V": [
+        3.5254283816488865,
+        3.9653161823701546
+      ]
+    }
+  ],
+  "generation_runtime_s": 1.005945585000518,
+  "build_info": {
+    "kind": "MetaProblem",
+    "conditions": [
+      "0.5C",
+      "1C",
+      "2C"
+    ]
+  },
+  "runs": [
+    {
+      "fit_spec": {
+        "parameter_set": "Chen2020",
+        "model_name": "DFN",
+        "cost": "SumSquaredError",
+        "sigma": null,
+        "optimizer": {
+          "method": "L-BFGS-B",
+          "maxiter": 100,
+          "jac": true
+        },
+        "description": "Multi-condition synthetic recovery benchmark. Same ground truth and fitting setup as recovery_single_1C, but observations cover three C-rates (each window spans ~25% of nominal capacity). Compares whether additional operating conditions improve recovery and parameter correlation.\n"
+      },
+      "parameters": [
+        {
+          "name": "Negative electrode active material volume fraction",
+          "initial_value": 0.62,
+          "bounds": [
+            0.55,
+            0.9
+          ],
+          "estimate": 0.7421092216081026
+        },
+        {
+          "name": "Positive electrode active material volume fraction",
+          "initial_value": 0.55,
+          "bounds": [
+            0.45,
+            0.8
+          ],
+          "estimate": 0.6682767844713178
+        }
+      ],
+      "runtime_s": 3.2928995990005205,
+      "final_cost": 0.0007357793758295003,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "n_evaluations": 13,
+      "recovery": {
+        "Negative electrode active material volume fraction": {
+          "truth": 0.75,
+          "estimate": 0.7421092216081026,
+          "abs_error": 0.007890778391897446,
+          "rel_error_pct": 1.052103785586326
+        },
+        "Positive electrode active material volume fraction": {
+          "truth": 0.665,
+          "estimate": 0.6682767844713178,
+          "abs_error": 0.0032767844713177396,
+          "rel_error_pct": 0.49274954455905856
+        }
+      },
+      "start_index": 0,
+      "cost_convergence": [
+        0.38671523924831713,
+        0.24408691685701012,
+        0.06896359600482023,
+        0.06896359600482023,
+        0.0008874125989366055,
+        0.0007526969122300313,
+        0.0007361523781826604,
+        0.0007361207036306342,
+        0.0007359298807777415,
+        0.0007358153251984085,
+        0.0007357798221233243,
+        0.0007357793758295003,
+        0.0007357793758295003
+      ]
+    },
+    {
+      "fit_spec": {
+        "parameter_set": "Chen2020",
+        "model_name": "DFN",
+        "cost": "SumSquaredError",
+        "sigma": null,
+        "optimizer": {
+          "method": "L-BFGS-B",
+          "maxiter": 100,
+          "jac": true
+        },
+        "description": "Multi-condition synthetic recovery benchmark. Same ground truth and fitting setup as recovery_single_1C, but observations cover three C-rates (each window spans ~25% of nominal capacity). Compares whether additional operating conditions improve recovery and parameter correlation.\n"
+      },
+      "parameters": [
+        {
+          "name": "Negative electrode active material volume fraction",
+          "initial_value": 0.85,
+          "bounds": [
+            0.55,
+            0.9
+          ],
+          "estimate": 0.7421128792155449
+        },
+        {
+          "name": "Positive electrode active material volume fraction",
+          "initial_value": 0.6,
+          "bounds": [
+            0.45,
+            0.8
+          ],
+          "estimate": 0.6682762956853252
+        }
+      ],
+      "runtime_s": 3.5454172959998687,
+      "final_cost": 0.0007357793686477089,
+      "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+      "n_evaluations": 14,
+      "recovery": {
+        "Negative electrode active material volume fraction": {
+          "truth": 0.75,
+          "estimate": 0.7421128792155449,
+          "abs_error": 0.007887120784455082,
+          "rel_error_pct": 1.051616104594011
+        },
+        "Positive electrode active material volume fraction": {
+          "truth": 0.665,
+          "estimate": 0.6682762956853252,
+          "abs_error": 0.00327629568532517,
+          "rel_error_pct": 0.49267604290604056
+        }
+      },
+      "start_index": 1,
+      "cost_convergence": [
+        0.0364881039442156,
+        0.0364881039442156,
+        0.00542274451477398,
+        0.005065026028181072,
+        0.00479269753129863,
+        0.004201789418516855,
+        0.0030596140149282197,
+        0.0018282013031524318,
+        0.000805874695395398,
+        0.0007368023355442321,
+        0.0007357806096726547,
+        0.0007357793693500383,
+        0.0007357793686477089,
+        0.0007357793686477089
+      ]
+    },
+    {
+      "fit_spec": {
+        "parameter_set": "Chen2020",
+        "model_name": "DFN",
+        "cost": "SumSquaredError",
+        "sigma": null,
+        "optimizer": {
+          "method": "L-BFGS-B",
+          "maxiter": 100,
+          "jac": true
+        },
+        "description": "Multi-condition synthetic recovery benchmark. Same ground truth and fitting setup as recovery_single_1C, but observations cover three C-rates (each window spans ~25% of nominal capacity). Compares whether additional operating conditions improve recovery and parameter correlation.\n"
+      },
+      "parameters": [
+        {
+          "name": "Negative electrode active material volume fraction",
+          "initial_value": 0.7,
+          "bounds": [
+            0.55,
+            0.9
+          ],
+          "estimate": 0.742112906297032
+        },
+        {
+          "name": "Positive electrode active material volume fraction",
+          "initial_value": 0.75,
+          "bounds": [
+            0.45,
+            0.8
+          ],
+          "estimate": 0.6682762882515803
+        }
+      ],
+      "runtime_s": 3.2958807599989086,
+      "final_cost": 0.0007357793686269281,
+      "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+      "n_evaluations": 12,
+      "recovery": {
+        "Negative electrode active material volume fraction": {
+          "truth": 0.75,
+          "estimate": 0.742112906297032,
+          "abs_error": 0.007887093702968029,
+          "rel_error_pct": 1.0516124937290705
+        },
+        "Positive electrode active material volume fraction": {
+          "truth": 0.665,
+          "estimate": 0.6682762882515803,
+          "abs_error": 0.003276288251580217,
+          "rel_error_pct": 0.4926749250496567
+        }
+      },
+      "start_index": 2,
+      "cost_convergence": [
+        0.044960414447982586,
+        0.044960414447982586,
+        0.003104823733778991,
+        0.0027072159464515844,
+        0.0024815089086434915,
+        0.0017796914356311786,
+        0.000824417348667077,
+        0.0007376590092122704,
+        0.0007357830630041892,
+        0.0007357793690154435,
+        0.0007357793686269281,
+        0.0007357793686269281
+      ]
+    }
+  ],
+  "best_run_index": 2,
+  "environment": {
+    "python": "3.12.16",
+    "packages": {
+      "pybamm": "26.8.0.0",
+      "pybop": "26.10",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1"
+    }
+  },
+  "scientific_note": "Synthetic recovery verifies the estimation workflow under the assumptions of the generating model. It is NOT experimental validation and does not prove identifiability."
+}

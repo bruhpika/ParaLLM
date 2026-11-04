@@ -1,0 +1,29 @@
+# TASK 4: identifiability study for the volume-fraction pair
+run_id: identifiability_volume_fractions
+description: >
+  Identifiability diagnostics for the electrode active-material volume
+  fraction pair on DFN/Chen2020 synthetic data: PyBOP Hessian classification
+  (2-parameter case), FIM/correlation from finite-difference Jacobians,
+  coarse profile likelihood, parametric bootstrap, SALib Sobol indices and a
+  short DifferentialEvolutionMCMC run.
+
+recovery_config_single: configs/p2/recovery_single_1C.yaml
+recovery_config_multi: configs/p2/recovery_multi_0p5_1_2C.yaml
+
+fd_rel_step: 0.01
+profile_grid_points: 11
+profile_range_frac: 0.20        # grid covers estimate * (1 +/- frac), clipped to bounds
+
+bootstrap:
+  n_boot: 20
+  seed_base: 31000
+
+sobol:
+  n_samples: 64                 # Saltelli N -> N*(2D+2) model runs
+  seed: 42
+
+mcmc:
+  n_chains: 3                    # rhat() requires >= 3 chains
+  max_iterations: 400
+  warm_up_iterations: 200
+  seed: 77
