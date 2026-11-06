@@ -1,0 +1,110 @@
+{
+  "metrics": {
+    "abstention_accuracy": 1.0,
+    "condition_completeness": 0.0,
+    "false_extraction_rate": 0.0,
+    "parameter_identification_accuracy": 1.0,
+    "provenance_accuracy": 1.0,
+    "unit_correctness": 1.0,
+    "value_extraction_accuracy": 1.0
+  },
+  "per_item": [
+    {
+      "abstained": false,
+      "conditions_ok": 0,
+      "expect_abstain": false,
+      "expert_note": "Values printed as percentages; canonical form is the volume fraction (0.335/0.25). Expert-reviewed against the archived paragraph.",
+      "false_extractions": 0,
+      "gold": 2,
+      "identified": 2,
+      "item_id": "I1-porosity-pos-neg",
+      "n_extracted": 2,
+      "provenance_ok": 2,
+      "unit_ok": 2,
+      "value_ok": 2
+    },
+    {
+      "abstained": false,
+      "conditions_ok": 0,
+      "expect_abstain": false,
+      "expert_note": "Four-point probe averages of measured ranges; paper Table VII row 'Solid phase electronic conductivity'.",
+      "false_extractions": 0,
+      "gold": 2,
+      "identified": 2,
+      "item_id": "I2-conductivity-four-point",
+      "n_extracted": 2,
+      "provenance_ok": 2,
+      "unit_ok": 2,
+      "value_ok": 2
+    },
+    {
+      "abstained": false,
+      "conditions_ok": 0,
+      "expect_abstain": false,
+      "expert_note": "Manufacturer-cited rated capacity (qualifier 'measured' would overstate it; treat as cited/specification in registry).",
+      "false_extractions": 0,
+      "gold": 1,
+      "identified": 1,
+      "item_id": "I3-rated-capacity",
+      "n_extracted": 2,
+      "provenance_ok": 1,
+      "unit_ok": 1,
+      "value_ok": 1
+    },
+    {
+      "abstained": false,
+      "conditions_ok": 0,
+      "expect_abstain": false,
+      "expert_note": "Model assumption (isothermal at 298.15 K); qualifier must be 'assumed', not 'measured'.",
+      "false_extractions": 0,
+      "gold": 1,
+      "identified": 1,
+      "item_id": "I4-isothermal-temperature",
+      "n_extracted": 1,
+      "provenance_ok": 1,
+      "unit_ok": 1,
+      "value_ok": 1
+    },
+    {
+      "abstained": false,
+      "conditions_ok": 0,
+      "expect_abstain": false,
+      "expert_note": "Derived from EIS exchange currents (Table VII row 'Reaction rate'); paper prints '3.42*10-6' style scientific notation with middle dot; full unit is A m-2 (m3 mol-1)^1.5.",
+      "false_extractions": 0,
+      "gold": 2,
+      "identified": 2,
+      "item_id": "I5-reaction-rates",
+      "n_extracted": 3,
+      "provenance_ok": 2,
+      "unit_ok": 2,
+      "value_ok": 2
+    },
+    {
+      "abstained": true,
+      "conditions_ok": 0,
+      "expect_abstain": true,
+      "expert_note": "No numeric parameter evidence for the query in this passage; a correct extractor abstains (returns UNRESOLVED).",
+      "false_extractions": 0,
+      "gold": 0,
+      "identified": 0,
+      "item_id": "I6-abstain-sem-morphology",
+      "n_extracted": 0,
+      "provenance_ok": 0,
+      "unit_ok": 0,
+      "value_ok": 0
+    }
+  ],
+  "provider": "deterministic:offline-pattern-extractor",
+  "totals": {
+    "abstain_correct": 1,
+    "abstain_items": 1,
+    "conditions_ok": 0,
+    "extractions": 10,
+    "false_extractions": 0,
+    "gold_params": 8,
+    "identified": 8,
+    "provenance_ok": 8,
+    "unit_ok": 8,
+    "value_ok": 8
+  }
+}

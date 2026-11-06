@@ -1,0 +1,15 @@
+[
+  {
+    "content_sha256": "dffc1f9f532b9b899ce83caabcec711db154204db355f77e5a714d4ae28e07da",
+    "document_id": "chen2020_jes_167_080534",
+    "doi_or_url": "10.1149/1945-7111/ab9050",
+    "kind": "paper",
+    "meta": {},
+    "n_segments": 108,
+    "page_structure": false,
+    "raw_path": "/home/bruhpika/Projects/Parameters/data/literature_store/raw/chen2020_jes_167_080534.txt",
+    "retrieved": "2026-11-04",
+    "source_url": "https://iopscience.iop.org/article/10.1149/1945-7111/ab9050",
+    "title": "Development of Experimental Techniques for Parameterization of Multi-scale Lithium-ion Battery Models"
+  }
+]

@@ -1,0 +1,186 @@
+{
+  "candidates": [
+    {
+      "c_rates": "not labelled; currents observed -0.02-0.004 A",
+      "cell_format": "small-format laboratory cell (Neware cycler export)",
+      "chemistry": "NMC622 (per the P1 ecosystem audit and upstream PyProBE sample documentation; not stated in the local README.yaml)",
+      "dataset_id": "pyprobe-sample-neware-nmc622",
+      "doi_or_identifier": null,
+      "license": null,
+      "metadata_completeness": "protocol documented in README.yaml; cell identity/temperature/licensing metadata missing",
+      "nominal_capacity": "~0.04 A.h (observed capacity range 0.0208-0.0622 Ah)",
+      "notes": [
+        "Explicitly an ingestion test dataset; NOT validation data for the LG M50 demonstrator (chemistry, format and scale all differ).",
+        "assessed missing requirements: ['cell identity matches LG M50 / Chen2020 scope', 'nominal capacity ~5 A.h', 'temperature 298.15 K recorded', 'voltage window 2.5-4.2 V', '0.5C/1C/2C discharge protocol']"
+      ],
+      "observations": "raw cycler export (parquet, 789589 rows) + xlsx original",
+      "protocol": "README.yaml steps (PyBaMM experiment strings): 1; 2; 3; 4; 5; 6; 7; 9 ...",
+      "requirements": [
+        {
+          "evidence": "observation table capacity range + P1 audit",
+          "observed": "NMC622 small-format cell, ~40 mAh",
+          "requirement": "cell identity matches LG M50 / Chen2020 scope",
+          "status": "unmet"
+        },
+        {
+          "evidence": "capacity range 0.02076086000000558-0.06221396000000082 Ah",
+          "observed": "~0.04 A.h",
+          "requirement": "nominal capacity ~5 A.h",
+          "status": "unmet"
+        },
+        {
+          "evidence": "column list: Date, Time [s], Step, Current [A], Voltage [V], Capacity [Ah], Event",
+          "observed": "no temperature column in the observation table",
+          "requirement": "temperature 298.15 K recorded",
+          "status": "unmet"
+        },
+        {
+          "evidence": "observation table",
+          "observed": "2.9999-4.2002 V observed",
+          "requirement": "voltage window 2.5-4.2 V",
+          "status": "unmet"
+        },
+        {
+          "evidence": "README.yaml",
+          "observed": "4 mA CC-CV charge + 20 mA discharge pulses (README.yaml steps)",
+          "requirement": "0.5C/1C/2C discharge protocol",
+          "status": "unmet"
+        },
+        {
+          "evidence": "README.yaml present alongside raw data",
+          "observed": "README.yaml with PyBaMM experiment strings",
+          "requirement": "protocol metadata documented",
+          "status": "met"
+        },
+        {
+          "evidence": "data/external/pyprobe_sample/neware/",
+          "observed": "parquet (789589 rows) + xlsx",
+          "requirement": "raw observations available",
+          "status": "met"
+        }
+      ],
+      "source_url": "https://github.com/pybamm-team/PyProBE-Data",
+      "temperature": "not recorded in the observation table (UNRESOLVED)",
+      "title": "PyProBE Neware sample dataset (ingestion demonstration)",
+      "verdict": "INCOMPATIBLE",
+      "voltage_limits": "observed 2.9999-4.2002 V"
+    },
+    {
+      "c_rates": "RPT protocol contents UNRESOLVED until README.yaml (339 B) is processed",
+      "cell_format": "commercial cell (LG M50, 21700 implied by product name)",
+      "chemistry": "LG M50 (graphite-SiOx / NMC 811) - name-verified; details per Chen2020 scope",
+      "dataset_id": "pyprobe-sample-lgm50-ndk-bol-rpt",
+      "doi_or_identifier": "file name encodes: NDK source, LG M50 degradation series, rig 3, 25 degC, cell C, beginning-of-life RPT",
+      "license": "repository code is BSD-3-Clause; explicit data license for this file UNRESOLVED (verify before use)",
+      "metadata_completeness": "file-name metadata + README.yaml present; source database (NDK) not locally documented",
+      "nominal_capacity": "~5 A.h (product nominal; measured capacity in this RPT UNRESOLVED until file is processed)",
+      "notes": [
+        "Web-researched candidate (retrieved 2026-11-06); content audit pending local download + PyProBE processing.",
+        "This is the candidate named in docs/EXPERIMENTAL_DATA_REQUIREMENTS.md; NOT selected until the compliance table is complete."
+      ],
+      "observations": "processed parquet (2,185,238 bytes) in upstream repo; not present in the pip wheel",
+      "protocol": "reference performance test (RPT0_short_CA4) at beginning of life; full protocol in the accompanying README.yaml",
+      "requirements": [
+        {
+          "evidence": "repo file name, verified 2026-11-06",
+          "observed": "LG M50 (per file name)",
+          "requirement": "cell identity matches LG M50 / Chen2020 scope",
+          "status": "met"
+        },
+        {
+          "evidence": "file not processed yet",
+          "observed": "product nominal 5 A.h; measured capacity UNRESOLVED",
+          "requirement": "nominal capacity ~5 A.h",
+          "status": "unknown"
+        },
+        {
+          "evidence": "file name",
+          "observed": "25 degC in file name",
+          "requirement": "temperature 298.15 K recorded",
+          "status": "met"
+        },
+        {
+          "evidence": "README.yaml not yet processed",
+          "observed": "RPT contents UNRESOLVED",
+          "requirement": "0.5C/1C/2C discharge protocol",
+          "status": "unknown"
+        },
+        {
+          "evidence": "repo listing",
+          "observed": "single BoL RPT file; more cycles likely in the wider NDK series",
+          "requirement": "calibration/validation split possible",
+          "status": "unknown"
+        }
+      ],
+      "source_url": "https://github.com/ImperialCollegeLondon/PyProBE/tree/main/tests/sample_data/LGM50",
+      "temperature": "25 degC (file name; recorded temperature channel UNRESOLVED until processed)",
+      "title": "PyProBE sample data: NDK - LG M50 deg - exp 2,2 - rig 3 - 25degC - cell C - BoL - RPT0_short_CA4",
+      "verdict": "CANDIDATE",
+      "voltage_limits": "UNRESOLVED until processed"
+    },
+    {
+      "c_rates": "C/2, 1C, 1.5C discharge after C/3 CC-CV charge (verified in article text)",
+      "cell_format": "21700 cylindrical (three cells for validation)",
+      "chemistry": "LG M50 (graphite-SiOx / NMC 811)",
+      "dataset_id": "chen2020-validation-discharge-relaxation",
+      "doi_or_identifier": "10.1149/1945-7111/ab9050",
+      "license": "article CC BY-NC-ND 4.0 (verified on the article page)",
+      "metadata_completeness": "protocol documented in the paper; raw trace deposit status UNRESOLVED",
+      "nominal_capacity": "5 A.h",
+      "notes": [
+        "Web-researched candidate (retrieved 2026-11-06); would be the ideal validation set if raw traces can be obtained from the authors or supplementary material (stacks.iop.org/JES/167/080534/mmedia)."
+      ],
+      "observations": "Data availability statement (verified quote): the parameter set and measured OCVs are in PyBaMM; the experimental validation traces' deposit status is NOT stated -> UNRESOLVED",
+      "protocol": "CC-CV charge, CC discharge, 2 h rests; relaxation included (paper stresses its importance)",
+      "requirements": [
+        {
+          "evidence": "article text",
+          "observed": "exact demonstrator cell",
+          "requirement": "cell identity matches LG M50 / Chen2020 scope",
+          "status": "met"
+        },
+        {
+          "evidence": "article text",
+          "observed": "C/2, 1C, 1.5C (matches validation windows modulo naming)",
+          "requirement": "0.5C/1C/2C discharge protocol",
+          "status": "met"
+        },
+        {
+          "evidence": "Data availability section does not state a raw-trace deposit",
+          "observed": "UNRESOLVED",
+          "requirement": "raw observations available",
+          "status": "unknown"
+        }
+      ],
+      "source_url": "https://iopscience.iop.org/article/10.1149/1945-7111/ab9050",
+      "temperature": "25 degC chamber (verified in article text)",
+      "title": "Chen et al. 2020 validation data (C/2, 1C, 1.5C discharge + relaxation, 3 cells, 25 degC)",
+      "verdict": "CANDIDATE",
+      "voltage_limits": "2.5-4.2 V (verified in article text)"
+    },
+    {
+      "c_rates": "UNRESOLVED",
+      "cell_format": "UNRESOLVED",
+      "chemistry": "UNRESOLVED",
+      "dataset_id": "battery-archive-lg-m50",
+      "doi_or_identifier": "site based on https://github.com/battery-lcf",
+      "license": "UNRESOLVED (per-record terms)",
+      "metadata_completeness": "UNRESOLVED (site indexes are JavaScript-rendered; not statically verifiable)",
+      "nominal_capacity": "UNRESOLVED",
+      "notes": [
+        "Checked 2026-11-06: batteryarchive.org serves a JavaScript-driven index (data.html/list.html return a static shell); no LG M50 entry could be verified automatically.",
+        "Requires manual browser verification against docs/EXPERIMENTAL_DATA_REQUIREMENTS.md before consideration."
+      ],
+      "observations": "UNRESOLVED",
+      "protocol": "UNRESOLVED",
+      "requirements": [],
+      "source_url": "https://www.batteryarchive.org/",
+      "temperature": "UNRESOLVED",
+      "title": "BatteryArchive.org LG M50 cycling records (if present)",
+      "verdict": "UNRESOLVED",
+      "voltage_limits": "UNRESOLVED"
+    }
+  ],
+  "generated": "2026-11-06",
+  "purpose": "P3 Part F dataset audit: candidate datasets for LG M50 experimental validation. NO dataset is selected here (selection requires a complete compliance table + user decision)."
+}
