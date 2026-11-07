@@ -111,17 +111,17 @@ def normalize_value(value: float | str, unit_token: str | None) -> tuple[Any, st
 
 
 def _paper(
-    value,
-    unit,
-    locator,
-    probe=None,
-    method=None,
-    conditions=None,
-    uncertainty=None,
-    uncertainty_note=None,
-    kind=PS.LITERATURE_DERIVED,
-    context=None,
-):
+    value: Any,
+    unit: str,
+    locator: str,
+    probe: str | None = None,
+    method: str | None = None,
+    conditions: dict[str, Any] | None = None,
+    uncertainty: float | None = None,
+    uncertainty_note: str | None = None,
+    kind: PS = PS.LITERATURE_DERIVED,
+    context: str | None = None,
+) -> dict[str, Any]:
     return dict(
         value=value,
         unit=unit,
@@ -1080,7 +1080,13 @@ def _run_checks(checks: list[tuple]) -> list[str]:
     return out
 
 
-def _conflict_entry(paper_value, paper_unit, spec, text, extra_note=None) -> ValueEntry:
+def _conflict_entry(
+    paper_value: Any,
+    paper_unit: str | None,
+    spec: dict[str, Any],
+    text: str,
+    extra_note: str | None = None,
+) -> ValueEntry:
     p = spec["paper"]
     if p.get("probe"):
         loc = extract_quote(text, p["probe"])
@@ -1299,7 +1305,7 @@ def S_pybamm_unit(pybamm_key: str) -> str:
     return pybamm_unit_suffix(pybamm_key)
 
 
-def _check_reaction_rate_embedded(fn, cid: str) -> dict[str, Any]:
+def _check_reaction_rate_embedded(fn: Any, cid: str) -> dict[str, Any]:
     """Inspect the PyBaMM j0 function source for the paper's reaction-rate constant."""
     target = "3.42" if "pos" in cid else "6.48"
     out: dict[str, Any] = {}
