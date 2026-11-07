@@ -20,6 +20,7 @@ from pybamm_closed_loop.pybamm_engine import BaselineRunConfig, run, save_result
 
 
 def main() -> int:
+    """Run the baseline simulation from CLI args and save all outputs."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", required=True, help="Path to run config YAML")
     parser.add_argument("--out", required=True, help="Output directory")

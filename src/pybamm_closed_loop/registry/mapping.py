@@ -22,6 +22,10 @@ def build_pybamm_name_index(store: RegistryStore) -> dict[str, str]:
 
 
 def canonical_for_pybamm(store: RegistryStore, pybamm_name: str) -> str | None:
+    """Return the canonical registry id for a PyBaMM parameter name.
+
+    ``None`` when the name is not covered by any registry record.
+    """
     return build_pybamm_name_index(store).get(pybamm_name)
 
 

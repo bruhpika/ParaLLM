@@ -1289,6 +1289,11 @@ def build_records(pybamm_params: dict[str, Any], text: str) -> list[ParameterRec
 
 
 def S_pybamm_unit(pybamm_key: str) -> str:
+    """Return the bracketed unit suffix of a PyBaMM parameter key.
+
+    Thin lazy-import wrapper around :func:`pybamm.units.pybamm_unit_suffix`;
+    kept as a named indirection used by the record builders above.
+    """
     from .units import pybamm_unit_suffix
 
     return pybamm_unit_suffix(pybamm_key)
@@ -1324,6 +1329,14 @@ def seed_registry(
     pybamm_params: dict[str, Any] | None = None,
     raw_text_path: str | Path = RAW_DOC,
 ) -> RegistryStore:
+    """Deterministically seed a registry store (P3 entry point).
+
+    Introspects the installed ``pybamm.ParameterValues("Chen2020")`` unless
+    pass-through ``pybamm_params`` is given, extracts verbatim evidence
+    quotes from the archived article text at ``raw_text_path``, and upserts
+    every built record under a fixed actor/note. Returns the populated
+    :class:`RegistryStore`. Raises on any probe miss (no silent defaults).
+    """
     if pybamm_params is None:
         import pybamm
 

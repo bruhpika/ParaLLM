@@ -113,6 +113,10 @@ class ParameterRecord:
 
 
 def sha256_text(text: str) -> str:
+    """Return the SHA-256 hex digest of ``text`` (UTF-8 encoded).
+
+    Used for content-keyed provenance identifiers; never carries secrets.
+    """
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
