@@ -167,6 +167,11 @@ def run_fit_with_result(
     spec.validate()
     x0 = np.asarray(initial_values if initial_values is not None else spec.initial_values,
                     dtype=float)
+    if len(x0) != len(spec.fit_parameters):
+        raise ValueError(
+            f"initial_values length {len(x0)} does not match the number of fit "
+            f"parameters {len(spec.fit_parameters)}"
+        )
     for p, xv in zip(spec.fit_parameters, x0):
         if not p.bounds[0] <= xv <= p.bounds[1]:
             raise ValueError(f"initial value {xv} for {p.name} outside bounds")
