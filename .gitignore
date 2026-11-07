@@ -8,3 +8,8 @@ dist/
 build/
 .ipynb_checkpoints/
 data/external/
+.env
+.env.*
+*.key
+secrets/
+.venv*/
