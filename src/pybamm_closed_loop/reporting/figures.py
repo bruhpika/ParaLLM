@@ -15,10 +15,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def _profile_times_label(times_s: list[float]) -> list[str]:
-    return [f"t = {t:.0f} s" for t in times_s]
-
-
 def plot_voltage_current(series: dict[str, np.ndarray], out_path: str | Path) -> Path | None:
     """Voltage and current versus time."""
     if "Terminal voltage [V]" not in series:
@@ -189,12 +185,12 @@ def generate_all_figures(
     """Generate the full baseline figure set; returns written paths."""
     figures_dir = Path(figures_dir)
     written: list[str] = []
-    for fn, fname in [
-        (lambda: plot_voltage_current(series, figures_dir / "01_voltage_current.png"), None),
-        (lambda: plot_concentration_profiles(series, profiles, figures_dir / "02_concentrations.png"), None),
-        (lambda: plot_electrode_potentials(profiles, figures_dir / "03_electrode_potentials.png"), None),
+    for make_fig in [
+        lambda: plot_voltage_current(series, figures_dir / "01_voltage_current.png"),
+        lambda: plot_concentration_profiles(series, profiles, figures_dir / "02_concentrations.png"),
+        lambda: plot_electrode_potentials(profiles, figures_dir / "03_electrode_potentials.png"),
     ]:
-        path = fn()
+        path = make_fig()
         if path is not None:
             written.append(str(path))
     return written

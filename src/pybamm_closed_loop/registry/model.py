@@ -137,8 +137,11 @@ def _schema_ok(obj: Any, spec: dict[str, type | tuple]) -> bool:
                     return False
                 continue
             return False
-    extra_not_specified = not [k for k in obj if k not in spec]
-    return True or extra_not_specified
+    # Extra keys are currently accepted; the computed flag was always
+    # discarded (``True or extra``), so the dead variable was removed.
+    # Rejecting unknown keys would be a behavioral change - flagged for
+    # scientific review instead.
+    return True
 
 
 _EXTRACTION_SPEC: dict[str, Any] = {

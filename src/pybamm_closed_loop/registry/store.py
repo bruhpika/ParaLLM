@@ -37,9 +37,6 @@ class ValueCandidate:
         }
 
 
-ERROR = -1
-
-
 class RegistryStore:
     """File-backed parameter registry.
 
