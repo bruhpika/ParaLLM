@@ -14,9 +14,11 @@ Design constraints (scientific rules 4, 5, 10):
 
 from __future__ import annotations
 
+import ipaddress
 import json
 import os
 import re
+import urllib.parse
 import urllib.request
 from dataclasses import asdict, dataclass, field
 from typing import Any, Protocol
@@ -83,6 +85,10 @@ class OpenAICompatibleClient:
       PYCL_LLM_BASE_URL  (default https://api.openai.com/v1)
       PYCL_LLM_API_KEY   (required)
       PYCL_LLM_MODEL     (required)
+
+    The endpoint must be https (the Authorization header carries the API
+    key in plaintext otherwise); http is only accepted for localhost /
+    loopback endpoints (e.g. a local vLLM/Ollama server).
     """
 
     def __init__(
@@ -102,6 +108,7 @@ class OpenAICompatibleClient:
                 "PYCL_LLM_API_KEY and PYCL_LLM_MODEL must be set to run LLM "
                 "extraction (no key is ever stored in this repository)"
             )
+        _validate_base_url(self.base_url)
 
     def complete(self, system: str, user: str) -> str:
         body = json.dumps(
@@ -126,6 +133,36 @@ class OpenAICompatibleClient:
         with urllib.request.urlopen(req, timeout=self.timeout) as resp:
             data = json.loads(resp.read().decode("utf-8"))
         return data["choices"][0]["message"]["content"]
+
+
+def _validate_base_url(url: str) -> None:
+    """Reject non-https endpoints (except loopback) before any key is sent.
+
+    Hardening: the chat-completions request carries the API key in the
+    Authorization header; an operator pointing ``PYCL_LLM_BASE_URL`` at an
+    ``http://`` remote would leak the key in plaintext. Only exact
+    ``localhost`` and loopback IPs (127.0.0.0/8, ::1) may use http.
+    """
+    parts = urllib.parse.urlsplit(url)
+    scheme = parts.scheme.lower()
+    if scheme == "https":
+        return
+    host = parts.hostname
+    is_loopback = False
+    if host == "localhost":
+        is_loopback = True
+    else:
+        try:
+            is_loopback = ipaddress.ip_address(host).is_loopback
+        except ValueError:
+            is_loopback = False
+    if scheme == "http" and is_loopback:
+        return
+    raise ValueError(
+        "LLM base_url must use https (http only allowed for "
+        "localhost/loopback); refusing to send the API key over a "
+        f"non-https endpoint: {url!r}"
+    )
 
 
 _NUMBER_UNIT_RE = re.compile(
