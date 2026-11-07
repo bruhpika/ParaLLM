@@ -7,7 +7,6 @@ Three review states are supported: ACCEPTED / NEEDS_REVIEW / REJECTED.
 
 from __future__ import annotations
 
-import re
 from dataclasses import dataclass, field
 from typing import Any
 

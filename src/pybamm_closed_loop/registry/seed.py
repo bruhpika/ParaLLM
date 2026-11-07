@@ -17,10 +17,9 @@ CALCULATED / ASSUMED / CALIBRATED / UNRESOLVED.
 from __future__ import annotations
 
 import inspect
-import math
 import re
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
 from . import sources as S
 from .model import (
@@ -1301,7 +1300,7 @@ def _check_reaction_rate_embedded(fn, cid: str) -> dict[str, Any]:
     out: dict[str, Any] = {}
     try:
         src = inspect.getsource(fn)
-    except Exception as exc:  # pragma: no cover - depends on import style
+    except Exception:  # pragma: no cover - depends on import style
         out["reaction_rate_embedded"] = "unknown (source unavailable)"
         out["reaction_rate_probe"] = target
         return out

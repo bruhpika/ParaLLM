@@ -17,7 +17,6 @@ Run with: .venv-ecosystem312/bin/python scripts/compat_probe/exp5_pyprobe_to_pyb
 
 from __future__ import annotations
 
-import sys
 from pathlib import Path
 
 import numpy as np
