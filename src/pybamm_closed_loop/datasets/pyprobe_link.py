@@ -113,7 +113,7 @@ def audit_neware_sample(
         ),
         AuditRequirement(
             "nominal capacity ~5 A.h",
-            f"~0.04 A.h",
+            "~0.04 A.h",
             "unmet",
             evidence=f"capacity range {facts.get('capacity_ah_min')}-{facts.get('capacity_ah_max')} Ah",
         ),

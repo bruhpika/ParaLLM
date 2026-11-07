@@ -18,7 +18,6 @@ from datetime import date
 from pathlib import Path
 from typing import Any, Iterable
 
-from ..registry.textnorm import ascii_fold
 
 _DOCUMENT_ID_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*")
 

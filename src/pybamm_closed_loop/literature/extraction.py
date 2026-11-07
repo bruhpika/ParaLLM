@@ -25,7 +25,7 @@ from typing import Any, Protocol
 
 from ..registry.model import SourceRef, validate_extraction_schema
 from ..registry.textnorm import ascii_fold
-from .index import SYNONYMS, tokenize
+from .index import SYNONYMS
 from .retrieval import RAGContext, RetrievedSegment
 
 VALID_QUALIFIERS = ("measured", "fitted", "calculated", "assumed", "unknown")

@@ -12,8 +12,6 @@ from __future__ import annotations
 import math
 import re
 from collections import Counter
-from dataclasses import dataclass
-from typing import Iterable
 
 from .ingest import DocumentStore, Segment
 from ..registry.textnorm import ascii_fold
