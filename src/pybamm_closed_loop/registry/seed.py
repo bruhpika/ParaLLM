@@ -1248,7 +1248,11 @@ def build_records(pybamm_params: dict[str, Any], text: str) -> list[ParameterRec
                 if f["match"](key):
                     fam = (name, f)
                     break
-            except Exception:
+            # The family predicates are pure string predicates; only a
+            # benign type/value mismatch may be skipped. Anything else
+            # (e.g. a typo inside a lambda) must fail loudly rather than
+            # silently mislabeling provenance as "untraced".
+            except (LookupError, AttributeError, TypeError, ValueError):
                 continue
         if fam is None:
             fam = ("untraced", dict(
@@ -1311,7 +1315,10 @@ def _check_reaction_rate_embedded(fn: Any, cid: str) -> dict[str, Any]:
     out: dict[str, Any] = {}
     try:
         src = inspect.getsource(fn)
-    except Exception:  # pragma: no cover - depends on import style
+    # inspect.getsource documents OSError (source not retrievable) and
+    # TypeError (built-in/module/crc failures) as its failure modes; a
+    # broader catch could mask genuine bugs in the function object itself.
+    except (OSError, TypeError):  # pragma: no cover - depends on import style
         out["reaction_rate_embedded"] = "unknown (source unavailable)"
         out["reaction_rate_probe"] = target
         return out
