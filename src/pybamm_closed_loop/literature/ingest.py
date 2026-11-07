@@ -20,6 +20,25 @@ from typing import Any, Iterable
 
 from ..registry.textnorm import ascii_fold
 
+_DOCUMENT_ID_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*")
+
+
+def validate_document_id(document_id: str) -> None:
+    """Reject ids that could escape the store root when used as filenames.
+
+    Hardening: ``document_id`` is interpolated into paths under the store
+    root (``raw/<id>.txt``, ``segments/<id>.json``); ids containing path
+    separators (or consisting only of dots) would traverse. Only POSIX
+    single-segment, non-hidden names built from letters/digits/._- (like
+    ``chen2020_jes_167_080534``) are accepted.
+    """
+    if not isinstance(document_id, str) or not _DOCUMENT_ID_RE.fullmatch(document_id):
+        raise ValueError(
+            f"invalid document id {document_id!r}: must be a single plain "
+            "file name (letters, digits, and/or . _ -; no path separators, "
+            "not starting with a dot)"
+        )
+
 
 @dataclass
 class DocumentRecord:
@@ -71,7 +90,13 @@ class DocumentStore:
         if not self._manifest_path().exists():
             return
         for d in json.loads(self._manifest_path().read_text()):
-            rec = DocumentRecord(**d)
+            try:
+                rec = DocumentRecord(**d)
+            except TypeError as exc:
+                raise ValueError(
+                    f"corrupt document manifest entry (unexpected fields): {d!r}"
+                ) from exc
+            validate_document_id(rec.document_id)
             self._docs[rec.document_id] = rec
             seg_path = self.segments_dir / f"{rec.document_id}.json"
             if seg_path.exists():
@@ -176,6 +201,7 @@ class DocumentStore:
         retrieved: str | None,
         meta: dict[str, Any] | None,
     ) -> DocumentRecord:
+        validate_document_id(document_id)
         full_text = "\n".join(t for _, t in pages)
         sha = hashlib.sha256(full_text.encode("utf-8")).hexdigest()
         if document_id in self._docs:
