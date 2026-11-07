@@ -1,3 +1,7 @@
+# requirements-integration.lock — verified freeze of the ECOSYSTEM venv
+# (.venv-ecosystem312), CPython 3.12.16, generated 2026-11-07 (pip freeze):
+# main stack + PyBOP 26.10 / PyPI pints 0.6.1 / PyProBE-Data 2.6.1 / polars 1.44.2.
+# PyProBE-Data requires Python <3.13 — do not build this env on 3.14+.
 altair==6.3.0
 annotated-types==0.8.0
 anyio==4.16.0

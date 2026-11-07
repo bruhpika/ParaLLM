@@ -1,3 +1,7 @@
+# requirements.lock — verified freeze of the MAIN project venv (.venv),
+# CPython 3.14.8, generated 2026-11-07 (pip freeze). Not a resolve spec:
+# install into a matching venv, do not use to create an arbitrary env.
+# Ecosystem venv freeze with PyBOP/PyProBE: requirements-integration.lock.
 annotated-types==0.8.0
 anytree==2.13.0
 backoff==2.2.1
