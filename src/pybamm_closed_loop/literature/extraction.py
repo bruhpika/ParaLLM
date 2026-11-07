@@ -109,6 +109,7 @@ class OpenAICompatibleClient:
                 "extraction (no key is ever stored in this repository)"
             )
         _validate_base_url(self.base_url)
+        self._opener = urllib.request.build_opener(_NoAuthLeakRedirectHandler())
 
     def complete(self, system: str, user: str) -> str:
         body = json.dumps(
@@ -130,9 +131,32 @@ class OpenAICompatibleClient:
             },
             method="POST",
         )
-        with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+        with self._opener.open(req, timeout=self.timeout) as resp:
             data = json.loads(resp.read().decode("utf-8"))
         return data["choices"][0]["message"]["content"]
+
+
+class _NoAuthLeakRedirectHandler(urllib.request.HTTPRedirectHandler):
+    """Redirect handler that refuses to forward the Authorization header.
+
+    Hardening: urllib forwards all non-content headers (including
+    Authorization) to redirect targets; a compromised/attacking endpoint
+    could 30x the request anywhere and harvest the Bearer API key. The
+    header is kept only when scheme, host and port are identical.
+    """
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        modified_req = super().redirect_request(req, fp, code, msg, headers, newurl)
+        old = urllib.parse.urlsplit(req.full_url)
+        new = urllib.parse.urlsplit(modified_req.full_url)
+        same_origin = (old.scheme.lower(), old.hostname.lower(), old.port) == (
+            new.scheme.lower(),
+            new.hostname.lower(),
+            new.port,
+        )
+        if not same_origin:
+            modified_req.headers.pop("Authorization", None)
+        return modified_req
 
 
 def _validate_base_url(url: str) -> None:
