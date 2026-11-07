@@ -1291,7 +1291,7 @@ def build_records(pybamm_params: dict[str, Any], text: str) -> list[ParameterRec
 def S_pybamm_unit(pybamm_key: str) -> str:
     """Return the bracketed unit suffix of a PyBaMM parameter key.
 
-    Thin lazy-import wrapper around :func:`pybamm.units.pybamm_unit_suffix`;
+    Thin lazy-import wrapper around :func:`registry.units.pybamm_unit_suffix`;
     kept as a named indirection used by the record builders above.
     """
     from .units import pybamm_unit_suffix
