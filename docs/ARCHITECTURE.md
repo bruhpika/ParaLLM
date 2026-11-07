@@ -76,3 +76,93 @@ The only implemented scientific component is the PyBaMM engine:
 5. **Reproducibility by construction.** Every run emits a manifest; configs are
    declarative and version-pinned; seeds are recorded (null only when truly
    deterministic).
+
+## Current implementation map (audit hardening sprint, Nov 2026)
+
+As-implemented data flow, verified by running every pipeline once on this
+machine (Linux, main venv = `.venv` CPython 3.14, ecosystem venv =
+`.venv-ecosystem312` CPython 3.12 with pybop 26.10 / PyProBE-Data 2.6.1):
+
+```
+configs/baseline_dfn.yaml ── scripts/run_baseline.py
+      └─► pybamm_engine.engine.run(): ParameterValues("Chen2020") → DFN →
+            IDAKLUSolver(rtol=atol=1e-6) → solve → outputs.extract_all
+            └─► save_result() → results/baseline/ (npz + 3 JSON)
+configs/p2/recovery_*.yaml ── benchmarks/parameter_recovery/run_recovery_benchmark.py
+      └─► calibration.synthetic.generate_datasets (pybamm forward + pybop.add_noise,
+            seeded) ─► calibration.fitting.build_problem/run_fit_with_result
+            (pybop.Problem / MetaProblem + SciPyMinimize)
+            └─► results/p2/<run_id>/ (report.json, summary.md, pngs)
+configs/p2/identifiability.yaml ── benchmarks/identifiability/run_identifiability.py
+      └─► calibration.{synthetic,fitting,identifiability} + direct pybop MCMC
+            └─► results/p2/identifiability_volume_fractions/
+configs/p2/diffusivity_feasibility.yaml ── benchmarks/identifiability/diffusivity_feasibility.py
+      └─► direct pybamm (ParameterValues/Experiment/Simulation)
+            └─► results/p2/diffusivity_feasibility/
+data/eval/extraction_benchmark_v1.jsonl ── benchmarks/p3/run_extraction_benchmark.py
+      ├─► data/literature_store/ (ingested once, immutable afterwards)
+      └─► results/p3/extraction_benchmark_v1_<provider>/
+data/raw_documents/chen2020…/fulltext.txt ── python -m pybamm_closed_loop.registry.seed
+      └─► data/registry/{registry.json, revisions.jsonl}
+```
+
+Verified entry points (single run, this machine):
+
+| Entry point | Venv | Runtime |
+|---|---|---|
+| `scripts/run_baseline.py` (full 1C discharge) | `.venv` | ≈2.4 s |
+| `scripts/plot_baseline.py` | `.venv` | <1 s |
+| `benchmarks/parameter_recovery/run_recovery_benchmark.py` (full config) | `.venv-ecosystem312` | minutes |
+| `benchmarks/identifiability/run_identifiability.py` (full config) | `.venv-ecosystem312` | minutes |
+| `benchmarks/p3/run_extraction_benchmark.py --provider offline` | `.venv-ecosystem312` | seconds |
+
+Reproducibility spot-check: a fresh `run_baseline.py` execution wrote
+`solution_arrays.npz` bit-identical to the committed `results/baseline/`
+arrays (max abs diff 0.0 over all series/profiles).
+
+Layering notes (verified):
+
+- `pybamm_engine/engine.py` → `reporting/manifest.py` is the only upward edge
+  (engine depends on reporting for manifest assembly).
+- `calibration/` adapters import `pybamm`/`pybop` at module top-level; they are
+  therefore importable only in ecosystem venvs (by design; tests use
+  `importorskip("pybop")`).
+- `benchmarks/identifiability/diffusivity_feasibility.py` calls PyBaMM APIs
+  directly (does not go through `pybamm_engine/`); it is a benchmark, not a
+  library module. Kept as-is during the audit sprint; may be revisited later.
+
+### Test suite (safety net)
+
+- `tests/unit/` + `tests/integration/` — pre-existing, 84 passed / 4 skipped in
+  `.venv` (pybop-free; pybop-dependent tests auto-skip) and 96 passed in
+  `.venv-ecosystem312` (full suite). Runtime on this machine: ~5–7 s.
+- `tests/characterization/` — added by the audit sprint: short, fast pipeline
+  runs that snapshot key scientific outputs into `tests/baselines/` and compare
+  with explicit tolerances (`np.allclose(..., equal_nan=True)` or JSON field
+  tolerances documented in each test's docstring). Baselines were generated
+  from the pre-audit code and verified deterministic across 3 consecutive
+  runs. Baseline regeneration: `tests/baselines/generate_baselines.py`
+  (run per venv, see module docstring). These tests are the merge gate for the
+  audit sprint: numerics must not drift without an explicit, reviewed decision.
+
+### Runner matrix
+
+| Task | Command |
+|---|---|
+| Unit + integration (pybamm-only) | `.venv/bin/python -m pytest` |
+| Full suite incl. pybop | `.venv-ecosystem312/bin/python -m pytest` |
+| Scientific benchmarks (opt-in) | `.venv-ecosystem312/bin/python -m pytest -m benchmark` or run the benchmark scripts directly |
+
+Agents in the audit sprint work in git worktrees under `/tmp/opencode/worktrees/`
+(branches `wg/agent*`); worktree-local `src/` shadows the editable install
+because pytest inserts `pythonpath = ["src"]` at the front. Disjoint file
+ownership for this sprint:
+
+| Agent | Owns |
+|---|---|
+| A (bugs) | `src/pybamm_closed_loop/calibration/`, `src/pybamm_closed_loop/pybamm_engine/`, `benchmarks/parameter_recovery/`, `benchmarks/identifiability/` |
+| B (security) | `src/pybamm_closed_loop/literature/`, `src/pybamm_closed_loop/eval/`, `src/pybamm_closed_loop/datasets/`, `scripts/p3/`, repo-level `.gitignore` |
+| C (quality) | `src/pybamm_closed_loop/registry/`, `src/pybamm_closed_loop/validation/`, `src/pybamm_closed_loop/reporting/`, `scripts/run_baseline.py`, `scripts/plot_baseline.py`, `scripts/compat_probe/`, `pyproject.toml` (tool config section only) |
+| D (deps) | `requirements*.lock`, `README.md`, `pyproject.toml` (dependencies section only — coordinated via orchestrator) |
+| E (reviewer) | read-only; runs suites on merged branch |
+| Orchestrator | `tests/`, `docs/`, `FINDINGS.md`, `CHANGES_SUMMARY.md`, merges |
