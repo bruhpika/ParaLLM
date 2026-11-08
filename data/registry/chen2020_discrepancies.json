@@ -1,0 +1,599 @@
+{
+  "built_from": "data/registry/registry.json",
+  "cause_taxonomy": {
+    "calibration": "a tuned/adjusted value carried in the simulations instead of the reported measurement (half-iteration fitting; Table IX)",
+    "definition": "different quantity-definition or naming (e.g. PyBaMM 'Electrode width [m]' corresponds to the paper's 'Electrode length')",
+    "model_assumption": "theoretical/default simplification chosen despite a measured value being available (Bruggeman 1.5 packed-sphere assumption)",
+    "operating_conditions": "the two values were obtained/validated under different conditions (C-rate-dependent effective diffusivity, temperature-dependent j0)",
+    "set_extension": "parameter/feature present in the PyBaMM parameter set but not parameterized by the Chen2020 paper (SEI block, thermal transport)",
+    "source_conflict": "ambiguity inside the source corpus, preserved in the registry (text-vs-table variants; main text vs supplement)",
+    "unit_convention": "same quantity, different unit representation (% vs fraction)"
+  },
+  "discrepancies": [
+    {
+      "canonical_id": "neg_particle_diffusivity",
+      "causes": [
+        "calibration",
+        "operating_conditions"
+      ],
+      "paper": {
+        "conditions": {
+          "cell": "graphite-SiOx half cell (Li counter), from LG M50",
+          "current": "0.58 mA (0.1C)",
+          "pulse_min": 2.5,
+          "temperature_k": 298.15,
+          "voltage_v": "0.005-1.0"
+        },
+        "context": "PyBaMM/Chen2020-tuned value carried in the set: 3.3e-14 m2.s-1",
+        "method": "Sand-equation fit to the voltage transient during GITT current pulses (C/10, 2.5 min pulses); average over the full SOC range; last ten points of each pulse used",
+        "review_state": "NEEDS_REVIEW",
+        "source_document": "chen2020_jes_167_080534",
+        "source_offset": [
+          68370,
+          68681
+        ],
+        "source_quote": "In addition, in the positive electrode the first five data points in the discharge are neglected when fitting  in the positive electrode as they capture transient effects which are not related to lithium diffusion.The diffusion coefficients calculated for NMC and graphite-SiOx electrodes are shown in Table V.",
+        "uncertainty": 4.1e-15,
+        "unit": "m2 s-1",
+        "value": 1.74e-15
+      },
+      "pybamm": {
+        "pybamm_names": [
+          "Negative particle diffusivity [m2.s-1]"
+        ],
+        "status": "LITERATURE_DERIVED",
+        "unit": "m2.s-1",
+        "value": 3.3e-14
+      },
+      "ratio": {
+        "definition": "pybamm_value / paper_value (same units; sign conventions preserved; unit conversions verified in the registry)",
+        "value": 18.965517
+      },
+      "registry_notes": [
+        "PyBaMM carries 3.3e-14 m2/s: the paper's tuned 1C value (variation +1797% vs GITT measurement). For C/2 and 1.5C the paper tuned 1.3e-14 and 6.3e-14 m2/s respectively - effective diffusivity is C-rate dependent in the paper's own validation.",
+        "Paper verdict (P2 TASK 5 reproduced): negative particle diffusivity is not estimable from voltage-only observations at <=2C (mean |normalized sensitivity| 0.011-0.048)."
+      ]
+    },
+    {
+      "canonical_id": "pos_particle_diffusivity",
+      "causes": [
+        "calibration",
+        "operating_conditions"
+      ],
+      "paper": {
+        "conditions": {
+          "cell": "NMC half cell (Li counter), from LG M50",
+          "current": "0.73 mA (0.1C)",
+          "pulse_min": 2.5,
+          "temperature_k": 298.15,
+          "voltage_v": "3.66-4.25"
+        },
+        "context": "PyBaMM/Chen2020-tuned value carried in the set: 4e-15 m2.s-1",
+        "method": "Sand-equation fit to the voltage transient during GITT current pulses (C/10, 2.5 min pulses); average over the full SOC range",
+        "review_state": "NEEDS_REVIEW",
+        "source_document": "chen2020_jes_167_080534",
+        "source_offset": [
+          68370,
+          68681
+        ],
+        "source_quote": "In addition, in the positive electrode the first five data points in the discharge are neglected when fitting  in the positive electrode as they capture transient effects which are not related to lithium diffusion.The diffusion coefficients calculated for NMC and graphite-SiOx electrodes are shown in Table V.",
+        "uncertainty": 1.05e-15,
+        "unit": "m2 s-1",
+        "value": 1.48e-15
+      },
+      "pybamm": {
+        "pybamm_names": [
+          "Positive particle diffusivity [m2.s-1]"
+        ],
+        "status": "LITERATURE_DERIVED",
+        "unit": "m2.s-1",
+        "value": 4e-15
+      },
+      "ratio": {
+        "definition": "pybamm_value / paper_value (same units; sign conventions preserved; unit conversions verified in the registry)",
+        "value": 2.702703
+      },
+      "registry_notes": [
+        "PyBaMM carries 4e-15 m2/s: the paper's tuned 1C value (variation +170% vs GITT measurement).",
+        "P2 identifies positive particle diffusivity as a candidate for later estimation (sensitivity 0.63-0.85 over 0.5C-2C)."
+      ]
+    },
+    {
+      "canonical_id": "neg_max_concentration",
+      "causes": [
+        "calibration",
+        "source_conflict"
+      ],
+      "paper": {
+        "conditions": {
+          "cell": "LG M50 21700, half-cell capacity 5.0 mAh cm-2 measured at C/50"
+        },
+        "context": "paper body text states 29603 mol m-3 (slight rounding variant of the Table VII value 29583); both preserved | PyBaMM/Chen2020-tuned value carried in the set: 33133.0 mol.m-3",
+        "method": "calculated from electrode specific capacity per unit area, coating thickness and active material volume fraction (paper Eqs. 5-7)",
+        "review_state": "NEEDS_REVIEW",
+        "source_document": "chen2020_jes_167_080534",
+        "source_offset": [
+          58412,
+          58546
+        ],
+        "source_quote": "2 \u03bcm) and  (75%) from Table VII, we obtain a maximum lithium concentration in the negative electrode active material of 29603 mol m\u22123.",
+        "uncertainty": null,
+        "unit": "mol m-3",
+        "value": 29583
+      },
+      "pybamm": {
+        "pybamm_names": [
+          "Maximum concentration in negative electrode [mol.m-3]"
+        ],
+        "status": "CALCULATED",
+        "unit": "mol.m-3",
+        "value": 33133.0
+      },
+      "ratio": {
+        "definition": "pybamm_value / paper_value (same units; sign conventions preserved; unit conversions verified in the registry)",
+        "value": 1.120001
+      },
+      "registry_notes": [
+        "PyBaMM carries 33133 mol/m3: the paper's tuned value (variation +12% vs calculated 29583).",
+        "Text variant 29603 mol/m3 (paper body) vs Table VII 29583 mol/m3 preserved in evidence context."
+      ]
+    },
+    {
+      "canonical_id": "pos_max_concentration",
+      "causes": [
+        "calibration"
+      ],
+      "paper": {
+        "conditions": {
+          "cell": "LG M50 21700, extracted electrodes; assumed composition Li0.833Ni0.80Mn0.08Co0.08Al0.04O2 (MW 94.87 g/mol in paper; 96.03 g/mol used in Eq. 5 for the lithiated material)"
+        },
+        "context": "PyBaMM/Chen2020-tuned value carried in the set: 63104.0 mol.m-3",
+        "method": "calculated from coating mass per unit area, molecular mass of lithiated active material, thickness and active material volume fraction (paper Eq. 5); cross-checked against crystal density 4.95 g/cm3 (theoretical 51545 mol m-3)",
+        "review_state": "NEEDS_REVIEW",
+        "source_document": "chen2020_jes_167_080534",
+        "source_offset": [
+          57479,
+          57625
+        ],
+        "source_quote": "99 mg cm\u22122 (max Li content in active material), we find that the maximum concentration in the positive electrode active material is 51765 mol m\u22123.",
+        "uncertainty": null,
+        "unit": "mol m-3",
+        "value": 51765
+      },
+      "pybamm": {
+        "pybamm_names": [
+          "Maximum concentration in positive electrode [mol.m-3]"
+        ],
+        "status": "CALCULATED",
+        "unit": "mol.m-3",
+        "value": 63104.0
+      },
+      "ratio": {
+        "definition": "pybamm_value / paper_value (same units; sign conventions preserved; unit conversions verified in the registry)",
+        "value": 1.219048
+      },
+      "registry_notes": [
+        "PyBaMM carries 63104 mol/m3: the paper's tuned value (variation +22% vs calculated 51765)."
+      ]
+    },
+    {
+      "canonical_id": "neg_bruggeman_electrolyte",
+      "causes": [
+        "model_assumption",
+        "calibration"
+      ],
+      "paper": {
+        "conditions": {
+          "cell": "LG M50 21700, extracted electrodes"
+        },
+        "context": "PyBaMM carries the theoretical value 1.5 instead of the measured value",
+        "method": "calculated from FIB-SEM tortuosity (Table II lists 2.92/2.90 for the two sides; Table VII averages to 2.91)",
+        "review_state": "NEEDS_REVIEW",
+        "source_document": "chen2020_jes_167_080534",
+        "source_offset": [
+          84878,
+          85034
+        ],
+        "source_quote": "The Bruggeman coefficients are set to the theoretical value of 1.5 for packed spheres,59 given that the P2D model assumes this geometry for the electrodes.",
+        "uncertainty": null,
+        "unit": "-",
+        "value": "2.91"
+      },
+      "pybamm": {
+        "pybamm_names": [
+          "Negative electrode Bruggeman coefficient (electrolyte)"
+        ],
+        "status": "LITERATURE_DERIVED",
+        "unit": "dimensionless",
+        "value": 1.5
+      },
+      "ratio": {
+        "definition": "pybamm_value / paper_value_in_pybamm_unit (%-values pre-multiplied by 0.01 to compare against the PyBaMM fraction; numeric equality expected for pure unit-convention cases)",
+        "value": 0.515464
+      },
+      "registry_notes": [
+        "PyBaMM carries 1.5 (theoretical), not the measured 2.91; conflict preserved."
+      ]
+    },
+    {
+      "canonical_id": "pos_bruggeman_electrolyte",
+      "causes": [
+        "model_assumption",
+        "calibration"
+      ],
+      "paper": {
+        "conditions": {
+          "cell": "LG M50 21700, extracted electrodes"
+        },
+        "context": "PyBaMM carries the theoretical value 1.5 instead of the measured value",
+        "method": "calculated from FIB-SEM tortuosity (Taufactor/Simpleware) via the Bruggeman relation",
+        "review_state": "NEEDS_REVIEW",
+        "source_document": "chen2020_jes_167_080534",
+        "source_offset": [
+          84878,
+          85034
+        ],
+        "source_quote": "The Bruggeman coefficients are set to the theoretical value of 1.5 for packed spheres,59 given that the P2D model assumes this geometry for the electrodes.",
+        "uncertainty": null,
+        "unit": "-",
+        "value": "2.43"
+      },
+      "pybamm": {
+        "pybamm_names": [
+          "Positive electrode Bruggeman coefficient (electrolyte)"
+        ],
+        "status": "LITERATURE_DERIVED",
+        "unit": "dimensionless",
+        "value": 1.5
+      },
+      "ratio": {
+        "definition": "pybamm_value / paper_value_in_pybamm_unit (%-values pre-multiplied by 0.01 to compare against the PyBaMM fraction; numeric equality expected for pure unit-convention cases)",
+        "value": 0.617284
+      },
+      "registry_notes": [
+        "PyBaMM carries 1.5 (theoretical packed-sphere value), not the measured 2.43: the paper states Table VII values give unphysical electrolyte depletion and sets 1.5 instead. Conflict preserved in conflicts[]."
+      ]
+    },
+    {
+      "canonical_id": "sep_bruggeman_electrolyte",
+      "causes": [
+        "model_assumption",
+        "calibration"
+      ],
+      "paper": {
+        "conditions": {
+          "cell": "LG M50 21700, extracted separator"
+        },
+        "context": "PyBaMM carries the theoretical value 1.5 instead of the measured value",
+        "method": "calculated from FIB-SEM tortuosity via the Bruggeman relation",
+        "review_state": "NEEDS_REVIEW",
+        "source_document": "chen2020_jes_167_080534",
+        "source_offset": [
+          84878,
+          85034
+        ],
+        "source_quote": "The Bruggeman coefficients are set to the theoretical value of 1.5 for packed spheres,59 given that the P2D model assumes this geometry for the electrodes.",
+        "uncertainty": null,
+        "unit": "-",
+        "value": "2.57"
+      },
+      "pybamm": {
+        "pybamm_names": [
+          "Separator Bruggeman coefficient (electrolyte)"
+        ],
+        "status": "LITERATURE_DERIVED",
+        "unit": "dimensionless",
+        "value": 1.5
+      },
+      "ratio": {
+        "definition": "pybamm_value / paper_value_in_pybamm_unit (%-values pre-multiplied by 0.01 to compare against the PyBaMM fraction; numeric equality expected for pure unit-convention cases)",
+        "value": 0.583658
+      },
+      "registry_notes": [
+        "PyBaMM carries 1.5 (theoretical), not the measured 2.57; conflict preserved."
+      ]
+    },
+    {
+      "canonical_id": "neg_electrode_active_material_volume_fraction",
+      "causes": [
+        "unit_convention"
+      ],
+      "paper": {
+        "conditions": {
+          "cell": "LG M50 21700, extracted electrodes"
+        },
+        "context": null,
+        "method": "derived from electrode mass/loading and theoretical crystal densities (paper assumes 100% active material; binder and conductive additive omitted)",
+        "review_state": "ACCEPTED",
+        "source_document": "chen2020_jes_167_080534",
+        "source_offset": [
+          null,
+          null
+        ],
+        "source_quote": null,
+        "uncertainty": null,
+        "unit": "%",
+        "value": "75"
+      },
+      "pybamm": {
+        "pybamm_names": [
+          "Negative electrode active material volume fraction"
+        ],
+        "status": "LITERATURE_DERIVED",
+        "unit": "dimensionless",
+        "value": 0.75
+      },
+      "ratio": {
+        "definition": "pybamm_value / paper_value_in_pybamm_unit (%-values pre-multiplied by 0.01 to compare against the PyBaMM fraction; numeric equality expected for pure unit-convention cases)",
+        "value": 1.0
+      },
+      "registry_notes": []
+    },
+    {
+      "canonical_id": "pos_electrode_active_material_volume_fraction",
+      "causes": [
+        "unit_convention"
+      ],
+      "paper": {
+        "conditions": {
+          "cell": "LG M50 21700, extracted electrodes"
+        },
+        "context": null,
+        "method": "derived from electrode mass/loading and theoretical crystal densities (paper assumes 100% active material; binder and conductive additive omitted)",
+        "review_state": "ACCEPTED",
+        "source_document": "chen2020_jes_167_080534",
+        "source_offset": [
+          null,
+          null
+        ],
+        "source_quote": null,
+        "uncertainty": null,
+        "unit": "%",
+        "value": "66.5"
+      },
+      "pybamm": {
+        "pybamm_names": [
+          "Positive electrode active material volume fraction"
+        ],
+        "status": "LITERATURE_DERIVED",
+        "unit": "dimensionless",
+        "value": 0.665
+      },
+      "ratio": {
+        "definition": "pybamm_value / paper_value_in_pybamm_unit (%-values pre-multiplied by 0.01 to compare against the PyBaMM fraction; numeric equality expected for pure unit-convention cases)",
+        "value": 1.0
+      },
+      "registry_notes": []
+    },
+    {
+      "canonical_id": "separator_porosity",
+      "causes": [
+        "source_conflict"
+      ],
+      "paper": {
+        "conditions": {
+          "cell": "LG M50 21700, extracted separator"
+        },
+        "context": null,
+        "method": "physical/porosimetry analysis of the extracted separator (paper Table II row 'Electrolyte volume fraction')",
+        "review_state": "ACCEPTED",
+        "source_document": "chen2020_jes_167_080534",
+        "source_offset": [
+          null,
+          null
+        ],
+        "source_quote": null,
+        "uncertainty": null,
+        "unit": "%",
+        "value": "47"
+      },
+      "pybamm": {
+        "pybamm_names": [
+          "Separator porosity"
+        ],
+        "status": "LITERATURE_DERIVED",
+        "unit": "dimensionless",
+        "value": 0.47
+      },
+      "ratio": {
+        "definition": "pybamm_value / paper_value_in_pybamm_unit (%-values pre-multiplied by 0.01 to compare against the PyBaMM fraction; numeric equality expected for pure unit-convention cases)",
+        "value": 1.0
+      },
+      "registry_notes": []
+    },
+    {
+      "canonical_id": "cell_electrode_width",
+      "causes": [
+        "definition"
+      ],
+      "paper": {
+        "conditions": {
+          "cell": "LG M50 21700"
+        },
+        "context": null,
+        "method": "Vernier caliper and foil-layer lengths at teardown (Table II: 79/79 cm per side for the positive electrode)",
+        "review_state": "ACCEPTED",
+        "source_document": "chen2020_jes_167_080534",
+        "source_offset": [
+          null,
+          null
+        ],
+        "source_quote": null,
+        "uncertainty": null,
+        "unit": "m",
+        "value": "1.58"
+      },
+      "pybamm": {
+        "pybamm_names": [
+          "Electrode width [m]"
+        ],
+        "status": "LITERATURE_DERIVED",
+        "unit": "m",
+        "value": 1.58
+      },
+      "ratio": {
+        "definition": "pybamm_value / paper_value_in_pybamm_unit (%-values pre-multiplied by 0.01 to compare against the PyBaMM fraction; numeric equality expected for pure unit-convention cases)",
+        "value": 1.0
+      },
+      "registry_notes": [
+        "Name inversion PyBaMM vs paper (verified numerically): pybamm 'Electrode width [m]' = paper 'Electrode length' = 1.58 m; pybamm 'Electrode height [m]' = paper 'Electrode width' = 0.065 m."
+      ]
+    }
+  ],
+  "generated": "2026-11-08T05:47:52.889219+00:00",
+  "limitations": [
+    "Discrepancy ratios use the registry's unit-normalized values; where the registry distinguishes text-vs-table variants both are kept rather than averaged.",
+    "The C-rate dependence of the negative effective diffusivity (1.3e-14 / 3.3e-14 / 6.3e-14 m2/s at C/2, 1C, 1.5C) is documented in the registry conflict contexts, not in this file, to keep single-source provenance. See neg_particle_diffusivity notes.",
+    "Cause tags are expert judgments (documented), not measurements."
+  ],
+  "method_note": "Built programmatically from the P3 registry; every value, quote, condition and uncertainty is read from registry records at build time. PyBaMM-side values are the set's operative values (P3 introspection, include tuned Chen2020 Table IX values). No value is hand-entered in this script. This analysis documents discrepancies; it does NOT change any registry value.",
+  "p2_linkage": {
+    "MCMC": {
+      "identifiability": "short-chain posteriors (rhat 1.10-1.26) only directionally informative; not used as evidence here"
+    },
+    "electrolyte coupling": {
+      "identifiability": "electrolyte diffusivity and reaction rate are collinear (|corr| > 0.8); not separately identifiable from these data"
+    },
+    "neg_particle_diffusivity": {
+      "identifiability": "NOT ESTIMABLE from voltage-only discharge data at <=2C (mean |normalized sensitivity| 0.011-0.048); recovered with <1% error only when treated by multistart ridge",
+      "note": "the +1797% tuned gap is therefore never testable by terminal-voltage fitting alone"
+    },
+    "pos_particle_diffusivity": {
+      "identifiability": "candidate for estimation from multi-C discharge data (normalized sensitivity 0.63-0.85 over 0.5C-2C)"
+    }
+  },
+  "set_extensions": {
+    "families": [
+      {
+        "canonical_id": "initial_sei_thickness",
+        "note": "",
+        "pybamm_names": [
+          "Initial SEI thickness [m]"
+        ],
+        "status": null
+      },
+      {
+        "canonical_id": "sei_electron_conductivity",
+        "note": "",
+        "pybamm_names": [
+          "SEI electron conductivity [S.m-1]"
+        ],
+        "status": null
+      },
+      {
+        "canonical_id": "sei_growth_activation_energy",
+        "note": "",
+        "pybamm_names": [
+          "SEI growth activation energy [J.mol-1]"
+        ],
+        "status": null
+      },
+      {
+        "canonical_id": "sei_kinetic_rate_constant",
+        "note": "",
+        "pybamm_names": [
+          "SEI kinetic rate constant [m.s-1]"
+        ],
+        "status": null
+      },
+      {
+        "canonical_id": "sei_lithium_interstitial_diffusivity",
+        "note": "",
+        "pybamm_names": [
+          "SEI lithium interstitial diffusivity [m2.s-1]"
+        ],
+        "status": null
+      },
+      {
+        "canonical_id": "sei_open_circuit_potential",
+        "note": "",
+        "pybamm_names": [
+          "SEI open-circuit potential [V]"
+        ],
+        "status": null
+      },
+      {
+        "canonical_id": "sei_partial_molar_volume",
+        "note": "",
+        "pybamm_names": [
+          "SEI partial molar volume [m3.mol-1]"
+        ],
+        "status": null
+      },
+      {
+        "canonical_id": "sei_reaction_exchange_current_density",
+        "note": "",
+        "pybamm_names": [
+          "SEI reaction exchange current density [A.m-2]"
+        ],
+        "status": null
+      },
+      {
+        "canonical_id": "sei_resistivity",
+        "note": "",
+        "pybamm_names": [
+          "SEI resistivity [Ohm.m]"
+        ],
+        "status": null
+      },
+      {
+        "canonical_id": "sei_solvent_diffusivity",
+        "note": "",
+        "pybamm_names": [
+          "SEI solvent diffusivity [m2.s-1]"
+        ],
+        "status": null
+      },
+      {
+        "canonical_id": "ratio_of_lithium_moles_to_sei_moles",
+        "note": "",
+        "pybamm_names": [
+          "Ratio of lithium moles to SEI moles"
+        ],
+        "status": null
+      },
+      {
+        "canonical_id": "lithium_interstitial_reference_concentration",
+        "note": "",
+        "pybamm_names": [
+          "Lithium interstitial reference concentration [mol.m-3]"
+        ],
+        "status": null
+      },
+      {
+        "canonical_id": "negative_electrode_double_layer_capacity",
+        "note": "",
+        "pybamm_names": [
+          "Negative electrode double-layer capacity [F.m-2]"
+        ],
+        "status": null
+      },
+      {
+        "canonical_id": "positive_electrode_double_layer_capacity",
+        "note": "",
+        "pybamm_names": [
+          "Positive electrode double-layer capacity [F.m-2]"
+        ],
+        "status": null
+      },
+      {
+        "canonical_id": "total_heat_transfer_coefficient",
+        "note": "",
+        "pybamm_names": [
+          "Total heat transfer coefficient [W.m-2.K-1]"
+        ],
+        "status": null
+      },
+      {
+        "canonical_id": "contact_resistance",
+        "note": "",
+        "pybamm_names": [
+          "Contact resistance [Ohm]"
+        ],
+        "status": null
+      }
+    ],
+    "summary": "Parameters present in the PyBaMM Chen2020 set but not parameterized by the paper: the SEI growth block, double-layer capacities, total heat transfer coefficient and contact resistance (set-extension items, e.g. documented SEI values are 'example parameters for SEI growth' per the PyBaMM parameter-sets documentation)."
+  },
+  "title": "Chen2020 discrepancy analysis: paper vs PyBaMM parameter set"
+}

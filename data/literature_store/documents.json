@@ -11,5 +11,33 @@
     "retrieved": "2026-11-04",
     "source_url": "https://iopscience.iop.org/article/10.1149/1945-7111/ab9050",
     "title": "Development of Experimental Techniques for Parameterization of Multi-scale Lithium-ion Battery Models"
+  },
+  {
+    "content_sha256": "80f2c08bc079ebe63070d181a46a23e68f837cfdbacb6f657f7381bd062e81dd",
+    "document_id": "chen2020_supplement_s1",
+    "doi_or_url": "10.1149/1945-7111/ab9050 (supplementary)",
+    "kind": "supplement",
+    "meta": {
+      "page_numbering": "1-based PDF page indices (pypdf)"
+    },
+    "n_segments": 47,
+    "page_structure": true,
+    "raw_path": "/home/bruhpika/Projects/Parameters/data/literature_store/raw/chen2020_supplement_s1.txt",
+    "retrieved": "2026-11-08",
+    "source_url": null,
+    "title": "Supplementary data for: Development of Experimental Techniques for Parameterization of Multi-scale Lithium-ion Battery Models"
+  },
+  {
+    "content_sha256": "042b6b1119752253fbbb19e66904e6262982c337957db407f6074996fc21c109",
+    "document_id": "pybamm_parameter_sets_docs",
+    "doi_or_url": "https://docs.pybamm.org/en/latest/source/api/parameters/parameter_sets.html",
+    "kind": "structured-dataset",
+    "meta": {},
+    "n_segments": 135,
+    "page_structure": false,
+    "raw_path": "/home/bruhpika/Projects/Parameters/data/literature_store/raw/pybamm_parameter_sets_docs.txt",
+    "retrieved": "2026-11-08",
+    "source_url": "https://docs.pybamm.org/en/latest/source/api/parameters/parameter_sets.html",
+    "title": "PyBaMM documentation: Parameter Sets (latest, retrieved 2026-11-08)"
   }
 ]

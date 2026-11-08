@@ -1,0 +1,292 @@
+
+===== PDF page 1 =====
+i 
+ 
+Supplementary Information for 
+ 
+Development of experimental techniques for parameterization of multi-scale lithium-ion 
+battery models 
+ 
+Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O’Reganc,d, Dominika Gastolc, W. 
+Dhammika Widanagea,d, and ǂEmma Kendrickc,d  
+a WMG, University of Warwick, Gibbet Hill Road, Coventry, CV4 7AL, UK 
+b Current address: Syngenta, Jealott's Hill International Research Centre, Bracknell RG42 
+6EQ, Berkshire, UK 
+c School of Metallurgy and Materials, University of Birmingham, Edgbaston, Birmingham, 
+BT15 2TT, UK 
+d The Faraday Institution, Quad One, Becquerel Avenue, Harwell Campus, Didcot, OX11 
+0RA 
+ǂemma.kendrick@bham.ac.uk 
+ 
+ 
+ 
+Table of content 
+ 
+S1 Electrode and cell dimensions ................................ ................................ ..........................  ii 
+S2 SEM and EDS analysis of the positive electrode ................................ .............................  iii 
+S3 SEM and EDS analysis of the negative electrode ................................ .............................  iv 
+S4 3D reconstruction of the electrodes ................................ ................................ .................  vi 
+S5 Diffusion Coefficients ................................ ................................ ................................ .... vii 
+S6 Electrochemical impedance spectroscopy measurement of half cells ...............................  ix 
+References: ................................ ................................ ................................ ..........................  ix 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+===== PDF page 2 =====
+ii 
+ 
+S1 Electrode and cell dimensions 
+ 
+Figure S1. Dimensions for the asymmetric negative electrode coating with black denoting the 
+graphite coating and orange denoting the bare current collector. 
+ 
+ 
+Figure S2. Dimensions for the asymmetric positive electrode coating with black denoting the 
+NMC coating and white denoting the tab. 
+Table S1. Data sheet from the manufacturer.  
+ 
+ 
+ 
+
+===== PDF page 3 =====
+iii 
+ 
+S2 SEM and EDS analysis of the positive electrode 
+ 
+ 
+Figure S3. Top -view EDS images of the positive electrode  extracted from M50  displaying 
+nickel (red), cobalt (green), and manganese (blue) content. 
+ 
+ 
+EDS of Slice  1 2 3 Average 
+ Ni 60.3 61.1 60.7 82.9 
+  Co 7.9 7.6 7.75 10.6 
+  Mn 3.9 3.6 3.75 5.1 
+  Al 1.3 0.7 1 1.36 
+Table S2: EDS analysis of the FIB-SEM data 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+===== PDF page 4 =====
+iv 
+ 
+S3 SEM and EDS analysis of the negative electrode 
+ 
+S3.1 Average section EDS element analysis 
+ 
+ 
+ 
+Figure S4. Cross section FIB-SEM images of the graphite -SiOx electrode obtained from LG 
+M50.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Table S3.1 EDS analysis of graphite-SiOx electrode 
+ 
+S3.2 Average point EDS analysis 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Element Weight (%) Area 1 Area 2 
+C 60.2 77.52 
+O 18.23 6.82 
+F 0.84 0.62 
+Si 7.1 5.78 
+P 0.35 0.24 
+S 1.04 0.88 
+Cu 12.24 8.14 
+Total 100 100 
+
+===== PDF page 5 =====
+v 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure S5. FIB-SEM and EDS images of the positive electrode extracted from M50 displaying 
+carbon (red), oxygen (blue) and silicon (green) content. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Table S3.2 EDS analysis of NMC electrode 
+ 
+S 3.5 ICP-OES analysis of the positive electrode 
+ 
+In the ICO-OES expriment, mixed standard solutions of 0.0, 2.0, 4.0, 6.0, 8.0 and 10.0 mg/L 
+were prepared. The standard solution containing 22 elements, include Li, Ni, Mn, Al,B, Ba, 
+Be, Bi, Cd, Co, Cr, Cu, Fe, Ga, K, Mg, Na, Pb, Se, Te, Tl and Zn.  
+ 
+Samples obtained from the electrode were dissolved, diluted and then analysed. Results were 
+expressed as metal element concentrations by comparison with external standards. the weight 
+percentage and corresponding atomic ratio of each element is shown in table S4.. 
+ 
+Element 
+Atomic 
+weight 
+(g/mol) 
+Sample 1 Sample 2 Atomic ratio 
+(average) 
+where M=1 
+w 
+(%) Atomic ratio w(%) Atomic ratio 
+Li  6.9 8.79 8.07 9.45 8.63 8.24 
+Ni  58.7 74.03 7.99 74.13 7.96 7.87 
+Mn  54.9 4.91 0.57 4.91 0.56 0.55 
+Co  58.9 9.30 1.00 9.35 1.00 0.98 
+Ala 27.0 2.97 0.70 2.16 0.50 0.59 
+a：The contribution of aluminium from the aluminium disk is deducted.  
+Table S4. ICP-OES analysis of NMC electrode 
+ 
+ Weight % 
+Element Area 1 Area 2 Area 3 
+C 40.12 54.88  
+O 31.92 18.69 36.47 
+Si 15.84 21.93 62.8 
+S 1.27 0.58 0.73 
+Cu 10.85 3.92  
+Total 100 100 100 
+
+===== PDF page 6 =====
+vi 
+ 
+S4 3D reconstruction of the electrodes 
+ 
+The 2D images of the electrodes were aligned and cropped accordingly: 62 
+  55 
+  57 µm3 for 
+the positive electrode and 47 
+  49 
+  20 µm3 for the negative electrode, in order to remove any 
+unwanted areas of the morphologies of the electrodes and reconstructed with the use of 
+commercial software Synopsys Simpleware Scan IP [1]. A median filter was applied in order 
+to remove noise. 
+The segmentation was achieved using a binary thresholding in order to reconstruct the 3D pore 
+network. Then, the copy of pore domain was created and inverted on all slic es in the whole 
+cuboid domain by employing Boolean operation to create a new mask of solid constituents. 
+The volume fractions of the electrode components: active material and non-active, comprising 
+of carbon black and pores were calculated by dividing the number of voxel assigned to one 
+phase by the total number of voxels.  
+ 
+ 
+Figure S6. Reconstruction of M50 electrodes: negative electrode (top) and positive electrode 
+(bottom) by Synopsys Simpleware Scan IP software. 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure S7. 3D reconstruction of ceramic coated separator and the calculated porosities 
+a 
+b 
+48% 
+ 
+46% 
+ 
+46% 
+===== PDF page 7 =====
+vii 
+ 
+S5 Diffusion Coefficients 
+ 
+ 
+Fig S8 Diffusion coefficients calculated using the following equation modified from Weppner 
+and Huggins. [42]  (with no applied correction factor for particle size increase). 
+𝐷s =  4𝜋𝜏 (𝑚𝐴𝑀𝑉𝑀𝑀𝐴𝑀𝑆 )2 (∆𝐸s∆𝐸t)2 ,      (𝜏 ≪ 𝑅2𝐷s) 
+ 
+As is observed in S8 the voltage transients are slightly curved, and therefore care must be taken 
+when fitting the SAND equation. The fits can be improved by utilizing part of the voltage 
+transient curve. However the data obtained utilizing this methodology has significantly higher 
+resolution than the data obtained from the titration measurements as shown in. S9. 
+  
+
+===== PDF page 8 =====
+viii 
+ 
+ 
+ 
+  
+  
+  
+  
+Fig S9 V oltage transient for lithiation and delithiation current pulses taken from 0.52, 2.02, 4 
+and 5.01 mAh cm 2 capacities, with the SAND equation fit for the negative electrode GITT ½ 
+cell. 
+ 
+ 
+
+===== PDF page 9 =====
+ix 
+ 
+ 
+Fig S10 R2 for SAND fit to voltage transient  for lithiation and d elithiation of the negative 
+electrode (1/2 cell data) 
+ 
+ 
+ 
+S6 Electrochemical impedance spectroscopy measurement of half cells 
+ 
+ 
+Figure S8. Exchange current densities calculated for (a) NMC and (b) graphite-SiOx half cells 
+at different states of charge at 25 
+ C. 
+ 
+References:  
+[1] www.simpleware.com, 2019. 

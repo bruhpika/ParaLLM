@@ -1,0 +1,425 @@
+[
+ {
+  "char_end": 2,
+  "char_start": 0,
+  "document_id": "chen2020_supplement_s1",
+  "heading": null,
+  "page": 1,
+  "segment_id": "chen2020_supplement_s1#seg00000",
+  "text": "i "
+ },
+ {
+  "char_end": 35,
+  "char_start": 5,
+  "document_id": "chen2020_supplement_s1",
+  "heading": null,
+  "page": 1,
+  "segment_id": "chen2020_supplement_s1#seg00001",
+  "text": "Supplementary Information for "
+ },
+ {
+  "char_end": 141,
+  "char_start": 38,
+  "document_id": "chen2020_supplement_s1",
+  "heading": null,
+  "page": 1,
+  "segment_id": "chen2020_supplement_s1#seg00002",
+  "text": "Development of experimental techniques for parameterization of multi-scale lithium-ion \nbattery models "
+ },
+ {
+  "char_end": 678,
+  "char_start": 144,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 1,
+  "segment_id": "chen2020_supplement_s1#seg00003",
+  "text": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W. \nDhammika Widanagea,d, and \u01c2Emma Kendrickc,d  \na WMG, University of Warwick, Gibbet Hill Road, Coventry, CV4 7AL, UK \nb Current address: Syngenta, Jealott's Hill International Research Centre, Bracknell RG42 \n6EQ, Berkshire, UK \nc School of Metallurgy and Materials, University of Birmingham, Edgbaston, Birmingham, \nBT15 2TT, UK \nd The Faraday Institution, Quad One, Becquerel Avenue, Harwell Campus, Didcot, OX11 \n0RA \n\u01c2emma.kendrick@bham.ac.uk "
+ },
+ {
+  "char_end": 702,
+  "char_start": 685,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 1,
+  "segment_id": "chen2020_supplement_s1#seg00004",
+  "text": "Table of content "
+ },
+ {
+  "char_end": 1583,
+  "char_start": 705,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 1,
+  "segment_id": "chen2020_supplement_s1#seg00005",
+  "text": "S1 Electrode and cell dimensions ................................ ................................ ..........................  ii \nS2 SEM and EDS analysis of the positive electrode ................................ .............................  iii \nS3 SEM and EDS analysis of the negative electrode ................................ .............................  iv \nS4 3D reconstruction of the electrodes ................................ ................................ .................  vi \nS5 Diffusion Coefficients ................................ ................................ ................................ .... vii \nS6 Electrochemical impedance spectroscopy measurement of half cells ...............................  ix \nReferences: ................................ ................................ ................................ ..........................  ix "
+ },
+ {
+  "char_end": 1607,
+  "char_start": 1604,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 2,
+  "segment_id": "chen2020_supplement_s1#seg00006",
+  "text": "ii "
+ },
+ {
+  "char_end": 1643,
+  "char_start": 1610,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 2,
+  "segment_id": "chen2020_supplement_s1#seg00007",
+  "text": "S1 Electrode and cell dimensions "
+ },
+ {
+  "char_end": 1804,
+  "char_start": 1646,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 2,
+  "segment_id": "chen2020_supplement_s1#seg00008",
+  "text": "Figure S1. Dimensions for the asymmetric negative electrode coating with black denoting the \ngraphite coating and orange denoting the bare current collector. "
+ },
+ {
+  "char_end": 1988,
+  "char_start": 1809,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 2,
+  "segment_id": "chen2020_supplement_s1#seg00009",
+  "text": "Figure S2. Dimensions for the asymmetric positive electrode coating with black denoting the \nNMC coating and white denoting the tab. \nTable S1. Data sheet from the manufacturer.  "
+ },
+ {
+  "char_end": 2000,
+  "char_start": 1996,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 3,
+  "segment_id": "chen2020_supplement_s1#seg00010",
+  "text": "iii "
+ },
+ {
+  "char_end": 2053,
+  "char_start": 2003,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 3,
+  "segment_id": "chen2020_supplement_s1#seg00011",
+  "text": "S2 SEM and EDS analysis of the positive electrode "
+ },
+ {
+  "char_end": 2209,
+  "char_start": 2058,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 3,
+  "segment_id": "chen2020_supplement_s1#seg00012",
+  "text": "Figure S3. Top -view EDS images of the positive electrode  extracted from M50  displaying \nnickel (red), cobalt (green), and manganese (blue) content. "
+ },
+ {
+  "char_end": 2379,
+  "char_start": 2214,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 3,
+  "segment_id": "chen2020_supplement_s1#seg00013",
+  "text": "EDS of Slice  1 2 3 Average \n Ni 60.3 61.1 60.7 82.9 \n  Co 7.9 7.6 7.75 10.6 \n  Mn 3.9 3.6 3.75 5.1 \n  Al 1.3 0.7 1 1.36 \nTable S2: EDS analysis of the FIB-SEM data "
+ },
+ {
+  "char_end": 2404,
+  "char_start": 2401,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 4,
+  "segment_id": "chen2020_supplement_s1#seg00014",
+  "text": "iv "
+ },
+ {
+  "char_end": 2457,
+  "char_start": 2407,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 4,
+  "segment_id": "chen2020_supplement_s1#seg00015",
+  "text": "S3 SEM and EDS analysis of the negative electrode "
+ },
+ {
+  "char_end": 2502,
+  "char_start": 2460,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 4,
+  "segment_id": "chen2020_supplement_s1#seg00016",
+  "text": "S3.1 Average section EDS element analysis "
+ },
+ {
+  "char_end": 2605,
+  "char_start": 2509,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 4,
+  "segment_id": "chen2020_supplement_s1#seg00017",
+  "text": "Figure S4. Cross section FIB-SEM images of the graphite -SiOx electrode obtained from LG \nM50.  "
+ },
+ {
+  "char_end": 2683,
+  "char_start": 2632,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 4,
+  "segment_id": "chen2020_supplement_s1#seg00018",
+  "text": "Table S3.1 EDS analysis of graphite-SiOx electrode "
+ },
+ {
+  "char_end": 2718,
+  "char_start": 2686,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 4,
+  "segment_id": "chen2020_supplement_s1#seg00019",
+  "text": "S3.2 Average point EDS analysis "
+ },
+ {
+  "char_end": 2885,
+  "char_start": 2741,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 4,
+  "segment_id": "chen2020_supplement_s1#seg00020",
+  "text": "Element Weight (%) Area 1 Area 2 \nC 60.2 77.52 \nO 18.23 6.82 \nF 0.84 0.62 \nSi 7.1 5.78 \nP 0.35 0.24 \nS 1.04 0.88 \nCu 12.24 8.14 \nTotal 100 100 \n"
+ },
+ {
+  "char_end": 2888,
+  "char_start": 2886,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 5,
+  "segment_id": "chen2020_supplement_s1#seg00021",
+  "text": "v "
+ },
+ {
+  "char_end": 3061,
+  "char_start": 2913,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 5,
+  "segment_id": "chen2020_supplement_s1#seg00022",
+  "text": "Figure S5. FIB-SEM and EDS images of the positive electrode extracted from M50 displaying \ncarbon (red), oxygen (blue) and silicon (green) content. "
+ },
+ {
+  "char_end": 3125,
+  "char_start": 3084,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 5,
+  "segment_id": "chen2020_supplement_s1#seg00023",
+  "text": "Table S3.2 EDS analysis of NMC electrode "
+ },
+ {
+  "char_end": 3177,
+  "char_start": 3128,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 5,
+  "segment_id": "chen2020_supplement_s1#seg00024",
+  "text": "S 3.5 ICP-OES analysis of the positive electrode "
+ },
+ {
+  "char_end": 3432,
+  "char_start": 3180,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 5,
+  "segment_id": "chen2020_supplement_s1#seg00025",
+  "text": "In the ICO-OES expriment, mixed standard solutions of 0.0, 2.0, 4.0, 6.0, 8.0 and 10.0 mg/L \nwere prepared. The standard solution containing 22 elements, include Li, Ni, Mn, Al,B, Ba, \nBe, Bi, Cd, Co, Cr, Cu, Fe, Ga, K, Mg, Na, Pb, Se, Te, Tl and Zn.  "
+ },
+ {
+  "char_end": 3702,
+  "char_start": 3435,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 5,
+  "segment_id": "chen2020_supplement_s1#seg00026",
+  "text": "Samples obtained from the electrode were dissolved, diluted and then analysed. Results were \nexpressed as metal element concentrations by comparison with external standards. the weight \npercentage and corresponding atomic ratio of each element is shown in table S4.. "
+ },
+ {
+  "char_end": 4123,
+  "char_start": 3705,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 5,
+  "segment_id": "chen2020_supplement_s1#seg00027",
+  "text": "Element \nAtomic \nweight \n(g/mol) \nSample 1 Sample 2 Atomic ratio \n(average) \nwhere M=1 \nw \n(%) Atomic ratio w(%) Atomic ratio \nLi  6.9 8.79 8.07 9.45 8.63 8.24 \nNi  58.7 74.03 7.99 74.13 7.96 7.87 \nMn  54.9 4.91 0.57 4.91 0.56 0.55 \nCo  58.9 9.30 1.00 9.35 1.00 0.98 \nAla 27.0 2.97 0.70 2.16 0.50 0.59 \na\uff1aThe contribution of aluminium from the aluminium disk is deducted.  \nTable S4. ICP-OES analysis of NMC electrode "
+ },
+ {
+  "char_end": 4278,
+  "char_start": 4126,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 5,
+  "segment_id": "chen2020_supplement_s1#seg00028",
+  "text": " Weight % \nElement Area 1 Area 2 Area 3 \nC 40.12 54.88  \nO 31.92 18.69 36.47 \nSi 15.84 21.93 62.8 \nS 1.27 0.58 0.73 \nCu 10.85 3.92  \nTotal 100 100 100 \n"
+ },
+ {
+  "char_end": 4282,
+  "char_start": 4279,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 6,
+  "segment_id": "chen2020_supplement_s1#seg00029",
+  "text": "vi "
+ },
+ {
+  "char_end": 4324,
+  "char_start": 4285,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 6,
+  "segment_id": "chen2020_supplement_s1#seg00030",
+  "text": "S4 3D reconstruction of the electrodes "
+ },
+ {
+  "char_end": 5217,
+  "char_start": 4327,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 6,
+  "segment_id": "chen2020_supplement_s1#seg00031",
+  "text": "The 2D images of the electrodes were aligned and cropped accordingly: 62 \n  55 \n  57 \u00b5m3 for \nthe positive electrode and 47 \n  49 \n  20 \u00b5m3 for the negative electrode, in order to remove any \nunwanted areas of the morphologies of the electrodes and reconstructed with the use of \ncommercial software Synopsys Simpleware Scan IP [1]. A median filter was applied in order \nto remove noise. \nThe segmentation was achieved using a binary thresholding in order to reconstruct the 3D pore \nnetwork. Then, the copy of pore domain was created and inverted on all slic es in the whole \ncuboid domain by employing Boolean operation to create a new mask of solid constituents. \nThe volume fractions of the electrode components: active material and non-active, comprising \nof carbon black and pores were calculated by dividing the number of voxel assigned to one \nphase by the total number of voxels.  "
+ },
+ {
+  "char_end": 5366,
+  "char_start": 5222,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 6,
+  "segment_id": "chen2020_supplement_s1#seg00032",
+  "text": "Figure S6. Reconstruction of M50 electrodes: negative electrode (top) and positive electrode \n(bottom) by Synopsys Simpleware Scan IP software. "
+ },
+ {
+  "char_end": 5494,
+  "char_start": 5396,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 6,
+  "segment_id": "chen2020_supplement_s1#seg00033",
+  "text": "Figure S7. 3D reconstruction of ceramic coated separator and the calculated porosities \na \nb \n48% "
+ },
+ {
+  "char_end": 5501,
+  "char_start": 5497,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 6,
+  "segment_id": "chen2020_supplement_s1#seg00034",
+  "text": "46% "
+ },
+ {
+  "char_end": 5508,
+  "char_start": 5504,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 6,
+  "segment_id": "chen2020_supplement_s1#seg00035",
+  "text": "46% "
+ },
+ {
+  "char_end": 5513,
+  "char_start": 5509,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 7,
+  "segment_id": "chen2020_supplement_s1#seg00036",
+  "text": "vii "
+ },
+ {
+  "char_end": 5542,
+  "char_start": 5516,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 7,
+  "segment_id": "chen2020_supplement_s1#seg00037",
+  "text": "S5 Diffusion Coefficients "
+ },
+ {
+  "char_end": 5776,
+  "char_start": 5547,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 7,
+  "segment_id": "chen2020_supplement_s1#seg00038",
+  "text": "Fig S8 Diffusion coefficients calculated using the following equation modified from Weppner \nand Huggins. [42]  (with no applied correction factor for particle size increase). \n\ud835\udc37s =  4\ud835\udf0b\ud835\udf0f (\ud835\udc5a\ud835\udc34\ud835\udc40\ud835\udc49\ud835\udc40\ud835\udc40\ud835\udc34\ud835\udc40\ud835\udc46 )2 (\u2206\ud835\udc38s\u2206\ud835\udc38t)2 ,      (\ud835\udf0f \u226a \ud835\udc452\ud835\udc37s) "
+ },
+ {
+  "char_end": 6148,
+  "char_start": 5779,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 7,
+  "segment_id": "chen2020_supplement_s1#seg00039",
+  "text": "As is observed in S8 the voltage transients are slightly curved, and therefore care must be taken \nwhen fitting the SAND equation. The fits can be improved by utilizing part of the voltage \ntransient curve. However the data obtained utilizing this methodology has significantly higher \nresolution than the data obtained from the titration measurements as shown in. S9. "
+ },
+ {
+  "char_end": 6158,
+  "char_start": 6153,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 8,
+  "segment_id": "chen2020_supplement_s1#seg00040",
+  "text": "viii "
+ },
+ {
+  "char_end": 6374,
+  "char_start": 6177,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 8,
+  "segment_id": "chen2020_supplement_s1#seg00041",
+  "text": "Fig S9 V oltage transient for lithiation and delithiation current pulses taken from 0.52, 2.02, 4 \nand 5.01 mAh cm 2 capacities, with the SAND equation fit for the negative electrode GITT \u00bd \ncell. "
+ },
+ {
+  "char_end": 6383,
+  "char_start": 6380,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 9,
+  "segment_id": "chen2020_supplement_s1#seg00042",
+  "text": "ix "
+ },
+ {
+  "char_end": 6510,
+  "char_start": 6388,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 9,
+  "segment_id": "chen2020_supplement_s1#seg00043",
+  "text": "Fig S10 R2 for SAND fit to voltage transient  for lithiation and d elithiation of the negative \nelectrode (1/2 cell data) "
+ },
+ {
+  "char_end": 6585,
+  "char_start": 6517,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 9,
+  "segment_id": "chen2020_supplement_s1#seg00044",
+  "text": "S6 Electrochemical impedance spectroscopy measurement of half cells "
+ },
+ {
+  "char_end": 6726,
+  "char_start": 6590,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "Chang-Hui Chena,b,d, Ferran Brosa Planellaa,d, Kieran O\u2019Reganc,d, Dominika Gastolc, W.",
+  "page": 9,
+  "segment_id": "chen2020_supplement_s1#seg00045",
+  "text": "Figure S8. Exchange current densities calculated for (a) NMC and (b) graphite-SiOx half cells \nat different states of charge at 25 \n C. "
+ },
+ {
+  "char_end": 6774,
+  "char_start": 6729,
+  "document_id": "chen2020_supplement_s1",
+  "heading": "References:",
+  "page": 9,
+  "segment_id": "chen2020_supplement_s1#seg00046",
+  "text": "References:  \n[1] www.simpleware.com, 2019. \n"
+ }
+]

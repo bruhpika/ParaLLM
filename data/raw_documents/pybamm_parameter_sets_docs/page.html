@@ -1,0 +1,1176 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="article:modified_time" content="2026-11-05T19:06:38+00:00" />
+    <title>Parameters Sets &#8212; PyBaMM v26.10.1.1.dev63+g7ad734e74 Manual</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/docsearch.css?v=48afb9a1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pybamm.css?v=2bc0005e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pydata-docsearch-custom.css?v=1ec07212" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
+
+    <script src="../../../_static/documentation_options.js?v=ea07f1c9"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/tabs.js?v=3ee01567"></script>
+    <script defer="defer" src="../../../_static/docsearch.js?v=54ee8836"></script>
+    <script defer="defer" src="../../../_static/docsearch_config.js?v=6db09bee"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-domain="docs.pybamm.org" defer="defer" src="https://plausible.io/js/script.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'source/api/parameters/parameter_sets';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script data-expert="pybamm" data-position="left" data-question-1="Can I model lithium plating with the DFN?" data-question-2="Which model options add thermal effects?" data-question-3="How do I run a drive cycle experiment?" defer="defer" src="https://ionworks.com/experts/widget.js"></script>
+    <link rel="canonical" href="https://docs.pybamm.org/en/latest/source/api/parameters/parameter_sets.html" />
+    <link rel="icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="next" title="Process Parameter Data" href="process_parameter_data.html" />
+    <link rel="prev" title="Lead-Acid Parameters" href="lead_acid_parameters.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="26.10.1.1.dev63+g7ad734e74" />
+    <meta name="docbuild:last-update" content="2026-11-05"/>
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  <script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="pybamm" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/source/api/parameters/parameter_sets.html" /><meta name="readthedocs-http-status" content="200" /></head>
+  <body data-default-mode="light">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../../../_static/pybamm_logo.png" class="logo__image only-light" alt="PyBaMM v26.10.1.1.dev63+g7ad734e74 Manual - Home"/>
+    <img src="../../../_static/pybamm_logo_whitetext.png" class="logo__image only-dark pst-js-only" alt="PyBaMM v26.10.1.1.dev63+g7ad734e74 Manual - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../model_zoo/index.html">
+    Model Zoo
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/contributing.html">
+    Contributing
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          <div id="algolia-docsearch"></div>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pybamm-team/pybamm" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/pybamm_" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i><span class="visually-hidden">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/pybamm/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-box fa-lg" aria-hidden="true"></i><span class="visually-hidden">PyPI</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile"><div id="algolia-docsearch"></div>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../model_zoo/index.html">
+    Model Zoo
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/contributing.html">
+    Contributing
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pybamm-team/pybamm" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/pybamm_" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i><span class="visually-hidden">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/pybamm/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-box fa-lg" aria-hidden="true"></i><span class="visually-hidden">PyPI</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../expression_tree/index.html">Expression Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Models</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Parameters</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="parameter_values.html">Parameter Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameter_store.html">Parameter Store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameter_substitutor.html">Parameter Substitutor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometric_parameters.html">Geometric Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="electrical_parameters.html">Electrical Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thermal_parameters.html">Thermal Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lithium_ion_parameters.html">Lithium-ion Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lead_acid_parameters.html">Lead-Acid Parameters</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Parameters Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process_parameter_data.html">Process Parameter Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../geometry/index.html">Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../meshes/index.html">Meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spatial_methods/index.html">Discretisation and spatial methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solvers/index.html">Solvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codegen/index.html">Code generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../experiment/index.html">Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/index.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plotting/index.html">Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util.html">Utility functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../callbacks.html">Callbacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../citations.html">Citations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../batch_study.html">Batch Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pybamm_data.html">PyBaMM Data</a></li>
+</ul>
+</div>
+</nav></div>
+        <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API documentation</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Parameters</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Parameters Sets</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="parameters-sets">
+<span id="parameter-sets"></span><h1>Parameters Sets<a class="headerlink" href="#parameters-sets" title="Link to this heading">#</a></h1>
+<p>PyBaMM provides <a class="reference internal" href="#bundled-parameter-sets"><span class="std std-ref">pre-defined parameters</span></a> for common
+chemistries, as well as, a growing set of <a class="reference internal" href="#third-party-parameter-sets"><span class="std std-ref">third-party parameter sets</span></a>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pybamm.dispatch.entry_points.EntryPoint">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pybamm.dispatch.entry_points.</span></span><span class="sig-name descname"><span class="pre">EntryPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pybamm/dispatch/entry_points.html#EntryPoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pybamm.dispatch.entry_points.EntryPoint" title="Link to this definition">#</a></dt>
+<dd><p>A mapping interface for accessing PyBaMM models and parameter sets through entry points.</p>
+<p>Access via <code class="xref py py-data docutils literal notranslate"><span class="pre">pybamm.parameter_sets</span></code> for parameter sets - provides access
+to all registered battery parameter sets (e.g., ‘Chen2020’, ‘Ai2020’) that can
+be used to parameterise battery models.</p>
+<p>Access via <code class="xref py py-data docutils literal notranslate"><span class="pre">pybamm.Model</span></code> for models - provides access to all registered
+battery models (e.g., ‘SPM’, ‘DFN’).</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>This feature is currently experimental.</p>
+</div>
+<p class="rubric">Examples</p>
+<dl>
+<dt>Listing available parameter sets:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pybamm</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">pybamm</span><span class="o">.</span><span class="n">parameter_sets</span><span class="p">)</span>
+<span class="go">[&#39;Ai2020&#39;, &#39;Bonkile2024&#39;, &#39;Chayambuka2022&#39;, ...]</span>
+</pre></div>
+</div>
+</dd>
+<dt>Listing available models:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pybamm</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">pybamm</span><span class="o">.</span><span class="n">dispatch</span><span class="o">.</span><span class="n">models</span><span class="p">)</span>
+<span class="go">[&#39;DFN&#39;, &#39;MPM&#39;, ...]</span>
+</pre></div>
+</div>
+</dd>
+<dt>Get the docstring for a parameter set or model:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">pybamm</span><span class="o">.</span><span class="n">parameter_sets</span><span class="o">.</span><span class="n">get_docstring</span><span class="p">(</span><span class="s2">&quot;Ai2020&quot;</span><span class="p">))</span>
+
+<span class="go">Parameters for the Enertech cell (Ai2020), from the papers :footcite:t:`Ai2019`...</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">pybamm</span><span class="o">.</span><span class="n">dispatch</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">get_docstring</span><span class="p">(</span><span class="s2">&quot;SPM&quot;</span><span class="p">))</span>
+
+<span class="go">Single Particle Model (SPM) of a lithium-ion battery...</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p><strong>Extends:</strong> <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Mapping</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pybamm.dispatch.entry_points.EntryPoint.get_docstring">
+<span class="sig-name descname"><span class="pre">get_docstring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pybamm/dispatch/entry_points.html#EntryPoint.get_docstring"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pybamm.dispatch.entry_points.EntryPoint.get_docstring" title="Link to this definition">#</a></dt>
+<dd><p>Return the docstring for the <code class="docutils literal notranslate"><span class="pre">key</span></code> parameter set or model</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pybamm.dispatch.entry_points.EntryPoint.get_entries">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_entries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pybamm/dispatch/entry_points.html#EntryPoint.get_entries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pybamm.dispatch.entry_points.EntryPoint.get_entries" title="Link to this definition">#</a></dt>
+<dd><p>Wrapper for the importlib version logic</p>
+</dd></dl>
+
+</dd></dl>
+
+<section id="adding-parameter-sets">
+<span id="id1"></span><h2>Adding Parameter Sets<a class="headerlink" href="#adding-parameter-sets" title="Link to this heading">#</a></h2>
+<p>Parameter sets can be added to PyBaMM by creating a python package, and
+registering a <a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/entry_point.html">entry point</a> to <code class="docutils literal notranslate"><span class="pre">pybamm_parameter_sets</span></code>. At a minimum, the
+package (<code class="docutils literal notranslate"><span class="pre">cell_parameters</span></code>) should consist of the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cell_parameters
+├── pyproject.toml        # and/or setup.cfg, setup.py
+└── src
+    └── cell_parameters
+        └── cell_alpha.py
+</pre></div>
+</div>
+<p>The actual parameter set is defined within <code class="docutils literal notranslate"><span class="pre">cell_alpha.py</span></code>, as shown below.
+For an example, see the <a class="reference external" href="https://github.com/pybamm-team/PyBaMM/blob/main/packages/pybamm/src/pybamm/input/parameters/lithium_ion/Marquis2019.py">Marquis2019</a> parameter sets.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">pybamm</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span><span class="w"> </span><span class="nf">get_parameter_values</span><span class="p">():</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Doc string for cell-alpha&quot;&quot;&quot;</span>
+<span class="linenos"> 6</span>    <span class="k">return</span> <span class="p">{</span>
+<span class="linenos"> 7</span>        <span class="s2">&quot;chemistry&quot;</span><span class="p">:</span> <span class="s2">&quot;lithium_ion&quot;</span><span class="p">,</span>
+<span class="linenos"> 8</span>        <span class="s2">&quot;citation&quot;</span><span class="p">:</span> <span class="s2">&quot;@book{van1995python, title={Python reference manual}}&quot;</span><span class="p">,</span>
+<span class="linenos"> 9</span>        <span class="c1"># ...</span>
+<span class="linenos">10</span>    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Then register <code class="docutils literal notranslate"><span class="pre">get_parameter_values</span></code> to <code class="docutils literal notranslate"><span class="pre">pybamm_parameter_sets</span></code> in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project.entry-points.pybamm_parameter_sets]</span>
+<span class="n">cell_alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;cell_parameters.cell_alpha:get_parameter_values&quot;</span>
+</pre></div>
+</div>
+<p>If you are using <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> or <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code> to setup your package, please
+see SetupTools’ documentation for registering <a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/entry_point.html#entry-points-for-plugins">entry points</a>.</p>
+<p>If you’re willing to open-source your parameter set,
+<a class="reference external" href="https://github.com/pybamm-team/PyBaMM/issues/new/choose">let us know</a>, and we can add an entry to
+<a class="reference internal" href="#third-party-parameter-sets"><span class="std std-ref">Third-Party Parameter Sets</span></a>.</p>
+</section>
+<section id="third-party-parameter-sets">
+<span id="id2"></span><h2>Third-Party Parameter Sets<a class="headerlink" href="#third-party-parameter-sets" title="Link to this heading">#</a></h2>
+<p>Registered a new parameter set to <code class="docutils literal notranslate"><span class="pre">pybamm_parameter_sets</span></code>?
+<a class="reference external" href="https://github.com/pybamm-team/PyBaMM/issues/new/choose">Let us know</a>, and we’ll update our list.</p>
+</section>
+<section id="bundled-parameter-sets">
+<span id="id3"></span><h2>Bundled Parameter Sets<a class="headerlink" href="#bundled-parameter-sets" title="Link to this heading">#</a></h2>
+<p>PyBaMM provides pre-defined parameter sets for several common chemistries,
+listed below. See <a class="reference internal" href="#adding-parameter-sets"><span class="std std-ref">Adding Parameter Sets</span></a> for information on registering new
+parameter sets with PyBaMM.</p>
+<section id="lead-acid-parameter-sets">
+<h3>Lead-acid Parameter Sets<a class="headerlink" href="#lead-acid-parameter-sets" title="Link to this heading">#</a></h3>
+<section id="sulzer2019">
+<h4>Sulzer2019<a class="headerlink" href="#sulzer2019" title="Link to this heading">#</a></h4>
+<p>Parameters for BBOXX lead-acid cells, from the paper
+Sulzer <em>et al.</em><a class="footnote-reference brackets" href="#footcite-sulzer2019asymptotic" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> and references therein.</p>
+</section>
+</section>
+<section id="lithium-ion-parameter-sets">
+<h3>Lithium-ion Parameter Sets<a class="headerlink" href="#lithium-ion-parameter-sets" title="Link to this heading">#</a></h3>
+<section id="ai2020">
+<h4>Ai2020<a class="headerlink" href="#ai2020" title="Link to this heading">#</a></h4>
+<p>Parameters for the Enertech cell (Ai2020), from the papers Ai <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ai2019" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>,
+Rieger <em>et al.</em><a class="footnote-reference brackets" href="#footcite-rieger2016" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> and references therein.</p>
+<p>SEI parameters are example parameters for SEI growth from the papers
+Ramadass <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ramadass2004" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>, Ploehn <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ploehn2004" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>,
+Single <em>et al.</em><a class="footnote-reference brackets" href="#footcite-single2018" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>, Safari <em>et al.</em><a class="footnote-reference brackets" href="#footcite-safari2008" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>, and
+Yang <em>et al.</em><a class="footnote-reference brackets" href="#footcite-yang2017" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This parameter set does not claim to be representative of the true parameter
+values. Instead these are parameter values that were used to fit SEI models to
+observed experimental data in the referenced papers.</p>
+</div>
+</section>
+<section id="bonkile2024">
+<h4>Bonkile2024<a class="headerlink" href="#bonkile2024" title="Link to this heading">#</a></h4>
+<p>Parameters for a composite graphite/silicon negative electrode with degradation,
+from Bonkile <em>et al.</em><a class="footnote-reference brackets" href="#footcite-bonkile2024" id="id12" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a>, building on Chen <em>et al.</em><a class="footnote-reference brackets" href="#footcite-chen2020" id="id13" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a>,
+Ai <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ai2022" id="id14" role="doc-noteref"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></a> and O’Kane <em>et al.</em><a class="footnote-reference brackets" href="#footcite-okane2022" id="id15" role="doc-noteref"><span class="fn-bracket">[</span>12<span class="fn-bracket">]</span></a>. Both phases share the SEI
+parameters of Yang <em>et al.</em><a class="footnote-reference brackets" href="#footcite-yang2017" id="id16" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These values were assembled for composite-electrode degradation studies and
+are not claimed to represent a real cell.</p>
+</div>
+</section>
+<section id="chen2020">
+<h4>Chen2020<a class="headerlink" href="#chen2020" title="Link to this heading">#</a></h4>
+<p>Parameters for an LG M50 cell, from the paper Chen <em>et al.</em><a class="footnote-reference brackets" href="#footcite-chen2020" id="id17" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a> and references
+therein.</p>
+<p>SEI parameters are example parameters for SEI growth from the papers
+Ramadass <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ramadass2004" id="id18" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>, Ploehn <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ploehn2004" id="id19" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>,
+Single <em>et al.</em><a class="footnote-reference brackets" href="#footcite-single2018" id="id20" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>, Safari <em>et al.</em><a class="footnote-reference brackets" href="#footcite-safari2008" id="id21" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>, and
+Yang <em>et al.</em><a class="footnote-reference brackets" href="#footcite-yang2017" id="id22" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This parameter set does not claim to be representative of the true parameter
+values. Instead these are parameter values that were used to fit SEI models to
+observed experimental data in the referenced papers.</p>
+</div>
+</section>
+<section id="chen2020-composite">
+<h4>Chen2020_composite<a class="headerlink" href="#chen2020-composite" title="Link to this heading">#</a></h4>
+<p>Parameters for a composite graphite/silicon negative electrode, from the paper
+Ai <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ai2022" id="id23" role="doc-noteref"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></a>, based on the paper Chen <em>et al.</em><a class="footnote-reference brackets" href="#footcite-chen2020" id="id24" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a>, and references
+therein.</p>
+<p>SEI parameters are example parameters for composite SEI on silicon/graphite. Both
+phases use the same values, from the paper Yang <em>et al.</em><a class="footnote-reference brackets" href="#footcite-yang2017" id="id25" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a></p>
+</section>
+<section id="ecker2015">
+<h4>Ecker2015<a class="headerlink" href="#ecker2015" title="Link to this heading">#</a></h4>
+<p>Parameters for a Kokam SLPB 75106100 cell, from the papers Ecker <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ecker2015i" id="id26" role="doc-noteref"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></a>
+and Ecker <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ecker2015ii" id="id27" role="doc-noteref"><span class="fn-bracket">[</span>14<span class="fn-bracket">]</span></a></p>
+<p>The tab placement parameters are taken from measurements in Hales <em>et al.</em><a class="footnote-reference brackets" href="#footcite-hales2019" id="id28" role="doc-noteref"><span class="fn-bracket">[</span>15<span class="fn-bracket">]</span></a></p>
+<p>The thermal material properties are for a 5 Ah power pouch cell by Kokam. The data
+are extracted from Zhao <em>et al.</em><a class="footnote-reference brackets" href="#footcite-zhao2018" id="id29" role="doc-noteref"><span class="fn-bracket">[</span>16<span class="fn-bracket">]</span></a></p>
+<section id="graphite-negative-electrode-parameters">
+<h5>Graphite negative electrode parameters<a class="headerlink" href="#graphite-negative-electrode-parameters" title="Link to this heading">#</a></h5>
+<p>The fits to data for the electrode and electrolyte properties are those provided
+by Dr. Simon O’Kane in the paper Richardson <em>et al.</em><a class="footnote-reference brackets" href="#footcite-richardson2020" id="id30" role="doc-noteref"><span class="fn-bracket">[</span>17<span class="fn-bracket">]</span></a></p>
+<p>SEI parameters are example parameters for SEI growth from the papers
+Ramadass <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ramadass2004" id="id31" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>, Ploehn <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ploehn2004" id="id32" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>,
+Single <em>et al.</em><a class="footnote-reference brackets" href="#footcite-single2018" id="id33" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>, Safari <em>et al.</em><a class="footnote-reference brackets" href="#footcite-safari2008" id="id34" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>, and
+Yang <em>et al.</em><a class="footnote-reference brackets" href="#footcite-yang2017" id="id35" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This parameter set does not claim to be representative of the true parameter
+values. Instead these are parameter values that were used to fit SEI models to
+observed experimental data in the referenced papers.</p>
+</div>
+</section>
+</section>
+<section id="ecker2015-graphite-halfcell">
+<h4>Ecker2015_graphite_halfcell<a class="headerlink" href="#ecker2015-graphite-halfcell" title="Link to this heading">#</a></h4>
+<p>Parameters for a graphite half-cell based on a Kokam SLPB 75106100 cell, from papers</p>
+<blockquote>
+<div><p>Ecker, Madeleine, et al. “Parameterization of a physico-chemical model of a
+lithium-ion battery I. determination of parameters.” Journal of the
+Electrochemical Society 162.9 (2015): A1836-A1848.</p>
+<p>Ecker, Madeleine, et al. “Parameterization of a physico-chemical model of a
+lithium-ion battery II. Model validation.” Journal of The Electrochemical
+Society 162.9 (2015): A1849-A1857.</p>
+</div></blockquote>
+<p>The tab placement parameters are taken from measurements in</p>
+<blockquote>
+<div><p>Hales, Alastair, et al. “The cell cooling coefficient: a standard to define heat
+rejection from lithium-ion batteries.” Journal of The Electrochemical Society
+166.12 (2019): A2383.</p>
+</div></blockquote>
+<p>The thermal material properties are for a 5 Ah power pouch cell by Kokam. The data
+are extracted from</p>
+<blockquote>
+<div><p>Zhao, Y., et al. “Modeling the effects of thermal gradients induced by tab and
+surface cooling on lithium ion cell performance.”” Journal of The
+Electrochemical Society, 165.13 (2018): A3169-A3178.</p>
+</div></blockquote>
+<section id="graphite-electrode-parameters">
+<h5>Graphite electrode parameters<a class="headerlink" href="#graphite-electrode-parameters" title="Link to this heading">#</a></h5>
+<p>The fits to data for the electrode and electrolyte properties are those provided
+by Dr. Simon O’Kane in the paper:</p>
+<blockquote>
+<div><p>Richardson, Giles, et. al. “Generalised single particle models for high-rate
+operation of graded lithium-ion electrodes: Systematic derivation and
+validation.” Electrochemica Acta 339 (2020): 135862</p>
+</div></blockquote>
+<p>SEI parameters are example parameters for SEI growth from the papers:</p>
+<blockquote>
+<div><p>Ramadass, P., Haran, B., Gomadam, P. M., White, R., &amp; Popov, B. N. (2004).
+Development of first principles capacity fade model for Li-ion cells. Journal of
+the Electrochemical Society, 151(2), A196-A203.</p>
+<p>Ploehn, H. J., Ramadass, P., &amp; White, R. E. (2004). Solvent diffusion model for
+aging of lithium-ion battery cells. Journal of The Electrochemical Society,
+151(3), A456-A462.</p>
+<p>Single, F., Latz, A., &amp; Horstmann, B. (2018). Identifying the mechanism of
+continued growth of the solid-electrolyte interphase. ChemSusChem, 11(12),
+1950-1955.</p>
+<p>Safari, M., Morcrette, M., Teyssot, A., &amp; Delacour, C. (2009). Multimodal
+Physics- Based Aging Model for Life Prediction of Li-Ion Batteries. Journal of
+The Electrochemical Society, 156(3),</p>
+<p>Yang, X., Leng, Y., Zhang, G., Ge, S., Wang, C. (2017). Modeling of lithium
+plating induced aging of lithium-ion batteries: Transition from linear to
+nonlinear aging. Journal of Power Sources, 360, 28-40.</p>
+</div></blockquote>
+<p>Note: this parameter set does not claim to be representative of the true parameter
+values. Instead these are parameter values that were used to fit SEI models to
+observed experimental data in the referenced papers.</p>
+</section>
+</section>
+<section id="msmr-example">
+<h4>MSMR_Example<a class="headerlink" href="#msmr-example" title="Link to this heading">#</a></h4>
+<p>Example parameter values for use with MSMR models. The thermodynamic parameters
+are for Graphite and NMC622, and are taken from Table 1 of the paper</p>
+<blockquote>
+<div><p>Mark Verbrugge, Daniel Baker, Brian Koch, Xingcheng Xiao and Wentian Gu.
+Thermodynamic Model for Substitutional Materials: Application to Lithiated
+Graphite, Spinel Manganese Oxide, Iron Phosphate, and Layered
+Nickel-Manganese-Cobalt Oxide. Journal of The Electrochemical Society,
+164(11):3243-3253, 2017. doi:10.1149/2.0341708jes.</p>
+</div></blockquote>
+<p>The remaining value are based on a parameterization of the LG M50 cell, from the
+paper</p>
+<blockquote>
+<div><p>Chang-Hui Chen, Ferran Brosa Planella, Kieran O’Regan, Dominika Gastol, W.
+Dhammika Widanage, and Emma Kendrick. Development of Experimental Techniques for
+Parameterization of Multi-scale Lithium-ion Battery Models. Journal of The
+Electrochemical Society, 167(8):080534, 2020. doi:10.1149/1945-7111/ab9050.</p>
+</div></blockquote>
+<p>and references therein. Verbrugge et al. (2017) does not provide kinetic parameters
+so we set the reference exchange current density to 5 A.m-2 for the positive
+electrode reactions and 2.7 A.m-2 for the negative electrode reactions, which are
+the values used in the Chen et al. (2020) paper. We also assume that the
+exchange-current density is symmetric. Note: the 4th reaction in the positive
+electrode gave unphysical results so we set the reference exchange current density
+and symmetry factor to 1e6 and 1, respectively. The parameter values are intended
+to serve as an example set to use with the MSMR model and do not claim to match any
+experimental cycling data.</p>
+</section>
+<section id="id36">
+<h4>Marquis2019<a class="headerlink" href="#id36" title="Link to this heading">#</a></h4>
+<p>Parameters for a Kokam SLPB78205130H cell, from the paper Marquis <em>et al.</em><a class="footnote-reference brackets" href="#footcite-marquis2019" id="id37" role="doc-noteref"><span class="fn-bracket">[</span>18<span class="fn-bracket">]</span></a>
+and references therein.</p>
+<p>SEI parameters are example parameters for SEI growth from the papers
+Ramadass <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ramadass2004" id="id38" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>, Ploehn <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ploehn2004" id="id39" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>,
+Single <em>et al.</em><a class="footnote-reference brackets" href="#footcite-single2018" id="id40" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>, Safari <em>et al.</em><a class="footnote-reference brackets" href="#footcite-safari2008" id="id41" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>, and
+Yang <em>et al.</em><a class="footnote-reference brackets" href="#footcite-yang2017" id="id42" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This parameter set does not claim to be representative of the true parameter
+values. Instead these are parameter values that were used to fit SEI models to
+observed experimental data in the referenced papers.</p>
+</div>
+</section>
+<section id="mohtat2020">
+<h4>Mohtat2020<a class="headerlink" href="#mohtat2020" title="Link to this heading">#</a></h4>
+<p>Parameters for a graphite/NMC532 pouch cell from the paper Mohtat <em>et al.</em><a class="footnote-reference brackets" href="#footcite-mohtat2020" id="id43" role="doc-noteref"><span class="fn-bracket">[</span>19<span class="fn-bracket">]</span></a>
+and references therein.</p>
+<p>SEI parameters are example parameters for SEI growth from the papers
+Ramadass <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ramadass2004" id="id44" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>, Ploehn <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ploehn2004" id="id45" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>,
+Single <em>et al.</em><a class="footnote-reference brackets" href="#footcite-single2018" id="id46" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>, Safari <em>et al.</em><a class="footnote-reference brackets" href="#footcite-safari2008" id="id47" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>, and
+Yang <em>et al.</em><a class="footnote-reference brackets" href="#footcite-yang2017" id="id48" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a></p>
+<section id="sei-parameters">
+<h5>SEI parameters<a class="headerlink" href="#sei-parameters" title="Link to this heading">#</a></h5>
+<p>Parameters for lithium plating are from the paper Yang <em>et al.</em><a class="footnote-reference brackets" href="#footcite-yang2017" id="id49" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This parameter set does not claim to be representative of the true parameter
+values. Instead these are parameter values that were used to fit SEI models to
+observed experimental data in the referenced papers.</p>
+</div>
+</section>
+</section>
+<section id="nca-kim2011">
+<h4>NCA_Kim2011<a class="headerlink" href="#nca-kim2011" title="Link to this heading">#</a></h4>
+<p>Parameters for a “Nominal Design” graphite/NCA pouch cell, from the paper
+Kim <em>et al.</em><a class="footnote-reference brackets" href="#footcite-kim2011" id="id50" role="doc-noteref"><span class="fn-bracket">[</span>20<span class="fn-bracket">]</span></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only an effective cell volumetric heat capacity is provided in the paper. We
+therefore used the values for the density and specific heat capacity reported in
+the Marquis2019 parameter set in each region and multiplied each density by the
+ratio of the volumetric heat capacity provided in smith to the calculated value.
+This ensures that the values produce the same effective cell volumetric heat
+capacity. This works fine for thermal models that are averaged over the
+x-direction but not for full (PDE in x direction) thermal models. We do the same
+for the planar effective thermal conductivity.</p>
+</div>
+<p>SEI parameters are example parameters for SEI growth from the papers
+Ramadass <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ramadass2004" id="id51" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>, Ploehn <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ploehn2004" id="id52" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>,
+Single <em>et al.</em><a class="footnote-reference brackets" href="#footcite-single2018" id="id53" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>, Safari <em>et al.</em><a class="footnote-reference brackets" href="#footcite-safari2008" id="id54" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>, and
+Yang <em>et al.</em><a class="footnote-reference brackets" href="#footcite-yang2017" id="id55" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This parameter set does not claim to be representative of the true parameter
+values. Instead these are parameter values that were used to fit SEI models to
+observed experimental data in the referenced papers.</p>
+</div>
+</section>
+<section id="okane2022">
+<h4>OKane2022<a class="headerlink" href="#okane2022" title="Link to this heading">#</a></h4>
+<p>Parameters for an LG M50 cell, from the paper O’Kane <em>et al.</em><a class="footnote-reference brackets" href="#footcite-okane2022" id="id56" role="doc-noteref"><span class="fn-bracket">[</span>12<span class="fn-bracket">]</span></a>, based on the
+paper Chen <em>et al.</em><a class="footnote-reference brackets" href="#footcite-chen2020" id="id57" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a> and references therein.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This parameter set does not claim to be representative of the true parameter
+values. Instead these are parameter values that were used to fit SEI models to
+observed experimental data in the referenced papers.</p>
+</div>
+</section>
+<section id="okane2022-graphite-siox-halfcell">
+<h4>OKane2022_graphite_SiOx_halfcell<a class="headerlink" href="#okane2022-graphite-siox-halfcell" title="Link to this heading">#</a></h4>
+<p>Parameters for the graphite+SiOx negative electrode of a LG M50 cell, from the paper</p>
+<blockquote>
+<div><p>Simon E. J. O’Kane, Weilong Ai, Ganesh Madabattula, Diego Alonso-Alvarez, Robert
+Timms, Valentin Sulzer, Jacqueline Sophie Edge, Billy Wu, Gregory J. Offer, and
+Monica Marinescu. Lithium-ion battery degradation: how to model it. Phys. Chem.
+Chem. Phys., 24:7909-7922, 2022. URL: <a class="reference external" href="http://dx.doi.org/10.1039/D2CP00417H">http://dx.doi.org/10.1039/D2CP00417H</a>,
+doi:10.1039/D2CP00417H.</p>
+</div></blockquote>
+<p>based on the paper</p>
+<blockquote>
+<div><p>Chang-Hui Chen, Ferran Brosa Planella, Kieran O’Regan, Dominika Gastol, W.
+Dhammika Widanage, and Emma Kendrick. Development of Experimental Techniques for
+Parameterization of Multi-scale Lithium-ion Battery Models. Journal of The
+Electrochemical Society, 167(8):080534, 2020. doi:10.1149/1945-7111/ab9050.</p>
+</div></blockquote>
+<p>and references therein.</p>
+<p>Note: the SEI, plating and mechanical parameters do not claim to be representative
+of the true parameter values. These are merely the parameter values that were used
+in the referenced papers.</p>
+</section>
+<section id="oregan2022">
+<h4>ORegan2022<a class="headerlink" href="#oregan2022" title="Link to this heading">#</a></h4>
+<p>Parameters for an LG M50 cell, from the paper O’Regan <em>et al.</em><a class="footnote-reference brackets" href="#footcite-oregan2022" id="id58" role="doc-noteref"><span class="fn-bracket">[</span>21<span class="fn-bracket">]</span></a></p>
+<p>Parameters for a LiPF6 in EC:EMC (3:7 w:w) electrolyte are from the paper
+Landesfeind and Gasteiger<a class="footnote-reference brackets" href="#footcite-landesfeind2019" id="id59" role="doc-noteref"><span class="fn-bracket">[</span>22<span class="fn-bracket">]</span></a> and references therein.</p>
+</section>
+<section id="prada2013">
+<h4>Prada2013<a class="headerlink" href="#prada2013" title="Link to this heading">#</a></h4>
+<p>Parameters for an LFP cell, from the paper Prada <em>et al.</em><a class="footnote-reference brackets" href="#footcite-prada2013" id="id60" role="doc-noteref"><span class="fn-bracket">[</span>23<span class="fn-bracket">]</span></a></p>
+</section>
+<section id="ramadass2004">
+<h4>Ramadass2004<a class="headerlink" href="#ramadass2004" title="Link to this heading">#</a></h4>
+<p>Ramadass2004 parameter set. This is a bit of a Frankenstein parameter set and should
+be used with caution.</p>
+<p>Parameters for a graphite negative electrode, Lithium Cobalt Oxide positive
+electrode, and LiPF6 electrolyte are from the papers Marquis <em>et al.</em><a class="footnote-reference brackets" href="#footcite-marquis2019" id="id61" role="doc-noteref"><span class="fn-bracket">[</span>18<span class="fn-bracket">]</span></a>,
+Ramadass <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ramadass2004" id="id62" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>, and references therein.</p>
+<p>Parameters for the separator are from the papers Ecker <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ecker2015i" id="id63" role="doc-noteref"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></a></p>
+<p>The thermal material properties are for a 5 Ah power pouch cell by Kokam. The data
+are extracted from Lithium Cobalt Oxide positive electrode parameters in
+Zhao <em>et al.</em><a class="footnote-reference brackets" href="#footcite-zhao2018" id="id64" role="doc-noteref"><span class="fn-bracket">[</span>16<span class="fn-bracket">]</span></a></p>
+<p>Parameters for SEI growth are from the papers Ramadass <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ramadass2004" id="id65" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> and
+Safari <em>et al.</em><a class="footnote-reference brackets" href="#footcite-safari2008" id="id66" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ramadass 2004 has mistakes in units and values of SEI parameters, corrected by
+Safari2009.</p>
+</div>
+</section>
+<section id="xu2019">
+<h4>Xu2019<a class="headerlink" href="#xu2019" title="Link to this heading">#</a></h4>
+<p>Parameters for a Kokam SLPB78205130H half-cell, from the paper Xu <em>et al.</em><a class="footnote-reference brackets" href="#footcite-xu2019" id="id67" role="doc-noteref"><span class="fn-bracket">[</span>24<span class="fn-bracket">]</span></a>
+and references therein. Anode is graphite MCMB 2528. Separator is Celgard 2325.
+Cathode is lithium Cobalt Oxide. Electrolyte is LiPF6.</p>
+<p>Parameters for a LiPF6 electrolyte are from the paper Valøen and Reimers<a class="footnote-reference brackets" href="#footcite-valoen2005" id="id68" role="doc-noteref"><span class="fn-bracket">[</span>25<span class="fn-bracket">]</span></a></p>
+<section id="c-discharge-from-full">
+<h5>1C discharge from full<a class="headerlink" href="#c-discharge-from-full" title="Link to this heading">#</a></h5>
+<p>SEI parameters are example parameters for SEI growth from the papers
+Ramadass <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ramadass2004" id="id69" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>, Ploehn <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ploehn2004" id="id70" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>,
+Single <em>et al.</em><a class="footnote-reference brackets" href="#footcite-single2018" id="id71" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>, Safari <em>et al.</em><a class="footnote-reference brackets" href="#footcite-safari2008" id="id72" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>, and
+Yang <em>et al.</em><a class="footnote-reference brackets" href="#footcite-yang2017" id="id73" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This parameter set does not claim to be representative of the true parameter
+values. Instead these are parameter values that were used to fit SEI models to
+observed experimental data in the referenced papers.</p>
+</div>
+<p class="rubric">References</p>
+<div class="docutils container" id="id74">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-sulzer2019asymptotic" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">1</a><span class="fn-bracket">]</span></span>
+<p>Valentin Sulzer, S. Jon Chapman, Colin P. Please, David A. Howey, and Charles W. Monroe. Faster Lead-Acid Battery Simulations from Porous-Electrode Theory: Part II. Asymptotic Analysis. <em>Journal of The Electrochemical Society</em>, 166(12):A2372–A2382, 2019. <a class="reference external" href="https://doi.org/10.1149/2.0441908jes">doi:10.1149/2.0441908jes</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-ai2019" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">2</a><span class="fn-bracket">]</span></span>
+<p>Weilong Ai, Ludwig Kraft, Johannes Sturm, Andreas Jossen, and Billy Wu. Electrochemical thermal-mechanical modelling of stress inhomogeneity in lithium-ion pouch cells. <em>Journal of The Electrochemical Society</em>, 167(1):013512, 2019. <a class="reference external" href="https://doi.org/10.1149/2.0122001JES">doi:10.1149/2.0122001JES</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-rieger2016" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">3</a><span class="fn-bracket">]</span></span>
+<p>Bernhard Rieger, Simon V Erhard, Katharina Rumpf, and Andreas Jossen. A new method to model the thickness change of a commercial pouch cell during discharge. <em>Journal of The Electrochemical Society</em>, 163(8):A1566, 2016.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-ramadass2004" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id7">1</a>,<a role="doc-backlink" href="#id18">2</a>,<a role="doc-backlink" href="#id31">3</a>,<a role="doc-backlink" href="#id38">4</a>,<a role="doc-backlink" href="#id44">5</a>,<a role="doc-backlink" href="#id51">6</a>,<a role="doc-backlink" href="#id62">7</a>,<a role="doc-backlink" href="#id65">8</a>,<a role="doc-backlink" href="#id69">9</a>)</span>
+<p>P Ramadass, Bala Haran, Parthasarathy M Gomadam, Ralph White, and Branko N Popov. Development of first principles capacity fade model for li-ion cells. <em>Journal of the Electrochemical Society</em>, 151(2):A196, 2004. <a class="reference external" href="https://doi.org/10.1149/1.1634273">doi:10.1149/1.1634273</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-ploehn2004" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id8">1</a>,<a role="doc-backlink" href="#id19">2</a>,<a role="doc-backlink" href="#id32">3</a>,<a role="doc-backlink" href="#id39">4</a>,<a role="doc-backlink" href="#id45">5</a>,<a role="doc-backlink" href="#id52">6</a>,<a role="doc-backlink" href="#id70">7</a>)</span>
+<p>Harry J Ploehn, Premanand Ramadass, and Ralph E White. Solvent diffusion model for aging of lithium-ion battery cells. <em>Journal of The Electrochemical Society</em>, 151(3):A456, 2004.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-single2018" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id9">1</a>,<a role="doc-backlink" href="#id20">2</a>,<a role="doc-backlink" href="#id33">3</a>,<a role="doc-backlink" href="#id40">4</a>,<a role="doc-backlink" href="#id46">5</a>,<a role="doc-backlink" href="#id53">6</a>,<a role="doc-backlink" href="#id71">7</a>)</span>
+<p>Fabian Single, Arnulf Latz, and Birger Horstmann. Identifying the mechanism of continued growth of the solid–electrolyte interphase. <em>ChemSusChem</em>, 11(12):1950–1955, 2018.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-safari2008" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id10">1</a>,<a role="doc-backlink" href="#id21">2</a>,<a role="doc-backlink" href="#id34">3</a>,<a role="doc-backlink" href="#id41">4</a>,<a role="doc-backlink" href="#id47">5</a>,<a role="doc-backlink" href="#id54">6</a>,<a role="doc-backlink" href="#id66">7</a>,<a role="doc-backlink" href="#id72">8</a>)</span>
+<p>M Safari, Mathieu Morcrette, A Teyssot, and Charles Delacourt. Multimodal physics-based aging model for life prediction of li-ion batteries. <em>Journal of The Electrochemical Society</em>, 156(3):A145, 2008.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-yang2017" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id11">1</a>,<a role="doc-backlink" href="#id16">2</a>,<a role="doc-backlink" href="#id22">3</a>,<a role="doc-backlink" href="#id25">4</a>,<a role="doc-backlink" href="#id35">5</a>,<a role="doc-backlink" href="#id42">6</a>,<a role="doc-backlink" href="#id48">7</a>,<a role="doc-backlink" href="#id49">8</a>,<a role="doc-backlink" href="#id55">9</a>,<a role="doc-backlink" href="#id73">10</a>)</span>
+<p>Xiao Guang Yang, Yongjun Leng, Guangsheng Zhang, Shanhai Ge, and Chao Yang Wang. Modeling of lithium plating induced aging of lithium-ion batteries: transition from linear to nonlinear aging. <em>Journal of Power Sources</em>, 360:28–40, 2017. <a class="reference external" href="https://doi.org/10.1016/j.jpowsour.2017.05.110">doi:10.1016/j.jpowsour.2017.05.110</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-bonkile2024" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">9</a><span class="fn-bracket">]</span></span>
+<p>Mayur P. Bonkile, Yang Jiang, Niall Kirkaldy, Valentin Sulzer, Robert Timms, Huizhi Wang, Gregory Offer, and Billy Wu. Is silicon worth it? modelling degradation in composite silicon–graphite lithium-ion battery electrodes. <em>Journal of Power Sources</em>, 606:234256, 2024. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0378775324002076">https://www.sciencedirect.com/science/article/pii/S0378775324002076</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1016/j.jpowsour.2024.234256">doi:https://doi.org/10.1016/j.jpowsour.2024.234256</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-chen2020" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id13">1</a>,<a role="doc-backlink" href="#id17">2</a>,<a role="doc-backlink" href="#id24">3</a>,<a role="doc-backlink" href="#id57">4</a>)</span>
+<p>Chang-Hui Chen, Ferran Brosa Planella, Kieran O’Regan, Dominika Gastol, W. Dhammika Widanage, and Emma Kendrick. Development of Experimental Techniques for Parameterization of Multi-scale Lithium-ion Battery Models. <em>Journal of The Electrochemical Society</em>, 167(8):080534, 2020. <a class="reference external" href="https://doi.org/10.1149/1945-7111/ab9050">doi:10.1149/1945-7111/ab9050</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-ai2022" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id14">1</a>,<a role="doc-backlink" href="#id23">2</a>)</span>
+<p>Weilong Ai, Niall Kirkaldy, Yang Jiang, Gregory Offer, Huizhi Wang, and Billy Wu. A composite electrode model for lithium-ion batteries with silicon/graphite negative electrodes. <em>Journal of Power Sources</em>, 527:231142, 2022. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0378775322001604">https://www.sciencedirect.com/science/article/pii/S0378775322001604</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1016/j.jpowsour.2022.231142">doi:https://doi.org/10.1016/j.jpowsour.2022.231142</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-okane2022" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>12<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id15">1</a>,<a role="doc-backlink" href="#id56">2</a>)</span>
+<p>Simon E. J. O’Kane, Weilong Ai, Ganesh Madabattula, Diego Alonso-Alvarez, Robert Timms, Valentin Sulzer, Jacqueline Sophie Edge, Billy Wu, Gregory J. Offer, and Monica Marinescu. Lithium-ion battery degradation: how to model it. <em>Phys. Chem. Chem. Phys.</em>, 24:7909–7922, 2022. URL: <a class="reference external" href="http://dx.doi.org/10.1039/D2CP00417H">http://dx.doi.org/10.1039/D2CP00417H</a>, <a class="reference external" href="https://doi.org/10.1039/D2CP00417H">doi:10.1039/D2CP00417H</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-ecker2015i" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id26">1</a>,<a role="doc-backlink" href="#id63">2</a>)</span>
+<p>Madeleine Ecker, Thi Kim Dung Tran, Philipp Dechent, Stefan Käbitz, Alexander Warnecke, and Dirk Uwe Sauer. Parameterization of a Physico-Chemical Model of a Lithium-Ion Battery: I. Determination of Parameters. <em>Journal of the Electrochemical Society</em>, 162(9):A1836–A1848, 2015. <a class="reference external" href="https://doi.org/10.1149/2.0551509jes">doi:10.1149/2.0551509jes</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-ecker2015ii" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id27">14</a><span class="fn-bracket">]</span></span>
+<p>Madeleine Ecker, Stefan Käbitz, Izaro Laresgoiti, and Dirk Uwe Sauer. Parameterization of a Physico-Chemical Model of a Lithium-Ion Battery: II. Model Validation. <em>Journal of The Electrochemical Society</em>, 162(9):A1849–A1857, 2015. <a class="reference external" href="https://doi.org/10.1149/2.0541509jes">doi:10.1149/2.0541509jes</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-hales2019" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id28">15</a><span class="fn-bracket">]</span></span>
+<p>Alastair Hales, Laura Bravo Diaz, Mohamed Waseem Marzook, Yan Zhao, Yatish Patel, and Gregory Offer. The cell cooling coefficient: a standard to define heat rejection from lithium-ion batteries. <em>Journal of The Electrochemical Society</em>, 166(12):A2383, 2019.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-zhao2018" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>16<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id29">1</a>,<a role="doc-backlink" href="#id64">2</a>)</span>
+<p>Yan Zhao, Yatish Patel, Teng Zhang, and Gregory J Offer. Modeling the effects of thermal gradients induced by tab and surface cooling on lithium ion cell performance. <em>Journal of The Electrochemical Society</em>, 165(13):A3169, 2018.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-richardson2020" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id30">17</a><span class="fn-bracket">]</span></span>
+<p>Giles Richardson, Ivan Korotkin, Rahifa Ranom, Michael Castle, and Jamie M. Foster. Generalised single particle models for high-rate operation of graded lithium-ion electrodes: systematic derivation and validation. <em>Electrochimica Acta</em>, 339:135862, 2020. <a class="reference external" href="https://doi.org/10.1016/j.electacta.2020.135862">doi:10.1016/j.electacta.2020.135862</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-marquis2019" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>18<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id37">1</a>,<a role="doc-backlink" href="#id61">2</a>)</span>
+<p>Scott G. Marquis, Valentin Sulzer, Robert Timms, Colin P. Please, and S. Jon Chapman. An asymptotic derivation of a single particle model with electrolyte. <em>Journal of The Electrochemical Society</em>, 166(15):A3693–A3706, 2019. <a class="reference external" href="https://doi.org/10.1149/2.0341915jes">doi:10.1149/2.0341915jes</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-mohtat2020" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id43">19</a><span class="fn-bracket">]</span></span>
+<p>Peyman Mohtat, Suhak Lee, Valentin Sulzer, Jason B. Siegel, and Anna G. Stefanopoulou. Differential Expansion and Voltage Model for Li-ion Batteries at Practical Charging Rates. <em>Journal of The Electrochemical Society</em>, 167(11):110561, 2020. <a class="reference external" href="https://doi.org/10.1149/1945-7111/aba5d1">doi:10.1149/1945-7111/aba5d1</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-kim2011" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id50">20</a><span class="fn-bracket">]</span></span>
+<p>Gi-Heon Kim, Kandler Smith, Kyu-Jin Lee, Shriram Santhanagopalan, and Ahmad Pesaran. Multi-domain modeling of lithium-ion batteries encompassing multi-physics in varied length scales. <em>Journal of the Electrochemical Society</em>, 158(8):A955–A969, 2011. <a class="reference external" href="https://doi.org/10.1149/1.3597614">doi:10.1149/1.3597614</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-oregan2022" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id58">21</a><span class="fn-bracket">]</span></span>
+<p>Kieran O’Regan, Ferran Brosa Planella, W. Dhammika Widanage, and Emma Kendrick. Thermal-electrochemical parameters of a high energy lithium-ion cylindrical battery. <em>Electrochimica Acta</em>, 425:140700, 2022. <a class="reference external" href="https://doi.org/10.1016/j.electacta.2022.140700">doi:10.1016/j.electacta.2022.140700</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-landesfeind2019" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id59">22</a><span class="fn-bracket">]</span></span>
+<p>Johannes Landesfeind and Hubert A Gasteiger. Temperature and concentration dependence of the ionic transport properties of lithium-ion battery electrolytes. <em>Journal of The Electrochemical Society</em>, 166(14):A3079–A3097, 2019.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-prada2013" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id60">23</a><span class="fn-bracket">]</span></span>
+<p>Eric Prada, D. Di Domenico, Y. Creff, J. Bernard, Valérie Sauvant-Moynot, and François Huet. A simplified electrochemical and thermal aging model of LiFePO4-graphite Li-ion batteries: power and capacity fade simulations. <em>Journal of The Electrochemical Society</em>, 160(4):A616, 2013. <a class="reference external" href="https://doi.org/10.1149/2.053304jes">doi:10.1149/2.053304jes</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-xu2019" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id67">24</a><span class="fn-bracket">]</span></span>
+<p>Shanshan Xu, Kuan-Hung Chen, Neil P Dasgupta, Jason B Siegel, and Anna G Stefanopoulou. Evolution of dead lithium growth in lithium metal batteries: experimentally validated model of the apparent capacity loss. <em>Journal of The Electrochemical Society</em>, 166(14):A3456, 2019.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-valoen2005" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id68">25</a><span class="fn-bracket">]</span></span>
+<p>Lars Ole Valøen and Jan N Reimers. Transport properties of lipf6-based li-ion battery electrolytes. <em>Journal of The Electrochemical Society</em>, 152(5):A882, 2005.</p>
+</aside>
+</aside>
+</div>
+</section>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lead_acid_parameters.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lead-Acid Parameters</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="process_parameter_data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Process Parameter Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pybamm.dispatch.entry_points.EntryPoint"><code class="docutils literal notranslate"><span class="pre">EntryPoint</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pybamm.dispatch.entry_points.EntryPoint.get_docstring"><code class="docutils literal notranslate"><span class="pre">EntryPoint.get_docstring()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pybamm.dispatch.entry_points.EntryPoint.get_entries"><code class="docutils literal notranslate"><span class="pre">EntryPoint.get_entries()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-parameter-sets">Adding Parameter Sets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#third-party-parameter-sets">Third-Party Parameter Sets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bundled-parameter-sets">Bundled Parameter Sets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lead-acid-parameter-sets">Lead-acid Parameter Sets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithium-ion-parameter-sets">Lithium-ion Parameter Sets</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/pybamm-team/pybamm/edit/main/docs/source/api/parameters/parameter_sets.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2018, The PyBaMM Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.18.0.
+</p></div>
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on 2026-11-05.
+  <br/>
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

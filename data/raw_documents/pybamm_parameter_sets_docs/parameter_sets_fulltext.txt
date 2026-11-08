@@ -1,0 +1,998 @@
+
+
+  
+    
+    
+
+    
+    Parameters Sets — PyBaMM v26.10.1.1.dev63+g7ad734e74 Manual
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  
+  
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+  
+  
+  
+  
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+  
+  
+    
+  
+    
+    
+    
+    
+  
+  
+  
+  
+  
+  Skip to main content
+
+  
+  
+  
+  
+    Back to top
+  
+  
+  
+  
+  
+    
+
+  
+  
+  Ctrl+K
+
+  
+
+  
+  
+
+  
+    
+
+  
+    
+  
+  
+  
+  
+    
+      
+
+  
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  
+  
+
+    
+  
+  
+  
+    
+    
+      
+        
+
+  
+    
+
+  
+    User Guide
+  
+
+  
+    API documentation
+  
+
+  
+    Examples
+  
+
+  
+    Model Zoo
+  
+
+  
+    Contributing
+  
+
+  
+
+      
+    
+    
+    
+    
+      
+        
+          
+        
+      
+      
+        
+
+  
+    
+    
+    
+  
+  
+    System Settings
+    Light
+    Dark
+  
+
+      
+        
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          GitHub
+        
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          Twitter
+        
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          PyPI
+        
+
+      
+    
+    
+  
+  
+  
+    
+    
+  
+
+  
+    
+      
+    
+  
+
+    
+  
+
+  
+    
+      
+      
+      
+      
+      
+        
+
+  
+  
+    
+    
+      
+        
+          
+          
+            
+
+  
+    
+
+  
+    User Guide
+  
+
+  
+    API documentation
+  
+
+  
+    Examples
+  
+
+  
+    Model Zoo
+  
+
+  
+    Contributing
+  
+
+  
+
+          
+        
+      
+    
+    
+    
+      
+        
+          
+
+  
+    
+    
+    
+  
+  
+    System Settings
+    Light
+    Dark
+  
+
+        
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          GitHub
+        
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          Twitter
+        
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          PyPI
+        
+
+        
+      
+    
+  
+  
+    
+        
+
+  Section Navigation
+  
+Expression Tree
+Models
+Parameters
+Parameter Values
+Parameter Store
+Parameter Substitutor
+Geometric Parameters
+Electrical Parameters
+Thermal Parameters
+Lithium-ion Parameters
+Lead-Acid Parameters
+Parameters Sets
+Process Parameter Data
+
+Geometry
+Meshes
+Discretisation and spatial methods
+Solvers
+Code generation
+Experiments
+Simulation
+Plotting
+Utility functions
+Callbacks
+Citations
+Batch Study
+PyBaMM Data
+
+        
+
+    
+  
+  
+  
+      
+
+  
+
+      
+      
+      
+        
+        
+          
+            
+              
+              
+
+  
+    
+      
+        
+
+  
+    
+    
+      
+        
+      
+    
+    
+    API documentation
+    
+    
+    Parameters
+    
+    Parameters Sets
+  
+
+      
+    
+  
+  
+
+              
+              
+              
+                
+
+                
+                  
+  
+Parameters Sets#
+PyBaMM provides pre-defined parameters for common
+chemistries, as well as, a growing set of third-party parameter sets.
+
+class pybamm.dispatch.entry_points.EntryPoint(group)[source]#
+A mapping interface for accessing PyBaMM models and parameter sets through entry points.
+Access via pybamm.parameter_sets for parameter sets - provides access
+to all registered battery parameter sets (e.g., ‘Chen2020’, ‘Ai2020’) that can
+be used to parameterise battery models.
+Access via pybamm.Model for models - provides access to all registered
+battery models (e.g., ‘SPM’, ‘DFN’).
+
+Attention
+This feature is currently experimental.
+
+Examples
+
+Listing available parameter sets:>>> import pybamm
+>>> list(pybamm.parameter_sets)
+['Ai2020', 'Bonkile2024', 'Chayambuka2022', ...]
+
+Listing available models:>>> import pybamm
+>>> list(pybamm.dispatch.models)
+['DFN', 'MPM', ...]
+
+Get the docstring for a parameter set or model:>>> print(pybamm.parameter_sets.get_docstring("Ai2020"))
+
+Parameters for the Enertech cell (Ai2020), from the papers :footcite:t:`Ai2019`...
+
+>>> print(pybamm.dispatch.models.get_docstring("SPM"))
+
+Single Particle Model (SPM) of a lithium-ion battery...
+
+Extends: collections.abc.Mapping
+
+get_docstring(key)[source]#
+Return the docstring for the key parameter set or model
+
+static get_entries(group_name)[source]#
+Wrapper for the importlib version logic
+
+Adding Parameter Sets#
+Parameter sets can be added to PyBaMM by creating a python package, and
+registering a entry point to pybamm_parameter_sets. At a minimum, the
+package (cell_parameters) should consist of the following:
+cell_parameters
+├── pyproject.toml        # and/or setup.cfg, setup.py
+└── src
+    └── cell_parameters
+        └── cell_alpha.py
+
+The actual parameter set is defined within cell_alpha.py, as shown below.
+For an example, see the Marquis2019 parameter sets.
+ 1import pybamm
+ 2
+ 3
+ 4def get_parameter_values():
+ 5    """Doc string for cell-alpha"""
+ 6    return {
+ 7        "chemistry": "lithium_ion",
+ 8        "citation": "@book{van1995python, title={Python reference manual}}",
+ 9        # ...
+10    }
+
+Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:
+[project.entry-points.pybamm_parameter_sets]
+cell_alpha = "cell_parameters.cell_alpha:get_parameter_values"
+
+If you are using setup.py or setup.cfg to setup your package, please
+see SetupTools’ documentation for registering entry points.
+If you’re willing to open-source your parameter set,
+let us know, and we can add an entry to
+Third-Party Parameter Sets.
+
+Third-Party Parameter Sets#
+Registered a new parameter set to pybamm_parameter_sets?
+Let us know, and we’ll update our list.
+
+Bundled Parameter Sets#
+PyBaMM provides pre-defined parameter sets for several common chemistries,
+listed below. See Adding Parameter Sets for information on registering new
+parameter sets with PyBaMM.
+
+Lead-acid Parameter Sets#
+
+Sulzer2019#
+Parameters for BBOXX lead-acid cells, from the paper
+Sulzer et al.[1] and references therein.
+
+Lithium-ion Parameter Sets#
+
+Ai2020#
+Parameters for the Enertech cell (Ai2020), from the papers Ai et al.[2],
+Rieger et al.[3] and references therein.
+SEI parameters are example parameters for SEI growth from the papers
+Ramadass et al.[4], Ploehn et al.[5],
+Single et al.[6], Safari et al.[7], and
+Yang et al.[8]
+
+Note
+This parameter set does not claim to be representative of the true parameter
+values. Instead these are parameter values that were used to fit SEI models to
+observed experimental data in the referenced papers.
+
+Bonkile2024#
+Parameters for a composite graphite/silicon negative electrode with degradation,
+from Bonkile et al.[9], building on Chen et al.[10],
+Ai et al.[11] and O’Kane et al.[12]. Both phases share the SEI
+parameters of Yang et al.[8].
+
+Note
+These values were assembled for composite-electrode degradation studies and
+are not claimed to represent a real cell.
+
+Chen2020#
+Parameters for an LG M50 cell, from the paper Chen et al.[10] and references
+therein.
+SEI parameters are example parameters for SEI growth from the papers
+Ramadass et al.[4], Ploehn et al.[5],
+Single et al.[6], Safari et al.[7], and
+Yang et al.[8]
+
+Note
+This parameter set does not claim to be representative of the true parameter
+values. Instead these are parameter values that were used to fit SEI models to
+observed experimental data in the referenced papers.
+
+Chen2020_composite#
+Parameters for a composite graphite/silicon negative electrode, from the paper
+Ai et al.[11], based on the paper Chen et al.[10], and references
+therein.
+SEI parameters are example parameters for composite SEI on silicon/graphite. Both
+phases use the same values, from the paper Yang et al.[8]
+
+Ecker2015#
+Parameters for a Kokam SLPB 75106100 cell, from the papers Ecker et al.[13]
+and Ecker et al.[14]
+The tab placement parameters are taken from measurements in Hales et al.[15]
+The thermal material properties are for a 5 Ah power pouch cell by Kokam. The data
+are extracted from Zhao et al.[16]
+
+Graphite negative electrode parameters#
+The fits to data for the electrode and electrolyte properties are those provided
+by Dr. Simon O’Kane in the paper Richardson et al.[17]
+SEI parameters are example parameters for SEI growth from the papers
+Ramadass et al.[4], Ploehn et al.[5],
+Single et al.[6], Safari et al.[7], and
+Yang et al.[8]
+
+Note
+This parameter set does not claim to be representative of the true parameter
+values. Instead these are parameter values that were used to fit SEI models to
+observed experimental data in the referenced papers.
+
+Ecker2015_graphite_halfcell#
+Parameters for a graphite half-cell based on a Kokam SLPB 75106100 cell, from papers
+
+Ecker, Madeleine, et al. “Parameterization of a physico-chemical model of a
+lithium-ion battery I. determination of parameters.” Journal of the
+Electrochemical Society 162.9 (2015): A1836-A1848.
+Ecker, Madeleine, et al. “Parameterization of a physico-chemical model of a
+lithium-ion battery II. Model validation.” Journal of The Electrochemical
+Society 162.9 (2015): A1849-A1857.
+
+The tab placement parameters are taken from measurements in
+
+Hales, Alastair, et al. “The cell cooling coefficient: a standard to define heat
+rejection from lithium-ion batteries.” Journal of The Electrochemical Society
+166.12 (2019): A2383.
+
+The thermal material properties are for a 5 Ah power pouch cell by Kokam. The data
+are extracted from
+
+Zhao, Y., et al. “Modeling the effects of thermal gradients induced by tab and
+surface cooling on lithium ion cell performance.”” Journal of The
+Electrochemical Society, 165.13 (2018): A3169-A3178.
+
+Graphite electrode parameters#
+The fits to data for the electrode and electrolyte properties are those provided
+by Dr. Simon O’Kane in the paper:
+
+Richardson, Giles, et. al. “Generalised single particle models for high-rate
+operation of graded lithium-ion electrodes: Systematic derivation and
+validation.” Electrochemica Acta 339 (2020): 135862
+
+SEI parameters are example parameters for SEI growth from the papers:
+
+Ramadass, P., Haran, B., Gomadam, P. M., White, R., & Popov, B. N. (2004).
+Development of first principles capacity fade model for Li-ion cells. Journal of
+the Electrochemical Society, 151(2), A196-A203.
+Ploehn, H. J., Ramadass, P., & White, R. E. (2004). Solvent diffusion model for
+aging of lithium-ion battery cells. Journal of The Electrochemical Society,
+151(3), A456-A462.
+Single, F., Latz, A., & Horstmann, B. (2018). Identifying the mechanism of
+continued growth of the solid-electrolyte interphase. ChemSusChem, 11(12),
+1950-1955.
+Safari, M., Morcrette, M., Teyssot, A., & Delacour, C. (2009). Multimodal
+Physics- Based Aging Model for Life Prediction of Li-Ion Batteries. Journal of
+The Electrochemical Society, 156(3),
+Yang, X., Leng, Y., Zhang, G., Ge, S., Wang, C. (2017). Modeling of lithium
+plating induced aging of lithium-ion batteries: Transition from linear to
+nonlinear aging. Journal of Power Sources, 360, 28-40.
+
+Note: this parameter set does not claim to be representative of the true parameter
+values. Instead these are parameter values that were used to fit SEI models to
+observed experimental data in the referenced papers.
+
+MSMR_Example#
+Example parameter values for use with MSMR models. The thermodynamic parameters
+are for Graphite and NMC622, and are taken from Table 1 of the paper
+
+Mark Verbrugge, Daniel Baker, Brian Koch, Xingcheng Xiao and Wentian Gu.
+Thermodynamic Model for Substitutional Materials: Application to Lithiated
+Graphite, Spinel Manganese Oxide, Iron Phosphate, and Layered
+Nickel-Manganese-Cobalt Oxide. Journal of The Electrochemical Society,
+164(11):3243-3253, 2017. doi:10.1149/2.0341708jes.
+
+The remaining value are based on a parameterization of the LG M50 cell, from the
+paper
+
+Chang-Hui Chen, Ferran Brosa Planella, Kieran O’Regan, Dominika Gastol, W.
+Dhammika Widanage, and Emma Kendrick. Development of Experimental Techniques for
+Parameterization of Multi-scale Lithium-ion Battery Models. Journal of The
+Electrochemical Society, 167(8):080534, 2020. doi:10.1149/1945-7111/ab9050.
+
+and references therein. Verbrugge et al. (2017) does not provide kinetic parameters
+so we set the reference exchange current density to 5 A.m-2 for the positive
+electrode reactions and 2.7 A.m-2 for the negative electrode reactions, which are
+the values used in the Chen et al. (2020) paper. We also assume that the
+exchange-current density is symmetric. Note: the 4th reaction in the positive
+electrode gave unphysical results so we set the reference exchange current density
+and symmetry factor to 1e6 and 1, respectively. The parameter values are intended
+to serve as an example set to use with the MSMR model and do not claim to match any
+experimental cycling data.
+
+Marquis2019#
+Parameters for a Kokam SLPB78205130H cell, from the paper Marquis et al.[18]
+and references therein.
+SEI parameters are example parameters for SEI growth from the papers
+Ramadass et al.[4], Ploehn et al.[5],
+Single et al.[6], Safari et al.[7], and
+Yang et al.[8]
+
+Note
+This parameter set does not claim to be representative of the true parameter
+values. Instead these are parameter values that were used to fit SEI models to
+observed experimental data in the referenced papers.
+
+Mohtat2020#
+Parameters for a graphite/NMC532 pouch cell from the paper Mohtat et al.[19]
+and references therein.
+SEI parameters are example parameters for SEI growth from the papers
+Ramadass et al.[4], Ploehn et al.[5],
+Single et al.[6], Safari et al.[7], and
+Yang et al.[8]
+
+SEI parameters#
+Parameters for lithium plating are from the paper Yang et al.[8]
+
+Note
+This parameter set does not claim to be representative of the true parameter
+values. Instead these are parameter values that were used to fit SEI models to
+observed experimental data in the referenced papers.
+
+NCA_Kim2011#
+Parameters for a “Nominal Design” graphite/NCA pouch cell, from the paper
+Kim et al.[20]
+
+Note
+Only an effective cell volumetric heat capacity is provided in the paper. We
+therefore used the values for the density and specific heat capacity reported in
+the Marquis2019 parameter set in each region and multiplied each density by the
+ratio of the volumetric heat capacity provided in smith to the calculated value.
+This ensures that the values produce the same effective cell volumetric heat
+capacity. This works fine for thermal models that are averaged over the
+x-direction but not for full (PDE in x direction) thermal models. We do the same
+for the planar effective thermal conductivity.
+
+SEI parameters are example parameters for SEI growth from the papers
+Ramadass et al.[4], Ploehn et al.[5],
+Single et al.[6], Safari et al.[7], and
+Yang et al.[8]
+
+Note
+This parameter set does not claim to be representative of the true parameter
+values. Instead these are parameter values that were used to fit SEI models to
+observed experimental data in the referenced papers.
+
+OKane2022#
+Parameters for an LG M50 cell, from the paper O’Kane et al.[12], based on the
+paper Chen et al.[10] and references therein.
+
+Note
+This parameter set does not claim to be representative of the true parameter
+values. Instead these are parameter values that were used to fit SEI models to
+observed experimental data in the referenced papers.
+
+OKane2022_graphite_SiOx_halfcell#
+Parameters for the graphite+SiOx negative electrode of a LG M50 cell, from the paper
+
+Simon E. J. O’Kane, Weilong Ai, Ganesh Madabattula, Diego Alonso-Alvarez, Robert
+Timms, Valentin Sulzer, Jacqueline Sophie Edge, Billy Wu, Gregory J. Offer, and
+Monica Marinescu. Lithium-ion battery degradation: how to model it. Phys. Chem.
+Chem. Phys., 24:7909-7922, 2022. URL: http://dx.doi.org/10.1039/D2CP00417H,
+doi:10.1039/D2CP00417H.
+
+based on the paper
+
+Chang-Hui Chen, Ferran Brosa Planella, Kieran O’Regan, Dominika Gastol, W.
+Dhammika Widanage, and Emma Kendrick. Development of Experimental Techniques for
+Parameterization of Multi-scale Lithium-ion Battery Models. Journal of The
+Electrochemical Society, 167(8):080534, 2020. doi:10.1149/1945-7111/ab9050.
+
+and references therein.
+Note: the SEI, plating and mechanical parameters do not claim to be representative
+of the true parameter values. These are merely the parameter values that were used
+in the referenced papers.
+
+ORegan2022#
+Parameters for an LG M50 cell, from the paper O’Regan et al.[21]
+Parameters for a LiPF6 in EC:EMC (3:7 w:w) electrolyte are from the paper
+Landesfeind and Gasteiger[22] and references therein.
+
+Prada2013#
+Parameters for an LFP cell, from the paper Prada et al.[23]
+
+Ramadass2004#
+Ramadass2004 parameter set. This is a bit of a Frankenstein parameter set and should
+be used with caution.
+Parameters for a graphite negative electrode, Lithium Cobalt Oxide positive
+electrode, and LiPF6 electrolyte are from the papers Marquis et al.[18],
+Ramadass et al.[4], and references therein.
+Parameters for the separator are from the papers Ecker et al.[13]
+The thermal material properties are for a 5 Ah power pouch cell by Kokam. The data
+are extracted from Lithium Cobalt Oxide positive electrode parameters in
+Zhao et al.[16]
+Parameters for SEI growth are from the papers Ramadass et al.[4] and
+Safari et al.[7]
+
+Note
+Ramadass 2004 has mistakes in units and values of SEI parameters, corrected by
+Safari2009.
+
+Xu2019#
+Parameters for a Kokam SLPB78205130H half-cell, from the paper Xu et al.[24]
+and references therein. Anode is graphite MCMB 2528. Separator is Celgard 2325.
+Cathode is lithium Cobalt Oxide. Electrolyte is LiPF6.
+Parameters for a LiPF6 electrolyte are from the paper Valøen and Reimers[25]
+
+1C discharge from full#
+SEI parameters are example parameters for SEI growth from the papers
+Ramadass et al.[4], Ploehn et al.[5],
+Single et al.[6], Safari et al.[7], and
+Yang et al.[8].
+
+Note
+This parameter set does not claim to be representative of the true parameter
+values. Instead these are parameter values that were used to fit SEI models to
+observed experimental data in the referenced papers.
+
+References
+
+[1]
+Valentin Sulzer, S. Jon Chapman, Colin P. Please, David A. Howey, and Charles W. Monroe. Faster Lead-Acid Battery Simulations from Porous-Electrode Theory: Part II. Asymptotic Analysis. Journal of The Electrochemical Society, 166(12):A2372–A2382, 2019. doi:10.1149/2.0441908jes.
+
+[2]
+Weilong Ai, Ludwig Kraft, Johannes Sturm, Andreas Jossen, and Billy Wu. Electrochemical thermal-mechanical modelling of stress inhomogeneity in lithium-ion pouch cells. Journal of The Electrochemical Society, 167(1):013512, 2019. doi:10.1149/2.0122001JES.
+
+[3]
+Bernhard Rieger, Simon V Erhard, Katharina Rumpf, and Andreas Jossen. A new method to model the thickness change of a commercial pouch cell during discharge. Journal of The Electrochemical Society, 163(8):A1566, 2016.
+
+[4]
+(1,2,3,4,5,6,7,8,9)
+P Ramadass, Bala Haran, Parthasarathy M Gomadam, Ralph White, and Branko N Popov. Development of first principles capacity fade model for li-ion cells. Journal of the Electrochemical Society, 151(2):A196, 2004. doi:10.1149/1.1634273.
+
+[5]
+(1,2,3,4,5,6,7)
+Harry J Ploehn, Premanand Ramadass, and Ralph E White. Solvent diffusion model for aging of lithium-ion battery cells. Journal of The Electrochemical Society, 151(3):A456, 2004.
+
+[6]
+(1,2,3,4,5,6,7)
+Fabian Single, Arnulf Latz, and Birger Horstmann. Identifying the mechanism of continued growth of the solid–electrolyte interphase. ChemSusChem, 11(12):1950–1955, 2018.
+
+[7]
+(1,2,3,4,5,6,7,8)
+M Safari, Mathieu Morcrette, A Teyssot, and Charles Delacourt. Multimodal physics-based aging model for life prediction of li-ion batteries. Journal of The Electrochemical Society, 156(3):A145, 2008.
+
+[8]
+(1,2,3,4,5,6,7,8,9,10)
+Xiao Guang Yang, Yongjun Leng, Guangsheng Zhang, Shanhai Ge, and Chao Yang Wang. Modeling of lithium plating induced aging of lithium-ion batteries: transition from linear to nonlinear aging. Journal of Power Sources, 360:28–40, 2017. doi:10.1016/j.jpowsour.2017.05.110.
+
+[9]
+Mayur P. Bonkile, Yang Jiang, Niall Kirkaldy, Valentin Sulzer, Robert Timms, Huizhi Wang, Gregory Offer, and Billy Wu. Is silicon worth it? modelling degradation in composite silicon–graphite lithium-ion battery electrodes. Journal of Power Sources, 606:234256, 2024. URL: https://www.sciencedirect.com/science/article/pii/S0378775324002076, doi:https://doi.org/10.1016/j.jpowsour.2024.234256.
+
+[10]
+(1,2,3,4)
+Chang-Hui Chen, Ferran Brosa Planella, Kieran O’Regan, Dominika Gastol, W. Dhammika Widanage, and Emma Kendrick. Development of Experimental Techniques for Parameterization of Multi-scale Lithium-ion Battery Models. Journal of The Electrochemical Society, 167(8):080534, 2020. doi:10.1149/1945-7111/ab9050.
+
+[11]
+(1,2)
+Weilong Ai, Niall Kirkaldy, Yang Jiang, Gregory Offer, Huizhi Wang, and Billy Wu. A composite electrode model for lithium-ion batteries with silicon/graphite negative electrodes. Journal of Power Sources, 527:231142, 2022. URL: https://www.sciencedirect.com/science/article/pii/S0378775322001604, doi:https://doi.org/10.1016/j.jpowsour.2022.231142.
+
+[12]
+(1,2)
+Simon E. J. O’Kane, Weilong Ai, Ganesh Madabattula, Diego Alonso-Alvarez, Robert Timms, Valentin Sulzer, Jacqueline Sophie Edge, Billy Wu, Gregory J. Offer, and Monica Marinescu. Lithium-ion battery degradation: how to model it. Phys. Chem. Chem. Phys., 24:7909–7922, 2022. URL: http://dx.doi.org/10.1039/D2CP00417H, doi:10.1039/D2CP00417H.
+
+[13]
+(1,2)
+Madeleine Ecker, Thi Kim Dung Tran, Philipp Dechent, Stefan Käbitz, Alexander Warnecke, and Dirk Uwe Sauer. Parameterization of a Physico-Chemical Model of a Lithium-Ion Battery: I. Determination of Parameters. Journal of the Electrochemical Society, 162(9):A1836–A1848, 2015. doi:10.1149/2.0551509jes.
+
+[14]
+Madeleine Ecker, Stefan Käbitz, Izaro Laresgoiti, and Dirk Uwe Sauer. Parameterization of a Physico-Chemical Model of a Lithium-Ion Battery: II. Model Validation. Journal of The Electrochemical Society, 162(9):A1849–A1857, 2015. doi:10.1149/2.0541509jes.
+
+[15]
+Alastair Hales, Laura Bravo Diaz, Mohamed Waseem Marzook, Yan Zhao, Yatish Patel, and Gregory Offer. The cell cooling coefficient: a standard to define heat rejection from lithium-ion batteries. Journal of The Electrochemical Society, 166(12):A2383, 2019.
+
+[16]
+(1,2)
+Yan Zhao, Yatish Patel, Teng Zhang, and Gregory J Offer. Modeling the effects of thermal gradients induced by tab and surface cooling on lithium ion cell performance. Journal of The Electrochemical Society, 165(13):A3169, 2018.
+
+[17]
+Giles Richardson, Ivan Korotkin, Rahifa Ranom, Michael Castle, and Jamie M. Foster. Generalised single particle models for high-rate operation of graded lithium-ion electrodes: systematic derivation and validation. Electrochimica Acta, 339:135862, 2020. doi:10.1016/j.electacta.2020.135862.
+
+[18]
+(1,2)
+Scott G. Marquis, Valentin Sulzer, Robert Timms, Colin P. Please, and S. Jon Chapman. An asymptotic derivation of a single particle model with electrolyte. Journal of The Electrochemical Society, 166(15):A3693–A3706, 2019. doi:10.1149/2.0341915jes.
+
+[19]
+Peyman Mohtat, Suhak Lee, Valentin Sulzer, Jason B. Siegel, and Anna G. Stefanopoulou. Differential Expansion and Voltage Model for Li-ion Batteries at Practical Charging Rates. Journal of The Electrochemical Society, 167(11):110561, 2020. doi:10.1149/1945-7111/aba5d1.
+
+[20]
+Gi-Heon Kim, Kandler Smith, Kyu-Jin Lee, Shriram Santhanagopalan, and Ahmad Pesaran. Multi-domain modeling of lithium-ion batteries encompassing multi-physics in varied length scales. Journal of the Electrochemical Society, 158(8):A955–A969, 2011. doi:10.1149/1.3597614.
+
+[21]
+Kieran O’Regan, Ferran Brosa Planella, W. Dhammika Widanage, and Emma Kendrick. Thermal-electrochemical parameters of a high energy lithium-ion cylindrical battery. Electrochimica Acta, 425:140700, 2022. doi:10.1016/j.electacta.2022.140700.
+
+[22]
+Johannes Landesfeind and Hubert A Gasteiger. Temperature and concentration dependence of the ionic transport properties of lithium-ion battery electrolytes. Journal of The Electrochemical Society, 166(14):A3079–A3097, 2019.
+
+[23]
+Eric Prada, D. Di Domenico, Y. Creff, J. Bernard, Valérie Sauvant-Moynot, and François Huet. A simplified electrochemical and thermal aging model of LiFePO4-graphite Li-ion batteries: power and capacity fade simulations. Journal of The Electrochemical Society, 160(4):A616, 2013. doi:10.1149/2.053304jes.
+
+[24]
+Shanshan Xu, Kuan-Hung Chen, Neil P Dasgupta, Jason B Siegel, and Anna G Stefanopoulou. Evolution of dead lithium growth in lithium metal batteries: experimentally validated model of the apparent capacity loss. Journal of The Electrochemical Society, 166(14):A3456, 2019.
+
+[25]
+Lars Ole Valøen and Jan N Reimers. Transport properties of lipf6-based li-ion battery electrolytes. Journal of The Electrochemical Society, 152(5):A882, 2005.
+
+                
+              
+              
+              
+              
+              
+                
+                  
+
+    
+      
+      
+        previous
+        Lead-Acid Parameters
+      
+    
+    
+      
+        next
+        Process Parameter Data
+      
+      
+    
+
+                
+              
+            
+            
+            
+              
+                
+                
+
+  
+
+     On this page
+  
+  
+    
+EntryPoint
+EntryPoint.get_docstring()
+EntryPoint.get_entries()
+
+Adding Parameter Sets
+Third-Party Parameter Sets
+Bundled Parameter Sets
+Lead-acid Parameter Sets
+Lithium-ion Parameter Sets
+
+  
+
+  
+
+  
+  
+    
+      
+      
+      
+        
+          Edit on GitHub
+        
+      
+    
+  
+
+              
+            
+          
+          
+            
+          
+        
+      
+    
+  
+  
+  
+  
+
+  
+
+  
+    
+      
+        
+
+  
+    
+      © Copyright 2018, The PyBaMM Team.
+      
+    
+  
+
+      
+        
+
+  
+    Created using Sphinx 9.1.0.
+    
+  
+
+      
+    
+  
+  
+  
+    
+      
+        
+
+  
+  Built with the PyData Sphinx Theme 0.18.0.
+
+      
+        
+  Last updated on 2026-11-05.
+  
+
+      
+    
+  
+
+  
+  

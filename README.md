@@ -9,10 +9,11 @@ conversion, physical checks and simulation are performed by explicit,
 deterministic computational tools.
 
 - Target framework: PyBaMM (initial focus: lithium-ion DFN models)
-- Status: **Phases P0–P3 landed (research prototype)** — deterministic
-  baseline, parameter registry, PyBOP estimation/identifiability and literature
-  provenance run offline; the P3 LLM extraction client (OpenAI-compatible) is
-  optional and disabled unless `PYCL_LLM_API_KEY` and `PYCL_LLM_MODEL` are set
+- Status: **Phases P0–P4 landed (research prototype)** — deterministic
+  baseline, parameter registry, PyBOP estimation/identifiability, literature
+  provenance and LLM-extraction evaluation run offline; the P4 LLM extraction
+  client (OpenAI-compatible) is optional and disabled unless
+  `PYCL_LLM_API_KEY` and `PYCL_LLM_MODEL` are set
 - PRD: `Closed_Loop_PyBaMM_LLM_Research_PRD.docx`
 
 ## Phase status
@@ -23,7 +24,8 @@ deterministic computational tools.
 | P1 | Ecosystem audit (PyBOP 26.10 / PyProBE-Data 2.6.1) + verified compatibility + revised architecture | ✅ done (`docs/ECOSYSTEM_AUDIT.md`, `docs/DEPENDENCY_COMPATIBILITY.md`) |
 | P2 | Numerical parameter estimation and identifiability (PyBOP-based) | ✅ done (see `results/p2/`, `benchmarks/`) |
 | P3 | Literature intelligence and parameter provenance (LLM-assisted, offline by default) | ✅ done (see `results/p3/`) |
-| P4–P8 | Validation, closed loop, fine-tuning | ⬜ not started |
+| P4 | LLM extraction evaluation on real LLM + benchmark corpus v2 + Chen2020 discrepancy analysis + real-dataset audit | ✅ done (see `results/p4/`, `docs/LLM_EXTRACTION_EVALUATION.md`) |
+| P5–P8 | Closed loop, fine-tuning, remaining validation | ⬜ not started |
 
 ## Repository layout
 
@@ -38,7 +40,7 @@ src/pybamm_closed_loop/
   reporting/        run manifests and figures
 tests/              software-correctness tests (unit/, integration/, regression/, baselines/)
 benchmarks/         scientific benchmarks (separate from tests)
-scripts/            thin CLI drivers (run_baseline.py, plot_baseline.py, compat_probe/, p3/)
+scripts/            thin CLI drivers (run_baseline.py, plot_baseline.py, compat_probe/, p3/, p4/)
 docs/               architecture, roadmap, model documentation
 data/               raw documents, synthetic/experimental data (immutable raw)
 results/            run outputs: arrays, manifests, figures
@@ -126,6 +128,34 @@ version matrix), `docs/REVISED_ARCHITECTURE.md` (module boundaries) and
 `scripts/compat_probe/`. P2 uses PyBOP for estimation/identifiability
 (`calibration/`, `docs/IDENTIFIABILITY_STUDY.md`); P3 uses PyProBE for dataset
 linkage (`datasets/pyprobe_link.py`, `docs/DATASET_AUDIT.md`).
+
+## P4 — LLM evaluation and experimental-dataset validation
+
+New in this milestone:
+
+- **Benchmark v2** (`data/eval/extraction_benchmark_v2.jsonl`, 20 items =
+  6 dev + 14 held-out eval across 3 tiers, 8 extraction families, 3
+  abstention items) over three real documents (Chen2020 article, its
+  supplementary PDF, PyBaMM parameter-sets docs).
+- **Three-arm evaluation** (`benchmarks/p4/run_llm_evaluation.py`): offline
+  deterministic baseline, LLM with retrieval, LLM ablation. The ablation
+  abstains on all items — retrieval is genuinely required and the corpus is
+  leakage-safe. Raw model outputs are preserved verbatim;
+  `--rescore` re-scores them deterministically without new model calls.
+  Results: `results/p4/benchmark_v2/` and `docs/LLM_EXTRACTION_EVALUATION.md`
+  (LLM+retrieval: identification 0.962, value 0.960, provenance 0.800,
+  qualifier 0.600, conditions 0.000, false-extraction 0.062).
+- **Chen2020 discrepancy analysis** (`data/registry/chen2020_discrepancies.json`,
+  `docs/CHEN2020_DISCREPANCY_ANALYSIS.md`): paper-vs-PyBaMM-vs-P2 with a
+  cause taxonomy; e.g. negative diffusivity 19× (tuned 1C effective value vs
+  GITT measurement), positive cmax +22%, Bruggeman 1.5 vs measured 2.43–2.91,
+  16 set-extension families (SEI block etc.).
+- **Real-dataset audit** (`data/registry/dataset_audit_lgm50.json`,
+  `docs/EXPERIMENTAL_DATA_AUDIT.md`, `docs/REAL_DATA_FITTING_FEASIBILITY.md`):
+  the available LG M50 experimental data is a single C/10 pOCV cycle of the
+  PyProBE sample; multi-rate validation traces remain UNRESOLVED; no fitting
+  was performed, and the feasibility doc explains why none is recommended
+  yet.
 
 ## Agents
 

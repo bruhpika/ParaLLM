@@ -1,0 +1,443 @@
+{
+  "columns": [
+    "Time [s]",
+    "Step",
+    "Event",
+    "Current [A]",
+    "Voltage [V]",
+    "Capacity [Ah]",
+    "Temperature [C]"
+  ],
+  "compatibility": {
+    "capacity_checks": {
+      "c_discharge": 4.8137,
+      "coulombic_efficiency": 0.983,
+      "disclaimer": "Single BoL cycle; no GITT/HPPC data. For capacity-proportional couplings only.",
+      "note": "CE is intake-limited by the 0.5 A (C/10) charge without a CV hold; treat as an observation, not a cell-health claim.",
+      "rated_reference_ah": 5.0,
+      "reference_source": "Chen2020 rated capacity 5 Ah (2.5-4.2 V)"
+    },
+    "cell": {
+      "verdict": "LG M50 21700, consistent with the Chen2020 characterization target (voltage window 2.5-4.2 V; chemistry not re-verified from the dataset alone)"
+    },
+    "neware_baseline": {
+      "reason": "The P3-audited Neware sample (dethermalized, no LG M50 chemistry/protocol structure) stays excluded; P3 verification results are unchanged.",
+      "verdict": "INCOMPATIBLE baseline for fitting"
+    },
+    "protocol": {
+      "c_rates_available": [
+        "C/10 pOCV discharge",
+        "C/10 pOCV charge"
+      ],
+      "missing": "no 0.5C/1C/2C discharge traces; no pulse/HPPC; no GITT segment identical to Chen2020 validation experiments"
+    },
+    "temperature": {
+      "consequence": "isothermal P0 models are defensible for the C/10 pOCV segments with a small bias, but not for the CC-CV charge section.",
+      "evidence_c": [
+        23.999075,
+        32.314148
+      ],
+      "verdict": "non-isothermal during the 1.5 A charge (up to 32.3 C); C/10 segments stay close to 24.7-26.8 C"
+    }
+  },
+  "file": {
+    "creator": "Imperial College London, PyProBE project sample data (originally NDK Research Group raw export)",
+    "path": "data/external/pyprobe_sample/lgm50/LGM50_BoL_RPT0_short_CA4.parquet",
+    "retrieved": "2026-11-08",
+    "sha256": "b0701bdfd6def6c233edfebb8012d0e64e69b422091196f8bcaf44c3511a469a",
+    "size_bytes": 2185238,
+    "source_url": "https://raw.githubusercontent.com/ImperialCollegeLondon/PyProBE/main/tests/sample_data/LGM50/NDK%20-%20LG%20M50%20deg%20-%20exp%202%2C2%20-%20rig%203%20-%2025degC%20-%20cell%20C%20-%20BoL%20-%20RPT0_short_CA4.parquet"
+  },
+  "generated": "2026-11-08T05:50:35.436664+00:00",
+  "global_stats": {
+    "capacity_based_c_rates": {
+      "charge": 0.30043694000000004,
+      "definition": "|I| / 5.0 Ah (Chen2020 LGM50 rated capacity)",
+      "discharge": 0.10005394199999999
+    },
+    "capacity_range_ah": [
+      3.0667566528938,
+      7.880435832771658
+    ],
+    "duration_h": 30.05864146083147,
+    "i_range_a": [
+      -0.50026971,
+      1.5021847000000002
+    ],
+    "n_rows": 81661,
+    "n_steps": 10,
+    "null_values": 0,
+    "t_max_s": 108211.1092589933,
+    "t_min_s": 0.0,
+    "temperature_range_c": [
+      23.999075,
+      32.314148
+    ],
+    "v_max_v": 4.2000074,
+    "v_min_v": 2.4999235
+  },
+  "limitations": [
+    "Single RPT protocol; simulations limited to the C/10 pOCV segments and rest relaxations.",
+    "Temperature rises to 32.3 C during the 1.5 A charge; OCV extraction from that segment carries a bias under the isothermal assumption.",
+    "Coulombic efficiency at C/10 (without a final CV hold) is an intake-limited observation, not a cell-health metric.",
+    "License and full re-distribution rights of the sample dataset are UNRESOLVED.",
+    "Step semantics mapping is verified against the README protocol but treated as an assumption until PyProBE's protocol parser is used."
+  ],
+  "per_step": [
+    {
+      "Step": 0,
+      "capacity_delta_ah": 0.0,
+      "duration_s": 120.046005701879,
+      "i_max_a": 0.0,
+      "i_mean_a": 0.0,
+      "i_min_a": 0.0,
+      "n_points": 13,
+      "temp_max_c": 32.314148,
+      "temp_mean_c": 24.94729046153846,
+      "temp_min_c": 24.196114,
+      "v_max_v": 3.6615739,
+      "v_mean_v": 3.6227489538461537,
+      "v_min_v": 3.6193986,
+      "v_std_v": 0.01166556032527758
+    },
+    {
+      "Step": 1,
+      "capacity_delta_ah": 2.678873231838848,
+      "duration_s": 6428.240305325016,
+      "i_max_a": 1.5021847000000002,
+      "i_mean_a": 1.5002468590265898,
+      "i_min_a": 1.4982474,
+      "n_points": 6431,
+      "temp_max_c": 32.314148,
+      "temp_mean_c": 28.00796072585912,
+      "temp_min_c": 24.361629,
+      "v_max_v": 4.2000074,
+      "v_mean_v": 3.942317545000777,
+      "v_min_v": 3.6616921,
+      "v_std_v": 0.15550609162886916
+    },
+    {
+      "Step": 2,
+      "capacity_delta_ah": 0.46947477988516884,
+      "duration_s": 3473.078164962355,
+      "i_max_a": 1.4929322999999999,
+      "i_mean_a": 0.48663881856962027,
+      "i_min_a": 0.049926837999999994,
+      "n_points": 3476,
+      "temp_max_c": 28.467937,
+      "temp_mean_c": 26.707085487054083,
+      "temp_min_c": 25.551748,
+      "v_max_v": 4.1998892,
+      "v_mean_v": 4.199648773762946,
+      "v_min_v": 4.199338,
+      "v_std_v": 7.701564360481123e-05
+    },
+    {
+      "Step": 3,
+      "capacity_delta_ah": 0.0,
+      "duration_s": 7199.934341978522,
+      "i_max_a": 0.0,
+      "i_mean_a": 0.0,
+      "i_min_a": 0.0,
+      "n_points": 721,
+      "temp_max_c": 25.803959,
+      "temp_mean_c": 24.3742212815534,
+      "temp_min_c": 24.006956,
+      "v_max_v": 4.1981564,
+      "v_mean_v": 4.187726920249653,
+      "v_min_v": 4.1837435,
+      "v_std_v": 0.0032654557526788724
+    },
+    {
+      "Step": 4,
+      "capacity_delta_ah": 0.0,
+      "duration_s": 30.114001430341887,
+      "i_max_a": 0.0,
+      "i_mean_a": 0.0,
+      "i_min_a": 0.0,
+      "n_points": 31,
+      "temp_max_c": 24.66901,
+      "temp_mean_c": 24.475275516129035,
+      "temp_min_c": 24.259167,
+      "v_max_v": 4.18398,
+      "v_mean_v": 4.183393025806452,
+      "v_min_v": 4.1696458,
+      "v_std_v": 0.0025522072263000745
+    },
+    {
+      "Step": 5,
+      "capacity_delta_ah": -4.813670291767185,
+      "duration_s": 34658.09964617132,
+      "i_max_a": -0.49977704,
+      "i_mean_a": -0.5000046753454892,
+      "i_min_a": -0.50026971,
+      "n_points": 34661,
+      "temp_max_c": 26.639406,
+      "temp_mean_c": 25.829676735524075,
+      "temp_min_c": 24.180351,
+      "v_max_v": 4.1694884,
+      "v_mean_v": 3.6614415522258446,
+      "v_min_v": 2.4999235,
+      "v_std_v": 0.3280428105380631
+    },
+    {
+      "Step": 6,
+      "capacity_delta_ah": 0.0,
+      "duration_s": 21599.93704822217,
+      "i_max_a": 0.0,
+      "i_mean_a": 0.0,
+      "i_min_a": 0.0,
+      "n_points": 2161,
+      "temp_max_c": 26.576355,
+      "temp_mean_c": 24.420836825543727,
+      "temp_min_c": 23.999075,
+      "v_max_v": 2.912343,
+      "v_mean_v": 2.8593347428042573,
+      "v_min_v": 2.519928,
+      "v_std_v": 0.06107658450648299
+    },
+    {
+      "Step": 7,
+      "capacity_delta_ah": 0.0,
+      "duration_s": 30.124001514865085,
+      "i_max_a": 0.0,
+      "i_mean_a": 0.0,
+      "i_min_a": 0.0,
+      "n_points": 31,
+      "temp_max_c": 25.331064,
+      "temp_mean_c": 24.61994109677419,
+      "temp_min_c": 24.361629,
+      "v_max_v": 2.9285278,
+      "v_mean_v": 2.912847325806452,
+      "v_min_v": 2.9122248,
+      "v_std_v": 0.0029106472116431016
+    },
+    {
+      "Step": 8,
+      "capacity_delta_ah": 4.732060255443669,
+      "duration_s": 34071.35771350308,
+      "i_max_a": 0.50022446,
+      "i_mean_a": 0.49999293904795444,
+      "i_min_a": 0.4997515,
+      "n_points": 34074,
+      "temp_max_c": 26.80492,
+      "temp_mean_c": 26.237790514908728,
+      "temp_min_c": 24.495615,
+      "v_max_v": 4.2000074,
+      "v_mean_v": 3.7674702178904735,
+      "v_min_v": 2.9287248,
+      "v_std_v": 0.2632435916795703
+    },
+    {
+      "Step": 9,
+      "capacity_delta_ah": 0.0,
+      "duration_s": 599.9280301711988,
+      "i_max_a": 0.0,
+      "i_mean_a": 0.0,
+      "i_min_a": 0.0,
+      "n_points": 62,
+      "temp_max_c": 26.095577,
+      "temp_mean_c": 24.909398467741934,
+      "temp_min_c": 24.26705,
+      "v_max_v": 4.1853976,
+      "v_mean_v": 4.16664474516129,
+      "v_min_v": 4.1605887,
+      "v_std_v": 0.005626703658701807
+    }
+  ],
+  "pocv_c10": {
+    "charge": {
+      "c_rate": 0.1,
+      "capacity_ah": 4.7321,
+      "duration_s": 34071.35771350308,
+      "step": 8,
+      "temp_range_c": [
+        24.495615,
+        26.80492
+      ],
+      "v_end": 4.2000074,
+      "v_start": 2.9287248,
+      "v_std": 0.2632435916795703
+    },
+    "charge_step": 8,
+    "discharge": {
+      "c_rate": 0.1,
+      "capacity_ah": 4.8137,
+      "duration_s": 34658.09964617132,
+      "step": 5,
+      "temp_range_c": [
+        24.180351,
+        26.639406
+      ],
+      "v_end": 2.4999235,
+      "v_start": 4.1694884,
+      "v_std": 0.3280428105380631
+    },
+    "discharge_step": 5
+  },
+  "protocol_from_readme": "Initial Charge:\n  Steps: \n    0: Rest for 2 minutes\n    1: Charge at 1.5 A until 4.2 V\n    2: Hold at 4.2 V until 0.05 A \n    3: Rest for 2 hours\npOCV:\n  Steps: \n    4: Rest for 30 seconds\n    5: Discharge at 0.5 A until 2.5 V\n    6: Rest for 6 hours\n    7: Rest for 30 seconds\n    8: Charge at 0.5 A until 4.2 V\n    9: Rest for 10 minutes",
+  "provenance": {
+    "note": "data license-free redistribution of the PyProBE sample is UNRESOLVED (repo code BSD-3-Clause). No further distribution is allowed by this artifact.",
+    "paper_precedent": "Chen2020 validation traces are NOT available in the paper or supplement (parameterizations and OCV curves only); reuse requires author request",
+    "status": "UNRESOLVED"
+  },
+  "rest_voltage_noise": {
+    "definition": "std of Voltage [V] within rest steps (>2 points)",
+    "max_v": 0.061077,
+    "std_per_rest_step_v": [
+      0.01166556032527758,
+      0.0032654557526788724,
+      0.0025522072263000745,
+      0.06107658450648299,
+      0.0029106472116431016,
+      0.005626703658701807
+    ]
+  },
+  "semantic_step_mapping": {
+    "mapping_status": "consistent with README protocol order (verified by current levels, voltage limits and durations); treated as an assumption until cross-checked with PyProBE's protocol parser",
+    "readme_protocol": "Initial Charge:\n  Steps: \n    0: Rest for 2 minutes\n    1: Charge at 1.5 A until 4.2 V\n    2: Hold at 4.2 V until 0.05 A \n    3: Rest for 2 hours\npOCV:\n  Steps: \n    4: Rest for 30 seconds\n    5: Discharge at 0.5 A until 2.5 V\n    6: Rest for 6 hours\n    7: Rest for 30 seconds\n    8: Charge at 0.5 A until 4.2 V\n    9: Rest for 10 minutes",
+    "steps": [
+      {
+        "label": "initial_rest_2min",
+        "observed": {
+          "capacity_delta_ah": 0.0,
+          "duration_s": 120.046005701879,
+          "i_mean_a": 0.0,
+          "n_points": 13,
+          "v_range": [
+            3.6193986,
+            3.6615739
+          ]
+        },
+        "step": 0
+      },
+      {
+        "label": "cc_charge_1p5A_to_4p2V",
+        "observed": {
+          "capacity_delta_ah": 2.678873231838848,
+          "duration_s": 6428.240305325016,
+          "i_mean_a": 1.5002468590265898,
+          "n_points": 6431,
+          "v_range": [
+            3.6616921,
+            4.2000074
+          ]
+        },
+        "step": 1
+      },
+      {
+        "label": "cv_hold_4p2V_until_0p05A",
+        "observed": {
+          "capacity_delta_ah": 0.46947477988516884,
+          "duration_s": 3473.078164962355,
+          "i_mean_a": 0.48663881856962027,
+          "n_points": 3476,
+          "v_range": [
+            4.199338,
+            4.1998892
+          ]
+        },
+        "step": 2
+      },
+      {
+        "label": "rest_2h_after_cccv",
+        "observed": {
+          "capacity_delta_ah": 0.0,
+          "duration_s": 7199.934341978522,
+          "i_mean_a": 0.0,
+          "n_points": 721,
+          "v_range": [
+            4.1837435,
+            4.1981564
+          ]
+        },
+        "step": 3
+      },
+      {
+        "label": "pre_discharge_rest_30s",
+        "observed": {
+          "capacity_delta_ah": 0.0,
+          "duration_s": 30.114001430341887,
+          "i_mean_a": 0.0,
+          "n_points": 31,
+          "v_range": [
+            4.1696458,
+            4.18398
+          ]
+        },
+        "step": 4
+      },
+      {
+        "label": "pocv_discharge_0p5A_to_2p5V",
+        "observed": {
+          "capacity_delta_ah": -4.813670291767185,
+          "duration_s": 34658.09964617132,
+          "i_mean_a": -0.5000046753454892,
+          "n_points": 34661,
+          "v_range": [
+            2.4999235,
+            4.1694884
+          ]
+        },
+        "step": 5
+      },
+      {
+        "label": "rest_6h",
+        "observed": {
+          "capacity_delta_ah": 0.0,
+          "duration_s": 21599.93704822217,
+          "i_mean_a": 0.0,
+          "n_points": 2161,
+          "v_range": [
+            2.519928,
+            2.912343
+          ]
+        },
+        "step": 6
+      },
+      {
+        "label": "pre_charge_rest_30s",
+        "observed": {
+          "capacity_delta_ah": 0.0,
+          "duration_s": 30.124001514865085,
+          "i_mean_a": 0.0,
+          "n_points": 31,
+          "v_range": [
+            2.9122248,
+            2.9285278
+          ]
+        },
+        "step": 7
+      },
+      {
+        "label": "pocv_charge_0p5A_to_4p2V",
+        "observed": {
+          "capacity_delta_ah": 4.732060255443669,
+          "duration_s": 34071.35771350308,
+          "i_mean_a": 0.49999293904795444,
+          "n_points": 34074,
+          "v_range": [
+            2.9287248,
+            4.2000074
+          ]
+        },
+        "step": 8
+      },
+      {
+        "label": "final_rest_10min",
+        "observed": {
+          "capacity_delta_ah": 0.0,
+          "duration_s": 599.9280301711988,
+          "i_mean_a": 0.0,
+          "n_points": 62,
+          "v_range": [
+            4.1605887,
+            4.1853976
+          ]
+        },
+        "step": 9
+      }
+    ]
+  },
+  "title": "LG M50 BoL RPT0_short (PyProBE sample) dataset audit"
+}

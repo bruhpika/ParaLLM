@@ -1,0 +1,1217 @@
+[
+ {
+  "char_end": 84,
+  "char_start": 21,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00000",
+  "text": "    Parameters Sets \u2014 PyBaMM v26.10.1.1.dev63+g7ad734e74 Manual"
+ },
+ {
+  "char_end": 346,
+  "char_start": 324,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00001",
+  "text": "  Skip to main content"
+ },
+ {
+  "char_end": 375,
+  "char_start": 360,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00002",
+  "text": "    Back to top"
+ },
+ {
+  "char_end": 411,
+  "char_start": 403,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00003",
+  "text": "  Ctrl+K"
+ },
+ {
+  "char_end": 592,
+  "char_start": 578,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00004",
+  "text": "    User Guide"
+ },
+ {
+  "char_end": 621,
+  "char_start": 600,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00005",
+  "text": "    API documentation"
+ },
+ {
+  "char_end": 641,
+  "char_start": 629,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00006",
+  "text": "    Examples"
+ },
+ {
+  "char_end": 662,
+  "char_start": 649,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00007",
+  "text": "    Model Zoo"
+ },
+ {
+  "char_end": 686,
+  "char_start": 670,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00008",
+  "text": "    Contributing"
+ },
+ {
+  "char_end": 844,
+  "char_start": 806,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00009",
+  "text": "    System Settings\n    Light\n    Dark"
+ },
+ {
+  "char_end": 978,
+  "char_start": 962,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00010",
+  "text": "          GitHub"
+ },
+ {
+  "char_end": 1102,
+  "char_start": 1085,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00011",
+  "text": "          Twitter"
+ },
+ {
+  "char_end": 1223,
+  "char_start": 1209,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00012",
+  "text": "          PyPI"
+ },
+ {
+  "char_end": 1454,
+  "char_start": 1440,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00013",
+  "text": "    User Guide"
+ },
+ {
+  "char_end": 1483,
+  "char_start": 1462,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00014",
+  "text": "    API documentation"
+ },
+ {
+  "char_end": 1503,
+  "char_start": 1491,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00015",
+  "text": "    Examples"
+ },
+ {
+  "char_end": 1524,
+  "char_start": 1511,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00016",
+  "text": "    Model Zoo"
+ },
+ {
+  "char_end": 1548,
+  "char_start": 1532,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00017",
+  "text": "    Contributing"
+ },
+ {
+  "char_end": 1689,
+  "char_start": 1651,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00018",
+  "text": "    System Settings\n    Light\n    Dark"
+ },
+ {
+  "char_end": 1827,
+  "char_start": 1811,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00019",
+  "text": "          GitHub"
+ },
+ {
+  "char_end": 1951,
+  "char_start": 1934,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00020",
+  "text": "          Twitter"
+ },
+ {
+  "char_end": 2072,
+  "char_start": 2058,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00021",
+  "text": "          PyPI"
+ },
+ {
+  "char_end": 2145,
+  "char_start": 2125,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00022",
+  "text": "  Section Navigation"
+ },
+ {
+  "char_end": 2382,
+  "char_start": 2149,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00023",
+  "text": "Expression Tree\nModels\nParameters\nParameter Values\nParameter Store\nParameter Substitutor\nGeometric Parameters\nElectrical Parameters\nThermal Parameters\nLithium-ion Parameters\nLead-Acid Parameters\nParameters Sets\nProcess Parameter Data"
+ },
+ {
+  "char_end": 2552,
+  "char_start": 2384,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00024",
+  "text": "Geometry\nMeshes\nDiscretisation and spatial methods\nSolvers\nCode generation\nExperiments\nSimulation\nPlotting\nUtility functions\nCallbacks\nCitations\nBatch Study\nPyBaMM Data"
+ },
+ {
+  "char_end": 2776,
+  "char_start": 2755,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00025",
+  "text": "    API documentation"
+ },
+ {
+  "char_end": 2801,
+  "char_start": 2787,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00026",
+  "text": "    Parameters"
+ },
+ {
+  "char_end": 2826,
+  "char_start": 2807,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00027",
+  "text": "    Parameters Sets"
+ },
+ {
+  "char_end": 3088,
+  "char_start": 2952,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00028",
+  "text": "Parameters Sets#\nPyBaMM provides pre-defined parameters for common\nchemistries, as well as, a growing set of third-party parameter sets."
+ },
+ {
+  "char_end": 3537,
+  "char_start": 3090,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00029",
+  "text": "class pybamm.dispatch.entry_points.EntryPoint(group)[source]#\nA mapping interface for accessing PyBaMM models and parameter sets through entry points.\nAccess via pybamm.parameter_sets for parameter sets - provides access\nto all registered battery parameter sets (e.g., \u2018Chen2020\u2019, \u2018Ai2020\u2019) that can\nbe used to parameterise battery models.\nAccess via pybamm.Model for models - provides access to all registered\nbattery models (e.g., \u2018SPM\u2019, \u2018DFN\u2019)."
+ },
+ {
+  "char_end": 3588,
+  "char_start": 3539,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00030",
+  "text": "Attention\nThis feature is currently experimental."
+ },
+ {
+  "char_end": 3598,
+  "char_start": 3590,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00031",
+  "text": "Examples"
+ },
+ {
+  "char_end": 3731,
+  "char_start": 3600,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00032",
+  "text": "Listing available parameter sets:>>> import pybamm\n>>> list(pybamm.parameter_sets)\n['Ai2020', 'Bonkile2024', 'Chayambuka2022', ...]"
+ },
+ {
+  "char_end": 3828,
+  "char_start": 3733,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00033",
+  "text": "Listing available models:>>> import pybamm\n>>> list(pybamm.dispatch.models)\n['DFN', 'MPM', ...]"
+ },
+ {
+  "char_end": 3933,
+  "char_start": 3830,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": null,
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00034",
+  "text": "Get the docstring for a parameter set or model:>>> print(pybamm.parameter_sets.get_docstring(\"Ai2020\"))"
+ },
+ {
+  "char_end": 4017,
+  "char_start": 3935,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Parameters for the Enertech cell (Ai2020), from the papers :footcite:t:`Ai2019`...",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00035",
+  "text": "Parameters for the Enertech cell (Ai2020), from the papers :footcite:t:`Ai2019`..."
+ },
+ {
+  "char_end": 4073,
+  "char_start": 4019,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Parameters for the Enertech cell (Ai2020), from the papers :footcite:t:`Ai2019`...",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00036",
+  "text": ">>> print(pybamm.dispatch.models.get_docstring(\"SPM\"))"
+ },
+ {
+  "char_end": 4130,
+  "char_start": 4075,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Single Particle Model (SPM) of a lithium-ion battery...",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00037",
+  "text": "Single Particle Model (SPM) of a lithium-ion battery..."
+ },
+ {
+  "char_end": 4164,
+  "char_start": 4132,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Single Particle Model (SPM) of a lithium-ion battery...",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00038",
+  "text": "Extends: collections.abc.Mapping"
+ },
+ {
+  "char_end": 4249,
+  "char_start": 4166,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Single Particle Model (SPM) of a lithium-ion battery...",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00039",
+  "text": "get_docstring(key)[source]#\nReturn the docstring for the key parameter set or model"
+ },
+ {
+  "char_end": 4330,
+  "char_start": 4251,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Single Particle Model (SPM) of a lithium-ion battery...",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00040",
+  "text": "static get_entries(group_name)[source]#\nWrapper for the importlib version logic"
+ },
+ {
+  "char_end": 4684,
+  "char_start": 4332,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Single Particle Model (SPM) of a lithium-ion battery...",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00041",
+  "text": "Adding Parameter Sets#\nParameter sets can be added to PyBaMM by creating a python package, and\nregistering a entry point to pybamm_parameter_sets. At a minimum, the\npackage (cell_parameters) should consist of the following:\ncell_parameters\n\u251c\u2500\u2500 pyproject.toml        # and/or setup.cfg, setup.py\n\u2514\u2500\u2500 src\n    \u2514\u2500\u2500 cell_parameters\n        \u2514\u2500\u2500 cell_alpha.py"
+ },
+ {
+  "char_end": 5057,
+  "char_start": 4686,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "The actual parameter set is defined within cell_alpha.py, as shown below.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00042",
+  "text": "The actual parameter set is defined within cell_alpha.py, as shown below.\nFor an example, see the Marquis2019 parameter sets.\n 1import pybamm\n 2\n 3\n 4def get_parameter_values():\n 5    \"\"\"Doc string for cell-alpha\"\"\"\n 6    return {\n 7        \"chemistry\": \"lithium_ion\",\n 8        \"citation\": \"@book{van1995python, title={Python reference manual}}\",\n 9        # ...\n10    }"
+ },
+ {
+  "char_end": 5245,
+  "char_start": 5059,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00043",
+  "text": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:\n[project.entry-points.pybamm_parameter_sets]\ncell_alpha = \"cell_parameters.cell_alpha:get_parameter_values\""
+ },
+ {
+  "char_end": 5496,
+  "char_start": 5247,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00044",
+  "text": "If you are using setup.py or setup.cfg to setup your package, please\nsee SetupTools\u2019 documentation for registering entry points.\nIf you\u2019re willing to open-source your parameter set,\nlet us know, and we can add an entry to\nThird-Party Parameter Sets."
+ },
+ {
+  "char_end": 5622,
+  "char_start": 5498,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00045",
+  "text": "Third-Party Parameter Sets#\nRegistered a new parameter set to pybamm_parameter_sets?\nLet us know, and we\u2019ll update our list."
+ },
+ {
+  "char_end": 5825,
+  "char_start": 5624,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00046",
+  "text": "Bundled Parameter Sets#\nPyBaMM provides pre-defined parameter sets for several common chemistries,\nlisted below. See Adding Parameter Sets for information on registering new\nparameter sets with PyBaMM."
+ },
+ {
+  "char_end": 5852,
+  "char_start": 5827,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00047",
+  "text": "Lead-acid Parameter Sets#"
+ },
+ {
+  "char_end": 5959,
+  "char_start": 5854,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00048",
+  "text": "Sulzer2019#\nParameters for BBOXX lead-acid cells, from the paper\nSulzer et al.[1] and references therein."
+ },
+ {
+  "char_end": 5988,
+  "char_start": 5961,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00049",
+  "text": "Lithium-ion Parameter Sets#"
+ },
+ {
+  "char_end": 6273,
+  "char_start": 5990,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00050",
+  "text": "Ai2020#\nParameters for the Enertech cell (Ai2020), from the papers Ai et al.[2],\nRieger et al.[3] and references therein.\nSEI parameters are example parameters for SEI growth from the papers\nRamadass et al.[4], Ploehn et al.[5],\nSingle et al.[6], Safari et al.[7], and\nYang et al.[8]"
+ },
+ {
+  "char_end": 6488,
+  "char_start": 6275,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00051",
+  "text": "Note\nThis parameter set does not claim to be representative of the true parameter\nvalues. Instead these are parameter values that were used to fit SEI models to\nobserved experimental data in the referenced papers."
+ },
+ {
+  "char_end": 6729,
+  "char_start": 6490,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00052",
+  "text": "Bonkile2024#\nParameters for a composite graphite/silicon negative electrode with degradation,\nfrom Bonkile et al.[9], building on Chen et al.[10],\nAi et al.[11] and O\u2019Kane et al.[12]. Both phases share the SEI\nparameters of Yang et al.[8]."
+ },
+ {
+  "char_end": 6853,
+  "char_start": 6731,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00053",
+  "text": "Note\nThese values were assembled for composite-electrode degradation studies and\nare not claimed to represent a real cell."
+ },
+ {
+  "char_end": 7112,
+  "char_start": 6855,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00054",
+  "text": "Chen2020#\nParameters for an LG M50 cell, from the paper Chen et al.[10] and references\ntherein.\nSEI parameters are example parameters for SEI growth from the papers\nRamadass et al.[4], Ploehn et al.[5],\nSingle et al.[6], Safari et al.[7], and\nYang et al.[8]"
+ },
+ {
+  "char_end": 7327,
+  "char_start": 7114,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00055",
+  "text": "Note\nThis parameter set does not claim to be representative of the true parameter\nvalues. Instead these are parameter values that were used to fit SEI models to\nobserved experimental data in the referenced papers."
+ },
+ {
+  "char_end": 7642,
+  "char_start": 7329,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00056",
+  "text": "Chen2020_composite#\nParameters for a composite graphite/silicon negative electrode, from the paper\nAi et al.[11], based on the paper Chen et al.[10], and references\ntherein.\nSEI parameters are example parameters for composite SEI on silicon/graphite. Both\nphases use the same values, from the paper Yang et al.[8]"
+ },
+ {
+  "char_end": 7946,
+  "char_start": 7644,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00057",
+  "text": "Ecker2015#\nParameters for a Kokam SLPB 75106100 cell, from the papers Ecker et al.[13]\nand Ecker et al.[14]\nThe tab placement parameters are taken from measurements in Hales et al.[15]\nThe thermal material properties are for a 5 Ah power pouch cell by Kokam. The data\nare extracted from Zhao et al.[16]"
+ },
+ {
+  "char_end": 8285,
+  "char_start": 7948,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00058",
+  "text": "Graphite negative electrode parameters#\nThe fits to data for the electrode and electrolyte properties are those provided\nby Dr. Simon O\u2019Kane in the paper Richardson et al.[17]\nSEI parameters are example parameters for SEI growth from the papers\nRamadass et al.[4], Ploehn et al.[5],\nSingle et al.[6], Safari et al.[7], and\nYang et al.[8]"
+ },
+ {
+  "char_end": 8500,
+  "char_start": 8287,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00059",
+  "text": "Note\nThis parameter set does not claim to be representative of the true parameter\nvalues. Instead these are parameter values that were used to fit SEI models to\nobserved experimental data in the referenced papers."
+ },
+ {
+  "char_end": 8615,
+  "char_start": 8502,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00060",
+  "text": "Ecker2015_graphite_halfcell#\nParameters for a graphite half-cell based on a Kokam SLPB 75106100 cell, from papers"
+ },
+ {
+  "char_end": 8996,
+  "char_start": 8617,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00061",
+  "text": "Ecker, Madeleine, et al. \u201cParameterization of a physico-chemical model of a\nlithium-ion battery I. determination of parameters.\u201d Journal of the\nElectrochemical Society 162.9 (2015): A1836-A1848.\nEcker, Madeleine, et al. \u201cParameterization of a physico-chemical model of a\nlithium-ion battery II. Model validation.\u201d Journal of The Electrochemical\nSociety 162.9 (2015): A1849-A1857."
+ },
+ {
+  "char_end": 9057,
+  "char_start": 8998,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00062",
+  "text": "The tab placement parameters are taken from measurements in"
+ },
+ {
+  "char_end": 9239,
+  "char_start": 9059,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00063",
+  "text": "Hales, Alastair, et al. \u201cThe cell cooling coefficient: a standard to define heat\nrejection from lithium-ion batteries.\u201d Journal of The Electrochemical Society\n166.12 (2019): A2383."
+ },
+ {
+  "char_end": 9342,
+  "char_start": 9241,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00064",
+  "text": "The thermal material properties are for a 5 Ah power pouch cell by Kokam. The data\nare extracted from"
+ },
+ {
+  "char_end": 9541,
+  "char_start": 9344,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00065",
+  "text": "Zhao, Y., et al. \u201cModeling the effects of thermal gradients induced by tab and\nsurface cooling on lithium ion cell performance.\u201d\u201d Journal of The\nElectrochemical Society, 165.13 (2018): A3169-A3178."
+ },
+ {
+  "char_end": 9688,
+  "char_start": 9543,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00066",
+  "text": "Graphite electrode parameters#\nThe fits to data for the electrode and electrolyte properties are those provided\nby Dr. Simon O\u2019Kane in the paper:"
+ },
+ {
+  "char_end": 9888,
+  "char_start": 9690,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Then register get_parameter_values to pybamm_parameter_sets in pyproject.toml:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00067",
+  "text": "Richardson, Giles, et. al. \u201cGeneralised single particle models for high-rate\noperation of graded lithium-ion electrodes: Systematic derivation and\nvalidation.\u201d Electrochemica Acta 339 (2020): 135862"
+ },
+ {
+  "char_end": 9959,
+  "char_start": 9890,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "SEI parameters are example parameters for SEI growth from the papers:",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00068",
+  "text": "SEI parameters are example parameters for SEI growth from the papers:"
+ },
+ {
+  "char_end": 10895,
+  "char_start": 9961,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Ramadass, P., Haran, B., Gomadam, P. M., White, R., & Popov, B. N. (2004).",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00069",
+  "text": "Ramadass, P., Haran, B., Gomadam, P. M., White, R., & Popov, B. N. (2004).\nDevelopment of first principles capacity fade model for Li-ion cells. Journal of\nthe Electrochemical Society, 151(2), A196-A203.\nPloehn, H. J., Ramadass, P., & White, R. E. (2004). Solvent diffusion model for\naging of lithium-ion battery cells. Journal of The Electrochemical Society,\n151(3), A456-A462.\nSingle, F., Latz, A., & Horstmann, B. (2018). Identifying the mechanism of\ncontinued growth of the solid-electrolyte interphase. ChemSusChem, 11(12),\n1950-1955.\nSafari, M., Morcrette, M., Teyssot, A., & Delacour, C. (2009). Multimodal\nPhysics- Based Aging Model for Life Prediction of Li-Ion Batteries. Journal of\nThe Electrochemical Society, 156(3),\nYang, X., Leng, Y., Zhang, G., Ge, S., Wang, C. (2017). Modeling of lithium\nplating induced aging of lithium-ion batteries: Transition from linear to\nnonlinear aging. Journal of Power Sources, 360, 28-40."
+ },
+ {
+  "char_end": 11111,
+  "char_start": 10897,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Ramadass, P., Haran, B., Gomadam, P. M., White, R., & Popov, B. N. (2004).",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00070",
+  "text": "Note: this parameter set does not claim to be representative of the true parameter\nvalues. Instead these are parameter values that were used to fit SEI models to\nobserved experimental data in the referenced papers."
+ },
+ {
+  "char_end": 11275,
+  "char_start": 11113,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Ramadass, P., Haran, B., Gomadam, P. M., White, R., & Popov, B. N. (2004).",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00071",
+  "text": "MSMR_Example#\nExample parameter values for use with MSMR models. The thermodynamic parameters\nare for Graphite and NMC622, and are taken from Table 1 of the paper"
+ },
+ {
+  "char_end": 11608,
+  "char_start": 11277,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Mark Verbrugge, Daniel Baker, Brian Koch, Xingcheng Xiao and Wentian Gu.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00072",
+  "text": "Mark Verbrugge, Daniel Baker, Brian Koch, Xingcheng Xiao and Wentian Gu.\nThermodynamic Model for Substitutional Materials: Application to Lithiated\nGraphite, Spinel Manganese Oxide, Iron Phosphate, and Layered\nNickel-Manganese-Cobalt Oxide. Journal of The Electrochemical Society,\n164(11):3243-3253, 2017. doi:10.1149/2.0341708jes."
+ },
+ {
+  "char_end": 11696,
+  "char_start": 11610,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Mark Verbrugge, Daniel Baker, Brian Koch, Xingcheng Xiao and Wentian Gu.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00073",
+  "text": "The remaining value are based on a parameterization of the LG M50 cell, from the\npaper"
+ },
+ {
+  "char_end": 12004,
+  "char_start": 11698,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00074",
+  "text": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.\nDhammika Widanage, and Emma Kendrick. Development of Experimental Techniques for\nParameterization of Multi-scale Lithium-ion Battery Models. Journal of The\nElectrochemical Society, 167(8):080534, 2020. doi:10.1149/1945-7111/ab9050."
+ },
+ {
+  "char_end": 12675,
+  "char_start": 12006,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00075",
+  "text": "and references therein. Verbrugge et al. (2017) does not provide kinetic parameters\nso we set the reference exchange current density to 5 A.m-2 for the positive\nelectrode reactions and 2.7 A.m-2 for the negative electrode reactions, which are\nthe values used in the Chen et al. (2020) paper. We also assume that the\nexchange-current density is symmetric. Note: the 4th reaction in the positive\nelectrode gave unphysical results so we set the reference exchange current density\nand symmetry factor to 1e6 and 1, respectively. The parameter values are intended\nto serve as an example set to use with the MSMR model and do not claim to match any\nexperimental cycling data."
+ },
+ {
+  "char_end": 12952,
+  "char_start": 12677,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00076",
+  "text": "Marquis2019#\nParameters for a Kokam SLPB78205130H cell, from the paper Marquis et al.[18]\nand references therein.\nSEI parameters are example parameters for SEI growth from the papers\nRamadass et al.[4], Ploehn et al.[5],\nSingle et al.[6], Safari et al.[7], and\nYang et al.[8]"
+ },
+ {
+  "char_end": 13167,
+  "char_start": 12954,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00077",
+  "text": "Note\nThis parameter set does not claim to be representative of the true parameter\nvalues. Instead these are parameter values that were used to fit SEI models to\nobserved experimental data in the referenced papers."
+ },
+ {
+  "char_end": 13443,
+  "char_start": 13169,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00078",
+  "text": "Mohtat2020#\nParameters for a graphite/NMC532 pouch cell from the paper Mohtat et al.[19]\nand references therein.\nSEI parameters are example parameters for SEI growth from the papers\nRamadass et al.[4], Ploehn et al.[5],\nSingle et al.[6], Safari et al.[7], and\nYang et al.[8]"
+ },
+ {
+  "char_end": 13525,
+  "char_start": 13445,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00079",
+  "text": "SEI parameters#\nParameters for lithium plating are from the paper Yang et al.[8]"
+ },
+ {
+  "char_end": 13740,
+  "char_start": 13527,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00080",
+  "text": "Note\nThis parameter set does not claim to be representative of the true parameter\nvalues. Instead these are parameter values that were used to fit SEI models to\nobserved experimental data in the referenced papers."
+ },
+ {
+  "char_end": 13843,
+  "char_start": 13742,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00081",
+  "text": "NCA_Kim2011#\nParameters for a \u201cNominal Design\u201d graphite/NCA pouch cell, from the paper\nKim et al.[20]"
+ },
+ {
+  "char_end": 14445,
+  "char_start": 13845,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00082",
+  "text": "Note\nOnly an effective cell volumetric heat capacity is provided in the paper. We\ntherefore used the values for the density and specific heat capacity reported in\nthe Marquis2019 parameter set in each region and multiplied each density by the\nratio of the volumetric heat capacity provided in smith to the calculated value.\nThis ensures that the values produce the same effective cell volumetric heat\ncapacity. This works fine for thermal models that are averaged over the\nx-direction but not for full (PDE in x direction) thermal models. We do the same\nfor the planar effective thermal conductivity."
+ },
+ {
+  "char_end": 14608,
+  "char_start": 14447,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00083",
+  "text": "SEI parameters are example parameters for SEI growth from the papers\nRamadass et al.[4], Ploehn et al.[5],\nSingle et al.[6], Safari et al.[7], and\nYang et al.[8]"
+ },
+ {
+  "char_end": 14823,
+  "char_start": 14610,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00084",
+  "text": "Note\nThis parameter set does not claim to be representative of the true parameter\nvalues. Instead these are parameter values that were used to fit SEI models to\nobserved experimental data in the referenced papers."
+ },
+ {
+  "char_end": 14959,
+  "char_start": 14825,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00085",
+  "text": "OKane2022#\nParameters for an LG M50 cell, from the paper O\u2019Kane et al.[12], based on the\npaper Chen et al.[10] and references therein."
+ },
+ {
+  "char_end": 15174,
+  "char_start": 14961,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00086",
+  "text": "Note\nThis parameter set does not claim to be representative of the true parameter\nvalues. Instead these are parameter values that were used to fit SEI models to\nobserved experimental data in the referenced papers."
+ },
+ {
+  "char_end": 15294,
+  "char_start": 15176,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00087",
+  "text": "OKane2022_graphite_SiOx_halfcell#\nParameters for the graphite+SiOx negative electrode of a LG M50 cell, from the paper"
+ },
+ {
+  "char_end": 15636,
+  "char_start": 15296,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00088",
+  "text": "Simon E. J. O\u2019Kane, Weilong Ai, Ganesh Madabattula, Diego Alonso-Alvarez, Robert\nTimms, Valentin Sulzer, Jacqueline Sophie Edge, Billy Wu, Gregory J. Offer, and\nMonica Marinescu. Lithium-ion battery degradation: how to model it. Phys. Chem.\nChem. Phys., 24:7909-7922, 2022. URL: http://dx.doi.org/10.1039/D2CP00417H,\ndoi:10.1039/D2CP00417H."
+ },
+ {
+  "char_end": 15656,
+  "char_start": 15638,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00089",
+  "text": "based on the paper"
+ },
+ {
+  "char_end": 15964,
+  "char_start": 15658,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00090",
+  "text": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.\nDhammika Widanage, and Emma Kendrick. Development of Experimental Techniques for\nParameterization of Multi-scale Lithium-ion Battery Models. Journal of The\nElectrochemical Society, 167(8):080534, 2020. doi:10.1149/1945-7111/ab9050."
+ },
+ {
+  "char_end": 16181,
+  "char_start": 15966,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00091",
+  "text": "and references therein.\nNote: the SEI, plating and mechanical parameters do not claim to be representative\nof the true parameter values. These are merely the parameter values that were used\nin the referenced papers."
+ },
+ {
+  "char_end": 16387,
+  "char_start": 16183,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00092",
+  "text": "ORegan2022#\nParameters for an LG M50 cell, from the paper O\u2019Regan et al.[21]\nParameters for a LiPF6 in EC:EMC (3:7 w:w) electrolyte are from the paper\nLandesfeind and Gasteiger[22] and references therein."
+ },
+ {
+  "char_end": 16459,
+  "char_start": 16389,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00093",
+  "text": "Prada2013#\nParameters for an LFP cell, from the paper Prada et al.[23]"
+ },
+ {
+  "char_end": 17098,
+  "char_start": 16461,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00094",
+  "text": "Ramadass2004#\nRamadass2004 parameter set. This is a bit of a Frankenstein parameter set and should\nbe used with caution.\nParameters for a graphite negative electrode, Lithium Cobalt Oxide positive\nelectrode, and LiPF6 electrolyte are from the papers Marquis et al.[18],\nRamadass et al.[4], and references therein.\nParameters for the separator are from the papers Ecker et al.[13]\nThe thermal material properties are for a 5 Ah power pouch cell by Kokam. The data\nare extracted from Lithium Cobalt Oxide positive electrode parameters in\nZhao et al.[16]\nParameters for SEI growth are from the papers Ramadass et al.[4] and\nSafari et al.[7]"
+ },
+ {
+  "char_end": 17195,
+  "char_start": 17100,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00095",
+  "text": "Note\nRamadass 2004 has mistakes in units and values of SEI parameters, corrected by\nSafari2009."
+ },
+ {
+  "char_end": 17493,
+  "char_start": 17197,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00096",
+  "text": "Xu2019#\nParameters for a Kokam SLPB78205130H half-cell, from the paper Xu et al.[24]\nand references therein. Anode is graphite MCMB 2528. Separator is Celgard 2325.\nCathode is lithium Cobalt Oxide. Electrolyte is LiPF6.\nParameters for a LiPF6 electrolyte are from the paper Val\u00f8en and Reimers[25]"
+ },
+ {
+  "char_end": 17681,
+  "char_start": 17495,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00097",
+  "text": "1C discharge from full#\nSEI parameters are example parameters for SEI growth from the papers\nRamadass et al.[4], Ploehn et al.[5],\nSingle et al.[6], Safari et al.[7], and\nYang et al.[8]."
+ },
+ {
+  "char_end": 17896,
+  "char_start": 17683,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00098",
+  "text": "Note\nThis parameter set does not claim to be representative of the true parameter\nvalues. Instead these are parameter values that were used to fit SEI models to\nobserved experimental data in the referenced papers."
+ },
+ {
+  "char_end": 17908,
+  "char_start": 17898,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00099",
+  "text": "References"
+ },
+ {
+  "char_end": 18192,
+  "char_start": 17910,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00100",
+  "text": "[1]\nValentin Sulzer, S.\u00a0Jon Chapman, Colin\u00a0P. Please, David\u00a0A. Howey, and Charles\u00a0W. Monroe. Faster Lead-Acid Battery Simulations from Porous-Electrode Theory: Part II. Asymptotic Analysis. Journal of The Electrochemical Society, 166(12):A2372\u2013A2382, 2019. doi:10.1149/2.0441908jes."
+ },
+ {
+  "char_end": 18453,
+  "char_start": 18194,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00101",
+  "text": "[2]\nWeilong Ai, Ludwig Kraft, Johannes Sturm, Andreas Jossen, and Billy Wu. Electrochemical thermal-mechanical modelling of stress inhomogeneity in lithium-ion pouch cells. Journal of The Electrochemical Society, 167(1):013512, 2019. doi:10.1149/2.0122001JES."
+ },
+ {
+  "char_end": 18676,
+  "char_start": 18455,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00102",
+  "text": "[3]\nBernhard Rieger, Simon\u00a0V Erhard, Katharina Rumpf, and Andreas Jossen. A new method to model the thickness change of a commercial pouch cell during discharge. Journal of The Electrochemical Society, 163(8):A1566, 2016."
+ },
+ {
+  "char_end": 18935,
+  "char_start": 18678,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00103",
+  "text": "[4]\n(1,2,3,4,5,6,7,8,9)\nP\u00a0Ramadass, Bala Haran, Parthasarathy\u00a0M Gomadam, Ralph White, and Branko\u00a0N Popov. Development of first principles capacity fade model for li-ion cells. Journal of the Electrochemical Society, 151(2):A196, 2004. doi:10.1149/1.1634273."
+ },
+ {
+  "char_end": 19134,
+  "char_start": 18937,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00104",
+  "text": "[5]\n(1,2,3,4,5,6,7)\nHarry\u00a0J Ploehn, Premanand Ramadass, and Ralph\u00a0E White. Solvent diffusion model for aging of lithium-ion battery cells. Journal of The Electrochemical Society, 151(3):A456, 2004."
+ },
+ {
+  "char_end": 19325,
+  "char_start": 19136,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00105",
+  "text": "[6]\n(1,2,3,4,5,6,7)\nFabian Single, Arnulf Latz, and Birger Horstmann. Identifying the mechanism of continued growth of the solid\u2013electrolyte interphase. ChemSusChem, 11(12):1950\u20131955, 2018."
+ },
+ {
+  "char_end": 19548,
+  "char_start": 19327,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00106",
+  "text": "[7]\n(1,2,3,4,5,6,7,8)\nM\u00a0Safari, Mathieu Morcrette, A\u00a0Teyssot, and Charles Delacourt. Multimodal physics-based aging model for life prediction of li-ion batteries. Journal of The Electrochemical Society, 156(3):A145, 2008."
+ },
+ {
+  "char_end": 19847,
+  "char_start": 19550,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00107",
+  "text": "[8]\n(1,2,3,4,5,6,7,8,9,10)\nXiao\u00a0Guang Yang, Yongjun Leng, Guangsheng Zhang, Shanhai Ge, and Chao\u00a0Yang Wang. Modeling of lithium plating induced aging of lithium-ion batteries: transition from linear to nonlinear aging. Journal of Power Sources, 360:28\u201340, 2017. doi:10.1016/j.jpowsour.2017.05.110."
+ },
+ {
+  "char_end": 20246,
+  "char_start": 19849,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00108",
+  "text": "[9]\nMayur\u00a0P. Bonkile, Yang Jiang, Niall Kirkaldy, Valentin Sulzer, Robert Timms, Huizhi Wang, Gregory Offer, and Billy Wu. Is silicon worth it? modelling degradation in composite silicon\u2013graphite lithium-ion battery electrodes. Journal of Power Sources, 606:234256, 2024. URL: https://www.sciencedirect.com/science/article/pii/S0378775324002076, doi:https://doi.org/10.1016/j.jpowsour.2024.234256."
+ },
+ {
+  "char_end": 20569,
+  "char_start": 20248,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00109",
+  "text": "[10]\n(1,2,3,4)\nChang-Hui Chen, Ferran Brosa\u00a0Planella, Kieran O\u2019Regan, Dominika Gastol, W.\u00a0Dhammika Widanage, and Emma Kendrick. Development of Experimental Techniques for Parameterization of Multi-scale Lithium-ion Battery Models. Journal of The Electrochemical Society, 167(8):080534, 2020. doi:10.1149/1945-7111/ab9050."
+ },
+ {
+  "char_end": 20930,
+  "char_start": 20571,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00110",
+  "text": "[11]\n(1,2)\nWeilong Ai, Niall Kirkaldy, Yang Jiang, Gregory Offer, Huizhi Wang, and Billy Wu. A composite electrode model for lithium-ion batteries with silicon/graphite negative electrodes. Journal of Power Sources, 527:231142, 2022. URL: https://www.sciencedirect.com/science/article/pii/S0378775322001604, doi:https://doi.org/10.1016/j.jpowsour.2022.231142."
+ },
+ {
+  "char_end": 21283,
+  "char_start": 20932,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00111",
+  "text": "[12]\n(1,2)\nSimon E.\u00a0J. O\u2019Kane, Weilong Ai, Ganesh Madabattula, Diego Alonso-Alvarez, Robert Timms, Valentin Sulzer, Jacqueline\u00a0Sophie Edge, Billy Wu, Gregory\u00a0J. Offer, and Monica Marinescu. Lithium-ion battery degradation: how to model it. Phys. Chem. Chem. Phys., 24:7909\u20137922, 2022. URL: http://dx.doi.org/10.1039/D2CP00417H, doi:10.1039/D2CP00417H."
+ },
+ {
+  "char_end": 21598,
+  "char_start": 21285,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00112",
+  "text": "[13]\n(1,2)\nMadeleine Ecker, Thi Kim\u00a0Dung Tran, Philipp Dechent, Stefan K\u00e4bitz, Alexander Warnecke, and Dirk\u00a0Uwe Sauer. Parameterization of a Physico-Chemical Model of a Lithium-Ion Battery: I. Determination of Parameters. Journal of the Electrochemical Society, 162(9):A1836\u2013A1848, 2015. doi:10.1149/2.0551509jes."
+ },
+ {
+  "char_end": 21859,
+  "char_start": 21600,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00113",
+  "text": "[14]\nMadeleine Ecker, Stefan K\u00e4bitz, Izaro Laresgoiti, and Dirk\u00a0Uwe Sauer. Parameterization of a Physico-Chemical Model of a Lithium-Ion Battery: II. Model Validation. Journal of The Electrochemical Society, 162(9):A1849\u2013A1857, 2015. doi:10.1149/2.0541509jes."
+ },
+ {
+  "char_end": 22121,
+  "char_start": 21861,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00114",
+  "text": "[15]\nAlastair Hales, Laura\u00a0Bravo Diaz, Mohamed\u00a0Waseem Marzook, Yan Zhao, Yatish Patel, and Gregory Offer. The cell cooling coefficient: a standard to define heat rejection from lithium-ion batteries. Journal of The Electrochemical Society, 166(12):A2383, 2019."
+ },
+ {
+  "char_end": 22361,
+  "char_start": 22123,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00115",
+  "text": "[16]\n(1,2)\nYan Zhao, Yatish Patel, Teng Zhang, and Gregory\u00a0J Offer. Modeling the effects of thermal gradients induced by tab and surface cooling on lithium ion cell performance. Journal of The Electrochemical Society, 165(13):A3169, 2018."
+ },
+ {
+  "char_end": 22658,
+  "char_start": 22363,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00116",
+  "text": "[17]\nGiles Richardson, Ivan Korotkin, Rahifa Ranom, Michael Castle, and Jamie\u00a0M. Foster. Generalised single particle models for high-rate operation of graded lithium-ion electrodes: systematic derivation and validation. Electrochimica Acta, 339:135862, 2020. doi:10.1016/j.electacta.2020.135862."
+ },
+ {
+  "char_end": 22919,
+  "char_start": 22660,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00117",
+  "text": "[18]\n(1,2)\nScott\u00a0G. Marquis, Valentin Sulzer, Robert Timms, Colin\u00a0P. Please, and S.\u00a0Jon Chapman. An asymptotic derivation of a single particle model with electrolyte. Journal of The Electrochemical Society, 166(15):A3693\u2013A3706, 2019. doi:10.1149/2.0341915jes."
+ },
+ {
+  "char_end": 23195,
+  "char_start": 22921,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00118",
+  "text": "[19]\nPeyman Mohtat, Suhak Lee, Valentin Sulzer, Jason\u00a0B. Siegel, and Anna\u00a0G. Stefanopoulou. Differential Expansion and Voltage Model for Li-ion Batteries at Practical Charging Rates. Journal of The Electrochemical Society, 167(11):110561, 2020. doi:10.1149/1945-7111/aba5d1."
+ },
+ {
+  "char_end": 23472,
+  "char_start": 23197,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00119",
+  "text": "[20]\nGi-Heon Kim, Kandler Smith, Kyu-Jin Lee, Shriram Santhanagopalan, and Ahmad Pesaran. Multi-domain modeling of lithium-ion batteries encompassing multi-physics in varied length scales. Journal of the Electrochemical Society, 158(8):A955\u2013A969, 2011. doi:10.1149/1.3597614."
+ },
+ {
+  "char_end": 23719,
+  "char_start": 23474,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00120",
+  "text": "[21]\nKieran O\u2019Regan, Ferran Brosa\u00a0Planella, W.\u00a0Dhammika Widanage, and Emma Kendrick. Thermal-electrochemical parameters of a high energy lithium-ion cylindrical battery. Electrochimica Acta, 425:140700, 2022. doi:10.1016/j.electacta.2022.140700."
+ },
+ {
+  "char_end": 23949,
+  "char_start": 23721,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00121",
+  "text": "[22]\nJohannes Landesfeind and Hubert\u00a0A Gasteiger. Temperature and concentration dependence of the ionic transport properties of lithium-ion battery electrolytes. Journal of The Electrochemical Society, 166(14):A3079\u2013A3097, 2019."
+ },
+ {
+  "char_end": 24260,
+  "char_start": 23951,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00122",
+  "text": "[23]\nEric Prada, D.\u00a0Di\u00a0Domenico, Y.\u00a0Creff, J.\u00a0Bernard, Val\u00e9rie Sauvant-Moynot, and Fran\u00e7ois Huet. A simplified electrochemical and thermal aging model of LiFePO4-graphite Li-ion batteries: power and capacity fade simulations. Journal of The Electrochemical Society, 160(4):A616, 2013. doi:10.1149/2.053304jes."
+ },
+ {
+  "char_end": 24538,
+  "char_start": 24262,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00123",
+  "text": "[24]\nShanshan Xu, Kuan-Hung Chen, Neil\u00a0P Dasgupta, Jason\u00a0B Siegel, and Anna\u00a0G Stefanopoulou. Evolution of dead lithium growth in lithium metal batteries: experimentally validated model of the apparent capacity loss. Journal of The Electrochemical Society, 166(14):A3456, 2019."
+ },
+ {
+  "char_end": 24703,
+  "char_start": 24540,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00124",
+  "text": "[25]\nLars\u00a0Ole Val\u00f8en and Jan\u00a0N Reimers. Transport properties of lipf6-based li-ion battery electrolytes. Journal of The Electrochemical Society, 152(5):A882, 2005."
+ },
+ {
+  "char_end": 24898,
+  "char_start": 24853,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00125",
+  "text": "        previous\n        Lead-Acid Parameters"
+ },
+ {
+  "char_end": 24966,
+  "char_start": 24923,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00126",
+  "text": "        next\n        Process Parameter Data"
+ },
+ {
+  "char_end": 25129,
+  "char_start": 25112,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00127",
+  "text": "     On this page"
+ },
+ {
+  "char_end": 25203,
+  "char_start": 25141,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00128",
+  "text": "EntryPoint\nEntryPoint.get_docstring()\nEntryPoint.get_entries()"
+ },
+ {
+  "char_end": 25328,
+  "char_start": 25205,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00129",
+  "text": "Adding Parameter Sets\nThird-Party Parameter Sets\nBundled Parameter Sets\nLead-acid Parameter Sets\nLithium-ion Parameter Sets"
+ },
+ {
+  "char_end": 25403,
+  "char_start": 25379,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00130",
+  "text": "          Edit on GitHub"
+ },
+ {
+  "char_end": 25614,
+  "char_start": 25574,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Chang-Hui Chen, Ferran Brosa Planella, Kieran O\u2019Regan, Dominika Gastol, W.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00131",
+  "text": "      \u00a9 Copyright 2018, The PyBaMM Team."
+ },
+ {
+  "char_end": 25682,
+  "char_start": 25651,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Created using Sphinx 9.1.0.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00132",
+  "text": "    Created using Sphinx 9.1.0."
+ },
+ {
+  "char_end": 25782,
+  "char_start": 25738,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Built with the PyData Sphinx Theme 0.18.0.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00133",
+  "text": "  Built with the PyData Sphinx Theme 0.18.0."
+ },
+ {
+  "char_end": 25829,
+  "char_start": 25800,
+  "document_id": "pybamm_parameter_sets_docs",
+  "heading": "Last updated on 2026-11-05.",
+  "page": null,
+  "segment_id": "pybamm_parameter_sets_docs#seg00134",
+  "text": "  Last updated on 2026-11-05."
+ }
+]
