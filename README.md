@@ -1,179 +1,218 @@
-# Closed-Loop LLM Framework for Physics-Based Battery Parameterization
+# PARALLM — LLM-assisted, provenance-grounded parameterization for PyBaMM
 
-Research prototype: a closed-loop, LLM-assisted framework for parameterization
-and inverse estimation of physics-based lithium-ion battery models (PyBaMM).
+> **Parameters — not a problem anymore (for [PyBaMM](https://pybamm.org)).**  
+> *Public beta `v0.1.0-beta.1` (research prototype).*
 
-Core principle: **the LLM is an evidence interpreter and workflow orchestrator —
-not an oracle for electrochemical constants.** Numerical estimation, unit
-conversion, physical checks and simulation are performed by explicit,
-deterministic computational tools.
+PARALLM is a closed-loop, LLM-assisted framework for parameterization and inverse
+estimation of physics-based lithium-ion battery models built on
+[PyBaMM](https://pybamm.org). It targets the hard part of physics-based battery
+modelling: finding defensible parameter values with clear provenance.
 
-- Target framework: PyBaMM (initial focus: lithium-ion DFN models)
-- Status: **Phases P0–P4 landed (research prototype)** — deterministic
-  baseline, parameter registry, PyBOP estimation/identifiability, literature
-  provenance and LLM-extraction evaluation run offline; the P4 LLM extraction
-  client (OpenAI-compatible) is optional and disabled unless
-  `PYCL_LLM_API_KEY` and `PYCL_LLM_MODEL` are set
-- PRD: `Closed_Loop_PyBaMM_LLM_Research_PRD.docx`
+## The problem
 
-## Phase status
+PyBaMM models (e.g., DFN) need dozens of electrochemical parameters whose values
+depend on chemistry, geometry, and experimental conditions. They are scattered
+across papers and supplements, reported in inconsistent units/definitions, and
+many are weakly identifiable from voltage data alone. Treating an LLM as a
+source of truth produces plausible but ungrounded numbers.
 
-| Phase | Scope | Status |
+## Core idea
+
+**The LLM is an evidence interpreter and workflow orchestrator — not an oracle
+for electrochemical constants.** Numerical estimation, unit conversion, physical
+checks, and simulation are explicit and deterministic.
+
+- Retrieval-grounded extraction with provenance (quotes, locators, conditions) —
+  never silently invent or substitute values.
+- Deterministic validation and a provenance-tracked parameter registry
+  (user-supplied / literature-derived / calculated / assumed / calibrated /
+  unresolved).
+- PyBOP-based inverse estimation and identifiability on synthetic data;
+  calibration data is never used as validation data.
+
+## Capabilities (P0–P5, this beta)
+
+| Milestone | Scope | Status |
 |---|---|---|
-| P0 | Reproducible PyBaMM DFN baseline + manifests + tests | ✅ done |
-| P1 | Ecosystem audit (PyBOP 26.10 / PyProBE-Data 2.6.1) + verified compatibility + revised architecture | ✅ done (`docs/ECOSYSTEM_AUDIT.md`, `docs/DEPENDENCY_COMPATIBILITY.md`) |
-| P2 | Numerical parameter estimation and identifiability (PyBOP-based) | ✅ done (see `results/p2/`, `benchmarks/`) |
-| P3 | Literature intelligence and parameter provenance (LLM-assisted, offline by default) | ✅ done (see `results/p3/`) |
-| P4 | LLM extraction evaluation on real LLM + benchmark corpus v2 + Chen2020 discrepancy analysis + real-dataset audit | ✅ done (see `results/p4/`, `docs/LLM_EXTRACTION_EVALUATION.md`) |
-| P5–P8 | Closed loop, fine-tuning, remaining validation | ⬜ not started |
+| P0 | Reproducible PyBaMM DFN baseline (Chen2020, 1C, IDAKLU) + manifests | ✅ |
+| P1 | Ecosystem audit (PyBOP 26.10 / PyProBE-Data 2.6.1), compatibility + architecture | ✅ |
+| P2 | PyBOP estimation, sensitivity/identifiability, **synthetic parameter recovery** | ✅ |
+| P3 | Literature ingestion, provenance registry, deterministic + optional LLM extraction | ✅ |
+| P4 | LLM extraction evaluation (v2, 20 items) + Chen2020 discrepancy + dataset audit | ✅ |
+| P5 | Reliability/provenance checks, v3 benchmark, **retrieval ablation** (37 items, 3 repeats/arm), real-data experiment design (not run) | ✅ |
 
-## Repository layout
+## Headline benchmark (P5, v3 — 37 items, 3 repeats/arm, mean ± std)
+
+Retrieval-grounded vs knowledge-without-evidence vs strict no-evidence, same
+model/task/schema/rubric, **v3 only** (`mimo-v2.6-flash`, temp 0). Full
+eval-split and per-item consistency: `results/p5/benchmark_v3/summary.md`,
+`docs/BENCHMARK_RESULTS.md`.
+
+| metric (all) | retrieval + strict | no retrieval, memory permitted | no retrieval, strict |
+|---|---:|---:|---:|
+| parameter identification | **0.718 ± 0.009** | 0.378 ± 0.086 | 0.000 ± 0.000 |
+| value extraction (matched) | **0.946 ± 0.022** | 0.272 ± 0.083 | n/a |
+| provenance (matched) | **0.928 ± 0.026** | 0.000 ± 0.000 | n/a |
+| condition completeness (matched) | **0.116 ± 0.011** (weak) | 0.483 ± 0.062 (ungrounded) | n/a |
+| qualifier accuracy (matched) | **0.741 ± 0.033** | 0.497 ± 0.045 | n/a |
+| false extraction rate | **0.000 ± 0.000** | 0.275 ± 0.042 | n/a |
+| abstention accuracy | **1.000 ± 0.000** | 0.333 ± 0.136 | **1.000 ± 0.000** |
+
+**Read this honestly:** retrieval is required for grounded extraction; memory-only
+emits unsupported claims (zero provenance, non-zero false extraction, fails to
+abstain). **Experimental-condition extraction is weak** (condition completeness
+0.116 all / 0.035 eval under retrieval). These are literature/benchmark results
+and **synthetic recovery results — not independent experimental validation.**
+
+## Architecture
+
+One PyBaMM boundary; deterministic numerics; provenance-first registry; optional
+LLM client (env-configured). See `docs/ARCHITECTURE.md`.
 
 ```
-configs/            run configurations (YAML, version-pinned)
-src/pybamm_closed_loop/
-  pybamm_engine/    pinned PyBaMM build/solve/extract (P0)
-  parameter_registry/, registry/  parameter store with provenance + pybop mapping
-  calibration/      PyBOP fitting, synthetic data, identifiability (P2)
-  literature/, datasets/,   extraction/  PDF ingestion, LLM/rule extraction, provenance (P3)
-  eval/        extraction prompts, benchmark scoring, provenance (P3–P5)
-  closed_loop/, validation/, diagnostics/, specifications/
-  reporting/        run manifests and figures
-tests/              software-correctness tests (unit/, integration/, regression/, baselines/)
-benchmarks/         scientific benchmarks (separate from tests)
-scripts/            thin CLI drivers (run_baseline.py, plot_baseline.py, compat_probe/, p3/, p4/, p5/)
-docs/               architecture, roadmap, model documentation
-data/               raw documents, synthetic/experimental data (immutable raw)
-results/            run outputs: arrays, manifests, figures
+literature/ + datasets/  -> ingest & retrieve evidence
+eval/ + extraction/      -> extract (deterministic or retrieval-grounded LLM) + score + provenance checks
+validation/ + registry/  -> deterministic checks, provenance-tracked parameter store
+pybamm_engine/           -> pinned PyBaMM build/solve/extract (the only PyBaMM boundary)
+calibration/             -> PyBOP fitting, synthetic data, identifiability
+reporting/               -> manifests & figures
 ```
 
-## Quickstart
+## Repository structure
+
+```
+.
+├── src/pybamm_closed_loop/      # installable package
+│   ├── pybamm_engine/           #   pinned PyBaMM build/solve/extract (only PyBaMM boundary)
+│   ├── calibration/             #   PyBOP fitting, synthetic data, identifiability
+│   ├── literature/              #   document ingestion, store, retrieval
+│   ├── extraction/              #   extraction pipeline (deterministic / optional LLM)
+│   ├── eval/                    #   prompts, benchmark scoring, provenance checks (P3–P5)
+│   ├── registry/ + parameter_registry/  # provenance-tracked parameter store
+│   ├── validation/              #   deterministic physical/unit/condition checks
+│   ├── datasets/                #   dataset linkage/audit helpers
+│   └── reporting/               #   manifests & figures
+├── configs/                     # version-pinned run configs (YAML)
+├── benchmarks/                  # scientific benchmarks (separate from tests)
+├── scripts/                     # CLI drivers (baseline, plots, compat, p3/p4/p5)
+├── tests/                       # unit / integration / characterization (software correctness)
+├── data/                        # fixtures, ingested store, registry; raw external data gitignored
+├── results/                     # committed run outputs (baseline, p2–p5, figures)
+└── docs/                        # architecture, reproducibility, benchmarks, limits, data provenance
+```
+
+## Installation
+
+Supported Python: **3.10–3.15** (core). Full ecosystem (PyBOP/PyProBE/SALib/
+pypdf/polars) verified on **CPython 3.12.16** (`<3.13` required for
+`PyProBE-Data`). Details: `docs/INSTALLATION.md`.
 
 ```bash
+# Core (PyBaMM-only)
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.lock
-.venv/bin/pip install -e .
+.venv/bin/pip install -e ".[dev]"
 
-# full P0 baseline (DFN, Chen2020, 1C discharge to 2.5 V)
+# Full ecosystem (recommended, Python 3.12)
+python3.12 -m venv .venv-ecosystem312
+.venv-ecosystem312/bin/pip install -r requirements-integration.lock
+.venv-ecosystem312/bin/pip install -e ".[dev,ecosystem]"
+```
+
+## Quickstart — working examples
+
+```bash
+# 1) Reproducible P0 baseline (DFN, Chen2020, 1C discharge to 2.5 V)
 .venv/bin/python scripts/run_baseline.py --config configs/baseline_dfn.yaml --out results/baseline
 .venv/bin/python scripts/plot_baseline.py --results results/baseline --figures results/figures
 
-# tests (software correctness)
-.venv/bin/python -m pytest
+# 2) Synthetic parameter estimation / recovery (ecosystem venv)
+.venv-ecosystem312/bin/python benchmarks/parameter_recovery/run_recovery_benchmark.py \
+  --config configs/p2/recovery_single.yaml --out results/p2/recovery_single
+
+# 3) Literature extraction benchmark, offline/deterministic (no API key)
+.venv-ecosystem312/bin/python benchmarks/p3/run_extraction_benchmark.py --provider offline
+# P5 v3 ablation (LLM, 3 repeats/arm) requires env keys — never commit them:
+#   PYCL_LLM_API_KEY=... PYCL_LLM_BASE_URL=... PYCL_LLM_MODEL=...
+#   .venv-ecosystem312/bin/python benchmarks/p5/run_ablation.py --condition all --repeats 3
+
+# 4) Tests
+.venv/bin/python -m pytest                  # core (ecosystem tests skip)
+.venv-ecosystem312/bin/python -m pytest     # full (201 passed in release env)
 ```
 
-### Testing — which venv runs what
+Expected outputs and limitations for each: `docs/QUICKSTART.md`.
 
-| Environment | Command | What runs |
-|---|---|---|
-| `.venv` (CPython 3.14, main stack) | `.venv/bin/python -m pytest` | unit + integration + regression + characterization without PyBOP/PyProBE (ecosystem-dependent tests skip) |
-| `.venv-ecosystem312` (CPython 3.12.16) | `.venv-ecosystem312/bin/python -m pytest` | full suite including PyBOP fitting/identifiability and PyProBE dataset-audit tests |
+## Reproducibility & pinned stack
 
-- Scientific benchmarks run separately (never inside the default pytest run):
-  either opt in with `.venv-ecosystem312/bin/python -m pytest -m benchmark` or
-  run the scripts under `benchmarks/` directly (they write to `results/`).
-- Characterization tests replay committed baseline arrays under
-  `tests/characterization/` (regenerated only with explicit maintenance
-  tooling) so numerical behavior is gated before any refactor.
-- Note: the `test_neware_*` integration tests need the external sample data
-  under `data/external/pyprobe_sample/neware/` (not committed); test runs in a
-  fresh checkout without it show exactly one environmental failure.
+PyBaMM **26.8.0.0** (engine refuses version drift); PyBOP **26.10**;
+PyProBE **2.6.1** (PyProBE-Data `<3.13`); numpy 2.5.4, scipy 1.18.1,
+pandas 3.1.1, pydantic 2.12.5 (ecosystem env). Lockfiles:
+`requirements.lock` (core, py3.14) and `requirements-integration.lock`
+(ecosystem, py3.12.16). Configs in `configs/`. Deterministic runs record
+`seed: null`; stochastic components record explicit seeds. LLM API keys are
+read from the environment and never written to artifacts.
 
-### Optional ecosystem install
+## Data, licenses & provenance
 
-```bash
-# PyBOP 26.10, SALib, pypdf, polars (+ PyProBE-Data — needs Python < 3.13)
-.venv-ecosystem312/bin/pip install -e ".[ecosystem]"
-```
+- **Software:** MIT (`LICENSE`) — applies to code only, not third-party
+  data/documents.
+- **Documents/datasets:** redistributed only where permitted (CC BY sources
+  archived with license evidence/sha256). The Chen2020 supplement PDF is **not
+  redistributed** (acquire separately); LG M50 sample data is gitignored and its
+  upstream license is UNRESOLVED. See `docs/DATA_PROVENANCE.md`.
 
-The `ecosystem` extra is verified on CPython 3.12.16 (the exact frozen set is
-`requirements-integration.lock`); on Python ≥ 3.13 pip skips the
-`PyProBE-Data` requirement via its environment marker. It pulls only what the
-codebase imports (`pybop`, `pints`/`SALib` via `pybop`, `SALib`, `pypdf`,
-`polars`, `pyprobe`); `cma`, `scikit-learn` and `fastexcel` arrive as
-transitive dependencies. Bounds deliberately exclude `pypdf 7.x` and
-`polars 2.x` (unverified majors).
+## Scientific limitations (read before citing results)
 
-## P0 baseline in one paragraph
+- **No independent experimental validation** is claimed in this beta.
+- **Synthetic parameter recovery ≠ experimental validation;** optimization ≠
+  identifiability. Calibration and validation data must stay disjoint.
+- **Experimental-condition extraction is weak** (P5 retrieval condition
+  completeness 0.116 all / 0.035 eval); an eligible Chen2020-aligned 25 °C
+  multi-rate validation dataset is **unresolved** (T5/T6).
+- Full disclosure: `docs/SCIENTIFIC_LIMITATIONS.md`.
 
-A Doyle–Fuller–Newman (DFN) model of a commercial LG M50 cell (PyBaMM
-`Chen2020` parameter set, 5 A.h nominal capacity) is discharged
-galvanostatically at 1C (5 A) at 298.15 K until the 2.5 V cut-off. The DAE is
-solved with the IDAKLU solver (rtol=atol=1e-6). The run terminates at
-t ≈ 3555 s with ≈ 4.94 A.h extracted capacity. Every run writes a
-reproducibility manifest (software versions, parameter snapshot, solver
-settings, seed policy) and explicitly reports any requested variable that is
-not available in the model — nothing is ever fabricated.
+## Citing
 
-See `docs/P0_BASELINE_MODEL.md` for the physical model, parameter meanings and
-scientific limitations.
+See `CITATION.cff`. Software citation for the beta: PARALLM v0.1.0-beta.1 (2026).
 
-## Reproducibility rules
+## Contributing & security
 
-- PyBaMM is pinned (`pybamm==26.8.0.0`); the engine refuses to run on a version
-  mismatch.
-- Parameter sets are loaded from the installed PyBaMM library only — no
-  hand-typed electrochemical constants.
-- Output variables that do not exist in the built model are recorded as
-  unavailable; they are never synthesised.
-- Deterministic runs record `seed: null` with an explicit note; every
-  stochastic component (P2 synthetic data / noise injection) records an
-  explicit `numpy` seed in its manifest.
+`CONTRIBUTING.md`. Do not open issues containing secrets or private data; report
+security concerns privately to the maintainers.
 
-## Ecosystem integration (PyBOP/PyProBE active since P2/P3)
+## Acknowledgements
 
-Upstream reuse decisions are documented in `docs/ECOSYSTEM_AUDIT.md` (PyBOP
-26.10, PyProBE-Data 2.6.1), `docs/DEPENDENCY_COMPATIBILITY.md` (verified
-version matrix), `docs/REVISED_ARCHITECTURE.md` (module boundaries) and
-`docs/INTEGRATION_PLAN.md` (phased plan). Compatibility probes live in
-`scripts/compat_probe/`. P2 uses PyBOP for estimation/identifiability
-(`calibration/`, `docs/IDENTIFIABILITY_STUDY.md`); P3 uses PyProBE for dataset
-linkage (`datasets/pyprobe_link.py`, `docs/DATASET_AUDIT.md`).
+- **[The PyBaMM Team](https://www.pybamm.org/team)** and the
+  [PyBaMM](https://pybamm.org) project — the physics-based battery modelling
+  framework and Chen2020 parameter set this work builds on (PyBaMM is
+  BSD-licensed upstream).
+- **[PyBOP](https://github.com/pybop-team/PyBOP)** (the PyBOP team) — parameter
+  optimization and identifiability tooling used for P2 estimation and
+  sensitivity/identifiability analysis.
+- **[PyProBE / PyProBE-Data](https://github.com/pybop-team/PyProBE-Data)** —
+  battery test-data handling and dataset linkage utilities.
+- **PINTS**, **SALib**, **CasADi/SUNDIALS (via PyBaMM)**, **NumPy/SciPy/pandas**,
+  **pydantic/PyYAML/matplotlib**, **pypdf**, and **polars** — the numerical,
+  configuration, and data stack this project relies on.
+- The authors of the openly licensed literature used in the benchmark
+  (attributed with license evidence in `docs/DATA_PROVENANCE.md`).
 
-## P4 — LLM evaluation and experimental-dataset validation
+## Author
 
-- **Benchmark v2** (`data/eval/extraction_benchmark_v2.jsonl`, 20 items, 3 real
-  documents) and a three-arm evaluation (`benchmarks/p4/run_llm_evaluation.py`):
-  offline, LLM+retrieval, LLM ablation (abstains on all → retrieval required,
-  leakage-safe). Raw outputs preserved; `--rescore` deterministic. Results
-  `results/p4/benchmark_v2/`, `docs/LLM_EXTRACTION_EVALUATION.md` (LLM+RAG:
-  id 0.962, value 0.960, provenance 0.800, qualifier 0.600, conditions 0.000,
-  false-extraction 0.062).
-- **Chen2020 discrepancy analysis** (`data/registry/chen2020_discrepancies.json`,
-  `docs/CHEN2020_DISCREPANCY_ANALYSIS.md`) and **real-dataset audit/feasibility**
-  (`data/registry/dataset_audit_lgm50.json`, `docs/EXPERIMENTAL_DATA_AUDIT.md`,
-  `docs/REAL_DATA_FITTING_FEASIBILITY.md`): available LG M50 data is C/10 pOCV
-  only (32.3 °C, license UNRESOLVED) — no fitting performed.
+**Harshith Bhardwaz Kenkary** — <harshithkenkary@gmail.com>  
+GitHub: [harshithkenkary](https://github.com/harshithkenkary)
 
-## P5 — extraction reliability, benchmark expansion, retrieval ablation
+## AI assistance disclosure
 
-- **Benchmark v3** (`data/eval/extraction_benchmark_v3.jsonl`, 37 items = v2 + 17,
-  6 docs incl. 3 CC BY PDFs: Laue 2021, Dessantis 2023, Goussian 2024; 8 dev /
-  29 eval, 6 abstention). `scripts/p5/{ingest_literature,build_benchmark_v3}.py`,
-  `docs/P5_BENCHMARK_EXPANSION.md`.
-- **Reliability + provenance (T1/T4)** (`eval/extraction_prompt_p5.py`,
-  `eval/provenance_p5.py`, `docs/P5_EXTRACTION_RELIABILITY.md`): strict
-  printed-unit / no-inferred-condition / qualifier-rubric / contiguous-quote
-  rules; deterministic quote-verbatim, splice, page/locator, paraphrase checks.
-  Raw outputs always preserved.
-- **Retrieval/knowledge ablation (T3, v3 only, 3 repeats, mimo-v2.6-flash, temp 0)**
-  — `benchmarks/p5/run_ablation.py`, `results/p5/benchmark_v3/`,
-  `docs/P5_RETRIEVAL_ABLATION.md` (mean±std, all 37): retrieval_strict
-  id **0.718±0.009**, value **0.946±0.022**, provenance **0.928±0.026**,
-  condition **0.116±0.011**, qualifier **0.741±0.033**, false **0.000**, abst
-  **1.000**; no_retrieval_memory id 0.378, provenance **0.000**, false **0.275**,
-  abst 0.333 (unsupported/unverifiable claims); no_retrieval_strict abstains all.
-  Condition completeness remains the main residual weakness (rule 6).
-- **Data acquisition & real-data experiment design (T5/T6, no calibration run)** —
-  `docs/P5_DATA_ACQUISITION.md`, `docs/P5_REAL_DATA_EXPERIMENT_DESIGN.md`: no
-  in-repo dataset satisfies Chen2020-aligned 25 °C multi-rate validation (LG M50
-  sample ineligible; Chen2020 traces UNRESOLVED). T6 pre-registers a disjoint
-  calibration/validation split targeting active-material volume fractions (pos
-  diffusivity secondary; neg diffusivity ≤2C unobservable) with PyBaMM engine,
-  pending eligible data.
+This project was developed with the assistance of AI coding tools (used to help
+draft code, tests, and documentation). All scientific claims, benchmark numbers,
+and release artifacts were reviewed against committed code, configs, and
+deterministic outputs; AI assistance does not change the scientific
+responsibility for reported results, and no independent experimental validation
+is claimed.
 
-## Agents
+## Status
 
-Project-specific agent/skill configuration lives in `.opencode/` (to be added
-as modules land). See `AGENTS.md` for the scientific and engineering rules that
-bind all contributors and agents.
+Public beta `v0.1.0-beta.1`. P0–P5 complete; P6–P8 (closed loop, fine-tuning,
+further validation) not started. History preserved on branch `audit/hardening`.

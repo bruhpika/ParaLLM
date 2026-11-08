@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "PARALLM: LLM-assisted, provenance-grounded parameterization for PyBaMM"
+type: software
+version: "0.1.0-beta.1"
+date-released: "2026-11-08"
+license: MIT
+repository-code: "https://github.com/harshyadav028/PARALLM"
+url: "https://github.com/harshyadav028/PARALLM"
+abstract: >-
+  PARALLM (Parameters — not a problem anymore, for PyBaMM) is a research
+  prototype for closed-loop, LLM-assisted parameterization and inverse
+  estimation of physics-based lithium-ion battery models built on PyBaMM.
+  It treats the LLM as an evidence interpreter and workflow orchestrator,
+  not an oracle for electrochemical constants: numerical estimation, unit
+  conversion, physical checks, and simulation are deterministic. The public
+  beta includes a reproducible PyBaMM DFN baseline, PyBOP-based synthetic
+  parameter recovery and identifiability analysis, provenance-tracked
+  literature ingestion/extraction, and a v3 literature extraction benchmark
+  (37 items, 3 repeated runs per experimental arm) with retrieval
+  ablations. Synthetic recovery and literature-benchmark results are
+  reported; independent experimental validation is not claimed.
+keywords:
+  - lithium-ion battery
+  - PyBaMM
+  - PyBOP
+  - parameter estimation
+  - identifiability
+  - literature extraction
+  - provenance
+  - LLM
+authors:
+  - family-names: "Kenkary"
+    given-names: "Harshith Bhardwaz"
+    email: "harshithkenkary@gmail.com"

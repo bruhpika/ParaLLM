@@ -166,3 +166,16 @@ ownership for this sprint:
 | D (deps) | `requirements*.lock`, `README.md`, `pyproject.toml` (dependencies section only — coordinated via orchestrator) |
 | E (reviewer) | read-only; runs suites on merged branch |
 | Orchestrator | `tests/`, `docs/`, `FINDINGS.md`, `CHANGES_SUMMARY.md`, merges |
+
+
+## P4–P5 additions (beta, non-breaking)
+
+- `eval/extraction_prompt_p5.py`, `provenance_p5.py`, `benchmark_p5.py` —
+  P5 reliability/provenance/scoring (P0–P4 modules untouched); benchmark v3
+  loader/scoring and a retrieval/knowledge ablation harness (3 repeats/arm,
+  raw outputs preserved, robust transport retries).
+- `benchmarks/p4/`, `benchmarks/p5/`, `scripts/p4/`, `scripts/p5/` —
+  reproducible benchmark runners and data/ingest builders.
+- LLM client remains optional and env-configured (`PYCL_LLM_*`); offline
+  deterministic paths require no key. See `docs/BENCHMARK_RESULTS.md` and
+  `docs/SCIENTIFIC_LIMITATIONS.md` for disclosed results/limits.

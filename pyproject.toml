@@ -1,8 +1,9 @@
 [project]
-name = "pybamm-closed-loop"
-version = "0.1.0"
-description = "Closed-loop LLM framework for physics-based battery parameterization (research prototype)"
+name = "parallm-pybamm"
+version = "0.1.0b1"
+description = "PARALLM: LLM-assisted, provenance-grounded parameterization for PyBaMM (research beta; parameters — not a problem anymore)"
 requires-python = ">=3.10,<3.16"
+authors = [{name = "Harshith Bhardwaz Kenkary", email = "harshithkenkary@gmail.com"}]
 dependencies = [
     "pybamm==26.8.0.0",
     "numpy>=2,<3",
@@ -56,3 +57,8 @@ exclude = [".venv", ".venv-*", "*.egg-info", "data", "results"]
 # Cosmetic/formatting rules intentionally left off; ruff has no
 # duplicate-code rule to disable.
 select = ["E9", "F"]
+
+[project.urls]
+Homepage = "https://github.com/harshyadav028/PARALLM"
+Repository = "https://github.com/harshyadav028/PARALLM"
+Issues = "https://github.com/harshyadav028/PARALLM/issues"

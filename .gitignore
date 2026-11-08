@@ -13,3 +13,7 @@ data/external/
 *.key
 secrets/
 .venv*/
+
+# Copyrighted third-party documents not cleared for redistribution (see docs/DATA_PROVENANCE.md)
+data/raw_documents/chen2020_supplement/JES_167_8_080534_suppdata.pdf
+data/raw_documents/chen2020_supplement/suppdata_fulltext.txt
