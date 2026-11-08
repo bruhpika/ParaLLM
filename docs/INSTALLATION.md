@@ -13,31 +13,40 @@ pybamm **26.8.0.0** · pybop **26.10** · pyprobe **2.6.1** · numpy 2.5.4 ·
 scipy 1.18.1 · pandas 3.1.1 · pydantic 2.12.5 · pypdf 6.21.4 · polars 1.44.2.
 The PyBaMM engine refuses to run on a version mismatch.
 
-## Lockfiles
+## Quick install (from GitHub, not on PyPI yet)
 
-- `requirements.lock` — verified freeze of the **core** venv (CPython 3.14.8).
-  Not a cross-platform resolve spec; install into a matching venv.
-- `requirements-integration.lock` — verified freeze of the **ecosystem** venv
-  (CPython 3.12.16, PyBOP/PyProBE stack). **Do not build this env on 3.14+.**
-
-## Install — core
+Package name `parallm-pybamm` (import: `pybamm_closed_loop`):
 
 ```bash
-python3 -m venv .venv
-.venv/bin/pip install -r requirements.lock
-.venv/bin/pip install -e ".[dev]"
-.venv/bin/python -c "import pybamm; print(pybamm.__version__)"   # 26.8.0.0
-.venv/bin/python -m pytest -q   # ecosystem-dependent tests skip
+# core (Python 3.10–3.15)
+pip install "git+https://github.com/bruhpika/ParaLLM.git"
+
+# + ecosystem extras (use Python 3.10–3.12; PyProBE-Data < 3.13)
+pip install "parallm-pybamm[ecosystem] @ git+https://github.com/bruhpika/ParaLLM.git"
+
+# from a local clone
+pip install -e ".[dev]"            # core
+pip install -e ".[dev,ecosystem]"  # full (Python 3.12)
 ```
 
-## Install — full ecosystem (recommended for P2–P5)
+## Reproducible pinned install (lockfiles, recommended for benchmarks)
+
+Lockfiles live in `requirements/`:
+- `requirements/core.lock` — verified freeze of the **core** venv (CPython 3.14.8). Not a cross-platform resolve spec.
+- `requirements/ecosystem-py312.lock` — verified freeze of the **ecosystem** venv (CPython 3.12.16, PyBOP/PyProBE). **Do not build on 3.14+.**
 
 ```bash
+# core
+python3 -m venv .venv
+.venv/bin/pip install -r requirements/core.lock
+.venv/bin/pip install -e ".[dev]"
+.venv/bin/python -c "import pybamm; print(pybamm.__version__)"   # 26.8.0.0
+
+# full ecosystem (recommended for P2–P5)
 python3.12 -m venv .venv-ecosystem312
-.venv-ecosystem312/bin/pip install -r requirements-integration.lock
+.venv-ecosystem312/bin/pip install -r requirements/ecosystem-py312.lock
 .venv-ecosystem312/bin/pip install -e ".[dev,ecosystem]"
 .venv-ecosystem312/bin/python -c "import pybamm,pybop,pyprobe; print(pybamm.__version__, pybop.__version__, pyprobe.__version__)"
-.venv-ecosystem312/bin/python -m pytest -q   # 201 passed in the release env
 ```
 
 The `ecosystem` extra installs only direct imports (`pybop`, `pints`/`SALib`,
@@ -48,7 +57,7 @@ transitively. Bounds exclude `pypdf 7.x` and `polars 2.x` (unverified).
 
 ```bash
 tmp=$(mktemp -d) && python3.12 -m venv "$tmp/venv" \
-  && "$tmp/venv/bin/pip" install -r requirements-integration.lock \
+  && "$tmp/venv/bin/pip" install -r requirements/ecosystem-py312.lock \
   && "$tmp/venv/bin/pip" install -e ".[dev,ecosystem]" \
   && "$tmp/venv/bin/python" -m pytest -q
 ```

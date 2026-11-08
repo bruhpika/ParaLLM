@@ -165,7 +165,7 @@ ownership for this sprint:
 | C (quality) | `src/pybamm_closed_loop/registry/`, `src/pybamm_closed_loop/validation/`, `src/pybamm_closed_loop/reporting/`, `scripts/run_baseline.py`, `scripts/plot_baseline.py`, `scripts/compat_probe/`, `pyproject.toml` (tool config section only) |
 | D (deps) | `requirements*.lock`, `README.md`, `pyproject.toml` (dependencies section only — coordinated via orchestrator) |
 | E (reviewer) | read-only; runs suites on merged branch |
-| Orchestrator | `tests/`, `docs/`, `FINDINGS.md`, `CHANGES_SUMMARY.md`, merges |
+| Orchestrator | `tests/`, `docs/` (incl. `docs/internal/` audit artifacts), merges |
 
 
 ## P4–P5 additions (beta, non-breaking)

@@ -82,7 +82,7 @@ reporting/               -> manifests & figures
 
 ```
 .
-├── src/pybamm_closed_loop/      # installable package
+├── src/pybamm_closed_loop/      # installable package (src layout)
 │   ├── pybamm_engine/           #   pinned PyBaMM build/solve/extract (only PyBaMM boundary)
 │   ├── calibration/             #   PyBOP fitting, synthetic data, identifiability
 │   ├── literature/              #   document ingestion, store, retrieval
@@ -95,29 +95,29 @@ reporting/               -> manifests & figures
 ├── configs/                     # version-pinned run configs (YAML)
 ├── benchmarks/                  # scientific benchmarks (separate from tests)
 ├── scripts/                     # CLI drivers (baseline, plots, compat, p3/p4/p5)
-├── tests/                       # unit / integration / characterization (software correctness)
-├── data/                        # fixtures, ingested store, registry; raw external data gitignored
+├── tests/                       # unit / integration / characterization
+├── data/                        # fixtures, ingested store, registry (raw external gitignored)
 ├── results/                     # committed run outputs (baseline, p2–p5, figures)
-└── docs/                        # architecture, reproducibility, benchmarks, limits, data provenance
+├── docs/                        # user docs + docs/internal/ (audit artifacts)
+├── requirements/                # pinned lockfiles (core.lock, ecosystem-py312.lock)
+├── pyproject.toml               # package metadata (parallm-pybamm) + deps
+├── README.md  LICENSE  CITATION.cff  CHANGELOG.md  CONTRIBUTING.md
+└── AGENTS.md
 ```
 
 ## Installation
 
-Supported Python: **3.10–3.15** (core). Full ecosystem (PyBOP/PyProBE/SALib/
-pypdf/polars) verified on **CPython 3.12.16** (`<3.13` required for
-`PyProBE-Data`). Details: `docs/INSTALLATION.md`.
+> `v0.1.0-beta.1` is not published to PyPI yet — install from GitHub (or from a clone). Package name: `parallm-pybamm`.
 
 ```bash
-# Core (PyBaMM-only)
-python3 -m venv .venv
-.venv/bin/pip install -r requirements.lock
-.venv/bin/pip install -e ".[dev]"
+# Install (core, Python 3.10–3.15)
+pip install "git+https://github.com/bruhpika/ParaLLM.git"
 
-# Full ecosystem (recommended, Python 3.12)
-python3.12 -m venv .venv-ecosystem312
-.venv-ecosystem312/bin/pip install -r requirements-integration.lock
-.venv-ecosystem312/bin/pip install -e ".[dev,ecosystem]"
+# Install with ecosystem extras (PyBOP/PyProBE/SALib/pypdf/polars) — use Python 3.10–3.12
+pip install "parallm-pybamm[ecosystem] @ git+https://github.com/bruhpika/ParaLLM.git"
 ```
+
+For a reproducible, fully-pinned developer setup (recommended for running benchmarks), clone the repo and use the verified lockfiles in `requirements/` — see `docs/INSTALLATION.md`. Full ecosystem verified on **CPython 3.12.16** (`PyProBE-Data` requires `<3.13`).
 
 ## Quickstart — working examples
 
@@ -148,7 +148,7 @@ Expected outputs and limitations for each: `docs/QUICKSTART.md`.
 PyBaMM **26.8.0.0** (engine refuses version drift); PyBOP **26.10**;
 PyProBE **2.6.1** (PyProBE-Data `<3.13`); numpy 2.5.4, scipy 1.18.1,
 pandas 3.1.1, pydantic 2.12.5 (ecosystem env). Lockfiles:
-`requirements.lock` (core, py3.14) and `requirements-integration.lock`
+`requirements/core.lock` (core, py3.14) and `requirements/ecosystem-py312.lock`
 (ecosystem, py3.12.16). Configs in `configs/`. Deterministic runs record
 `seed: null`; stochastic components record explicit seeds. LLM API keys are
 read from the environment and never written to artifacts.
