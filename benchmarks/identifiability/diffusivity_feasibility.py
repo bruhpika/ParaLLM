@@ -67,12 +67,21 @@ def main() -> int:
     args = parser.parse_args()
 
     cfg = load_config(Path(args.config))
+
+    rel = float(cfg["rel_perturbation"])
+    if rel == 0.0 or not np.isfinite(rel):
+        # rel == 0 makes (yp - ym) / (2.0 * rel) divide 0 by 0: numpy returns
+        # NaN, which would silently propagate into the correlation matrix and
+        # emit invalid JSON (NaN literal). A finite non-zero step is required.
+        raise ValueError(
+            f"rel_perturbation must be a finite non-zero step, got {rel!r}"
+        )
+
     out_dir = Path(args.out) / cfg["run_id"]
     out_dir.mkdir(parents=True, exist_ok=True)
 
     names = [p["name"] for p in cfg["study_parameters"]]
     kinds = {p["name"]: p["kind"] for p in cfg["study_parameters"]}
-    rel = float(cfg["rel_perturbation"])
     base_scales = {n: 1.0 for n in names}
 
     report: dict = {

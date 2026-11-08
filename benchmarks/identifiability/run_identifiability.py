@@ -173,12 +173,12 @@ def main() -> int:
     part("hessian_multi", report, hess_multi)
 
     # --- B. FIM / correlation (single vs multi) ---
-    def fim_block(problem):
+    def fim_block(problem, spec):
         predict = make_predict(problem, names)
         jac = finite_difference_jacobian(predict, x_hat, rel_step=float(cfg["fd_rel_step"]),
                                          bounds=bounds)
         y0 = predict(x_hat)
-        diag = fim_diagnostics(jac, sigma=synth_s.noise_sigma_V)
+        diag = fim_diagnostics(jac, sigma=spec.noise_sigma_V)
         y_scale = float(np.std(y0)) or 1.0
         sens = normalized_sensitivity(jac, x_hat, y_scale)
         return {
@@ -190,8 +190,8 @@ def main() -> int:
             "singular_values": np.linalg.svd(jac, compute_uv=False).tolist(),
         }
 
-    part("fim_single", report, lambda: fim_block(problem_s))
-    part("fim_multi", report, lambda: fim_block(problem_m))
+    part("fim_single", report, lambda: fim_block(problem_s, synth_s))
+    part("fim_multi", report, lambda: fim_block(problem_m, synth_m))
 
     # --- C. profile likelihood (single condition) ---
     def profiles():
