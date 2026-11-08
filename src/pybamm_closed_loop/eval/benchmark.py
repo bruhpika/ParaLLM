@@ -19,7 +19,7 @@ performed (explicitly out of scope for P3).
 from __future__ import annotations
 
 import json
-from dataclasses import asdict, dataclass, field
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
@@ -29,7 +29,7 @@ from ..literature.extraction import (
     run_extraction,
 )
 from ..literature.index import SYNONYMS
-from ..literature.ingest import DocumentStore
+from ..literature.ingest import DocumentStore, validate_document_id
 from ..literature.retrieval import RetrievalFacets
 from ..registry.textnorm import ascii_fold
 from ..registry.units import to_canonical, is_exchange_current_reaction_rate_unit
@@ -117,6 +117,7 @@ def resolve_passage(store: DocumentStore, document_id: str, probe: str) -> str:
     the passage is a strict deterministic +/- 260-character window around
     the probe. No text is invented; offsets stay exact.
     """
+    validate_document_id(document_id)  # document_id interpolates into a path
     raw = (store.raw_dir / f"{document_id}.txt").read_text()
     folded = ascii_fold(raw)
     idx = folded.find(ascii_fold(probe))
@@ -262,6 +263,7 @@ def _extracted_canonical_unit(unit: str) -> str:
 
 
 def raw_text(store: DocumentStore, document_id: str) -> str:
+    validate_document_id(document_id)  # document_id interpolates into a path
     return (store.raw_dir / f"{document_id}.txt").read_text()
 
 
