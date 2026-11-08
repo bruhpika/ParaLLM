@@ -1,0 +1,1131 @@
+{
+  "E-docs-kokam-capacity": {
+    "abstention": null,
+    "condition": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "false_any": false,
+    "id": {
+      "consistent": false,
+      "mean": 0.3333333333333333,
+      "n": 3,
+      "std": 0.4714045207910317
+    },
+    "n_extracted_mean": 0.3333333333333333,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "unsupported_mean": 0.3333333333333333,
+    "value": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    }
+  },
+  "E-docs-sei-abstain": {
+    "abstention": {
+      "consistent": false,
+      "mean": 0.3333333333333333,
+      "n": 3,
+      "std": 0.4714045207910317
+    },
+    "condition": null,
+    "false_any": true,
+    "id": null,
+    "n_extracted_mean": 0.6666666666666666,
+    "provenance": null,
+    "qualifier": null,
+    "unit": null,
+    "unsupported_mean": 0.6666666666666666,
+    "value": null
+  },
+  "E1-msmr-pos-j0": {
+    "abstention": null,
+    "condition": null,
+    "false_any": false,
+    "id": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "n_extracted_mean": 0.0,
+    "provenance": null,
+    "qualifier": null,
+    "unit": null,
+    "unsupported_mean": 0.0,
+    "value": null
+  },
+  "E10-particle-radii-list": {
+    "abstention": null,
+    "condition": null,
+    "false_any": false,
+    "id": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "n_extracted_mean": 0.0,
+    "provenance": null,
+    "qualifier": null,
+    "unit": null,
+    "unsupported_mean": 0.0,
+    "value": null
+  },
+  "E11-bruggeman-theoretical": {
+    "abstention": null,
+    "condition": {
+      "consistent": false,
+      "mean": 0.5,
+      "n": 2,
+      "std": 0.5
+    },
+    "false_any": false,
+    "id": {
+      "consistent": false,
+      "mean": 0.6666666666666666,
+      "n": 3,
+      "std": 0.4714045207910317
+    },
+    "n_extracted_mean": 2.0,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "unsupported_mean": 2.0,
+    "value": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 2,
+      "std": 0.0
+    }
+  },
+  "E12-j0-pos-eis": {
+    "abstention": null,
+    "condition": null,
+    "false_any": false,
+    "id": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "n_extracted_mean": 0.0,
+    "provenance": null,
+    "qualifier": null,
+    "unit": null,
+    "unsupported_mean": 0.0,
+    "value": null
+  },
+  "E13-transference": {
+    "abstention": null,
+    "condition": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "false_any": false,
+    "id": {
+      "consistent": false,
+      "mean": 0.6666666666666666,
+      "n": 3,
+      "std": 0.4714045207910317
+    },
+    "n_extracted_mean": 0.6666666666666666,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "unsupported_mean": 0.6666666666666666,
+    "value": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    }
+  },
+  "E15-volume-fractions-table": {
+    "abstention": null,
+    "condition": null,
+    "false_any": false,
+    "id": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "n_extracted_mean": 0.0,
+    "provenance": null,
+    "qualifier": null,
+    "unit": null,
+    "unsupported_mean": 0.0,
+    "value": null
+  },
+  "E2-msmr-neg-j0": {
+    "abstention": null,
+    "condition": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "false_any": false,
+    "id": {
+      "consistent": false,
+      "mean": 0.3333333333333333,
+      "n": 3,
+      "std": 0.4714045207910317
+    },
+    "n_extracted_mean": 0.3333333333333333,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "unsupported_mean": 0.3333333333333333,
+    "value": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    }
+  },
+  "E3-msmr-4th-reaction-placeholder": {
+    "abstention": null,
+    "condition": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "false_any": false,
+    "id": {
+      "consistent": false,
+      "mean": 0.6666666666666666,
+      "n": 3,
+      "std": 0.4714045207910317
+    },
+    "n_extracted_mean": 0.6666666666666666,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": true,
+      "mean": 0.5,
+      "n": 2,
+      "std": 0.0
+    },
+    "unsupported_mean": 0.6666666666666666,
+    "value": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    }
+  },
+  "E4-supp-sep-porosity": {
+    "abstention": null,
+    "condition": null,
+    "false_any": false,
+    "id": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "n_extracted_mean": 0.0,
+    "provenance": null,
+    "qualifier": null,
+    "unit": null,
+    "unsupported_mean": 0.0,
+    "value": null
+  },
+  "E7-supp-datasheet-abstain": {
+    "abstention": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "condition": null,
+    "false_any": true,
+    "id": null,
+    "n_extracted_mean": 1.0,
+    "provenance": null,
+    "qualifier": null,
+    "unit": null,
+    "unsupported_mean": 1.0,
+    "value": null
+  },
+  "E8-table-diffusivities": {
+    "abstention": null,
+    "condition": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "false_any": false,
+    "id": {
+      "consistent": false,
+      "mean": 0.3333333333333333,
+      "n": 3,
+      "std": 0.4714045207910317
+    },
+    "n_extracted_mean": 0.6666666666666666,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "unsupported_mean": 0.6666666666666666,
+    "value": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    }
+  },
+  "E9-max-concentration-pos": {
+    "abstention": null,
+    "condition": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "false_any": true,
+    "id": {
+      "consistent": false,
+      "mean": 0.3333333333333333,
+      "n": 3,
+      "std": 0.4714045207910317
+    },
+    "n_extracted_mean": 0.6666666666666666,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "unsupported_mean": 0.6666666666666666,
+    "value": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    }
+  },
+  "P5-D1-lfp-j0-vs-temperature": {
+    "abstention": null,
+    "condition": null,
+    "false_any": false,
+    "id": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "n_extracted_mean": 0.0,
+    "provenance": null,
+    "qualifier": null,
+    "unit": null,
+    "unsupported_mean": 0.0,
+    "value": null
+  },
+  "P5-D2-sei-j0-arrhenius": {
+    "abstention": null,
+    "condition": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "false_any": false,
+    "id": {
+      "consistent": false,
+      "mean": 0.3333333333333333,
+      "n": 3,
+      "std": 0.4714045207910317
+    },
+    "n_extracted_mean": 0.3333333333333333,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "unsupported_mean": 0.3333333333333333,
+    "value": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    }
+  },
+  "P5-D3-lfp-cs-max-comsol": {
+    "abstention": null,
+    "condition": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "false_any": false,
+    "id": {
+      "consistent": false,
+      "mean": 0.6666666666666666,
+      "n": 3,
+      "std": 0.4714045207910317
+    },
+    "n_extracted_mean": 1.0,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "unsupported_mean": 1.0,
+    "value": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    }
+  },
+  "P5-D4-lfp-sigma-D-comsol": {
+    "abstention": null,
+    "condition": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "false_any": true,
+    "id": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "n_extracted_mean": 3.0,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "unsupported_mean": 3.0,
+    "value": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    }
+  },
+  "P5-D5-radius-and-cell-area": {
+    "abstention": null,
+    "condition": null,
+    "false_any": false,
+    "id": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "n_extracted_mean": 0.0,
+    "provenance": null,
+    "qualifier": null,
+    "unit": null,
+    "unsupported_mean": 0.0,
+    "value": null
+  },
+  "P5-D6-abstain-transference": {
+    "abstention": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "condition": null,
+    "false_any": true,
+    "id": null,
+    "n_extracted_mean": 2.0,
+    "provenance": null,
+    "qualifier": null,
+    "unit": null,
+    "unsupported_mean": 2.0,
+    "value": null
+  },
+  "P5-DRC-rct-vs-temperature": {
+    "abstention": null,
+    "condition": null,
+    "false_any": false,
+    "id": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "n_extracted_mean": 0.0,
+    "provenance": null,
+    "qualifier": null,
+    "unit": null,
+    "unsupported_mean": 0.0,
+    "value": null
+  },
+  "P5-G2-symmetry-factor-assumption": {
+    "abstention": null,
+    "condition": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "false_any": false,
+    "id": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "n_extracted_mean": 1.6666666666666667,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "unsupported_mean": 1.6666666666666667,
+    "value": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    }
+  },
+  "P5-G3-abstain-capacity-confidential": {
+    "abstention": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "condition": null,
+    "false_any": false,
+    "id": null,
+    "n_extracted_mean": 0.0,
+    "provenance": null,
+    "qualifier": null,
+    "unit": null,
+    "unsupported_mean": 0.0,
+    "value": null
+  },
+  "P5-L1-thickness-table": {
+    "abstention": null,
+    "condition": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "false_any": false,
+    "id": {
+      "consistent": false,
+      "mean": 0.3333333333333333,
+      "n": 3,
+      "std": 0.4714045207910317
+    },
+    "n_extracted_mean": 1.0,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 1,
+      "std": 0.0
+    },
+    "unsupported_mean": 1.0,
+    "value": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 1,
+      "std": 0.0
+    }
+  },
+  "P5-L2-porosity-table": {
+    "abstention": null,
+    "condition": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "false_any": false,
+    "id": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "n_extracted_mean": 3.0,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": false,
+      "mean": 0.3333333333333333,
+      "n": 3,
+      "std": 0.4714045207910317
+    },
+    "unsupported_mean": 3.0,
+    "value": {
+      "consistent": true,
+      "mean": 0.3333333333333333,
+      "n": 3,
+      "std": 0.0
+    }
+  },
+  "P5-L3-exchange-current-table": {
+    "abstention": null,
+    "condition": null,
+    "false_any": false,
+    "id": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "n_extracted_mean": 0.0,
+    "provenance": null,
+    "qualifier": null,
+    "unit": null,
+    "unsupported_mean": 0.0,
+    "value": null
+  },
+  "P5-L4-solid-diffusivity-table": {
+    "abstention": null,
+    "condition": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "false_any": false,
+    "id": {
+      "consistent": false,
+      "mean": 0.6666666666666666,
+      "n": 3,
+      "std": 0.4714045207910317
+    },
+    "n_extracted_mean": 1.6666666666666667,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "unsupported_mean": 1.6666666666666667,
+    "value": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    }
+  },
+  "P5-L5-transference-literature": {
+    "abstention": null,
+    "condition": {
+      "consistent": false,
+      "mean": 0.6666666666666666,
+      "n": 3,
+      "std": 0.4714045207910317
+    },
+    "false_any": false,
+    "id": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "n_extracted_mean": 1.3333333333333333,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "unsupported_mean": 1.3333333333333333,
+    "value": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    }
+  },
+  "P5-L6-electrolyte-diffusivity-table": {
+    "abstention": null,
+    "condition": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "false_any": false,
+    "id": {
+      "consistent": false,
+      "mean": 0.6666666666666666,
+      "n": 3,
+      "std": 0.4714045207910317
+    },
+    "n_extracted_mean": 1.3333333333333333,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "unsupported_mean": 1.3333333333333333,
+    "value": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    }
+  },
+  "P5-L7-reference-system-temperature": {
+    "abstention": null,
+    "condition": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "false_any": false,
+    "id": {
+      "consistent": false,
+      "mean": 0.3333333333333333,
+      "n": 3,
+      "std": 0.23570226039551584
+    },
+    "n_extracted_mean": 0.6666666666666666,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "unsupported_mean": 0.6666666666666666,
+    "value": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 2,
+      "std": 0.0
+    }
+  },
+  "P5-L8-abstain-tortuosity-exponent": {
+    "abstention": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "condition": null,
+    "false_any": true,
+    "id": null,
+    "n_extracted_mean": 4.0,
+    "provenance": null,
+    "qualifier": null,
+    "unit": null,
+    "unsupported_mean": 4.0,
+    "value": null
+  },
+  "V1-porosity-prose": {
+    "abstention": null,
+    "condition": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "false_any": false,
+    "id": {
+      "consistent": false,
+      "mean": 0.6666666666666666,
+      "n": 3,
+      "std": 0.4714045207910317
+    },
+    "n_extracted_mean": 1.3333333333333333,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 2,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": false,
+      "mean": 0.5,
+      "n": 2,
+      "std": 0.5
+    },
+    "unsupported_mean": 1.3333333333333333,
+    "value": {
+      "consistent": true,
+      "mean": 0.5,
+      "n": 2,
+      "std": 0.0
+    }
+  },
+  "V2-conductivity-prose": {
+    "abstention": null,
+    "condition": null,
+    "false_any": false,
+    "id": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "n_extracted_mean": 0.0,
+    "provenance": null,
+    "qualifier": null,
+    "unit": null,
+    "unsupported_mean": 0.0,
+    "value": null
+  },
+  "V3-rated-capacity-prose": {
+    "abstention": null,
+    "condition": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "false_any": false,
+    "id": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "n_extracted_mean": 1.3333333333333333,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "unsupported_mean": 1.3333333333333333,
+    "value": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    }
+  },
+  "V4-isothermal-temperature": {
+    "abstention": null,
+    "condition": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "false_any": false,
+    "id": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "n_extracted_mean": 1.0,
+    "provenance": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "qualifier": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "unit": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "unsupported_mean": 1.0,
+    "value": {
+      "consistent": true,
+      "mean": 1.0,
+      "n": 3,
+      "std": 0.0
+    }
+  },
+  "V5-reaction-rates": {
+    "abstention": null,
+    "condition": null,
+    "false_any": false,
+    "id": {
+      "consistent": true,
+      "mean": 0.0,
+      "n": 3,
+      "std": 0.0
+    },
+    "n_extracted_mean": 0.0,
+    "provenance": null,
+    "qualifier": null,
+    "unit": null,
+    "unsupported_mean": 0.0,
+    "value": null
+  },
+  "V6-abstain-sem": {
+    "abstention": {
+      "consistent": false,
+      "mean": 0.6666666666666666,
+      "n": 3,
+      "std": 0.4714045207910317
+    },
+    "condition": null,
+    "false_any": true,
+    "id": null,
+    "n_extracted_mean": 0.3333333333333333,
+    "provenance": null,
+    "qualifier": null,
+    "unit": null,
+    "unsupported_mean": 0.3333333333333333,
+    "value": null
+  }
+}

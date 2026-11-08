@@ -1,0 +1,344 @@
+{
+  "aggregate": {
+    "all": {
+      "abstention_accuracy": {
+        "mean": 0.3333333333333333,
+        "n": 3,
+        "std": 0.13608276348795434
+      },
+      "condition_completeness": {
+        "mean": 0.4833333333333334,
+        "n": 3,
+        "std": 0.062360956446232366
+      },
+      "false_extraction_rate": {
+        "mean": 0.27500417083750417,
+        "n": 3,
+        "std": 0.04209241982309335
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.3782051282051282,
+        "n": 3,
+        "std": 0.08647908694379515
+      },
+      "provenance_accuracy": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "qualifier_classification_accuracy": {
+        "mean": 0.49666666666666665,
+        "n": 3,
+        "std": 0.04496912521077349
+      },
+      "unit_accuracy": {
+        "mean": 0.7204761904761905,
+        "n": 3,
+        "std": 0.11161360298763806
+      },
+      "value_extraction_accuracy": {
+        "mean": 0.2723809523809524,
+        "n": 3,
+        "std": 0.08281881981832254
+      }
+    },
+    "dev": {
+      "abstention_accuracy": {
+        "mean": 0.6666666666666666,
+        "n": 3,
+        "std": 0.4714045207910317
+      },
+      "condition_completeness": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "false_extraction_rate": {
+        "mean": 0.05555555555555555,
+        "n": 3,
+        "std": 0.07856742013183861
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.3333333333333333,
+        "n": 3,
+        "std": 0.06804138174397718
+      },
+      "provenance_accuracy": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "qualifier_classification_accuracy": {
+        "mean": 0.5222222222222223,
+        "n": 3,
+        "std": 0.10999438818457404
+      },
+      "unit_accuracy": {
+        "mean": 0.5722222222222223,
+        "n": 3,
+        "std": 0.23425742935897795
+      },
+      "value_extraction_accuracy": {
+        "mean": 0.5888888888888889,
+        "n": 3,
+        "std": 0.0684934889218775
+      }
+    },
+    "eval": {
+      "abstention_accuracy": {
+        "mean": 0.26666666666666666,
+        "n": 3,
+        "std": 0.09428090415820634
+      },
+      "condition_completeness": {
+        "mean": 0.33939393939393936,
+        "n": 3,
+        "std": 0.043493030589113114
+      },
+      "false_extraction_rate": {
+        "mean": 0.31502810914575624,
+        "n": 3,
+        "std": 0.05683040063567733
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.39166666666666666,
+        "n": 3,
+        "std": 0.12304019216861169
+      },
+      "provenance_accuracy": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "qualifier_classification_accuracy": {
+        "mean": 0.503030303030303,
+        "n": 3,
+        "std": 0.07796775957738548
+      },
+      "unit_accuracy": {
+        "mean": 0.7656565656565656,
+        "n": 3,
+        "std": 0.07060598835273253
+      },
+      "value_extraction_accuracy": {
+        "mean": 0.196969696969697,
+        "n": 3,
+        "std": 0.08538789577942649
+      }
+    },
+    "provenance": {
+      "conditions_ok_rate": 0.3721325492158825,
+      "document_match_rate": 0.0,
+      "locator_visible_rate": 0.0,
+      "page_ok_rate": 0.0,
+      "paraphrase_warning_rate": 0.0,
+      "quote_present_rate": 0.0,
+      "quote_verbatim_rate": 0.0,
+      "splice_rate": 0.0
+    },
+    "tier:cross-document": {
+      "abstention_accuracy": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "condition_completeness": {
+        "mean": 0.5,
+        "n": 3,
+        "std": 0.408248290463863
+      },
+      "false_extraction_rate": {
+        "mean": 0.3333333333333333,
+        "n": 3,
+        "std": 0.13608276348795434
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.3333333333333333,
+        "n": 3,
+        "std": 0.09428090415820634
+      },
+      "provenance_accuracy": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "qualifier_classification_accuracy": {
+        "mean": 0.6666666666666666,
+        "n": 3,
+        "std": 0.23570226039551584
+      },
+      "unit_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "value_extraction_accuracy": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      }
+    },
+    "tier:other-cell-family": {
+      "abstention_accuracy": {
+        "mean": 0.3333333333333333,
+        "n": 3,
+        "std": 0.11785113019775792
+      },
+      "condition_completeness": {
+        "mean": 0.2762335703512174,
+        "n": 3,
+        "std": 0.030307176854155994
+      },
+      "false_extraction_rate": {
+        "mean": 0.3558333333333333,
+        "n": 3,
+        "std": 0.064431272600259
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.4567901234567901,
+        "n": 3,
+        "std": 0.15220775315972782
+      },
+      "provenance_accuracy": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "qualifier_classification_accuracy": {
+        "mean": 0.4792070674423616,
+        "n": 3,
+        "std": 0.04527451279778214
+      },
+      "unit_accuracy": {
+        "mean": 0.6957552251669897,
+        "n": 3,
+        "std": 0.10294860380033731
+      },
+      "value_extraction_accuracy": {
+        "mean": 0.23098470157293685,
+        "n": 3,
+        "std": 0.044598812992207124
+      }
+    },
+    "tier:same-doc-dev": {
+      "abstention_accuracy": {
+        "mean": 0.6666666666666666,
+        "n": 3,
+        "std": 0.4714045207910317
+      },
+      "condition_completeness": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "false_extraction_rate": {
+        "mean": 0.06666666666666667,
+        "n": 3,
+        "std": 0.09428090415820634
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.4166666666666667,
+        "n": 3,
+        "std": 0.11785113019775792
+      },
+      "provenance_accuracy": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "qualifier_classification_accuracy": {
+        "mean": 0.6666666666666666,
+        "n": 3,
+        "std": 0.23570226039551584
+      },
+      "unit_accuracy": {
+        "mean": 0.5,
+        "n": 3,
+        "std": 0.2041241452319315
+      },
+      "value_extraction_accuracy": {
+        "mean": 0.5,
+        "n": 3,
+        "std": 0.0
+      }
+    },
+    "tier:same-doc-heldout": {
+      "abstention_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "condition_completeness": {
+        "mean": 0.6666666666666666,
+        "n": 3,
+        "std": 0.4714045207910317
+      },
+      "false_extraction_rate": {
+        "mean": 0.06666666666666667,
+        "n": 3,
+        "std": 0.09428090415820634
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.19444444444444442,
+        "n": 3,
+        "std": 0.10393492741038725
+      },
+      "provenance_accuracy": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "qualifier_classification_accuracy": {
+        "mean": 0.5,
+        "n": 3,
+        "std": 0.408248290463863
+      },
+      "unit_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "value_extraction_accuracy": {
+        "mean": 0.5,
+        "n": 3,
+        "std": 0.408248290463863
+      }
+    }
+  },
+  "condition": "no_retrieval_memory",
+  "repeats": 3,
+  "run_metadata": [
+    {
+      "condition": "no_retrieval_memory",
+      "items_file": "data/eval/extraction_benchmark_v3.jsonl",
+      "n_items": 37,
+      "repeat": 0,
+      "rescored_from_partial": true,
+      "split": "all"
+    },
+    {
+      "condition": "no_retrieval_memory",
+      "endpoint_host": "https://token-plan-sgp.xiaomimimo.com/v1",
+      "items_file": "data/eval/extraction_benchmark_v3.jsonl",
+      "model": "mimo-v2.6-flash",
+      "n_items": 37,
+      "provider": "llm:openai-compatible:mimo-v2.6-flash",
+      "repeat": 1,
+      "split": "all",
+      "temperature": 0,
+      "timestamp": "2026-11-08T09:16:48.947017+00:00"
+    },
+    {
+      "condition": "no_retrieval_memory",
+      "endpoint_host": "https://token-plan-sgp.xiaomimimo.com/v1",
+      "items_file": "data/eval/extraction_benchmark_v3.jsonl",
+      "model": "mimo-v2.6-flash",
+      "n_items": 37,
+      "provider": "llm:openai-compatible:mimo-v2.6-flash",
+      "repeat": 2,
+      "split": "all",
+      "temperature": 0,
+      "timestamp": "2026-11-08T09:58:30.703459+00:00"
+    }
+  ]
+}

@@ -1,0 +1,1129 @@
+Vol.:(0123456789)1 3
+Journal of Applied Electrochemistry (2021) 51:1253–1265 
+https://doi.org/10.1007/s10800-021-01579-5
+RESEARCH ARTICLE
+Practical identifiability of electrochemical P2D models for lithium‑ion 
+batteries
+Vincent Laue1 · Fridolin Röder1 · Ulrike Krewer1,2 
+Received: 20 November 2020 / Accepted: 15 May 2021 / Published online: 26 June 2021 
+© The Author(s) 2021
+Abstract 
+Electrochemical models play a significant role in today’s rapid development and enhancement of lithium-ion batteries. For 
+instance, they are applied for design and process optimization. More recently, model and parameter identifiability are gain-
+ing interest as thorough model parameterization is key to reliable simulation results. Especially electrochemical models are 
+often prone to unidentifiability and overfitting due to their high number of adjustable parameters. In this article, the most 
+common electrochemical peudo-2D model of a lithium-ion battery is parameterized. A three-step procedure is applied which 
+considers quasi-static 3-electrode measurements of the open-circuit potential, C-rate tests, and electrochemical impedance 
+spectra. Identifiability of each step is discussed in-depth and a general guidance for future parameterizations is derived. The 
+conducted study reveals the insufficiency of open-circuit potential and C-rate tests to fully parameterize the electrochemical 
+model. Highly dynamic tests, e.g., impedance spectroscopy, are required to resolve the ambiguity of diffusive and electric 
+processes under quasi-static conditions. Any parameterization of electrochemical models requires experimental data of 
+electrode-resolved tests, as well as a combination of quasi-static and highly dynamic tests. The results of this study provide 
+guidance for the use of electrochemical models in applied sciences and industry.
+Graphic abstract
+Extended author information available on the last page of the article
+1254 Journal of Applied Electrochemistry (2021) 51:1253–1265
+1 3
+Keywords Lithium-ion battery · Electrochemical modeling · Model identifiability
+Abbreviations
+CC  Constant current
+CV  Constant voltage
+DL  Double layer
+ECM  Equivalent circuit model
+EIS  Electrochemical impedance spectroscopy
+FOM  Fractional-order models
+LIB  Lithium-ion battery
+OCP  Open-circuit potential
+P2D  Pseudo two dimensional
+PE  Parameter estimation
+SEI  Solid–electrolyte interface
+SOC  State of charge
+SPM  Single-particle model
+1 Introduction
+Nowadays, the lithium-ion battery (LIB) is the dominant 
+electrochemical storage technology for a large variety of 
+applications. The further development of LIBs is based on 
+enhancements of battery materials and the extended applica-
+tion of novel modeling approaches used for optimization.
+Due to new applications for models and a significant 
+increase of computational power, a wide variety of mod-
+els has been developed and different applications have 
+been addressed, e.g., models have been used to quantify 
+solid–electrolyte interface (SEI) formation and aging [14, 
+34, 39]. The variety of models is summarized in reviews 
+about modeling of LIBs with focus on systems engineering, 
+multi-scale modeling, and state estimation in electric cars, 
+respectively [12, 19, 28, 33].
+Besides the governing equations, model parameters are 
+an essential part of every model. Their correct choice can 
+be not only crucial but also challenging. While parameter 
+estimation (PE) is commonly used to parameterize models, 
+it is also a powerful tool to derive non-measurable param -
+eters from cell performance. These yield insight, e.g., into 
+the impact of production parameters [22]. Both applications 
+require practical identifiability of the model parameters. In 
+the following, parameter estimation approaches are briefly 
+reviewed, and direct and sample-based approaches of proof-
+ing identifiability are summarized.
+The most common parameters in electrochemical LIB 
+models are reaction rate constants, diffusion coefficients of 
+active materials and electrolyte, and conductivity of solid 
+and electrolyte. Temperature dependencies are commonly 
+modeled using Arrhenius’ law. It has a pre-exponential coef-
+ficient and an activation energy which are estimated from 
+temperature variations. Concentration dependencies can 
+also be considered and may further increase the number of 
+parameters. For instance, in Ref. [11], the state of charge 
+(SOC) or concentration-dependent open-circuit potential 
+(OCP) between both electrodes was estimated from electro-
+chemical experiments alongside the other model parameters. 
+Fitting empirical OCP equations for both electrodes together 
+with kinetic constants. etc., led to a large number of param-
+eters. To deconvolute the joint parameter estimation of OCP 
+curves and other model parameters Refs. [20] and [22] first 
+parameterized the thermodynamic, OCP-related parameters. 
+Then, in the subsequent main parameter estimation kinetic 
+constants, diffusion coefficients, etc., were estimated. For 
+equivalent circuit models, resistances, capacitance, and OCP 
+have to be estimated, and concentration dependencies are 
+common [19].
+Table 1  Number of estimated 
+parameters in different 
+publications in order of 
+publication
+Used abbreviations are double layer (DL), single-particle model (SPM), pseudo-2D model (P2D), equiva-
+lent circuit model (ECM), constant voltage (CV), and constant current (CC)
+Number of param-
+eters
+Year Refs. Model type Experiment
+88 2012 [11] SPM incl. OCP Drive cycles
+11 2013 [26] reduced-order SPM C-rate and pulse tests
+18 2014 [43] P2D incl. T dependency C-rate tests
+4 2015 [27] P2D One charge/discharge
+3 2017 [22] P2D incl. DL C-rate tests
+27 2018 [17] P2D C-rate tests
+6 2018 [7] ECM C-rate tests
+14 2018 [4] P2D CC/CV charge/discharge
+7 2019 [20] P2D incl. DL C-rate tests
+1255Journal of Applied Electrochemistry (2021) 51:1253–1265 
+1 3
+The number of estimated parameters varies significantly 
+between different publications. This is exemplary illustrated 
+in Table 1. The difference in numbers is partially related to 
+different model complexities and types, and partially to the 
+application of different parameter estimation procedures. 
+Further, the number of uncertain parameters is dependent on 
+the model application, e.g., whether temperatures are varied 
+in the experiments and its influence is modeled.
+As Table 1 shows, the most common case is a P2D model 
+without temperature dependency in combination with C-rate 
+tests. This commonly leads to three to 14 parameters. The 
+difference in total number of parameters is partially related 
+to differences in parameterization approaches and research 
+objectives. But this differences also raises the equation about 
+the maximum number of independent uncertain parameters 
+which can be estimated in one model.
+Different parameter procedures were introduced in the 
+literature. For physics-based full-order models (P2D models 
+and SPMs in Table 1), Ramadesigan et al. applied gradient-
+based, thus local, least-squares fitting to estimate parameter 
+changes due to cell aging in combination with an uncer -
+tainty quantification to calculate the confidence intervals of 
+the estimated parameters [32]. Vazquez-Arenas et al. cou-
+pled the parameter estimation with a sensitivity analysis to 
+assess the estimation accuracy [43]. Lenze et al. estimated 
+parameters of an electrochemical model manually adjust-
+ing parameters [22]. Chun and Han introduced a cascaded 
+improved harmony search to estimate the parameters of the 
+P2D model, wherein a partially random-based optimization 
+approach was conducted repeatedly [4].
+In the engineering and control community, there exists a 
+variety of reduced-order models or equivalent circuit models 
+(ECMs) [1, 18, 29, 45]. For ECMs, parameter estimation is 
+frequently conducted [ 1]. These models commonly focus 
+on estimation of battery states like SOC, state of power, or 
+state of health [16, 25, 29, 42, 44]. Dvorak et al. introduced 
+a parameter estimation method for an ECM containing 2 
+RC elements. This method applies step-wise discharge at 
+constant current with repetitions at different C-rates and 
+temperatures [7]. A Kalman filter was applied to the ECM. 
+It was shown that in this case, parameter estimation should 
+facilitate electrochemical tests similar to the actual applica-
+tion for optimal accordance of the model [2].
+Besides the choice of the experimental-electrical test pro-
+cedure and optimization algorithms, in some publications, 
+the objective function was adjusted to enhance identifiabil-
+ity. Different objective functions were applied to different 
+parts of the experimental data. For instance, Li et al. applied 
+three steps: high SOC and low current, low SOC and low 
+current, and eventually considered a dynamic driving cycle 
+[23]. Jin et al. considered thermodynamic parameters and 
+kinetic parameters independently for a P2D model as well 
+as linear or logarithmic scaling for different parameters [17]. 
+All these publications have a strong theoretical focus. In 
+contrast, Ecker et al. used a variety of different experimen-
+tal analysis methods to measure model parameters like dif-
+fusion coefficients. They used electrochemical impedance 
+spectroscopy in combination with equivalent circuit models 
+to partially estimate the parameters of the P2D model [8 , 
+9]. Schmalstieg et al. presented a method to parameterize a 
+model of bought-in commercial cells. Their method com-
+bined EIS, galvanostatic intermittent titration technique, 
+porosity measurement by mercury intrusion, and ECM fit -
+ting [36].
+Identifiability is basically a model property which 
+describes whether its parameters can be identified from its 
+output for a specified input [3]. Further, the terms structural 
+identifiability [3], practical identifiability [27], and unique-
+ness are introduced. Structural identifiability focuses on the 
+model function itself and assesses whether identifiability is 
+given or not. In general, it refers to global identifiability. 
+Practical identifiability also considers the sensitivity of the 
+model to the parameters. Practical identifiability requires 
+sensitivity and is related to local identifiability. Uniqueness 
+of the estimated parameter set yields global identifiability.
+Sharma and Fathi [38] and Lin and Stefanopoulou [24] 
+used the Fisher information matrix to assess local identifi-
+ability. From the Fisher information matrix, the eigenvalues 
+can be used to assess identifiability [10, 37], and a singular 
+value decomposition can be carried out. Bizeray et al. lin-
+earized a single-particle model to investigate its structural 
+identifiability [3 ]. This approach has the advantage to be 
+able to assess global identifiability and hence uniqueness but 
+requires a closed formulation of the models output and lin-
+earization. Thus, it is not applicable to the commonly used 
+P2D battery model which lacks the closed formulation of 
+its output. Also, it is possible that linearization reduces the 
+model’s identifiability. In contrast, the Fisher information 
+matrix could be applied to a P2D model, but computational 
+cost would be enormous for a state-of-the-art desktop PC. 
+For a SPM, the Fisher information matrix was successfully 
+applied by Pozzi et al. to derive optimal experiments for 
+parameterization [31].
+Barcellona et al. published a review on parameter iden-
+tification techniques for lithium-ion battery models [1 ]. 
+Therein, they were classified in online methods, offline 
+methods, or analytically/numerical calculation methods. 
+Online methods were commonly applied to ECMs for state 
+estimation [1]. Tian et al. estimated parameters of an ECM 
+from constant-current discharge data and assessed local 
+identifiability analyzing the rank of the sensitivity matrix 
+[41]. Pozna et al. showed that even a first-order RC equiva-
+lent circuit battery model is not identifiable [30]. For frac-
+tional-order models (FOM) of lithium-ion batteries, parame-
+ter identifiability was assessed by Guo et al. and Li et al. [13, 
+1256 Journal of Applied Electrochemistry (2021) 51:1253–1265
+1 3
+23]. FOM is based on Laplace transformation and provides 
+lumped parameters which have to be estimated.
+The review of relevant literature shows the variety of 
+parameter estimation approaches in different scientific com-
+munities. The intention of this article is to interconnect those 
+groups and to provide hands-on guidance for parameter esti-
+mation of electrochemical models, especially for applied sci-
+ences. The advantage of the introduced approach is that it 
+enables estimation of a unique set of model parameters of 
+a P2D model. All existing methods were either global or 
+applicable to the P2D model. In contrast to the published 
+literature of P2D models, it allows assessment of practical 
+identifiability and uniqueness. Thus, it provides the most 
+reliable base for any further physical or electrochemical 
+model-based analysis.
+The outline of this article is as follows: In Sect.  2, the 
+model as well as the parameterization strategy is introduced. 
+In Sect.  3, the model is parameterized in three steps. The 
+second step is the common combination of P2D model with 
+C-rate tests. Its practical identifiability is discussed in-depth 
+and a mitigation strategy for its partial unidentifiability is 
+introduced in Sect.  3.3. This article ends with conclusions 
+which provide guidance for the use of electrochemical mod-
+els in applied sciences and industry.
+2  Mathematical methods
+2.1  Electrochemical model
+In this article, the common P2D model is applied to simu-
+late C-rate tests. The model was first introduced by Doyle 
+et al. [5 , 6]. In the following, the governing equations are 
+briefly reviewed. For a detailed set of equations and bound-
+ary conditions, we refer to our previous publication [20]. 
+The model is a set of partial differential and algebraic equa-
+tions. All spatial derivatives are discretized applying finite 
+volume method.
+Intercalation reactions at both electrodes are described by 
+Butler–Volmer kinetics:
+with a concentration-dependent exchange current density i0
+In Eqs.  1 and 2 , jLi is the intercalation current density, as 
+the volume-specific active area, 𝛼 the symmetry coefficient 
+of the reaction, 𝜂 is the electrochemical overpotential, k the 
+reaction rate constant, ce Li+ concentration in electrolyte, 
+cs the Li concentration in active material, and cmax is the 
+maximal Li concentration in active material; thus, cmax − cs 
+(1)jLi = asi0
+/parenleft.s3
+exp
+/parenleft.s3
+𝛼 𝜂FRT /parenright.s3 − exp /parenleft.s3−(1 − 𝛼) 𝜂FRT /parenright.s3/parenright.s3
+(2)i0 = kFc𝛼e /parenleft.s1cmax − cs/parenright.s1𝛼 c1−𝛼s .
+are available lattice vacancies for Li in the active material. 
+Diffusion of lithium in spherical particles is described by 
+Fick’s law in a radial coordinate r:
+wherein Ds is the solid-phase diffusion coefficient. Further, 
+initial values ca,0 and cc,0 are introduced for the solid-phase 
+volume elements of anode and cathode at t = 0 at a cell volt-
+age of 4.2 V  , respectively. In the electrolyte, diffusion and 
+migration are considered
+and the liquid-phase potential 𝜙e is governed by
+In Eq.  4, 𝜎e,eﬀ is the effective electrolyte conductivity, 𝜙e 
+is potential, x is a linear coordinate orthogonal to the plain 
+electrode area, and tp is the transference number. The effec-
+tive diffusion coefficient is derived from porosity 𝜀 and tor-
+tuosity 𝜏:
+Further, the model considers electrochemical double layers 
+at both electrodes which was first introduced to this model 
+type by Legrand et al. [21]:
+with double-layer capacitance CDL and
+At last, the Nernst-Einstein equation is applied to link elec-
+trolyte diffusivity D, a frequently adjusted model parameter, 
+and electrolyte conductivity 𝜎e to reduce the number of inde-
+pendent adjustable parameters:
+It assumes a linear concentration dependency of 𝜎e and is, 
+thus, a simplification of the model. However, its influence 
+is assumed to be small at low and moderate concentrations.
+The open-circuit potential curves are estimated by empiri-
+cal equations 10 and 11. The equations are motivated by the 
+work of Smith and Wang [40] but are adjusted to reproduce 
+the characteristics of the given materials more precisely.
+(3)
+𝜕cs
+𝜕t = 1r2 𝜕𝜕r
+/parenleft.s3
+Dsr2 𝜕cs𝜕r /parenright.s3,
+(4)𝜀 𝜕ce
+𝜕t = 𝜕𝜕x
+/parenleft.s3
+De,eﬀ
+𝜕ce
+𝜕x
+/parenright.s3
++( 1 − tp) jLi(x)F ,
+(5)jtot =− 𝜕𝜕x
+/parenleft.s3
+𝜎e,eﬀ
+𝜕𝜙e
+𝜕x
+/parenright.s3
+− 2 RTF /parenleft.s1tp − 1/parenright.s1𝜎e,eﬀ 𝜕 ln ce𝜕x .
+(6)De,eﬀ = De,bulk ⋅ 𝜀𝜏 .
+(7)jDL = asCDL 𝜕/parenleft.s1𝜙s − 𝜙e/parenright.s1𝜕t ,
+(8)jtot = jLi + jDL.
+(9)𝜎e = F2R ⋅ ce ⋅ /parenleft.s1D+ + D−/parenright.s1.
+1257Journal of Applied Electrochemistry (2021) 51:1253–1265 
+1 3
+The normalized concentration ̃c is given by
+Parameters of Eqs.  10 and 11 are listed in Table 7 in the 
+Online Appendix.
+In the end, cell voltage can be derived from the solid-
+phase potential different between the two active material-to-
+current collector interfaces at x = 0 and x = L:
+This potential difference includes all potential losses in solid 
+and liquid phases, as well as the OCPs and electrochemical 
+overpotentials of both electrodes.
+In total, there are 14 uncertain parameters. For these, the 
+parameter estimation procedure is introduced in the follow-
+ing section. Temperature effects are not considered.
+Due to computational efficiency, a single-particle model 
+is used to simulate EIS. Where applicable, the same param-
+eters are used as in the P2D model. For the SEI, there are 
+additional parameters which are taken from Ref. [14] as the 
+SEI is beyond the scope of this study. The model simulated 
+diffusion solely in a single particle per electrode.
+The model considers an additional adsorption kinetic at 
+the SEI surface:
+wherein a vacant SEI lattice space is 𝛩v and a lithium-filled 
+vacancy 𝛩Li . Further diffusion and charge transport in the 
+SEI are considered:
+(10)EOCP,a(̃c) = k1 + k2 ̃c + k3 ̃c0.5 + k4 ̃c1.5 + k5 exp /parenleft.s1k6/parenleft.s1k7 − ̃c/parenright.s1/parenright.s1
++k8 exp /parenleft.s1k9/parenleft.s1k10 − ̃c/parenright.s1/parenright.s1 + k11 exp /parenleft.s1k12/parenleft.s1k13 − ̃c/parenright.s1/parenright.s1 + k14/parenleft.s1k15 + ̃c/parenright.s1−1
+(11)EOCP,c(̃c)=k 1 ̃c6 + k2 ̃c5 + k3 ̃c4 + k4 ̃c3 + k5 ̃c2 + k6 ̃c + k7 exp /parenleft.s1k8 ̃ck9 /parenright.s1 + k10.
+(12)̃cj =
+cj
+Δcmax,j
+, ∀j ∈{ an, cath} .
+(13)Ucell = 𝜙s(L)− 𝜙s(0).
+(14)
+rLi,ads =Θ vas,adscLi,ekb exp
+/parenleft.s2
+−𝛼Δ𝜙 FRT /parenright.s2
+−ΘLias,adskf exp
+/parenleft.s2
+𝛼Δ𝜙 FRT /parenright.s2,
+The linear coordinate in the SEI is denoted 𝜉 . However, for 
+details about the single-particle model, it is referred to Ref. 
+[14], as it is only a tool to derive parameters from imped-
+ance spectra. It could be substituted by other tools such as 
+equivalent circuit models.
+The model was implemented in Matlab R2017b. Multi-
+start fitting was conducted at a high-performance cluster due 
+to its parallelization feasibility. To derive the impedance 
+from simulation data, Matlab built-in fast Fourier transfor -
+mation was used. For all least-square problems, a Matlab 
+built-in Levenberg-Marquardt algorithm was used.
+2.2  Parameterization procedure
+Based on the literature reviewed above, a three-step param-
+eter estimation procedure is applied in this article. For 
+instance, see Ref. [23] for sequential parameter estimation 
+procedures. The experiments are an OCP measurement for 
+PE step 1, C-rate tests for kinetic parameters in PE step 2, 
+and EIS data for improved identification of kinetic param -
+eters in PE step 3. All experiments are conducted in a three-
+electrode setup. The different steps of the applied param-
+eter estimation procedure are summarized in Table  2. This 
+approach uses the higher sensitivity of various experiments 
+to certain parameters to gain more reliable results.
+PE step 1 identifies static parameters, like the initial con-
+centration of both electrodes, ca,0 and cc,0 , and the specific 
+capacity of both active materials, 𝛥ca,max and 𝛥cc,max which 
+are not affected by kinetics. PE step 2 is denoted as quasi-
+static. It is related to kinetic parameters, which are only 
+sensitive at non-zero cell currents. This includes diffusion 
+coefficients of both active materials, respectively, Ds,a and 
+Ds,c , exchange current densities, i0,a and i0,c , electric con-
+ductivities, 𝜎s,q and 𝜎s,c , and electrode tortuosities, 𝜏a and 
+𝜏c , effecting, e.g., the ionic conductivity of the electrolyte. 
+These parameters affect the cell performance at a time scale 
+of seconds to hours.
+(15)
+𝜕c𝛩Li
+𝜕t = 𝜕𝜕𝜉
+/parenleft.s3
+D𝛩Li ,SEI
+𝜕c𝛩Li
+𝜕𝜉
+/parenright.s3
+,
+(16)jLi, ads = 𝜕𝜕𝜉
+/parenleft.s3
+𝜎SEI
+𝜕𝜙SEI
+𝜕𝜉
+/parenright.s3
+.
+Table 2  Steps and parameters of the multi-step PE approach
+PE step Used experiments Adjusted parameters
+1. Static OPV cc,0, ca,0, 𝛥cc,max, 𝛥ca,max
+2. Quasi-static C-rate Ds,c, Ds,a, i0,c, i0,a, 𝜏c, 𝜏a,
+Tests 𝜎s,c, 𝜎s,a
+3. Dynamic EIS CDL,c, CDL,a, i0,c, i0,a, 𝜎s,c, 𝜎s,a
+1258 Journal of Applied Electrochemistry (2021) 51:1253–1265
+1 3
+The electrochemical cell response at small time scales of 
+seconds and below is considered in PE step 3. It concerns espe-
+cially reaction kinetics and electric transport. The dynamic cell 
+behavior is analyzed, e.g., via impedance spectroscopy, and 
+the double-layer capacitances, CDL,a and CDL,c , are estimated. 
+Exchange current densities, i0,a and i0,c , and solid-phase con-
+ductivities, 𝜎s,c and 𝜎s,a , are recalculated, wherein the result 
+of PE step 2 is used as starting value. Solid-phase diffusion 
+coefficients are not recalculated in this step, as they can be 
+estimated precisely in PE step 2. The choice of parameters is 
+based on the literature review in Sect. 1 and especially on the 
+sensitivity analysis conducted in our previous work [20].
+In the following, the least-square formulations for all 
+three steps are introduced. As the measured charges and 
+voltages have different magnitudes, the difference between 
+simulation and experiment in the least-square formulations 
+Fj(𝜃j), ∀j ∈{ 1, 2, 3}  in Eqs. 17a to 19b is normalized vs. the 
+maximum of the respective experimental values. Further, the 
+parameter vectors 𝜃j, ∀j ∈{ 1, 2, 3}  are normalized vs. their 
+starting values for numerical smoothness. For exchange cur-
+rent densities, a logarithmic scale is applied, as the sensitivity 
+of the exchange current density is known to be smaller than 
+the sensitivity of, e.g., diffusion coefficients. This approach is 
+in accordance with the work of, e.g., Jin et al. [17].
+As kinetic parameters do not affect the simulated open full-
+cell voltage curve EOCV vs. discharged charge Q , the static 
+parameters 𝜃∗1 are identified in PE step 1 using solely the OCP 
+measurement for the two electrodes i ∈{ an, cath}  and n sam-
+ple points k: 
+(17a)𝜃∗1 ∶ F(𝜃∗1 )= min𝜃1∈ℝN1 F1(𝜃1)
+(17b)F1(𝜃1)= /uni2211.s1
+i∈{an, cath }
+/parenleft.s4 n/uni2211.s1
+k=1
+/parenleft.s3 EOCV,sim,i(Qk, 𝜃1)−E OCV,exp,i(Ck)
+max(EOCV,exp,i)
+/parenright.s32
++
+n/uni2211.s1
+k=1
+/parenleft.s3 Qsim,i(EOCV,k, 𝜃1)−Q exp,i(EOCV,k)
+max(Qexp,i)
+/parenright.s32/parenright.s4
+.
+ Both deviations in voltage and charge direction of the simu-
+lation from experimental points are considered to ensure 
+accordance for all SOCs. E.g., at intermediate SOCs, the 
+OCV curve is flat and a deviation in charge is large com-
+pared to a deviation in capacity. In contrast, at low SOC at a 
+steep OCV curve, deviations in voltage are dominant. Sum-
+ming up both deviations leads to a high accordance for the 
+entire SOC range. Further, this allows to precisely identify 
+the intercalation steps of the graphite anode.
+In PE step 2, the identified static parameters are used. 
+Hence, a subset of kinetic parameters 𝜃∗2 is estimated from the 
+C-rate tests with m different C-rates j for the two electrodes, 
+i ∈{ an, cath}  , and n equidistant sample points k: 
+In PE step 3, EIS is simulated at 50% SOC. This step is, 
+e.g., in accordance with the approach in Refs. [9 ] and [8 ]. 
+The least-square formulation of this step is as follows for 
+the two electrodes i ∈{ an, cath}  , and n frequencies in the 
+experiment: 
+(18a)𝜃∗2 ∶ F2(𝜃∗2 )= min𝜃2∈ℝN2 F2(𝜃2)
+(18b)
+F2(𝜃2)=
+/uni2211.s1
+i∈{an, cath }
+m/uni2211.s1
+j=1
+/parenleft.s4 n/uni2211.s1
+k=1
+/parenleft.s3 Usim,i,j(Ck, 𝜃2, t)−U exp,i,j(Ck, t)
+max(Uexp,i)
+/parenright.s32
++
+n/uni2211.s1
+k=1
+/parenleft.s3 Csim,i,j(Uk, 𝜃2)−C exp,i,j(Uk)
+max(Cexp,i)
+/parenright.s32/parenright.s4
+.
+(19a)𝜃∗3 ∶ F3(𝜃∗3 )= min𝜃3∈ℝN3 F3(𝜃3),
+Table 3  Cell parameters used 
+in the applied model. The 
+parameter set from Ref. [20] is 
+used as reference point for this 
+study
+mMeasured
+aEstimated in Ref. [20]
+l Taken from Ref. [21]
+Parameter Symbol Unit Anode Separator Cathode
+Layer thicknessm 𝛿el μm 55.25 20.0 60.0
+Porositym 𝜀e – 0.35 0.50 0.40
+Diffusion coefficienta De m2 s−1 7.15 ⋅ 10−9 7.15 ⋅ 10−9 7.15 ⋅ 10−9
+Diffusion  coefficienta Ds m2 s−1 9.35 ⋅ 10−15 – 1.10 ⋅ 10−12
+Particle  sizem Rp μm 11.5 – 5.5
+specific  capacitym 𝛥cmax mol L −1 24.9 – 25.4
+Electronic  conductivitya 𝜎s mS  m−1 20.4 – 9.9
+Exchange current  densitya i0 Am −2 1.47 – 198
+Transference numberl tp – 0.24 0.24 0.24
+Charge-transfer  coefficientl 𝛼 – 0.5 – 0.5
+Double-layer  capacitancel CDL Fm −2 0.2 – 0.2
+1259Journal of Applied Electrochemistry (2021) 51:1253–1265 
+1 3
+EIS spans a broad frequency range and enables to con-
+sider the different time constants of the dynamic processes. 
+This allows to distinguish between parameters related to 
+fast electrochemical reactions and slow diffusion processes. 
+Impedance data, thus, lead to further sensitive parameters 
+like double-layer capacitances of both electrodes. These 
+have a negligible impact in C-rate tests, but a significant 
+impact on the impedance spectra.
+2.3  Electrochemical reference system
+The model is parameterized using experimental data of 
+NMC111 vs. graphite cell. The electrodes are made at a 
+pilot plant-scale production line in the Battery LabFactory 
+Braunschweig. For a detailed description of electrode com-
+positions and production processes, it is referred to our pre-
+vious publication [ 20]. Geometric properties and transport 
+process parameters of the electrochemical reference system 
+are listed in Table 3.
+All tests were conducted in a commercial three-electrode 
+setup of EL-Cells GmbH, which was placed in a temperature 
+chamber at 25 °C. Test protocols of C-rate tests and OCP 
+measurements are given in Ref. [20]. EIS was conducted 
+at 65 logarithmic-equidistant frequencies ranging from 20  
+mHz to 50  kHz.
+2.4  Multi‑start identifiability test
+In the following, a sample-based identifiability test is intro-
+duced. In principle, this test can be applied to any of the 
+three PE steps. Here however, it is solely applied to PE step 
+2 as this is the main step having the most adjustable param-
+eters. This decision will be justified by the results of Sects. 
+3.1 and 3.3.
+Direct approaches to access identifiability require a 
+closed formulation of the model equation. The P2D model, 
+however, does not satisfy this requirement. A solution to get 
+a closed formulation could be a drastic simplification of the 
+model and linearization. However, the nonlinearity bears a 
+(19b)
+F3(𝜃3)=
+/uni2211.s1
+i∈{an, cath }
+/parenleft.s4 n/uni2211.s1
+k=1
+/parenleft.s3 Re(Zsim,i,k(𝜃3)) − Re(Zexp,i,k)
+max(Re(Zexp,i,k))
+/parenright.s32
++
+n/uni2211.s1
+k=1
+/parenleft.s3 Im(Zsim,i,k(𝜃3)) − Im(Zexp,i,k)
+max(−Im(Zexp,i,k))
+/parenright.s32/parenright.s4
+.
+significant amount of information which enhances the iden-
+tifiability of the model parameters significantly as shown by 
+Lenze et al. [22]. Thus, an indirect, sample-based approach 
+is chosen: multi-start parameter estimation. In this approach, 
+different starting points 𝜃m,0 , in the domain of model param-
+eters 𝛺m , are chosen for the parameter estimation algorithm. 
+The domain 𝛺m,j of parameter j is limited by physically plau-
+sible parameter values xlb,j at the lower boundary (lb) and 
+xub,j at the upper boundary (ub) provided by the literature.
+The choice of the various starting points can be guided by 
+different approaches. The parameter space could be sampled 
+in an equidistant mesh. This would lead to a large number 
+of sample points and to many unlikely parameter combina-
+tions. Random sampling could reduce the number of sample 
+points but would lead to non-deterministic results. Further, 
+a small number of parameter vectors could be chosen by 
+physical insight. This could reduce the number of chosen 
+unlikely parameter combinations, such as that all parameters 
+are at the lower boundary, which would lead to negligible 
+dischargeable capacity. To minimize computational cost, this 
+approach is applied as explained in the following.
+Not all parameters show a similar sensitivity towards 
+C-rate curves, so it is focused on the sensitive parameters, 
+as identified in our previous study [20]. Namely this is solid-
+phase diffusion coefficient of both electrodes, electric phase 
+conductivity of both electrodes, and the exchange current 
+densities of both electrodes. Starting values are varied in the 
+following for those parameters.
+For each dimension j  of the parameter space 𝛺m three 
+values are defined: the boundaries xj,lb and xj,ub and the refer-
+ence starting value xj,ref listed in Table  3. From those three 
+values, three potential starting points xj,l,0, ∀l ∈ {−, 0, +} 
+are derived: 
+ The applied logarithm gives weight to the fact that litera-
+ture values for some parameters range over several orders of 
+magnitude, and thus, the starting values should do as well. 
+The sample generator function, Eqs.  20a to 20c, should be 
+adjusted to the individual parameter estimation problem.
+(20a)xj,−,0 = f /parenleft.s1log(xj,ref,0), log (xj,lb)/parenright.s1,
+(20b)xj,0,0 = xj,ref,
+(20c)xj,+,0 = f /parenleft.s1log(xj,ref), log (xj,ub)/parenright.s1.
+Table 4  Estimated parameter set from PE step 1
+Parameter cc,0 in mol L −1 ca,0 in mol L −1 Δcc,max in mol L −1 Δca,max in mol L −1
+Value 0.025 24.87 25.41 24.88
+1260 Journal of Applied Electrochemistry (2021) 51:1253–1265
+1 3
+As three potential starting values for six parameters 
+would lead to a total of 729 different starting points, prom-
+ising starting points for PE step 2 are chosen by combination 
+of following deterministic rules:
+– At least one parameter is set to xj,−,0,
+– At least one parameter is set to xj,+,0,
+– At least three parameters are set to xj,0,0.
+This reduces the number of starting points to 151. The refer-
+ence starting point xj,0 = xj,0,0, ∀j is added as starting point 
+number 152. Further, starting points will be rejected if the 
+discharge capacity at 0.5C is below 50% of the experimental 
+value. If a starting point is not rejected, parameter estimation 
+step 2 is conducted as introduced above.
+2.5  Point estimate method
+In Sect. 3.2, a sensitivity analysis is conducted. A nested point 
+estimate method (PEM) is applied. This method is a tool for 
+global sensitivity analysis which is based on deterministic 
+sampling and Taylor series expansion. For details about the 
+method, it is referred to Refs. [35] and [20]. Sensitivity analy-
+sis was shown to be feasible to assess accuracy of parameters, 
+e.g., by Refs. [32] and [43].
+3  Results and discussion
+In this section, parameter estimation steps 1 to 3 are con-
+ducted. For steps 1 and 3, identifiabily is discussed briefly, 
+while for PE, step 2 multi-start fitting is applied. The focus is 
+on identifying a unique parameter set of the P2D model for 
+simulation of quasi-static electrochemical tests, as this was a 
+common combination as shown above.
+3.1  Identifiability of full‑cell open‑circuit potentials
+The essential part of PE step 1 is to quantify initial capac-
+ity and active material losses during the formation at the 
+end of cell production. PE step 1 affects four parameters: 
+cc,0, ca,0, 𝛥cc,max , and 𝛥ca,max . Only the measurement of half-
+cell open-circuit potentials is considered. As OCPs are formu-
+lated as functions vs. intercalation ratio, respectively, normal-
+ized concentration cs∕𝛥cmax , 𝛥cmax can be used to stretch the 
+half-cell voltage of one electrode compared to full-cell SOC. 
+The initial concentration cs,0 of one electrode can be used to 
+shift one electrode vs. full-cell SOC. However, PE step 1 is 
+quite straightforward as the model interpolates the experimen-
+tal OCP curve with solely an altered base. Basically, PE step 1 
+is a fine tuning of the altered base.
+Results of PE step 1 are listed in Table 4. It is noteworthy 
+that all four parameters describe the technical usable concen-
+tration range, analog to full-SOC, not the entire stoichiometric 
+range of LiC6 and LiNi1∕3Mn1∕3Co1∕3 . For some active mate-
+rials, the later can be significantly higher than the technical 
+usable range.
+To access uniqueness of the estimated parameter set, it 
+is referred to the characteristic shape of both electrode OCP 
+curves, respectively, their nonlinearity. Characteristics of any 
+graphite-based anode’s OCP are a wide flat range with dis-
+crete step and a steep section at high discharge capacities (low 
+SOCs). In contrast, the NMC cathode’s OPC is decreasing 
+with increasing discharge capacity, while the slope is chang-
+ing as well. For illustration, it is referred to the experimental 
+OCP curves in Fig. 5 in the Online Appendix. The nonlinearity 
+of the OCPs and the availability of half-cell potentials allow 
+identification of cj,0 and Δcj,max for both electrodes. As this 
+approach is based on the characteristics of the OCP curves, it 
+is potentially only valid for the given well-balanced NMC vs. 
+graphite cell. For cells with different OCP characteristics or a 
+Fig. 1  Histogram of the normalized residuum F2 of the entity of 
+parameter estimations which fulfilled the initial requirement of at 
+least 50% of the experimental capacity at 0.5C
+Table 5  Exemplary parameter sets from multi-start parameter estimation
+Green highlights a positive change of the parameter between set 1 and set 2, red highlights a negative change. Simulated C-rate tests for both 
+parameter sets are shown in Fig. 6 in the Online Appendix
+1261Journal of Applied Electrochemistry (2021) 51:1253–1265 
+1 3
+different balancing, a different approach can be more suitable. 
+Also, analytic approaches at distinct points may be possible.
+3.2  Practical identifiability from C‑rate tests
+Multi-start parameter estimation is conducted for PE step 2 
+as described in Sect. 2.4.
+Out of 152 initial points, 49 have been chosen by the 
+algorithm due to the rejection criterion introduced in 
+Sect.  2.4. Further, results with a normalized residuum 
+below 6.0 × 10−3 were chosen for the further analysis. Con-
+sequently, the number of parameter vectors is reduced to 35. 
+Figure 1 shows the normalized residuum of the parameter 
+estimation defined in Eqs.  18a and 18b. There is a narrow 
+band of parameter sets with a residuum between 5.8 × 10−3 
+and 6.0 × 10−3 . Thus, they only vary about 3.3 % and all are 
+equivalent to an excellent accordance between simulation 
+and experimental C-rate test. Thus, the least-square solver is 
+able to converge for a large number of initial points. In this 
+context, solver convergence implies that any parameter set 
+is found which leads to a minimal residuum of the objective 
+function. In the following, it is assessed whether the solver 
+converges to the same parameter set.
+For further discussion of the P2D model’s unidentifiabil-
+ity in PE step 2, two parameter sets are handpicked. Both 
+sets lead to an excellent accordance between the experimen-
+tal discharge curve and the simulation but show significant 
+differences in their parameter values. The two parameter sets 
+are listed in Table 5. The corresponding simulated discharge 
+curves are shown in Fig. 6 in the Online Appendix. Differ -
+ences between the curves are negligible and below the typi-
+cal experimental accuracy.
+ Despite their equal discharge curves, the two different 
+parameter sets vary significantly regarding the cathode 
+properties. The cathode solid-phase diffusivity is decreased 
+between the first and second parameter sets by a factor of 
+two, solid-phase conductivity by a factor of 450, and the 
+exchange current density is increased by a factor of 70. At 
+the anode, only the solid-phase conductivity is changed 
+significantly.
+Further, a 2D parameter variation is conducted wherein 
+cathode exchange current density is varied (first dimension) 
+and cathode solid-phase conductivity and simultaneously 
+cathode solid-phase diffusivity (second dimension) are var-
+ied simultaneously. It is ensured that both parameter sets in 
+Table 5 are a sample of this parameter variation. In Fig.  2, 
+they are highlighted by a circle and a square, respectively. 
+Results of the parameter variation are shown in Fig.  2. It 
+displays F2(𝜃∗2 ) for all samples.
+The parameter variation reveals the unidentifiability of 
+the P2D model with C-rate test data, as an infinite number 
+of solutions is visible. Thus, the combined impact of diffu-
+sion and conduction in cathode particles is not distinguish-
+able from the impact of the surface reaction. To overcome 
+this limitation, EIS data are used for the model identifica-
+tion in the following section. The different time constants of 
+reaction and transport processes are used for separation of 
+Fig. 2  2D parameter variation to illustrate unidentifiability of the 
+P2D model from C-rate tests with three estimated parameters. The 
+colormap shows the residuum of Eqs.  18a and 18b. The black square 
+marks and the black circle mark parameter sets 1 and 2, respectively
+Fig. 3  Sobol indices for both parameter sets from Table  5. Point 
+estimate method was applied for six normally distributed uncertain 
+parameters
+Table 6  Cathode conductivity and cathode exchange current density 
+estimated from impedance data
+Parameter Estimated value Literature value Refs.
+𝜎s,c in Sm −1 0.18 0.11 [15]
+i0,c in Am −2 7 1.20 [43]
+1262 Journal of Applied Electrochemistry (2021) 51:1253–1265
+1 3
+cathode exchange current density and cathode solid-phase 
+conductivity.
+To further illustrate the cause of unidentifiability, a sensi-
+tivity analysis is carried out for the two different parameter 
+sets, both providing an optimal accordance of simulated and 
+measured C-rate test. Sobol indices are determined for the 
+sensitivity of the residuum applying PEM as introduced in 
+Sect. 2.5. Results are displayed in Fig. 3.
+The model is most sensitive to Ds,a , followed by either 
+𝜎s,c or ic,0 in dependence on the case. This reveals the tran-
+sition between the two arcs of the L-shape of the minimal 
+residuum in Fig.  2. One arc relates potential losses to the 
+surface overpotential of the cathode, while the other arc 
+relates them to ohmic losses in the cathode. Sobol indices 
+of Ds,c and ia,0 are marginal, and for 𝜎s,a, they are zero for 
+both cases. Due to that, the significant changes of anodic 
+solid-phase conductivity between the two parameter sets do 
+not affect the discharge curve of the cell, respectively, the 
+residuum F2 . Further, this leads to practical unidentifiability 
+of the anode conductivity due to non-sensitivity. This fur -
+ther explains the large difference of anode conductivity in 
+Table 5. To enable identifiability of the anode conductivity, a 
+further experiment could be added or the conductivity could 
+be measured ex situ.
+Concluding PE step 2, out of the adjusted parameters, 
+the anode solid-phase conductivity remains unidentified as 
+it is insensitive for the investigated C-rates. Further, cathode 
+exchange current density and cathode solid-phase conductiv-
+ity remain unidentified due to their ambiguous impact on the 
+discharge curve. To overcome this ambiguity, PE step 3 is 
+conducted in the following. The reader is not commended to 
+take PE step 2 as a step-by-step guide for parameter estima-
+tion as the optimal parameter estimation procedure may be 
+dependent on applied active materials and electrode design. 
+However, it is emphasized to the different tools, alongside 
+others multi-start parameter estimation and sensitivity analy-
+sis, to assess reliability of the estimated parameter set.
+3.3  Identifiability by addition of assessment 
+of impedance spectra
+Electrochemical impedance spectroscopy reveals real and 
+imaginary parts of the battery impedance Z  at different fre-
+quencies of the sinusoidal current or voltage input signal. At 
+different frequencies, the impedance is governed by differ -
+ent processes and semicircles are related to electrochemical 
+reactions at particle surfaces or in the SEI [15]. Figure 7 in 
+the Online Appendix shows the simulated impedance spec-
+trum of the lithium-ion battery at 50% SOC for illustration. 
+Commonly, the cathodic impedance contains a single semi-
+circle representing electrochemical reactions and charge of 
+double layers, a low-frequency arc representing slow diffu-
+sion processes, and a positive non-zero real part at an imagi-
+nary part of zero at high frequencies. This point is related 
+to the conductivity of electrolyte in cathode and separator. 
+The full-cell impedance spectrum contains beside anode and 
+cathode semicircle a further semicircle at high frequencies, 
+which is related to the SEI [15].
+Applying the SPM and PE step 3, solid-phase conductiv-
+ity 𝜎s,c and exchange current density i0,c are estimated as 
+listed in Table  6. Simulation and experimental data of the 
+identified cathode are shown in Fig. 8 in the Online Appen-
+dix. The linear part of the spectra at high frequencies is an 
+artifact from the lithium reference electrode. Also, a cathode 
+double-layer capacity of 4.18 F m −2 was estimated.
+Reference values from the literature are also listed in 
+Table 6, which are qualitatively in good accordance to the 
+value determined based on simulations. It should be pointed 
+out that Heins and Schröder used exactly the same elec-
+trodes as in this work [15]. Vazquez-Arenas had different 
+electrodes but at least the same active material [43]. The 
+parameters derived from EIS are in good accordance with 
+one of the infinite parameter sets derived from the C-rate 
+test. Thus, this parameter set indicated by the black square is 
+considered as the final parameter set of the P2D model after 
+PE step 3. Cathode diffusivity is taken from PE step 2 from 
+Fig. 4  Impedance spectrum at 50% SOC of the NMC cathode. (left) Cathode solid-phase conductivity is varied. Characteristic frequency is 
+about 0.7 Hz for all simulations. (right) Cathode exchange current density is varied. Respective characteristic frequencies are given in the plot
+1263Journal of Applied Electrochemistry (2021) 51:1253–1265 
+1 3
+the parameter set matching 𝜎s,c and i0,c of PE step 3. This 
+approach is based on the results of Beelen et al. [2 ]. They 
+suggest that for parameterization, tests should be used which 
+are similar to the later application. In this case, a strong 
+focus lies on the P2D model and C-rate tests as the most 
+common combination.
+In this study, the objective of PE step 3 is to distinguish 
+between cathode solid-phase conductivity 𝜎s,c and cathode 
+exchange current density j0,c , as the subordinated objec -
+tive is to parameterize the P2D model for C-rates. Further 
+parameterization of the SPM model and its SEI parameters 
+are beyond the scope of this work. However, for different 
+application a wider parameter study on the impedance data 
+may be beneficial.
+To illustrate the feasibility of EIS to do this, the influence 
+of parameter variations of 𝜎s,c and j0,c are shown in Fig. 4 for 
+the cathode impedance spectrum.
+With increasing solid-phase conductivity, the semicircle 
+moves to lower real parts of impedance, while the size of 
+semicircle stays the same. If the exchange current density 
+is increased, the semicircle, related to cathode intercalation 
+reaction, is decreasing in size, while the abscissa intercept at 
+high frequencies remain the same. Thus, with position and 
+size of the cathode semicircle, the two parameters 𝜎s,c and 
+j0,c can be distinguished. It is noteworthy that the abscissa 
+intercept also depends on the electrolyte conductivity. 
+However, this is not an adjustable parameter of the applied 
+model. The electrolyte diffusivity is identified in PE step 2 
+and the electrolyte conductivity is derived therefrom by the 
+Nernst-Einstein equation.
+Further, it is referred to studies on the structural identifi-
+ability of a linearized SPM from EIS data of Bizeray et al. 
+They concluded that besides the two solid-phase diffusion 
+coefficients, a lumped charge-transfer resistance could be 
+identified [3]. However, it has to be noticed that their studies 
+were based on full-cell data only. Thus, if half-cell potentials 
+are available, as in our case, separate charge transfer resist-
+ances of both electrodes are identifiable.
+In conclusion, a three-step parameter estimation procedure 
+was conducted. Out of the 14 adjustable parameters of the 
+P2D model only, the anode solid-phase conductivity remains 
+unidentifiable as it is insensitive at the investigated C-rates. 
+In this case, a reasonable value from literature can be chosen.
+4  Conclusions
+In this article, a P2D model was parameterized in a three-
+step procedure, and practical identifiability was assessed. 
+Unique parameters of the P2D model were successfully 
+identified through a combination of OCP, C-rate, and EIS 
+data in a three-electrode setup. It was shown that the classi-
+cal C-rate test in combination with OCP measurements does 
+not provide sufficient information for P2D model identifica-
+tion. This result is remarkable as the combination of C-rate 
+tests and P2D models is the most common case in literature. 
+Specifically, reaction and conductivity coefficients cannot 
+be distinguished. This may lead to wrong conclusions on 
+limiting processes and losses in the cell. Further, it may mis-
+lead cell and electrode optimization to a potentially wrong 
+direction of attention. Further in this study, the anodic solid-
+phase conductivity is unidentifiable due to non-sensitivity 
+in C-rate tests. This is related to the commonly high con-
+ductivity of graphite anodes. The conducted study leads to 
+general guidelines for model parameterization concerning 
+identifiability. First, parameterization of an electrochemi-
+cal model requires a combination of dynamic and constant-
+current measurements. Second, half-cell and full-cell meas-
+urements are required. The parameterization procedure and 
+insights in this work can provide guidance for researchers 
+and developers to conduct a proper parameterization of their 
+models. It gives helpful advice and sensitizes the issue of 
+non-uniqueness.
+Supplementary Information The online version contains supplemen-
+tary material available at https:// doi. org/ 10. 1007/ s10800- 021- 01579-5.
+Acknowledgements This research was funded by the German Federal 
+Ministry for Economic Affairs and Energy (BMWi) through the pro-
+ject “Data-Mining in der Produktion von Lithium-Ionen Batteriezellen 
+(DaLion)” Grant Number 03ET6089. The authors gratefully thank the 
+Battery LabFactory Braunschweig (BLB) for electrode production and 
+the Institute of Environmental and Sustainable Chemistry (IÖNC) for 
+executing of the electrochemical test.
+Funding Open Access funding enabled and organized by Projekt 
+DEAL.
+Declarations 
+Conflict of interest The authors declare that they have no conflict of 
+interest.
+Open Access This article is licensed under a Creative Commons Attri-
+bution 4.0 International License, which permits use, sharing, adapta-
+tion, distribution and reproduction in any medium or format, as long 
+as you give appropriate credit to the original author(s) and the source, 
+provide a link to the Creative Commons licence, and indicate if changes 
+were made. The images or other third party material in this article are 
+included in the article’s Creative Commons licence, unless indicated 
+otherwise in a credit line to the material. If material is not included in 
+the article’s Creative Commons licence and your intended use is not 
+permitted by statutory regulation or exceeds the permitted use, you will 
+need to obtain permission directly from the copyright holder. To view a 
+copy of this licence, visit http:// creat iveco mmons. org/ licen ses/ by/4. 0/.
+1264 Journal of Applied Electrochemistry (2021) 51:1253–1265
+1 3
+References
+ 1. Barcellona S, Piegari L (2017) Lithium ion battery models and 
+parameter identification techniques. Energies. https:// doi. org/ 10. 
+3390/ en101 22007
+ 2. Beelen HPGJ, Bergveld HJ, Donkers MC (2018) On experiment 
+design for parameter estimation of equivalent-circuit battery mod-
+els. In: 2018 IEEE Conference on Control Technology and Appli-
+cations (CCTA). https:// doi. org/ 10. 1109/ CCTA. 2018. 85115 29
+ 3. Bizeray AM, Kim JH, Duncan SR, Howey D (2018) Identifiability 
+and parameter estimation of the single particle lithium-ion battery 
+model. IEEE Trans Control Syst Technol. https:// doi. org/ 10. 1109/ 
+TCST. 2018. 28380 97
+ 4. Chun H, Han S (2018) Electrochemical model parameter esti-
+mation of a lithium-ion battery using a metaheuristic algo-
+rithm: cascaded improved harmony search.IFAC-PapersOnLine 
+51(28):409–413. https:// doi. org/ 10. 1016/j. ifacol. 2018. 11. 737
+ 5. Doyle M (1993) Modeling of galvanostatic charge and dis-
+charge of thelithium/polymer/insertion cell. J Electrochem Soc 
+140(6):1526. https:// doi. org/ 10. 1149/1. 22215 97
+ 6. Doyle M, Newman J (1995) The use of mathematical modeling in 
+the design oflithium/polymer battery systems. Electrochim Acta 
+40(13–14):2191–2196. https:// doi. org/ 10. 1016/ 0013- 4686(95) 
+00162-8
+ 7. Dvorak D, Bauml T, Holzinger A, Popp H (2018) A comprehen-
+sive algorithm for estimating lithium-ion battery parameters from 
+measurements. IEEE Trans Sustain Energy 9(2):771–779. https:// 
+doi. org/ 10. 1109/ TSTE. 2017. 27614 06
+ 8. Ecker M, Kabitz S, Laresgoiti I, Sauer DU (2015) Parameteri -
+zation of a physico-chemical model of a lithium-ion battery: II. 
+Model validation. J Electrochem Soc 162(9):A1849–A1857. 
+https:// doi. org/ 10. 1149/2. 05415 09jes
+ 9. Ecker M, Tran TKD, Dechent P, Kabitz S, Warnecke A, Sauer 
+DU (2015) Parameterization of a physico-chemical model of a 
+lithium-ion battery: I. Determination of parameters. J Electrochem 
+Soc 162(9):A1836–A1848. https:// doi. org/ 10. 1149/2. 05515 09jes
+ 10. Forman JC, Moura SJ, Stein JL, Fathy HK (2011) Genetic param-
+eter identification of the Doyle-Fuller-Newman model from exper-
+imental cycling of a  LiFePO4 battery. In: Proceedings of the 2011 
+American Control Conferene, p 362–369. https:// doi. org/ 10. 1109/ 
+ACC. 2011. 59911 83. http:// ieeex plore. ieee. org/ docum ent/ 59911 
+83/
+ 11. Forman JC, Moura SJ, Stein JL, Fathy HK (2012) Genetic iden-
+tification and fisher identifiability analysis of the Doyle-Fuller-
+Newman model from experimental cycling of a  LiFePO4 cell. J. 
+Power Sources 210:263–275. https:// doi. org/ 10. 1016/j. jpows our. 
+2012. 03. 009
+ 12. Franco AA (2013) Multiscale modelling and numerical simulation 
+of rechargeable lithium ion batteries: concepts, methods and chal-
+lenges. RSC Adv 3:13027–13058. https:// doi. org/ 10. 1039/ c3ra2 
+3502e
+ 13. Guo D, Yang G (2018) Parameter identification method for frac-
+tional-order model of lithium-ion battery. 2018 IEEE Int. Power 
+Electron. Appl. Conf. Expo. 1(2):1415–1420. https:// doi. org/ 10. 
+1109/ PEAC. 2018. 85902 74
+ 14. Heinrich M, Wolff N, Harting N, Laue V, Röder F, Seitz S, Krewer 
+U (2019) Physico-chemical modeling of a lithium-ion battery: an 
+ageing study with electrochemical impedance spectroscopy. Batter 
+Supercaps 2(6):530–540
+ 15. Heins TP, Schlüter N, Schröder U (2017) Electrode-resolved 
+monitoring of the ageing of large-scale lithium-ion cells by using 
+electrochemical impedance spectroscopy. ChemElectroChem 
+4(11):2921–2927. https:// doi. org/ 10. 1002/ celc. 20170 0686
+ 16. Jarraya I, Loukil J, Masmoudi F, Chabchoub MH, Trabelsi H 
+(2018) Modeling and parameters estimation for lithium-ion cells 
+in electric drive vehicle. In: 2018 15th international multi-confer-
+ence on systems, signals & devices, p 1128–1132
+ 17. Jin N, Danilov DL, Van den Hof PMJ, Donkers MCF (2018) 
+Parameter estimation of an electrochemistry-based lithium-ion 
+battery model using a two-step procedure and a parameter sensi-
+tivity analysis. Int J Energy Res 42(7):2417–2430. https:// doi. org/ 
+10. 1002/ er. 4022
+ 18. Jokar A, Rajabloo B, Désilets M, Lacroix M (2016) Review of 
+simplified pseudo-two-dimensional models of lithium-ion batter-
+ies. J Power Sources 327:44–55. https:// doi. org/ 10. 1016/j. jpows 
+our. 2016. 07. 036
+ 19. Krewer U, Röder F, Harinath E, Braatz RD, Bedürftig B, Find-
+eisen R (2018) Review-dynamic models of Li-ion batteries for 
+diagnosis and operation: a review and perspective. J Electrochem 
+Soc 165(16):A3656–A3673. https:// doi. org/ 10. 1149/2. 10618 14jes
+ 20. Laue V, Schmidt O, Dreger H, Xie X, Röder F, Schenkendorf R, 
+Kwade A, Krewer U (2019) Model-based uncertainty quantifica-
+tion for the product properties of lithium-ion batteries. Energy 
+Technol. https:// doi. org/ 10. 1002/ ente. 20190 0201
+ 21. Legrand N, Raël S, Knosp B, Hinaje M, Desprez P, Lapicque F 
+(2014) Including double-layer capacitance in lithium-ion battery 
+models. J. Power Sources 251:370–378. https:// doi. org/ 10. 1016/j. 
+jpows our. 2013. 11. 044
+ 22. Lenze G, Röder F, Bockholt H, Haselrieder W, Kwade A, Krewer 
+U (2017) Simulation-supported analysis of calendering impacts 
+on the performance of lithium-ion-batteries. J Electrochem Soc 
+164(6):A1223–A1233. https:// doi. org/ 10. 1149/2. 11417 06jes
+ 23. Li X, Pan K, Fan G, Lu R, Zhu C, Rizzoni G, Canova M (2017) A 
+physics-based fractional order model and state of energy estima-
+tion for lithium ion batteries. Part II: parameter identification and 
+state of energy estimation for  LiFePO4 battery. J Power Sources 
+367:202–213. https:// doi. org/ 10. 1016/j. jpows our. 2017. 09. 048
+ 24. Lin X, Stefanopoulou AG (2015) Analytic bound on accuracy 
+of battery state and parameter estimation. J Electrochem Soc 
+162(9):A1879–A1891. https:// doi. org/ 10. 1149/2. 07915 09jes
+ 25. Ma X, Qiu D, Tao Q, Zhu D (2019) State of charge estimation of 
+a lithium ion battery based on adaptive Kalman filter method for 
+an equivalent circuit model. Appl Sci 9:2765
+ 26. Marcicki J, Canova M, Conlisk AT, Rizzoni G (2013) Design 
+and parametrization analysis of a reduced-order electrochemi-
+cal model of graphite/LiFePO 4 cells for SOC/SOH estimation. J 
+Power Sources 237:310–324. https:// doi. org/ 10. 1016/j. jpows our. 
+2012. 12. 120
+ 27. Masoudi R, Uchida T, McPhee J (2015) Parameter estimation of 
+an electrochemistry-based lithium-ion battery model. J. Power 
+Sources 291:215–224. https:// doi. org/ 10. 1016/j. jpows our. 2015. 
+04. 154
+ 28. Meng J, Luo G, Ricco M, Swierczynski M, Stroe DI, Teodorescu 
+R (2018) Overview of lithium-ion battery modeling methods for 
+state-of-charge estimation in electrical vehicles. Appl Sci 8:659
+ 29. Nejad S, Gladwin DT, Stone DA (2016) A systematic review of 
+lumped-parameter equivalent circuit models for real-time estima-
+tion of lithium-ion battery states. J Power Sources 316:183–196. 
+https:// doi. org/ 10. 1016/j. jpows our. 2016. 03. 042
+ 30. Pozna AI, Magyar A, Hangos KM (2017) Model identification 
+and parameter estimation of lithium ion batteries for diagnostic 
+purposes. In: 19th international symposium on power electronics 
+(Ee) 2017-December, p 1–6. https:// doi. org/ 10. 1109/ PEE. 2017. 
+81716 73
+ 31. Pozzi A, Ciaramella G, Volkwein S, Raimondo DM (2018) Opti-
+mal design of experiments for a lithium-ion cell: parameters iden-
+tification of a single particle model with electrolyte dynamics. Ind 
+Eng Chem Res 58:1286–1299. https:// doi. org/ 10. 1021/ acs. iecr. 
+8b045 80
+ 32. Ramadesigan V, Chen K, Burns NA, Boovaragavan V, Braatz 
+RD, Subramanian VR (2011) Parameter estimation and capacity 
+1265Journal of Applied Electrochemistry (2021) 51:1253–1265 
+1 3
+fade analysis of lithium-ion batteries using reformulated models. 
+J Electrochem Soc 158(9):A1048. https:// doi. org/ 10. 1149/1. 36099 
+26
+ 33. Ramadesigan V, Northrop PWC, De S, Santhanagopalan S, Braatz 
+RD, Subramanian VR (2012) Modeling and simulation of lithium-
+ion batteries from a systems engineering perspective. J Electro-
+chem Soc 159(3):R31–R45. https:// doi. org/ 10. 1149/2. 01820 3jes
+ 34. Röder F, Laue V, Krewer U (2019) Model based multiscale analy-
+sis of film formation in lithium-ion batteries. Batter Supercaps. 
+https:// doi. org/ 10. 1002/ batt. 20180 0107
+ 35. Schenkendorf R (2014) A general framework for uncertainty 
+propagation based on point estimate methods. In: Proceedings 
+of the 2nd European Conference of the Prognostics and Health 
+Management Society. Fort Worth
+ 36. Schmalstieg J, Sauer DU (2018) Full cell parameterization of a 
+high-power lithium-ion battery for a physico-chemical model: 
+part II. Thermal parameters and validation. J Electrochem Soc 
+165(16):A3811–A3819. https:// doi. org/ 10. 1149/2. 03318 16jes
+ 37. Schmidt AP, Bitzer M, Imre AW, Guzzella L (2010) Experiment-
+driven electrochemical modeling and systematic parameteriza-
+tion for a lithium-ion battery cell. J Power Sources 195(15):5071–
+5080. https:// doi. org/ 10. 1016/j. jpows our. 2010. 02. 029
+ 38. Sharma A, Fathy HK (2014) Fisher identifiability analysis for a 
+periodically-excited equivalent-circuit lithium-ion battery model. 
+In: Proceedings of the American Control Conference, p 274–280. 
+https:// doi. org/ 10. 1109/ ACC. 2014. 68593 60
+ 39. Singh P, Chen C, Tan CM, Huang SC (2019) Semi-empirical 
+capacity fading model for soh estimation of Li-ion batteries. Appl 
+Sci 9:3012
+ 40. Smith K, Wang CY (2006) Power and thermal characterization of 
+a lithium-ion battery pack for hybrid-electric vehicles. J. Power 
+Sources 160(1):662–673. https:// doi. org/ 10. 1016/j. jpows our. 2006. 
+01. 038
+ 41. Tian N, Wang Y, Chen J, Fang H (2017) On parameter identifica-
+tion of an equivalent circuit model for lithium-ion batteries. In: 
+1st Annual IEEE Conference on Control Technology and Applica-
+tions (CCTA) 2017-January, p 187–192. https:// doi. org/ 10. 1109/ 
+CCTA. 2017. 80624 61
+ 42. Van CN, Vinh TN (2020) Soc estimation of the lithium-ion battery 
+pack using a sigma point Kalman filter based on a cell’s second 
+order dynamic model. Appl Sci 10:1896
+ 43. Vazquez-Arenas J, Gimenez LE, Fowler M, Han T, Chen SK 
+(2014) A rapid estimation and sensitivity analysis of parameters 
+describing the behavior of commercial Li-ion batteries including 
+thermal analysis. Energy Convers Manag 87:472–482
+ 44. Wang Y, Zhao L, Cheng J, Zhou J, Wang S (2020) A state of 
+charge estimation method of lithium-ion battery based on fused 
+open circuit voltage curve. Appl Sci 10:1264
+ 45. Zhang C, Li K, McLoone S, Yang Z (2014) Battery modelling 
+methods for electric vehicles—a review. In: 2014 European Con-
+trol Conference (ECC), p 2673–2678. https:// doi. org/ 10. 1109/  
+ECC. 2014. 68625 41
+Publisher’s note Springer Nature remains neutral with regard to 
+jurisdictional claims in published maps and institutional affiliations.
+Authors and Affiliations
+Vincent Laue1 · Fridolin Röder1 · Ulrike Krewer1,2 
+ * Ulrike Krewer 
+ ulrike.krewer@kit.edu
+1 Institute of Energy and Process Systems Engineering, 
+Technische Universität Braunschweig, Franz-Liszt-Straße 
+35, 38106 Braunschweig, Germany
+2 Institute for Applied Materials - Electrochemical 
+Technologies, Karlsruhe Institute of Technology, 
+Adenauerring 20b, 76131 Karlsruhe, Germany

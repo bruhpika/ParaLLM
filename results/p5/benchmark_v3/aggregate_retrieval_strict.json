@@ -1,0 +1,346 @@
+{
+  "aggregate": {
+    "all": {
+      "abstention_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "condition_completeness": {
+        "mean": 0.11593172119487909,
+        "n": 3,
+        "std": 0.01106425973407115
+      },
+      "false_extraction_rate": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.717948717948718,
+        "n": 3,
+        "std": 0.009065471553673654
+      },
+      "provenance_accuracy": {
+        "mean": 0.9284020862968232,
+        "n": 3,
+        "std": 0.025823136660388993
+      },
+      "qualifier_classification_accuracy": {
+        "mean": 0.7411095305832148,
+        "n": 3,
+        "std": 0.03323846783939663
+      },
+      "unit_accuracy": {
+        "mean": 0.8392603129445234,
+        "n": 3,
+        "std": 0.00201168358801292
+      },
+      "value_extraction_accuracy": {
+        "mean": 0.9464201043148411,
+        "n": 3,
+        "std": 0.022077660932807615
+      }
+    },
+    "dev": {
+      "abstention_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "condition_completeness": {
+        "mean": 0.3703703703703704,
+        "n": 3,
+        "std": 0.05237828008789241
+      },
+      "false_extraction_rate": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.75,
+        "n": 3,
+        "std": 0.0
+      },
+      "provenance_accuracy": {
+        "mean": 0.9259259259259259,
+        "n": 3,
+        "std": 0.10475656017578482
+      },
+      "qualifier_classification_accuracy": {
+        "mean": 0.6296296296296297,
+        "n": 3,
+        "std": 0.10475656017578482
+      },
+      "unit_accuracy": {
+        "mean": 0.9259259259259259,
+        "n": 3,
+        "std": 0.052378280087892436
+      },
+      "value_extraction_accuracy": {
+        "mean": 0.9259259259259259,
+        "n": 3,
+        "std": 0.052378280087892436
+      }
+    },
+    "eval": {
+      "abstention_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "condition_completeness": {
+        "mean": 0.035303776683087026,
+        "n": 3,
+        "std": 0.0005805474393978216
+      },
+      "false_extraction_rate": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.7083333333333334,
+        "n": 3,
+        "std": 0.011785113019775802
+      },
+      "provenance_accuracy": {
+        "mean": 0.9293924466338259,
+        "n": 3,
+        "std": 0.0011610948787956169
+      },
+      "qualifier_classification_accuracy": {
+        "mean": 0.7762725779967159,
+        "n": 3,
+        "std": 0.018820842998928826
+      },
+      "unit_accuracy": {
+        "mean": 0.8115763546798029,
+        "n": 3,
+        "std": 0.018459217697797303
+      },
+      "value_extraction_accuracy": {
+        "mean": 0.9527914614121511,
+        "n": 3,
+        "std": 0.01713352771322595
+      }
+    },
+    "provenance": {
+      "conditions_ok_rate": 0.272061775332373,
+      "document_match_rate": 1.0,
+      "locator_visible_rate": 0.49577433007191907,
+      "page_ok_rate": 0.0,
+      "paraphrase_warning_rate": 0.2774852213065073,
+      "quote_present_rate": 1.0,
+      "quote_verbatim_rate": 0.7225147786934927,
+      "splice_rate": 0.0
+    },
+    "tier:cross-document": {
+      "abstention_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "condition_completeness": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "false_extraction_rate": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.26666666666666666,
+        "n": 3,
+        "std": 0.09428090415820634
+      },
+      "provenance_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "qualifier_classification_accuracy": {
+        "mean": 0.6666666666666666,
+        "n": 3,
+        "std": 0.4714045207910317
+      },
+      "unit_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "value_extraction_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      }
+    },
+    "tier:other-cell-family": {
+      "abstention_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "condition_completeness": {
+        "mean": 0.1875901875901876,
+        "n": 3,
+        "std": 0.004081424422433168
+      },
+      "false_extraction_rate": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.7901234567901234,
+        "n": 3,
+        "std": 0.01745942669596411
+      },
+      "provenance_accuracy": {
+        "mean": 0.8744588744588745,
+        "n": 3,
+        "std": 0.04595002403489366
+      },
+      "qualifier_classification_accuracy": {
+        "mean": 0.7193362193362193,
+        "n": 3,
+        "std": 0.032889671919311636
+      },
+      "unit_accuracy": {
+        "mean": 0.7344877344877344,
+        "n": 3,
+        "std": 0.02009868438266104
+      },
+      "value_extraction_accuracy": {
+        "mean": 0.906926406926407,
+        "n": 3,
+        "std": 0.0362621410479915
+      }
+    },
+    "tier:same-doc-dev": {
+      "abstention_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "condition_completeness": {
+        "mean": 0.05555555555555555,
+        "n": 3,
+        "std": 0.07856742013183861
+      },
+      "false_extraction_rate": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.75,
+        "n": 3,
+        "std": 0.0
+      },
+      "provenance_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "qualifier_classification_accuracy": {
+        "mean": 0.7777777777777777,
+        "n": 3,
+        "std": 0.15713484026367724
+      },
+      "unit_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "value_extraction_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      }
+    },
+    "tier:same-doc-heldout": {
+      "abstention_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "condition_completeness": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "false_extraction_rate": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.7222222222222222,
+        "n": 3,
+        "std": 0.07856742013183865
+      },
+      "provenance_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "qualifier_classification_accuracy": {
+        "mean": 0.7666666666666666,
+        "n": 3,
+        "std": 0.023570226039551605
+      },
+      "unit_accuracy": {
+        "mean": 0.9666666666666667,
+        "n": 3,
+        "std": 0.04714045207910316
+      },
+      "value_extraction_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      }
+    }
+  },
+  "condition": "retrieval_strict",
+  "repeats": 3,
+  "run_metadata": [
+    {
+      "condition": "retrieval_strict",
+      "items_file": "data/eval/extraction_benchmark_v3.jsonl",
+      "model": "mimo-v2.6-flash",
+      "n_items": 37,
+      "provider": "llm:openai-compatible:mimo-v2.6-flash",
+      "repeat": 0,
+      "resumed_after_transient_failures": true,
+      "split": "all",
+      "temperature": 0
+    },
+    {
+      "condition": "retrieval_strict",
+      "endpoint_host": "https://token-plan-sgp.xiaomimimo.com/v1",
+      "items_file": "data/eval/extraction_benchmark_v3.jsonl",
+      "model": "mimo-v2.6-flash",
+      "n_items": 37,
+      "provider": "llm:openai-compatible:mimo-v2.6-flash",
+      "repeat": 1,
+      "split": "all",
+      "temperature": 0,
+      "timestamp": "2026-11-08T11:25:37.856331+00:00"
+    },
+    {
+      "condition": "retrieval_strict",
+      "items_file": "data/eval/extraction_benchmark_v3.jsonl",
+      "model": "mimo-v2.6-flash",
+      "n_items": 37,
+      "provider": "llm:openai-compatible:mimo-v2.6-flash",
+      "repeat": 2,
+      "resumed_after_timeout": true,
+      "split": "all",
+      "temperature": 0
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+=== condition retrieval_strict repeat 1/3 (37 items) ===
+  [retrieval_strict r0] 1/37 V1-porosity-prose: 2 cand (14s)
+  [retrieval_strict r0] 2/37 V2-conductivity-prose: 2 cand (32s)
+  [retrieval_strict r0] 3/37 V3-rated-capacity-prose: 1 cand (52s)
+  [retrieval_strict r0] 4/37 V4-isothermal-temperature: 1 cand (65s)
+  [retrieval_strict r0] 5/37 V5-reaction-rates: abstain (80s)
+  [retrieval_strict r0] 6/37 V6-abstain-sem: abstain (82s)
+  [retrieval_strict r0] 7/37 E8-table-diffusivities: 2 cand (137s)
+  [retrieval_strict r0] 8/37 E9-max-concentration-pos: 1 cand (149s)
+  [retrieval_strict r0] 9/37 E10-particle-radii-list: 3 cand (189s)
+  [retrieval_strict r0] 10/37 E11-bruggeman-theoretical: 1 cand (211s)
+  [retrieval_strict r0] 11/37 E12-j0-pos-eis: abstain (242s)
+  [retrieval_strict r0] 12/37 E13-transference: 1 cand (262s)
+  [retrieval_strict r0] 13/37 E15-volume-fractions-table: 2 cand (293s)
+  [retrieval_strict r0] 14/37 E4-supp-sep-porosity: abstain (332s)
+  [retrieval_strict r0] 15/37 E7-supp-datasheet-abstain: abstain (337s)
+  [retrieval_strict r0] 16/37 E1-msmr-pos-j0: 2 cand (350s)
+  [retrieval_strict r0] 17/37 E2-msmr-neg-j0: 2 cand (376s)
+  [retrieval_strict r0] 18/37 E3-msmr-4th-reaction-placeholder: 2 cand (402s)
+  [retrieval_strict r0] 19/37 E-docs-kokam-capacity: 1 cand (464s)
+  [retrieval_strict r0] 20/37 E-docs-sei-abstain: abstain (472s)
+  [retrieval_strict r0] 21/37 P5-L1-thickness-table: 3 cand (500s)
+  [retrieval_strict r0] 22/37 P5-L2-porosity-table: 3 cand (553s)
+Traceback (most recent call last):
+  File "/home/bruhpika/.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/lib/python3.12/http/client.py", line 603, in _get_chunk_left
+    chunk_left = self._read_next_chunk_size()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bruhpika/.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/lib/python3.12/http/client.py", line 561, in _read_next_chunk_size
+    return int(line, 16)
+           ^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bruhpika/.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/lib/python3.12/http/client.py", line 621, in _read_chunked
+    while (chunk_left := self._get_chunk_left()) is not None:
+                         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bruhpika/.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/lib/python3.12/http/client.py", line 605, in _get_chunk_left
+    raise IncompleteRead(b'')
+http.client.IncompleteRead: IncompleteRead(0 bytes read)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bruhpika/Projects/Parameters/benchmarks/p5/run_ablation.py", line 260, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/bruhpika/Projects/Parameters/benchmarks/p5/run_ablation.py", line 209, in main
+    report = run_condition(
+             ^^^^^^^^^^^^^^
+  File "/home/bruhpika/Projects/Parameters/src/pybamm_closed_loop/eval/benchmark_p5.py", line 404, in run_condition
+    candidates, abstained, raw_content = extract_with_prompt(
+                                         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bruhpika/Projects/Parameters/src/pybamm_closed_loop/eval/extraction_prompt_p5.py", line 110, in extract_with_prompt
+    raw_content = client.complete(system_prompt, user_block)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bruhpika/Projects/Parameters/src/pybamm_closed_loop/eval/benchmark_p4.py", line 67, in complete
+    return self._inner.complete(system, user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bruhpika/Projects/Parameters/src/pybamm_closed_loop/literature/extraction.py", line 135, in complete
+    data = json.loads(resp.read().decode("utf-8"))
+                      ^^^^^^^^^^^
+  File "/home/bruhpika/.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/lib/python3.12/http/client.py", line 488, in read
+    return self._read_chunked(amt)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bruhpika/.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/lib/python3.12/http/client.py", line 633, in _read_chunked
+    raise IncompleteRead(b''.join(value)) from exc
+http.client.IncompleteRead: IncompleteRead(179 bytes read)

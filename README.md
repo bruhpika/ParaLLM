@@ -35,12 +35,13 @@ src/pybamm_closed_loop/
   pybamm_engine/    pinned PyBaMM build/solve/extract (P0)
   parameter_registry/, registry/  parameter store with provenance + pybop mapping
   calibration/      PyBOP fitting, synthetic data, identifiability (P2)
-  literature/, datasets/, extraction/  PDF ingestion, LLM/rule extraction, provenance (P3)
-  closed_loop/, validation/, diagnostics/, specifications/, eval/
+  literature/, datasets/,   extraction/  PDF ingestion, LLM/rule extraction, provenance (P3)
+  eval/        extraction prompts, benchmark scoring, provenance (P3–P5)
+  closed_loop/, validation/, diagnostics/, specifications/
   reporting/        run manifests and figures
 tests/              software-correctness tests (unit/, integration/, regression/, baselines/)
 benchmarks/         scientific benchmarks (separate from tests)
-scripts/            thin CLI drivers (run_baseline.py, plot_baseline.py, compat_probe/, p3/, p4/)
+scripts/            thin CLI drivers (run_baseline.py, plot_baseline.py, compat_probe/, p3/, p4/, p5/)
 docs/               architecture, roadmap, model documentation
 data/               raw documents, synthetic/experimental data (immutable raw)
 results/            run outputs: arrays, manifests, figures
@@ -131,31 +132,45 @@ linkage (`datasets/pyprobe_link.py`, `docs/DATASET_AUDIT.md`).
 
 ## P4 — LLM evaluation and experimental-dataset validation
 
-New in this milestone:
-
-- **Benchmark v2** (`data/eval/extraction_benchmark_v2.jsonl`, 20 items =
-  6 dev + 14 held-out eval across 3 tiers, 8 extraction families, 3
-  abstention items) over three real documents (Chen2020 article, its
-  supplementary PDF, PyBaMM parameter-sets docs).
-- **Three-arm evaluation** (`benchmarks/p4/run_llm_evaluation.py`): offline
-  deterministic baseline, LLM with retrieval, LLM ablation. The ablation
-  abstains on all items — retrieval is genuinely required and the corpus is
-  leakage-safe. Raw model outputs are preserved verbatim;
-  `--rescore` re-scores them deterministically without new model calls.
-  Results: `results/p4/benchmark_v2/` and `docs/LLM_EXTRACTION_EVALUATION.md`
-  (LLM+retrieval: identification 0.962, value 0.960, provenance 0.800,
-  qualifier 0.600, conditions 0.000, false-extraction 0.062).
+- **Benchmark v2** (`data/eval/extraction_benchmark_v2.jsonl`, 20 items, 3 real
+  documents) and a three-arm evaluation (`benchmarks/p4/run_llm_evaluation.py`):
+  offline, LLM+retrieval, LLM ablation (abstains on all → retrieval required,
+  leakage-safe). Raw outputs preserved; `--rescore` deterministic. Results
+  `results/p4/benchmark_v2/`, `docs/LLM_EXTRACTION_EVALUATION.md` (LLM+RAG:
+  id 0.962, value 0.960, provenance 0.800, qualifier 0.600, conditions 0.000,
+  false-extraction 0.062).
 - **Chen2020 discrepancy analysis** (`data/registry/chen2020_discrepancies.json`,
-  `docs/CHEN2020_DISCREPANCY_ANALYSIS.md`): paper-vs-PyBaMM-vs-P2 with a
-  cause taxonomy; e.g. negative diffusivity 19× (tuned 1C effective value vs
-  GITT measurement), positive cmax +22%, Bruggeman 1.5 vs measured 2.43–2.91,
-  16 set-extension families (SEI block etc.).
-- **Real-dataset audit** (`data/registry/dataset_audit_lgm50.json`,
-  `docs/EXPERIMENTAL_DATA_AUDIT.md`, `docs/REAL_DATA_FITTING_FEASIBILITY.md`):
-  the available LG M50 experimental data is a single C/10 pOCV cycle of the
-  PyProBE sample; multi-rate validation traces remain UNRESOLVED; no fitting
-  was performed, and the feasibility doc explains why none is recommended
-  yet.
+  `docs/CHEN2020_DISCREPANCY_ANALYSIS.md`) and **real-dataset audit/feasibility**
+  (`data/registry/dataset_audit_lgm50.json`, `docs/EXPERIMENTAL_DATA_AUDIT.md`,
+  `docs/REAL_DATA_FITTING_FEASIBILITY.md`): available LG M50 data is C/10 pOCV
+  only (32.3 °C, license UNRESOLVED) — no fitting performed.
+
+## P5 — extraction reliability, benchmark expansion, retrieval ablation
+
+- **Benchmark v3** (`data/eval/extraction_benchmark_v3.jsonl`, 37 items = v2 + 17,
+  6 docs incl. 3 CC BY PDFs: Laue 2021, Dessantis 2023, Goussian 2024; 8 dev /
+  29 eval, 6 abstention). `scripts/p5/{ingest_literature,build_benchmark_v3}.py`,
+  `docs/P5_BENCHMARK_EXPANSION.md`.
+- **Reliability + provenance (T1/T4)** (`eval/extraction_prompt_p5.py`,
+  `eval/provenance_p5.py`, `docs/P5_EXTRACTION_RELIABILITY.md`): strict
+  printed-unit / no-inferred-condition / qualifier-rubric / contiguous-quote
+  rules; deterministic quote-verbatim, splice, page/locator, paraphrase checks.
+  Raw outputs always preserved.
+- **Retrieval/knowledge ablation (T3, v3 only, 3 repeats, mimo-v2.6-flash, temp 0)**
+  — `benchmarks/p5/run_ablation.py`, `results/p5/benchmark_v3/`,
+  `docs/P5_RETRIEVAL_ABLATION.md` (mean±std, all 37): retrieval_strict
+  id **0.718±0.009**, value **0.946±0.022**, provenance **0.928±0.026**,
+  condition **0.116±0.011**, qualifier **0.741±0.033**, false **0.000**, abst
+  **1.000**; no_retrieval_memory id 0.378, provenance **0.000**, false **0.275**,
+  abst 0.333 (unsupported/unverifiable claims); no_retrieval_strict abstains all.
+  Condition completeness remains the main residual weakness (rule 6).
+- **Data acquisition & real-data experiment design (T5/T6, no calibration run)** —
+  `docs/P5_DATA_ACQUISITION.md`, `docs/P5_REAL_DATA_EXPERIMENT_DESIGN.md`: no
+  in-repo dataset satisfies Chen2020-aligned 25 °C multi-rate validation (LG M50
+  sample ineligible; Chen2020 traces UNRESOLVED). T6 pre-registers a disjoint
+  calibration/validation split targeting active-material volume fractions (pos
+  diffusivity secondary; neg diffusivity ≤2C unobservable) with PyBaMM engine,
+  pending eligible data.
 
 ## Agents
 

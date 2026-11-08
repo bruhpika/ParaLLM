@@ -39,5 +39,62 @@
     "retrieved": "2026-11-08",
     "source_url": "https://docs.pybamm.org/en/latest/source/api/parameters/parameter_sets.html",
     "title": "PyBaMM documentation: Parameter Sets (latest, retrieved 2026-11-08)"
+  },
+  {
+    "content_sha256": "3aee06c674f0957b2ac22eab2de3c880621c53481027045b0be7431d93333ec5",
+    "document_id": "dessantis2023_batteries9_0146",
+    "doi_or_url": "10.3390/batteries9030146",
+    "kind": "paper",
+    "meta": {
+      "acquisition_manifest": "data/raw_documents/p5_sources/acquisition_manifest.json",
+      "license": "CC BY 4.0 (verified in PDF text)",
+      "page_numbering": "segments carry 1-based PDF page indices; printed pagination may differ",
+      "sha256_pdf": "f8fa76da5923a7feff3cc9c0fa2ec9e780320884533623b2447fea5ba9c96e7f",
+      "venue": "Batteries 2023, 9(3), 146"
+    },
+    "n_segments": 26,
+    "page_structure": true,
+    "raw_path": "/home/bruhpika/Projects/Parameters/data/literature_store/raw/dessantis2023_batteries9_0146.txt",
+    "retrieved": "2026-11-08",
+    "source_url": "https://mdpi-res.com/d_attachment/batteries/batteries-09-00146/article_deploy/batteries-09-00146.pdf",
+    "title": "Aging of a Lithium-Metal/LFP Cell: Predictive Model and Experimental Validation"
+  },
+  {
+    "content_sha256": "cb0300abd5367222d2c531d5f99a18d0e986d88461163d16790c1b8841276f6d",
+    "document_id": "goussian2024_batteries10_00205",
+    "doi_or_url": "10.3390/batteries10060205",
+    "kind": "paper",
+    "meta": {
+      "acquisition_manifest": "data/raw_documents/p5_sources/acquisition_manifest.json",
+      "license": "CC BY 4.0 (verified in PDF text)",
+      "page_numbering": "segments carry 1-based PDF page indices; printed pagination may differ",
+      "sha256_pdf": "5a22a09983edab954a256099bfaf45d8404c4c76b318beac621aff732054afeb",
+      "venue": "Batteries 2024, 10(6), 205"
+    },
+    "n_segments": 22,
+    "page_structure": true,
+    "raw_path": "/home/bruhpika/Projects/Parameters/data/literature_store/raw/goussian2024_batteries10_00205.txt",
+    "retrieved": "2026-11-08",
+    "source_url": "https://mdpi-res.com/d_attachment/batteries/batteries-10-00205/article_deploy/batteries-10-00205.pdf",
+    "title": "A Novel Reaction Rate Parametrization Method for Lithium-Ion Battery Electrochemical Modelling"
+  },
+  {
+    "content_sha256": "e9990145dee6c0bbf5e2fab7f59f4a11ea006c2c69afe712fedb3b5e19a79444",
+    "document_id": "laue2021_jappl_electrochem_51_1253",
+    "doi_or_url": "10.1007/s10800-021-01579-5",
+    "kind": "paper",
+    "meta": {
+      "acquisition_manifest": "data/raw_documents/p5_sources/acquisition_manifest.json",
+      "license": "CC BY 4.0 International (verified in PDF text)",
+      "page_numbering": "segments carry 1-based PDF page indices; printed pagination may differ",
+      "sha256_pdf": "434b8dd96bc59f46bfa26c4da801f3be18b78da9343ce4fc6a1f0435f10c0e50",
+      "venue": "Journal of Applied Electrochemistry 2021, 51, 1253-1265"
+    },
+    "n_segments": 13,
+    "page_structure": true,
+    "raw_path": "/home/bruhpika/Projects/Parameters/data/literature_store/raw/laue2021_jappl_electrochem_51_1253.txt",
+    "retrieved": "2026-11-08",
+    "source_url": "https://link.springer.com/content/pdf/10.1007/s10800-021-01579-5.pdf",
+    "title": "Practical identifiability of electrochemical P2D models for lithium-ion batteries"
   }
 ]

@@ -1,0 +1,52 @@
+=== condition no_retrieval_strict repeat 1/3 (37 items) ===
+  [no_retrieval_strict r0] 1/37 V1-porosity-prose: abstain (4s)
+  [no_retrieval_strict r0] 2/37 V2-conductivity-prose: abstain (6s)
+  [no_retrieval_strict r0] 3/37 V3-rated-capacity-prose: abstain (9s)
+  [no_retrieval_strict r0] 4/37 V4-isothermal-temperature: abstain (13s)
+  [no_retrieval_strict r0] 5/37 V5-reaction-rates: abstain (14s)
+  [no_retrieval_strict r0] 6/37 V6-abstain-sem: abstain (18s)
+  [no_retrieval_strict r0] 7/37 E8-table-diffusivities: abstain (27s)
+  [no_retrieval_strict r0] 8/37 E9-max-concentration-pos: abstain (32s)
+  [no_retrieval_strict r0] 9/37 E10-particle-radii-list: abstain (33s)
+  [no_retrieval_strict r0] 10/37 E11-bruggeman-theoretical: abstain (36s)
+  [no_retrieval_strict r0] 11/37 E12-j0-pos-eis: abstain (38s)
+  [no_retrieval_strict r0] 12/37 E13-transference: abstain (40s)
+  [no_retrieval_strict r0] 13/37 E15-volume-fractions-table: abstain (42s)
+  [no_retrieval_strict r0] 14/37 E4-supp-sep-porosity: abstain (47s)
+  [no_retrieval_strict r0] 15/37 E7-supp-datasheet-abstain: abstain (48s)
+  [no_retrieval_strict r0] 16/37 E1-msmr-pos-j0: abstain (53s)
+  [no_retrieval_strict r0] 17/37 E2-msmr-neg-j0: abstain (55s)
+  [no_retrieval_strict r0] 18/37 E3-msmr-4th-reaction-placeholder: abstain (57s)
+  [no_retrieval_strict r0] 19/37 E-docs-kokam-capacity: abstain (61s)
+  [no_retrieval_strict r0] 20/37 E-docs-sei-abstain: abstain (67s)
+  [no_retrieval_strict r0] 21/37 P5-L1-thickness-table: abstain (70s)
+  [no_retrieval_strict r0] 22/37 P5-L2-porosity-table: abstain (72s)
+  [no_retrieval_strict r0] 23/37 P5-L3-exchange-current-table: abstain (77s)
+  [no_retrieval_strict r0] 24/37 P5-L4-solid-diffusivity-table: abstain (80s)
+  [no_retrieval_strict r0] 25/37 P5-L5-transference-literature: abstain (82s)
+  [no_retrieval_strict r0] 26/37 P5-L6-electrolyte-diffusivity-table: abstain (84s)
+  [no_retrieval_strict r0] 27/37 P5-L7-reference-system-temperature: abstain (87s)
+  [no_retrieval_strict r0] 28/37 P5-L8-abstain-tortuosity-exponent: abstain (91s)
+  [no_retrieval_strict r0] 29/37 P5-D1-lfp-j0-vs-temperature: abstain (94s)
+  [no_retrieval_strict r0] 30/37 P5-D2-sei-j0-arrhenius: abstain (98s)
+  [no_retrieval_strict r0] 31/37 P5-D3-lfp-cs-max-comsol: abstain (104s)
+  [no_retrieval_strict r0] 32/37 P5-D4-lfp-sigma-D-comsol: abstain (106s)
+  [no_retrieval_strict r0] 33/37 P5-D5-radius-and-cell-area: abstain (108s)
+  [no_retrieval_strict r0] 34/37 P5-DRC-rct-vs-temperature: abstain (111s)
+  [no_retrieval_strict r0] 35/37 P5-D6-abstain-transference: abstain (113s)
+  [no_retrieval_strict r0] 36/37 P5-G2-symmetry-factor-assumption: abstain (117s)
+=== no_retrieval_strict r0: raw_outputs_no_retrieval_strict_r0.jsonl exists, skipping (delete to re-run) ===
+Traceback (most recent call last):
+  File "/home/bruhpika/Projects/Parameters/benchmarks/p5/run_ablation.py", line 260, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/bruhpika/Projects/Parameters/benchmarks/p5/run_ablation.py", line 186, in main
+    reports.append(json.loads((OUT_DIR / f"report_{condition}_r{repeat}.json").read_text()))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bruhpika/.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bruhpika/.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/bruhpika/Projects/Parameters/results/p5/benchmark_v3/report_no_retrieval_strict_r0.json'

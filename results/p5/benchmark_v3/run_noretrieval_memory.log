@@ -1,0 +1,51 @@
+=== no_retrieval_memory r0: raw_outputs_no_retrieval_memory_r0.jsonl exists, skipping (delete to re-run) ===
+=== no_retrieval_memory r1: raw_outputs_no_retrieval_memory_r1.jsonl exists, skipping (delete to re-run) ===
+=== condition no_retrieval_memory repeat 3/3 (37 items) ===
+  [no_retrieval_memory r2] 1/37 V1-porosity-prose: 2 cand (32s)
+  [no_retrieval_memory r2] 2/37 V2-conductivity-prose: abstain (45s)
+  [no_retrieval_memory r2] 3/37 V3-rated-capacity-prose: 1 cand (73s)
+  [no_retrieval_memory r2] 4/37 V4-isothermal-temperature: 1 cand (99s)
+  [no_retrieval_memory r2] 5/37 V5-reaction-rates: abstain (119s)
+  [no_retrieval_memory r2] 6/37 V6-abstain-sem: 1 cand (170s)
+  [no_retrieval_memory r2] 7/37 E8-table-diffusivities: abstain (233s)
+  [no_retrieval_memory r2] 8/37 E9-max-concentration-pos: 1 cand (299s)
+  [no_retrieval_memory r2] 9/37 E10-particle-radii-list: abstain (369s)
+  [no_retrieval_memory r2] 10/37 E11-bruggeman-theoretical: 3 cand (544s)
+  [no_retrieval_memory r2] 11/37 E12-j0-pos-eis: abstain (563s)
+  [no_retrieval_memory r2] 12/37 E13-transference: 1 cand (590s)
+  [no_retrieval_memory r2] 13/37 E15-volume-fractions-table: abstain (612s)
+  [no_retrieval_memory r2] 14/37 E4-supp-sep-porosity: abstain (625s)
+  [no_retrieval_memory r2] 15/37 E7-supp-datasheet-abstain: 1 cand (668s)
+  [no_retrieval_memory r2] 16/37 E1-msmr-pos-j0: abstain (882s)
+  [no_retrieval_memory r2] 17/37 E2-msmr-neg-j0: abstain (940s)
+  [no_retrieval_memory r2] 18/37 E3-msmr-4th-reaction-placeholder: 1 cand (977s)
+  [no_retrieval_memory r2] 19/37 E-docs-kokam-capacity: 1 cand (991s)
+  [no_retrieval_memory r2] 20/37 E-docs-sei-abstain: 1 cand (1016s)
+  [no_retrieval_memory r2] 21/37 P5-L1-thickness-table: abstain (1023s)
+  [no_retrieval_memory r2] 22/37 P5-L2-porosity-table: 3 cand (1043s)
+  [no_retrieval_memory r2] 23/37 P5-L3-exchange-current-table: abstain (1094s)
+  [no_retrieval_memory r2] 24/37 P5-L4-solid-diffusivity-table: 2 cand (1135s)
+  [no_retrieval_memory r2] 25/37 P5-L5-transference-literature: 1 cand (1155s)
+  [no_retrieval_memory r2] 26/37 P5-L6-electrolyte-diffusivity-table: abstain (1166s)
+  [no_retrieval_memory r2] 27/37 P5-L7-reference-system-temperature: 1 cand (1178s)
+  [no_retrieval_memory r2] 28/37 P5-L8-abstain-tortuosity-exponent: 4 cand (1224s)
+  [no_retrieval_memory r2] 29/37 P5-D1-lfp-j0-vs-temperature: abstain (1243s)
+  [no_retrieval_memory r2] 30/37 P5-D2-sei-j0-arrhenius: abstain (1264s)
+  [no_retrieval_memory r2] 31/37 P5-D3-lfp-cs-max-comsol: 2 cand (1387s)
+  [no_retrieval_memory r2] 32/37 P5-D4-lfp-sigma-D-comsol: 2 cand (1442s)
+  [no_retrieval_memory r2] 33/37 P5-D5-radius-and-cell-area: abstain (1451s)
+  [no_retrieval_memory r2] 34/37 P5-DRC-rct-vs-temperature: abstain (1456s)
+  [no_retrieval_memory r2] 35/37 P5-D6-abstain-transference: 2 cand (1488s)
+  [no_retrieval_memory r2] 36/37 P5-G2-symmetry-factor-assumption: 1 cand (1506s)
+  [no_retrieval_memory r2] 37/37 P5-G3-abstain-capacity-confidential: abstain (1512s)
+{
+  "parameter_identification_accuracy": 0.38461538461538464,
+  "value_extraction_accuracy": 0.3,
+  "unit_accuracy": 0.75,
+  "provenance_accuracy": 0.0,
+  "condition_completeness": 0.55,
+  "qualifier_classification_accuracy": 0.55,
+  "abstention_accuracy": 0.16666666666666666,
+  "false_extraction_rate": 0.3125
+}
+wrote /home/bruhpika/Projects/Parameters/results/p5/benchmark_v3/summary.md

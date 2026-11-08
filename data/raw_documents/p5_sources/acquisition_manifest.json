@@ -1,0 +1,51 @@
+{
+  "batch": "p5_benchmark_expansion",
+  "acquired_utc": "2026-11-08",
+  "notes": [
+    "All three papers are open access under CC BY 4.0; the license statement was verified in the PDF text itself (quotes recorded per entry), which permits redistribution with attribution.",
+    "MDPI article pages (www.mdpi.com) and the Politecnico di Torino IRIS mirror (iris.polito.it) rejected direct programmatic downloads (HTTP 403 / Cloudflare challenge). PDFs were instead fetched from the MDPI distribution CDN mdpi-res.com using the /d_attachment/<journal>/<journal>-<vol>-<article>/article_deploy/<journal>-<vol>-<article>.pdf path pattern.",
+    "A fourth candidate (open-access P2D parameterization paper hosted at ebiltegia.mondragon.edu, handle 20.500.11984/6203) could not be retrieved from this network (connection timeout after 133 s, HTTP 000) and was abandoned for this batch.",
+    "A supplementary file for Dessantis et al. (Figure S1 is referenced in the article) was not located under the tested mdpi-res.com patterns (batteries-09-00146-s001.pdf returned an HTML error page); the corpus supplement requirement is already covered by chen2020_supplement_s1."
+  ],
+  "documents": [
+    {
+      "document_id": "dessantis2023_batteries9_0146",
+      "title": "Aging of a Lithium-Metal/LFP Cell: Predictive Model and Experimental Validation",
+      "authors": "Dessantis, D.; Di Prima, P.; Versaci, D.; Amici, J.; Francia, C.; Bodoardo, S.; Santarelli, M.",
+      "venue": "Batteries 2023, 9(3), 146",
+      "doi_or_url": "10.3390/batteries9030146",
+      "source_url": "https://mdpi-res.com/d_attachment/batteries/batteries-09-00146/article_deploy/batteries-09-00146.pdf",
+      "sha256_pdf": "f8fa76da5923a7feff3cc9c0fa2ec9e780320884533623b2447fea5ba9c96e7f",
+      "n_pages_pdf": 16,
+      "license": "CC BY 4.0",
+      "license_evidence_quote": "Copyright: \u00a9 2023 by the authors. ... open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (https://creativecommons.org/licenses/by/4.0/)",
+      "relevance": "Different chemistry family (Li-metal anode / LFP cathode); contains measured Rct and exchange-current-density values vs temperature (Table 1), model parameter table (Table 2), Bruggeman relationship discussion, SEI exchange-current Arrhenius expression."
+    },
+    {
+      "document_id": "goussian2024_batteries10_00205",
+      "title": "A Novel Reaction Rate Parametrization Method for Lithium-Ion Battery Electrochemical Modelling",
+      "authors": "Goussian, A.; Assaud, L.; Baghdadi, I.; Nouillant, C.; Franger, S.",
+      "venue": "Batteries 2024, 10(6), 205",
+      "doi_or_url": "10.3390/batteries10060205",
+      "source_url": "https://mdpi-res.com/d_attachment/batteries/batteries-10-00205/article_deploy/batteries-10-00205.pdf",
+      "n_pages_pdf": 12,
+      "license": "CC BY 4.0",
+      "license_evidence_quote": "Copyright: \u00a9 2024 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (https://creativecommons.org/licenses/by/4.0/)",
+      "relevance": "Exchange-current-density / reaction-rate-constant conventions (k_i, k0,i, i0) across P2D and SPM conventions; symbol/table units; explicit discussion of conflicting literature treatment of Butler-Volmer parameter identification (ambiguity material for abstention/discrepancy items).",
+      "sha256_pdf": "5a22a09983edab954a256099bfaf45d8404c4c76b318beac621aff732054afeb"
+    },
+    {
+      "document_id": "laue2021_jappl_electrochem_51_1253",
+      "title": "Practical identifiability of electrochemical P2D models for lithium-ion batteries",
+      "authors": "Laue, V.; R\u00f6der, F.; Krewer, U.",
+      "venue": "Journal of Applied Electrochemistry 2021, 51, 1253-1265",
+      "doi_or_url": "10.1007/s10800-021-01579-5",
+      "source_url": "https://link.springer.com/content/pdf/10.1007/s10800-021-01579-5.pdf",
+      "sha256_pdf": "434b8dd96bc59f46bfa26c4da801f3be18b78da9343ce4fc6a1f0435f10c0e50",
+      "n_pages_pdf": 13,
+      "license": "CC BY 4.0 International",
+      "license_evidence_quote": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format",
+      "relevance": "Identifiability-focused parameterization (NMC/graphite, 3-electrode); discusses insufficiency of OCV and C-rate tests, necessity of EIS, ambiguity of diffusivity/kinetic parameters - direct source for ambiguous/incomplete-evidence items and cross-paper conflicts."
+    }
+  ]
+}

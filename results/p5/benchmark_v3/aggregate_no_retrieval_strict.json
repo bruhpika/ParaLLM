@@ -1,0 +1,345 @@
+{
+  "aggregate": {
+    "all": {
+      "abstention_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "condition_completeness": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "false_extraction_rate": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "provenance_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "qualifier_classification_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "unit_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "value_extraction_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      }
+    },
+    "dev": {
+      "abstention_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "condition_completeness": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "false_extraction_rate": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "provenance_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "qualifier_classification_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "unit_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "value_extraction_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      }
+    },
+    "eval": {
+      "abstention_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "condition_completeness": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "false_extraction_rate": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "provenance_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "qualifier_classification_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "unit_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "value_extraction_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      }
+    },
+    "provenance": {
+      "conditions_ok_rate": NaN,
+      "document_match_rate": NaN,
+      "locator_visible_rate": NaN,
+      "page_ok_rate": NaN,
+      "paraphrase_warning_rate": NaN,
+      "quote_present_rate": NaN,
+      "quote_verbatim_rate": NaN,
+      "splice_rate": NaN
+    },
+    "tier:cross-document": {
+      "abstention_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "condition_completeness": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "false_extraction_rate": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "provenance_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "qualifier_classification_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "unit_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "value_extraction_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      }
+    },
+    "tier:other-cell-family": {
+      "abstention_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "condition_completeness": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "false_extraction_rate": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "provenance_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "qualifier_classification_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "unit_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "value_extraction_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      }
+    },
+    "tier:same-doc-dev": {
+      "abstention_accuracy": {
+        "mean": 1.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "condition_completeness": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "false_extraction_rate": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "provenance_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "qualifier_classification_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "unit_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "value_extraction_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      }
+    },
+    "tier:same-doc-heldout": {
+      "abstention_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "condition_completeness": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "false_extraction_rate": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "parameter_identification_accuracy": {
+        "mean": 0.0,
+        "n": 3,
+        "std": 0.0
+      },
+      "provenance_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "qualifier_classification_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "unit_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      },
+      "value_extraction_accuracy": {
+        "mean": null,
+        "n": 0,
+        "std": null
+      }
+    }
+  },
+  "condition": "no_retrieval_strict",
+  "repeats": 3,
+  "run_metadata": [
+    {
+      "condition": "no_retrieval_strict",
+      "items_file": "data/eval/extraction_benchmark_v3.jsonl",
+      "n_items": 37,
+      "repeat": 0,
+      "rescored_from_partial": true,
+      "split": "all",
+      "temperature": 0
+    },
+    {
+      "condition": "no_retrieval_strict",
+      "endpoint_host": "https://token-plan-sgp.xiaomimimo.com/v1",
+      "items_file": "data/eval/extraction_benchmark_v3.jsonl",
+      "model": "mimo-v2.6-flash",
+      "n_items": 37,
+      "provider": "llm:openai-compatible:mimo-v2.6-flash",
+      "repeat": 1,
+      "split": "all",
+      "temperature": 0,
+      "timestamp": "2026-11-08T08:01:58.482922+00:00"
+    },
+    {
+      "condition": "no_retrieval_strict",
+      "endpoint_host": "https://token-plan-sgp.xiaomimimo.com/v1",
+      "items_file": "data/eval/extraction_benchmark_v3.jsonl",
+      "model": "mimo-v2.6-flash",
+      "n_items": 37,
+      "provider": "llm:openai-compatible:mimo-v2.6-flash",
+      "repeat": 2,
+      "split": "all",
+      "temperature": 0,
+      "timestamp": "2026-11-08T08:06:05.787889+00:00"
+    }
+  ]
+}
