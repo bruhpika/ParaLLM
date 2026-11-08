@@ -72,7 +72,6 @@ ptyprocess==0.7.0
 pure_eval==0.2.4
 pyarrow==26.0.1
 pybamm==26.8.0.0
-# Editable Git install with no remote (pybamm-closed-loop==0.1.0)
 pybammsolvers==0.9.1
 pybop==26.10
 pydantic==2.14.2

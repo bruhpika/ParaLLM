@@ -18,13 +18,13 @@ Tested configuration (see `docs/DEPENDENCY_COMPATIBILITY.md`):
 | Python | 3.12.16 |
 | pybamm | 26.8.0.0 (pinned) |
 | pybop | 26.10 |
-| numpy / scipy | 2.x / 1.18.x (see `requirements-integration.lock`) |
+| numpy / scipy | 2.x / 1.18.x (see `requirements/ecosystem-py312.lock`) |
 
 From a clean checkout:
 
 ```bash
 python3.12 -m venv .venv-ecosystem312
-.venv-ecosystem312/bin/pip install -r requirements-integration.lock
+.venv-ecosystem312/bin/pip install -r requirements/ecosystem-py312.lock
 .venv-ecosystem312/bin/pip install -e .
 
 # single-condition (TASK 1)

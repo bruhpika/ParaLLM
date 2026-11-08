@@ -17,7 +17,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest>=8"]
 # Ecosystem integration stack. Verified together on CPython 3.12.16 with
-# PyBaMM 26.8.0.0 (requirements-integration.lock). Bounds cap at majors
+# PyBaMM 26.8.0.0 (requirements/ecosystem-py312.lock). Bounds cap at majors
 # verified in that environment: pypdf 7.x and polars 2.x are NOT covered.
 # Deliberately not listed (transitive): cma (via pints), scikit-learn and
 # fastexcel (via PyProBE-Data). numpy/scipy/pandas come from dependencies.

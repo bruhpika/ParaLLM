@@ -30,8 +30,6 @@ pluggy==1.7.0
 pooch==1.9.0
 posthog==7.83.1
 pybamm==26.8.0.0
-# Editable Git install with no remote (pybamm-closed-loop==0.1.0)
--e /home/bruhpika/Projects/Parameters
 pybammsolvers==0.9.1
 pydantic==2.14.2
 pydantic_core==2.50.2

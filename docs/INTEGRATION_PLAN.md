@@ -14,13 +14,13 @@ baseline preserved.
 - P0's `.venv` (3.14) stays untouched and remains the reference for baseline
   reproduction. Decision pending: whether the project's canonical `.venv`
   migrates to 3.12 or lanes stay split (recommendation: single 3.12 venv named
-  `.venv` created fresh from `requirements.lock` at integration start; P0
+  `.venv` created fresh from `requirements/core.lock` at integration start; P0
   artifacts are version-locked and reproducible either way).
 - Every new lockfile pins all three packages + polars + pints explicitly.
 
 ## Phase I1 — Environment & adapter skeleton
 
-1. Create the canonical 3.12 environment; regenerate `requirements.lock`.
+1. Create the canonical 3.12 environment; regenerate `requirements/core.lock`.
 2. Add `data_ingest/` and `calibration/` adapter skeletons with typed contracts
    (`ObservationSet`, `FittingSpec`, `CalibrationReport`) from
    `docs/REVISED_ARCHITECTURE.md`.
