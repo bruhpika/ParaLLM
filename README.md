@@ -9,7 +9,10 @@ conversion, physical checks and simulation are performed by explicit,
 deterministic computational tools.
 
 - Target framework: PyBaMM (initial focus: lithium-ion DFN models)
-- Status: **Phase P0 (baseline simulation) complete** — no LLM integration yet
+- Status: **Phases P0–P3 landed (research prototype)** — deterministic
+  baseline, parameter registry, PyBOP estimation/identifiability and literature
+  provenance run offline; the P3 LLM extraction client (OpenAI-compatible) is
+  optional and disabled unless `PYCL_LLM_API_KEY` and `PYCL_LLM_MODEL` are set
 - PRD: `Closed_Loop_PyBaMM_LLM_Research_PRD.docx`
 
 ## Phase status
@@ -17,8 +20,10 @@ deterministic computational tools.
 | Phase | Scope | Status |
 |---|---|---|
 | P0 | Reproducible PyBaMM DFN baseline + manifests + tests | ✅ done |
-| P1 | Parameter registry with provenance | ⬜ not started |
-| P2–P8 | Synthetic data, inverse estimation, identifiability, validation, extraction, closed loop, fine-tuning | ⬜ not started |
+| P1 | Ecosystem audit (PyBOP 26.10 / PyProBE-Data 2.6.1) + verified compatibility + revised architecture | ✅ done (`docs/ECOSYSTEM_AUDIT.md`, `docs/DEPENDENCY_COMPATIBILITY.md`) |
+| P2 | Numerical parameter estimation and identifiability (PyBOP-based) | ✅ done (see `results/p2/`, `benchmarks/`) |
+| P3 | Literature intelligence and parameter provenance (LLM-assisted, offline by default) | ✅ done (see `results/p3/`) |
+| P4–P8 | Validation, closed loop, fine-tuning | ⬜ not started |
 
 ## Repository layout
 
@@ -26,10 +31,14 @@ deterministic computational tools.
 configs/            run configurations (YAML, version-pinned)
 src/pybamm_closed_loop/
   pybamm_engine/    pinned PyBaMM build/solve/extract (P0)
+  parameter_registry/, registry/  parameter store with provenance + pybop mapping
+  calibration/      PyBOP fitting, synthetic data, identifiability (P2)
+  literature/, datasets/, extraction/  PDF ingestion, LLM/rule extraction, provenance (P3)
+  closed_loop/, validation/, diagnostics/, specifications/, eval/
   reporting/        run manifests and figures
-tests/              software-correctness tests (unit/, integration/)
+tests/              software-correctness tests (unit/, integration/, regression/, baselines/)
 benchmarks/         scientific benchmarks (separate from tests)
-scripts/            thin CLI drivers (run_baseline.py, plot_baseline.py)
+scripts/            thin CLI drivers (run_baseline.py, plot_baseline.py, compat_probe/, p3/)
 docs/               architecture, roadmap, model documentation
 data/               raw documents, synthetic/experimental data (immutable raw)
 results/            run outputs: arrays, manifests, figures
@@ -49,6 +58,38 @@ python3 -m venv .venv
 # tests (software correctness)
 .venv/bin/python -m pytest
 ```
+
+### Testing — which venv runs what
+
+| Environment | Command | What runs |
+|---|---|---|
+| `.venv` (CPython 3.14, main stack) | `.venv/bin/python -m pytest` | unit + integration + regression + characterization without PyBOP/PyProBE (ecosystem-dependent tests skip) |
+| `.venv-ecosystem312` (CPython 3.12.16) | `.venv-ecosystem312/bin/python -m pytest` | full suite including PyBOP fitting/identifiability and PyProBE dataset-audit tests |
+
+- Scientific benchmarks run separately (never inside the default pytest run):
+  either opt in with `.venv-ecosystem312/bin/python -m pytest -m benchmark` or
+  run the scripts under `benchmarks/` directly (they write to `results/`).
+- Characterization tests replay committed baseline arrays under
+  `tests/characterization/` (regenerated only with explicit maintenance
+  tooling) so numerical behavior is gated before any refactor.
+- Note: the `test_neware_*` integration tests need the external sample data
+  under `data/external/pyprobe_sample/neware/` (not committed); test runs in a
+  fresh checkout without it show exactly one environmental failure.
+
+### Optional ecosystem install
+
+```bash
+# PyBOP 26.10, SALib, pypdf, polars (+ PyProBE-Data — needs Python < 3.13)
+.venv-ecosystem312/bin/pip install -e ".[ecosystem]"
+```
+
+The `ecosystem` extra is verified on CPython 3.12.16 (the exact frozen set is
+`requirements-integration.lock`); on Python ≥ 3.13 pip skips the
+`PyProBE-Data` requirement via its environment marker. It pulls only what the
+codebase imports (`pybop`, `pints`/`SALib` via `pybop`, `SALib`, `pypdf`,
+`polars`, `pyprobe`); `cma`, `scikit-learn` and `fastexcel` arrive as
+transitive dependencies. Bounds deliberately exclude `pypdf 7.x` and
+`polars 2.x` (unverified majors).
 
 ## P0 baseline in one paragraph
 
@@ -72,16 +113,19 @@ scientific limitations.
   hand-typed electrochemical constants.
 - Output variables that do not exist in the built model are recorded as
   unavailable; they are never synthesised.
-- Deterministic runs record `seed: null` with an explicit note; seeds become
-  mandatory from the first stochastic component (P2).
+- Deterministic runs record `seed: null` with an explicit note; every
+  stochastic component (P2 synthetic data / noise injection) records an
+  explicit `numpy` seed in its manifest.
 
-## Ecosystem integration (audit complete, integration pending)
+## Ecosystem integration (PyBOP/PyProBE active since P2/P3)
 
 Upstream reuse decisions are documented in `docs/ECOSYSTEM_AUDIT.md` (PyBOP
 26.10, PyProBE-Data 2.6.1), `docs/DEPENDENCY_COMPATIBILITY.md` (verified
 version matrix), `docs/REVISED_ARCHITECTURE.md` (module boundaries) and
-`docs/INTEGRATION_PLAN.md` (phased plan, awaiting approval). Compatibility
-probes live in `scripts/compat_probe/`.
+`docs/INTEGRATION_PLAN.md` (phased plan). Compatibility probes live in
+`scripts/compat_probe/`. P2 uses PyBOP for estimation/identifiability
+(`calibration/`, `docs/IDENTIFIABILITY_STUDY.md`); P3 uses PyProBE for dataset
+linkage (`datasets/pyprobe_link.py`, `docs/DATASET_AUDIT.md`).
 
 ## Agents
 
