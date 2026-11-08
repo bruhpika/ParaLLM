@@ -7,7 +7,6 @@ Three review states are supported: ACCEPTED / NEEDS_REVIEW / REJECTED.
 
 from __future__ import annotations
 
-import re
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -43,6 +42,12 @@ TEMP_RANGE_CHEN2020_K = (273.15, 333.15)
 
 @dataclass
 class CheckResult:
+    """Outcome of one individual check.
+
+    ``level`` is one of "ok" / "warn" / "fail"; ``detail`` is a
+    human-readable explanation (never a substitute for review).
+    """
+
     name: str
     level: str  # "ok" | "warn" | "fail"
     detail: str
@@ -50,11 +55,19 @@ class CheckResult:
 
 @dataclass
 class ReviewReport:
+    """Accumulated review of one extraction payload.
+
+    ``state`` is finalized by :meth:`finalize` from the check levels:
+    REJECTED if any check failed, NEEDS_REVIEW if any warning, ACCEPTED
+    otherwise. ``reasons`` lists the messages of failing/warning checks.
+    """
+
     checks: list[CheckResult] = field(default_factory=list)
     state: str = "NEEDS_REVIEW"
     reasons: list[str] = field(default_factory=list)
 
     def add(self, name: str, level: str, detail: str) -> None:
+        """Record one check result; fail/warn messages are kept as reasons."""
         self.checks.append(CheckResult(name, level, detail))
         if level == "fail":
             self.reasons.append(f"{name}: {detail}")
@@ -101,6 +114,13 @@ def _plausibility_family(param_name: str, canonical_id: str | None) -> str | Non
 def check_plausibility(
     payload: dict[str, Any], canonical_id: str | None
 ) -> tuple[str, str]:
+    """Compare the payload value (in canonical units) against the
+    plausible physical range for its parameter family.
+
+    Returns ("ok"|"warn"|"fail", detail). Fail = unit mismatch or value
+    outside the family range; warn = family has no defined range (unknown
+    families must stay visible for review, not fail the pipeline).
+    """
     family = _plausibility_family(payload.get("parameter_name", ""), canonical_id)
     if family is None:
         return "warn", "no plausibility range defined for this parameter family"
@@ -126,6 +146,13 @@ def check_plausibility(
 
 
 def check_conditions(payload: dict[str, Any]) -> tuple[str, str]:
+    """Check the experimental conditions of an extraction.
+
+    ``temperature`` is in kelvin and must lie inside the Chen2020
+    experimental range (273.15-333.15 K, see TEMP_RANGE_CHEN2020_K);
+    ``cell_config`` must be recorded. Out-of-range temperature is a
+    fatal finding; missing metadata is only a warning.
+    """
     problems = []
     temp = payload.get("temperature")
     if temp is None:
@@ -147,6 +174,7 @@ def check_conditions(payload: dict[str, Any]) -> tuple[str, str]:
 
 
 def check_definition(payload: dict[str, Any]) -> tuple[str, str]:
+    """Check that a physical definition was resolved (rule 2/4 support)."""
     d = payload.get("definition")
     if not d or d == "UNRESOLVED":
         return "warn", "physical definition not resolved"
@@ -179,6 +207,12 @@ def check_provenance(
 
 
 def check_qualifier(payload: dict[str, Any]) -> tuple[str, str]:
+    """Check the measurement/estimation qualifier of an extraction.
+
+    "measured"/"calculated"/"assumed" are accepted; "fitted" is accepted
+    with a caution that it must not be recorded as a direct measurement.
+    Unknown qualifiers degrade to NEEDS_REVIEW.
+    """
     q = payload.get("qualifier")
     if q == "fitted":
         return (
@@ -238,6 +272,12 @@ def check_pybamm_mapping(
     store: RegistryStore,
     installed_names: list[str] | None = None,
 ) -> tuple[str, str]:
+    """Check that the extraction maps to a registry record's PyBaMM names.
+
+    If ``installed_names`` is given, also verifies the registry's PyBaMM
+    names against the actual installed parameter name set (fail on
+    mismatch — no invented PyBaMM names, rule 2).
+    """
     name = payload.get("parameter_name", "")
     for rec in store.all_records():
         if rec.pybamm_names and any(

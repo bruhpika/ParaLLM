@@ -17,10 +17,9 @@ CALCULATED / ASSUMED / CALIBRATED / UNRESOLVED.
 from __future__ import annotations
 
 import inspect
-import math
 import re
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
 from . import sources as S
 from .model import (
@@ -112,17 +111,17 @@ def normalize_value(value: float | str, unit_token: str | None) -> tuple[Any, st
 
 
 def _paper(
-    value,
-    unit,
-    locator,
-    probe=None,
-    method=None,
-    conditions=None,
-    uncertainty=None,
-    uncertainty_note=None,
-    kind=PS.LITERATURE_DERIVED,
-    context=None,
-):
+    value: Any,
+    unit: str,
+    locator: str,
+    probe: str | None = None,
+    method: str | None = None,
+    conditions: dict[str, Any] | None = None,
+    uncertainty: float | None = None,
+    uncertainty_note: str | None = None,
+    kind: PS = PS.LITERATURE_DERIVED,
+    context: str | None = None,
+) -> dict[str, Any]:
     return dict(
         value=value,
         unit=unit,
@@ -1081,7 +1080,13 @@ def _run_checks(checks: list[tuple]) -> list[str]:
     return out
 
 
-def _conflict_entry(paper_value, paper_unit, spec, text, extra_note=None) -> ValueEntry:
+def _conflict_entry(
+    paper_value: Any,
+    paper_unit: str | None,
+    spec: dict[str, Any],
+    text: str,
+    extra_note: str | None = None,
+) -> ValueEntry:
     p = spec["paper"]
     if p.get("probe"):
         loc = extract_quote(text, p["probe"])
@@ -1243,7 +1248,11 @@ def build_records(pybamm_params: dict[str, Any], text: str) -> list[ParameterRec
                 if f["match"](key):
                     fam = (name, f)
                     break
-            except Exception:
+            # The family predicates are pure string predicates; only a
+            # benign type/value mismatch may be skipped. Anything else
+            # (e.g. a typo inside a lambda) must fail loudly rather than
+            # silently mislabeling provenance as "untraced".
+            except (LookupError, AttributeError, TypeError, ValueError):
                 continue
         if fam is None:
             fam = ("untraced", dict(
@@ -1290,18 +1299,26 @@ def build_records(pybamm_params: dict[str, Any], text: str) -> list[ParameterRec
 
 
 def S_pybamm_unit(pybamm_key: str) -> str:
+    """Return the bracketed unit suffix of a PyBaMM parameter key.
+
+    Thin lazy-import wrapper around :func:`registry.units.pybamm_unit_suffix`;
+    kept as a named indirection used by the record builders above.
+    """
     from .units import pybamm_unit_suffix
 
     return pybamm_unit_suffix(pybamm_key)
 
 
-def _check_reaction_rate_embedded(fn, cid: str) -> dict[str, Any]:
+def _check_reaction_rate_embedded(fn: Any, cid: str) -> dict[str, Any]:
     """Inspect the PyBaMM j0 function source for the paper's reaction-rate constant."""
     target = "3.42" if "pos" in cid else "6.48"
     out: dict[str, Any] = {}
     try:
         src = inspect.getsource(fn)
-    except Exception as exc:  # pragma: no cover - depends on import style
+    # inspect.getsource documents OSError (source not retrievable) and
+    # TypeError (built-in/module/crc failures) as its failure modes; a
+    # broader catch could mask genuine bugs in the function object itself.
+    except (OSError, TypeError):  # pragma: no cover - depends on import style
         out["reaction_rate_embedded"] = "unknown (source unavailable)"
         out["reaction_rate_probe"] = target
         return out
@@ -1325,6 +1342,14 @@ def seed_registry(
     pybamm_params: dict[str, Any] | None = None,
     raw_text_path: str | Path = RAW_DOC,
 ) -> RegistryStore:
+    """Deterministically seed a registry store (P3 entry point).
+
+    Introspects the installed ``pybamm.ParameterValues("Chen2020")`` unless
+    pass-through ``pybamm_params`` is given, extracts verbatim evidence
+    quotes from the archived article text at ``raw_text_path``, and upserts
+    every built record under a fixed actor/note. Returns the populated
+    :class:`RegistryStore`. Raises on any probe miss (no silent defaults).
+    """
     if pybamm_params is None:
         import pybamm
 

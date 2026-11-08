@@ -37,9 +37,6 @@ class ValueCandidate:
         }
 
 
-ERROR = -1
-
-
 class RegistryStore:
     """File-backed parameter registry.
 
@@ -77,6 +74,11 @@ class RegistryStore:
         return [self._records[k] for k in sorted(self._records)]
 
     def conflicts(self) -> dict[str, list[ValueEntry]]:
+        """Map canonical-id -> current list of conflicting evidence entries.
+
+        Empty list for records without conflict; conflicts are preserved,
+        never silently resolved.
+        """
         return {
             k: self._records[k].conflicts for k in sorted(self._records)
         }

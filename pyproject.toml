@@ -32,3 +32,14 @@ markers = [
     "benchmark: scientific performance benchmarks (excluded from default runs)",
 ]
 addopts = "-m 'not benchmark'"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+exclude = [".venv", ".venv-*", "*.egg-info", "data", "results"]
+
+[tool.ruff.lint]
+# Minimal permissive set: fatal syntax errors (E9) and pyflakes (F).
+# Cosmetic/formatting rules intentionally left off; ruff has no
+# duplicate-code rule to disable.
+select = ["E9", "F"]

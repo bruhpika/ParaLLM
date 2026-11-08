@@ -25,6 +25,13 @@ from pybamm_closed_loop.pybamm_engine.outputs import ProfileResult
 
 
 def load_results(results_dir: Path) -> tuple[dict, dict]:
+    """Load the series arrays and profile objects saved by run_baseline.py.
+
+    Returns ``(series, profiles)``: series are the keyed arrays from
+    ``solution_arrays.npz`` (times in seconds, matched by key suffix);
+    profiles carry coordinates (metres), coordinates times (seconds) and
+    values; profiles missing coordinate or value arrays are skipped.
+    """
     npz = np.load(results_dir / "solution_arrays.npz")
     meta = json.loads((results_dir / "extraction_metadata.json").read_text())
 
@@ -53,6 +60,7 @@ def load_results(results_dir: Path) -> tuple[dict, dict]:
 
 
 def main() -> int:
+    """Render baseline figures from the saved run output (CLI entry)."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--results", required=True, help="Directory written by run_baseline.py")
     parser.add_argument("--figures", required=True, help="Directory for PNG figures")

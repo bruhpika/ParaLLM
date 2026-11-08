@@ -10,7 +10,6 @@ from __future__ import annotations
 
 import enum
 import hashlib
-import json
 from dataclasses import asdict, dataclass, field
 from typing import Any
 
@@ -114,6 +113,10 @@ class ParameterRecord:
 
 
 def sha256_text(text: str) -> str:
+    """Return the SHA-256 hex digest of ``text`` (UTF-8 encoded).
+
+    Used for content-keyed provenance identifiers; never carries secrets.
+    """
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
@@ -138,8 +141,11 @@ def _schema_ok(obj: Any, spec: dict[str, type | tuple]) -> bool:
                     return False
                 continue
             return False
-    extra_not_specified = not [k for k in obj if k not in spec]
-    return True or extra_not_specified
+    # Extra keys are currently accepted; the computed flag was always
+    # discarded (``True or extra``), so the dead variable was removed.
+    # Rejecting unknown keys would be a behavioral change - flagged for
+    # scientific review instead.
+    return True
 
 
 _EXTRACTION_SPEC: dict[str, Any] = {

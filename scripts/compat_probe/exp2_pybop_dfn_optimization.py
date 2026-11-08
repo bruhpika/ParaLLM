@@ -12,8 +12,6 @@ Run with: .venv-ecosystem/bin/python scripts/compat_probe/exp2_pybop_dfn_optimiz
 
 from __future__ import annotations
 
-import sys
-from pathlib import Path
 
 import numpy as np
 

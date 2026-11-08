@@ -145,4 +145,6 @@ def is_exchange_current_reaction_rate_unit(token: str) -> bool:
 
 
 def dimension_of(canonical_unit: str) -> str | None:
+    """Return the dimension signature (primitives L/M/T/N/I/TH/Q) of a
+    canonical unit token, or ``None`` for unknown tokens."""
     return DIMENSIONS.get(canonical_unit)
