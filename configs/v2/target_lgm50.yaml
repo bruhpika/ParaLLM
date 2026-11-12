@@ -1,0 +1,16 @@
+# Target specification for the assembly layer: the Chen2020 / LG M50
+# demonstrator (the only target cell in v0.2 — multi-chemistry is a TODO).
+target:
+  target_id: lgm50_chen2020_dfn
+  cell_product: LG M50
+  chemistry_families: [NMC, graphite]
+  format: "21700"
+  temperature_k: 298.15
+  soc: "50%"
+  model: DFN
+  parameter_set: Chen2020
+  notes: >
+    Commercial LG M50 (5 A.h) graphite-SiOx / NMC811 cell, isothermal 298.15 K
+    reference. The SOC field records the state at which the reference
+    parameterisation was validated (50 %); parameters measured at other SOC
+    states are scored lower in the SOC dimension but are not blocked.

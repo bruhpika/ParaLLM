@@ -5,9 +5,13 @@ abstracts) to check whether the v0.2 direction ("parameter assembly":
 applicability + conflict resolution + identifiability-aware decisions) is
 actually novel, and to state our differentiation honestly.
 
-This document is a **positioning aid, not a novelty claim**: the scan covered
-public web sources, not a systematic literature review. Cite the sources below
-rather than repeating their claims.
+> **This is a preliminary scan, not a systematic literature review, and it is
+> not evidence of novelty.** It covered public web sources found by a single
+> search pass (English-language, mostly 2024–2026). Absence of a neighbour in
+> this list is **not** evidence that none exists. No novelty claim is made
+> anywhere in this project on the basis of this document; cite the sources
+> below rather than repeating their claims, and read every "nobody does X"
+> phrasing in this repository as "not found in this preliminary scan".
 
 ## 1. Audience
 
@@ -63,10 +67,10 @@ LLMB/ElectroChemLLM have (e)-adjacent *grounded extraction* at database scale.
 literature-extracted, quote-verified values, using an auditable applicability
 rubric and identifiability results, with a mandatory human approval gate."
 
-**Do not make:** "first"/"only" tool of this kind (the scan above shows close
-neighbours); any claim of independent experimental validation; any claim that
-the LLM produced correct electrochemistry; any claim of automatic parameter
-discovery.
+**Do not make:** "first"/"only"/"novel" tool of this kind (a preliminary scan
+cannot support such a claim); any claim of independent experimental
+validation; any claim that the LLM produced correct electrochemistry; any
+claim of automatic parameter discovery.
 
 ## 6. Scan limitations
 

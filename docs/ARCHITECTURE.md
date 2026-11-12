@@ -131,11 +131,22 @@ Layering notes (verified):
   directly (does not go through `pybamm_engine/`); it is a benchmark, not a
   library module. Kept as-is during the audit sprint; may be revisited later.
 
-### Test suite (safety net)
+### Test suite (safety net) — current numbers
 
-- `tests/unit/` + `tests/integration/` — pre-existing, 84 passed / 4 skipped in
-  `.venv` (pybop-free; pybop-dependent tests auto-skip) and 96 passed in
-  `.venv-ecosystem312` (full suite). Runtime on this machine: ~5–7 s.
+| environment | scope | result (2026-11-08) |
+|---|---|---|
+| `.venv` (CPython 3.14.8) | unit + integration + characterization, **PyBOP/PyProBE-dependent tests skip** | **184 passed, 6 skipped** (~9 s) |
+| `.venv-ecosystem312` (CPython 3.12.16) | full suite incl. PyBOP fitting/identifiability and PyProBE dataset audit | **201 passed, 3 warnings** (~19 s) |
+
+> **Release verification record.** The counts above were measured on the
+> `v0.1.0-beta.1` release commit **`bec653d`** ("docs: set repository URLs to
+> bruhpika/ParaLLM") with `.venv-ecosystem312/bin/python -m pytest -q`. The
+> three warnings are PyBOP/optimiser notices, not failures. The earlier numbers
+> quoted in this file (84/96 passed) came from the mid-project audit sprint and
+> are **superseded** — the table above is the authoritative scope, and
+> `README.md` / `docs/QUICKSTART.md` quote the same record.
+
+- `tests/unit/` + `tests/integration/` — software-correctness tests.
 - `tests/characterization/` — added by the audit sprint: short, fast pipeline
   runs that snapshot key scientific outputs into `tests/baselines/` and compare
   with explicit tolerances (`np.allclose(..., equal_nan=True)` or JSON field

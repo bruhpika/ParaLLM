@@ -127,6 +127,15 @@ def main() -> int:
     ap.add_argument("--split", choices=["dev", "eval", "all"], default="all")
     ap.add_argument("--repeats", type=int, default=3)
     ap.add_argument(
+        "--evidence-mode",
+        choices=["compact", "expanded"],
+        default="compact",
+        help=(
+            "compact = v0.1 +/-260-char window (the frozen v3 results); "
+            "expanded = V2.5 condition-aware window + document-level conditions"
+        ),
+    )
+    ap.add_argument(
         "--rescore",
         action="store_true",
         help="re-score frozen raw outputs instead of calling the model again",
@@ -214,6 +223,7 @@ def main() -> int:
                         raw_sink=raw_sink,
                         repeat_index=repeat,
                         on_progress=progress,
+                        evidence_mode=args.evidence_mode,
                     )
                 report["run_metadata"] = dict(
                     condition=condition,
@@ -226,6 +236,7 @@ def main() -> int:
                     split=args.split,
                     n_items=len(items),
                     temperature=0,
+                    evidence_mode=args.evidence_mode,
                 )
             (OUT_DIR / f"report_{condition}_r{repeat}.json").write_text(
                 json.dumps(report, indent=2, sort_keys=True)

@@ -62,6 +62,20 @@ items. **However:**
 Full numbers and protocol: `docs/BENCHMARK_RESULTS.md`,
 `docs/P5_RETRIEVAL_ABLATION.md`, `docs/P5_EXTRACTION_RELIABILITY.md`.
 
+## 4b. v0.2 evaluation status (expert agreement)
+
+The v0.2 headline metric is **agreement between the applicability rubric and
+expert decisions** on a labelled set of ≥20 conflict/applicability cases
+(`docs/ROADMAP_V0.2.md` §3.1). Two honest caveats, stated wherever the number
+appears:
+
+- The labels are **drafted by the assistant and pending review by the project
+  owner**; agreement against drafted labels is *not* yet agreement with reviewed
+  expert judgement.
+- The labelled set must contain ambiguous cases whose expert answer is
+  `REVIEW`; agreement computed only on decidable cases would overstate the
+  rubric's usefulness.
+
 ## 5. Scope, model, and parameter caveats
 
 - Target demonstrator: PyBaMM DFN, Chen2020 (LG M50 graphite/NMC), isothermal

@@ -137,9 +137,15 @@ For a reproducible, fully-pinned developer setup (recommended for running benchm
 #   .venv-ecosystem312/bin/python benchmarks/p5/run_ablation.py --condition all --repeats 3
 
 # 4) Tests
-.venv/bin/python -m pytest                  # core (ecosystem tests skip)
-.venv-ecosystem312/bin/python -m pytest     # full (201 passed in release env)
+.venv/bin/python -m pytest                  # core: 184 passed, 6 skipped
+.venv-ecosystem312/bin/python -m pytest     # full: 201 passed, 3 warnings
 ```
+
+Test scope for the public beta, measured on the `v0.1.0-beta.1` release commit
+`bec653d`: **184 passed / 6 skipped** in the core env (CPython 3.14.8;
+PyBOP/PyProBE-dependent tests skip) and **201 passed / 3 warnings** in the
+ecosystem env (CPython 3.12.16, PyBOP 26.10 + PyProBE-Data 2.6.1). The three
+warnings are PyBOP optimiser notices, not failures.
 
 Expected outputs and limitations for each: `docs/QUICKSTART.md`.
 

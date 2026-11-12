@@ -104,6 +104,27 @@ conflict-resolution answers) — decision D5 in `docs/ROADMAP_V0.2.md`. Dev/eval
 splits are reported separately throughout so that at least the split discipline
 remains visible.
 
+## 4b. v0.2 evidence-side metric (V2.5, first slice)
+
+The v0.2 evidence layer was measured **deterministically** (no LLM): the share of
+the 37 v3 items whose *evidence block* contains each condition class, compact
+(v0.1) vs condition-aware vs + document-level setup sentences.
+
+| condition class | compact (v0.1) | expanded window | + document conditions |
+|---|---:|---:|---:|
+| temperature | 0.108 | 0.162 | **0.838** |
+| SOC | 0.108 | 0.216 | **0.757** |
+| C-rate | 0.054 | 0.081 | 0.432 |
+| cell | 0.081 | 0.270 | 0.514 |
+| chemistry | 0.243 | 0.595 | **0.838** |
+| method | 0.649 | 0.946 | **1.000** |
+
+Artifacts: `results/v2/condition_coverage/`, script
+`benchmarks/v2/measure_condition_coverage.py`. **This is an evidence-side
+metric**: it measures how much condition information the retrieval layer
+supplies, *not* whether the extractor uses it. The LLM-side condition
+completeness is measured on a private v4 (not yet published).
+
 ## 5. Provenance of this report
 
 Numbers are read from committed artifacts under `results/p5/benchmark_v3/`

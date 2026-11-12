@@ -58,10 +58,15 @@ shows run-to-run variance; treat committed aggregates as the reference run.
 ## 4) Run the test suite
 
 ```bash
-.venv/bin/python -m pytest                  # core; ecosystem tests skip
-.venv-ecosystem312/bin/python -m pytest     # full (201 passed, 3 warnings, release env)
+.venv/bin/python -m pytest                  # core: 184 passed, 6 skipped
+.venv-ecosystem312/bin/python -m pytest     # full: 201 passed, 3 warnings
 .venv-ecosystem312/bin/python -m compileall -q src benchmarks scripts tests
 ```
+
+Scope: unit + integration + characterization. Measured on the `v0.1.0-beta.1`
+release commit `bec653d` — core env CPython 3.14.8 (PyBOP/PyProBE tests skip),
+ecosystem env CPython 3.12.16 with PyBOP 26.10 + PyProBE-Data 2.6.1. The three
+warnings are PyBOP optimiser notices, not failures.
 
 Scientific benchmarks live in `benchmarks/` (separate from `tests/`) and are not
 part of the default pytest run.

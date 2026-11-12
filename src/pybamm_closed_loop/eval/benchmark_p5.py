@@ -374,10 +374,51 @@ _CONDITION_SPECS: dict[str, dict[str, Any]] = {
 }
 
 
-def _user_block(item: BenchmarkItemP4, store: DocumentStore, use_evidence: bool) -> str:
+EVIDENCE_MODES = ("compact", "expanded")
+
+
+def _evidence_block(
+    item: BenchmarkItemP4, store: DocumentStore, evidence_mode: str = "compact"
+) -> str:
+    """Build the evidence text for one item.
+
+    ``compact``  : the v0.1 behaviour — a strict +/-260-character window around
+                   the probe. The committed v3 results were produced with this
+                   mode and stay reproducible with it.
+    ``expanded`` : V2.5 evidence engineering — a condition-aware window around
+                   the probe plus the document-level experimental-setup
+                   sentences (verbatim), clearly labelled as document-level
+                   statements.
+    """
+    if evidence_mode == "compact":
+        return resolve_passage(store, item.document_id, item.passage_probe)
+
+    from ..literature.evidence import document_conditions, window_from_store
+
+    window = window_from_store(store, item.document_id, item.passage_probe)
+    doc_conditions = document_conditions(
+        (store.raw_dir / f"{item.document_id}.txt").read_text()
+    )
+    text = window.text
+    if doc_conditions.sentences:
+        text += (
+            "\n\nEXPERIMENT CONDITIONS (document-level statements from the same "
+            "document; use them only when the passage above does not contradict "
+            "them):\n"
+            + "\n".join(f"- {s}" for s in doc_conditions.sentences)
+        )
+    return text
+
+
+def _user_block(
+    item: BenchmarkItemP4,
+    store: DocumentStore,
+    use_evidence: bool,
+    evidence_mode: str = "compact",
+) -> str:
     facets = RetrievalFacets(**item.facets)
     if use_evidence:
-        passage = resolve_passage(store, item.document_id, item.passage_probe)
+        passage = _evidence_block(item, store, evidence_mode)
         context = RAGContext(
             query=facets.query_text(),
             facets=item.facets,
@@ -408,6 +449,7 @@ def run_condition(
     raw_sink: Any | None = None,
     repeat_index: int = 0,
     on_progress: Any | None = None,
+    evidence_mode: str = "compact",
 ) -> dict[str, Any]:
     """One pass over ``items`` under one condition; raw outputs preserved."""
     if condition not in _CONDITION_SPECS and condition != "offline":
@@ -422,7 +464,7 @@ def run_condition(
     for idx, item in enumerate(items):
         raw_doc_text = (store.raw_dir / f"{item.document_id}.txt").read_text()
         if condition == "offline":
-            passage = resolve_passage(store, item.document_id, item.passage_probe)
+            passage = _evidence_block(item, store, evidence_mode)
             context = RAGContext(
                 query=RetrievalFacets(**item.facets).query_text(),
                 facets=item.facets,
@@ -443,7 +485,7 @@ def run_condition(
             abstained = batch.abstained or not candidates
             raw_content = None
         else:
-            user_block = _user_block(item, store, spec["use_evidence"])
+            user_block = _user_block(item, store, spec["use_evidence"], evidence_mode)
             candidates, abstained, raw_content = extract_with_prompt(
                 client, system_prompt, user_block
             )

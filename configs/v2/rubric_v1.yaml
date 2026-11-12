@@ -1,0 +1,22 @@
+# Applicability rubric v1 — hand-set, auditable, no learned weights
+# (v0.2 decision D1). Weights sum to 1.00. The rubric version is recorded in
+# every decision and in every approval record.
+rubric:
+  version: rubric-v1
+  review_margin: 0.10
+  weights:
+    chemistry: 0.28        # active-material / cell chemistry applicability (blocking on family mismatch)
+    temperature: 0.14      # temperature of the measurement vs the target
+    method: 0.20           # how the value was obtained (measured > calculated > fitted > calibrated > assumed)
+    evidence: 0.14         # evidence integrity (verified quote + locator); blocks on failed verification
+    soc: 0.10              # state of charge window
+    format: 0.04           # cell format / geometry
+    agreement: 0.05        # agreement with an independent source
+    model: 0.05            # declarability in the target model (blocks when not declarable)
+  blocking_rules:
+    - id: chemistry_family_mismatch
+      reason: chemistry family not applicable to the target
+    - id: quote_verification_failed
+      reason: quote could not be verified against the archived source
+    - id: not_declarable_in_model
+      reason: parameter is not declarable in the target model

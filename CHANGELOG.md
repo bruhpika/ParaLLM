@@ -10,6 +10,27 @@ Proposal only; no v0.2 code exists yet. Scope, exit criteria, risks and
 decisions: `docs/ROADMAP_V0.2.md`. Positioning/competitive scan:
 `docs/POSITIONING.md`.
 
+### Landed so far (2026-11-08)
+- **V2.5 (first slice) — evidence engineering**: condition-aware evidence window
+  (±900 chars + condition-bearing sentences) and document-level experimental-setup
+  retrieval, verbatim and deterministic (`literature/evidence.py`); wired into the
+  P5 harness as `--evidence-mode {compact,expanded}` (default `compact` — the
+  committed v3 results stay reproducible). Deterministic evidence-side metric
+  (`benchmarks/v2/measure_condition_coverage.py`): temperature availability
+  0.108 → 0.838, SOC 0.108 → 0.757, chemistry 0.243 → 0.838, method 0.649 → 1.000
+  (share of the 37 v3 items whose evidence block contains each condition class).
+  The LLM-side effect is still to be measured on a private v4.
+- **V2.1/V2.2 (prototypes) — assembly layer**: auditable hand-set rubric with
+  blocking rules (chemistry-family mismatch, failed quote verification,
+  non-declarable parameter), same-source vs cross-source conflict resolution,
+  and the **per-parameter dossier as the central artifact** (nine mandatory
+  fields: selected value · original literature value · verified quotation and
+  page · experimental conditions · alternatives/conflicts · applicability
+  rationale · identifiability assessment · final recommendation · human approval
+  status) plus the mandatory human approval gate. Over the real 96-record
+  registry: 96 dossiers, 7 same-source conflicts all resolved to the source's
+  operative value with the alternative preserved, no spurious escalations.
+
 ### Planned
 - **V2.1** Applicability & conflict engine — auditable, hand-set rubric; decision
   taxonomy `USE / FIX / CALIBRATE / MEASURE / REJECT`; rule-firing transcript;
