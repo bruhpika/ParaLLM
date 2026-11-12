@@ -111,10 +111,10 @@ reporting/               -> manifests & figures
 
 ```bash
 # Install (core, Python 3.10–3.15)
-pip install "git+https://github.com/bruhpika/ParaLLM.git"
+pip install "git+https://github.com/bruhpika/ParaLLM-PyBaMM.git"
 
 # Install with ecosystem extras (PyBOP/PyProBE/SALib/pypdf/polars) — use Python 3.10–3.12
-pip install "parallm-pybamm[ecosystem] @ git+https://github.com/bruhpika/ParaLLM.git"
+pip install "parallm-pybamm[ecosystem] @ git+https://github.com/bruhpika/ParaLLM-PyBaMM.git"
 ```
 
 For a reproducible, fully-pinned developer setup (recommended for running benchmarks), clone the repo and use the verified lockfiles in `requirements/` — see `docs/INSTALLATION.md`. Full ecosystem verified on **CPython 3.12.16** (`PyProBE-Data` requires `<3.13`).

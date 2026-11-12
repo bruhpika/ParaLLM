@@ -5,8 +5,8 @@ type: software
 version: "0.1.0-beta.1"
 date-released: "2026-11-08"
 license: MIT
-repository-code: "https://github.com/bruhpika/ParaLLM"
-url: "https://github.com/bruhpika/ParaLLM"
+repository-code: "https://github.com/bruhpika/ParaLLM-PyBaMM"
+url: "https://github.com/bruhpika/ParaLLM-PyBaMM"
 abstract: >-
   PARALLM (Parameters — not a problem anymore, for PyBaMM) is a research
   prototype for closed-loop, LLM-assisted parameterization and inverse

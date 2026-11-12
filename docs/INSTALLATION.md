@@ -19,10 +19,10 @@ Package name `parallm-pybamm` (import: `pybamm_closed_loop`):
 
 ```bash
 # core (Python 3.10–3.15)
-pip install "git+https://github.com/bruhpika/ParaLLM.git"
+pip install "git+https://github.com/bruhpika/ParaLLM-PyBaMM.git"
 
 # + ecosystem extras (use Python 3.10–3.12; PyProBE-Data < 3.13)
-pip install "parallm-pybamm[ecosystem] @ git+https://github.com/bruhpika/ParaLLM.git"
+pip install "parallm-pybamm[ecosystem] @ git+https://github.com/bruhpika/ParaLLM-PyBaMM.git"
 
 # from a local clone
 pip install -e ".[dev]"            # core

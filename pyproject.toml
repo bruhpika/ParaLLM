@@ -59,6 +59,6 @@ exclude = [".venv", ".venv-*", "*.egg-info", "data", "results"]
 select = ["E9", "F"]
 
 [project.urls]
-Homepage = "https://github.com/bruhpika/ParaLLM"
-Repository = "https://github.com/bruhpika/ParaLLM"
-Issues = "https://github.com/bruhpika/ParaLLM/issues"
+Homepage = "https://github.com/bruhpika/ParaLLM-PyBaMM"
+Repository = "https://github.com/bruhpika/ParaLLM-PyBaMM"
+Issues = "https://github.com/bruhpika/ParaLLM-PyBaMM/issues"
