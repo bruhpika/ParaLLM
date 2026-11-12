@@ -4,6 +4,37 @@ All notable changes to PARALLM are documented here. The project follows the
 milestone plan (P0–P8); scientific behavior is versioned conservatively and
 documented with provenance.
 
+## [Unreleased] — v0.2 "Parameter Assembly" (planned, not implemented)
+
+Proposal only; no v0.2 code exists yet. Scope, exit criteria, risks and
+decisions: `docs/ROADMAP_V0.2.md`. Positioning/competitive scan:
+`docs/POSITIONING.md`.
+
+### Planned
+- **V2.1** Applicability & conflict engine — auditable, hand-set rubric; decision
+  taxonomy `USE / FIX / CALIBRATE / MEASURE / REJECT`; rule-firing transcript;
+  conflicts preserved with alternatives.
+- **V2.2** Parameter assembly report + CLI/API (`parallm assemble`) → per-parameter
+  dossier, set summary, JSON/Markdown/PyBaMM export.
+- **V2.3** Observability join — per-parameter identifiability (FIM/Sobol from P2)
+  → fit/fix/measure action matrix.
+- **V2.4** Synthetic end-to-end validation (assemble → calibrate → validate on
+  held-out rates) with a negative control; labelled *synthetic*, never
+  experimental.
+- **V2.5** Evidence engineering (P8′, replaces fine-tuning) — multi-window
+  retrieval, table-aware chunking, condition-window expansion, verification pass;
+  target: condition completeness ≥0.5 on a **private v4** with false extraction
+  still 0.000.
+- **V2.6** Closed loop (P7) — parameter-targeted: flagged field → targeted
+  evidence request → retrieval → extraction → validation → approval → recalibrate.
+- **V2.7** Product/community — PyPI (`parallm-pybamm`), CI (3.10–3.12), docs
+  site, examples gallery, conflict-resolution mini-benchmark (v4a).
+
+### Decisions (2026-11-08)
+D1 auditable hand-set rubric · D2 LG M50 only (multi-chemistry → TODO) ·
+D3 no fine-tuning · D4 no real-data-dependent claims · D5 private benchmarks ·
+D6 human gate mandatory · D7 LLM out of the numeric decision path.
+
 ## [0.1.0-beta.1] - 2026-11-08 (public beta)
 
 First public beta. **No independent experimental validation is claimed.**

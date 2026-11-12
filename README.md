@@ -212,7 +212,34 @@ deterministic outputs; AI assistance does not change the scientific
 responsibility for reported results, and no independent experimental validation
 is claimed.
 
+## Where PARALLM fits
+
+For **battery researchers who already use PyBaMM/PyBOP** and hit the parameter
+wall. PyBaMM ships a parameter set; PyBOP fits what you hand it; chat LLMs
+guess numbers. PARALLM's bet is the layer in between: **assemble a defensible
+parameter set for *your* cell from literature values that carry their
+conditions, decide applicability with an auditable rubric, resolve conflicts
+with recorded rationale, and say which parameters your planned experiment can
+ever identify.** Positioning scan (with the nearest neighbouring work and an
+honest novelty statement): `docs/POSITIONING.md`.
+
+## What's next (v0.2 — proposal)
+
+**Parameter assembly**: per-parameter dossiers (value + conditions + verified
+quote + conflicts + observability → a decision: `USE / FIX / CALIBRATE /
+MEASURE / REJECT`), an auditable hand-set applicability rubric, a mandatory
+human approval gate, an observability join, and a **synthetic** end-to-end
+validation (real-data claims stay blocked until an eligible dataset is licensed
+and audited). Fine-tuning is explicitly **not** planned — the bottleneck is
+evidence coverage and conditions, not model weights, and a fine-tuned checkpoint
+is less auditable than a rubric plus deterministic checks.
+
+Plan, exit criteria, risks and decisions: `docs/ROADMAP_V0.2.md`.
+
 ## Status
 
-Public beta `v0.1.0-beta.1`. P0–P5 complete; P6–P8 (closed loop, fine-tuning,
-further validation) not started. History preserved on branch `audit/hardening`.
+Public beta `v0.1.0-beta.1` — P0–P5 shipped (v0.1 feature set). v0.2 is a
+**proposal under review**; no v0.2 code exists yet. Carried TODO for v0.3+:
+multi-chemistry coverage (LFP/graphite, NMC811, Li-metal), experimental dataset
+acquisition, observables beyond voltage (EIS/OCV/dQ/dV/GITT-D), a first-party
+parameter set, and PyPI/CI/docs-site release.

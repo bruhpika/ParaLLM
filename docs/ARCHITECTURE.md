@@ -179,3 +179,19 @@ ownership for this sprint:
 - LLM client remains optional and env-configured (`PYCL_LLM_*`); offline
   deterministic paths require no key. See `docs/BENCHMARK_RESULTS.md` and
   `docs/SCIENTIFIC_LIMITATIONS.md` for disclosed results/limits.
+
+## Planned modules (v0.2 — proposal, not implemented)
+
+The v0.2 "Parameter Assembly" layer fills the empty packages that P0–P5 left
+behind (`docs/ROADMAP_V0.2.md`):
+
+| planned module | responsibility |
+|---|---|
+| `assembly/` (new) | applicability rubric, conflict resolution, decision taxonomy, rule-firing transcript, per-parameter dossier, PyBaMM export |
+| `closed_loop/` | parameter-targeted loop: diagnose → targeted evidence request → retrieve → extract → validate → approve → recalibrate → iteration log |
+| `diagnostics/` | residual/discrepancy attribution feeding the loop's evidence requests |
+| `specifications/` | target cell + protocol specification consumed by the rubric (chemistry, format, T, SOC window, rates) |
+| `parameter_registry/` | thin façade over `registry/` exposing the assembled, approved set with its audit trail |
+
+Boundaries stay as above: only `pybamm_engine/` touches PyBaMM; the LLM remains
+outside every numeric decision path (decision D7).
